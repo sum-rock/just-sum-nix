@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ./sway.nix
       ./home.nix
-      ./neovim/default.nix
+      ./neovim
     ];
 
   boot.loader.efi.canTouchEfiVariables = true;
@@ -97,14 +97,13 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim 
-    neovim    
+    neovim-unwrapped    
     wget
     git
     python310
     nodejs
     yarn
     tmux
-    xplr
     ranger
     gitui
     starship
@@ -112,7 +111,7 @@
   ];
 
   fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "Iosevka" "Lekton" ]; })
+    (nerdfonts.override { fonts = [ "Iosevka" ]; })
     font-awesome
   ];
 
