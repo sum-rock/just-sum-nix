@@ -15,8 +15,8 @@ in
     programs.zsh = {
       enable = true;
       initExtra = ''
-        eval "$(starship init zsh)"
-        '';
+eval "$(starship init zsh)"
+      '';
       shellAliases = {
       	xl = "ls -la";
 	rf = "source ~/.zshrc";
