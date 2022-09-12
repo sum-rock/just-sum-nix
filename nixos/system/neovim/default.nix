@@ -7,10 +7,4 @@
     defaultEditor = true;
     configure = ( import ./customization.nix { pkgs = pkgs; config = config; } );
   };
-
-  environment = {
-    systemPackages = with pkgs; [
-      rnix-lsp
-    ];
-  };
 }

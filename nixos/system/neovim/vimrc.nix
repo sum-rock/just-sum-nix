@@ -2,10 +2,14 @@
 
 let
   airline = builtins.readFile ./vimrc/airline.vim;
-  nvim-tree = builtins.readFile ./vimrc/nvim-tree.vim;
+  nerdtree = builtins.readFile ./vimrc/nerdtree.vim;
+  colors = builtins.readFile ./vimrc/colors.vim;
+  options = builtins.readFile ./vimrc/options.vim;
 in
 
 ''
+  ${options}
   ${airline}
-  ${nvim-tree}
+  ${nerdtree}
+  ${colors}
 ''

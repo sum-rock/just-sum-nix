@@ -3,10 +3,13 @@
    customRC = pkgs.callPackage ./vimrc.nix {};
    packages.neovimPlugins = with pkgs.vimPlugins; {
      start = [
+       gruvbox-community
        vim-airline
        vim-airline-themes
        nvim-treesitter
-       nvim-tree-lua
+       nerdtree
+       vim-devicons
+       vim-nerdtree-syntax-highlight
        vim-nix 
      ];
    };
