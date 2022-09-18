@@ -29,6 +29,6 @@ eval "$(starship init zsh)"
 
     # Dotfiles
     xdg.configFile."sway/config".source = ./dotfiles/sway/config;
-
+    home.file.".alacritty.yml".source = ./dotfiles/alacritty.yml;
   };
 }
