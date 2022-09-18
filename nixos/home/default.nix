@@ -19,7 +19,10 @@ eval "$(starship init zsh)"
       '';
       shellAliases = {
       	xl = "ls -la";
-	rf = "source ~/.zshrc";
+        rf = "source ~/.zshrc";
+        menu = "sway-launcher-desktop";
+        nix-edit = "nvim /home/august/repositories/sum-nixos";
+        nix-deploy = "/home/august/repositories/sum-nixos/bin/sum-nixos.sh deploy";
       };
     };
 
