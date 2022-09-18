@@ -229,7 +229,7 @@ bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
     set $white   #ffffff
     set $black   #000000
 
-    font pango:Inter 8
+    font Iosevka:Inter 8
 
     #class                   $border  $bg    $text  $indicator  $child_border
     client.focused           $bg02    $bg02  $fg01  $red        $fg02
