@@ -42,6 +42,7 @@ in
     swaylock
     swayidle
     waybar
+    sway-launcher-desktop
     grim
     slurp
     wl-clipboard
