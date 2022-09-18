@@ -34,11 +34,12 @@ output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_19
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
+set $lock 'swaylock --clock --indicator --screenshots --ring-color d3869b --effect-vignette 0.5:0.5 --effect-blur 7x5 --grace 3'
+    exec swayidle -w \
+      timeout 300 $lock \
+      timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+      before-sleep $lock
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -82,6 +83,8 @@ output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_19
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    bindsym $mod+Shift+x exec $lock 
 #
 # Moving around:
 #

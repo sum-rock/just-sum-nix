@@ -39,7 +39,7 @@ in
     glib
     gruvbox-dark-gtk
     gnome3.adwaita-icon-theme
-    swaylock
+    swaylock-effects
     swayidle
     waybar
     sway-launcher-desktop
