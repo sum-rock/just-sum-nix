@@ -211,4 +211,36 @@ bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
 bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
 bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 
+#
+# Theme and Color Scheme
+#
+    exec_always {
+      gsettings set org.gnome.desktop.interface gtk-theme "gruvbox-dark"
+    }
+
+    # set primary gruvbox colorscheme colors
+    set $bg01    #282828
+    set $bg02    #1d2021
+    set $fg01    #ebdbb2
+    set $fg02    #a89984
+    set $red     #cc241d
+    set $blue    #458588
+    set $purple  #d3869b
+    set $white   #ffffff
+    set $black   #000000
+
+    font pango:Inter 8
+
+    #class                   $border  $bg    $text  $indicator  $child_border
+    client.focused           $bg02    $bg02  $fg01  $red        $fg02
+    client.focused_inactive  $bg01    $bg01  $fg01  $bg01       $bg02
+    client.unfocused         $bg01    $bg01  $fg02  $white      $bg01
+    client.urgent            $bg02    $bg02  $fg01  $red        $red
+
+    # gaps
+    gaps inner 10
+    gaps outer 0
+    smart_borders no_gaps
+    default_border pixel 1
+
 include /etc/sway/config.d/*
