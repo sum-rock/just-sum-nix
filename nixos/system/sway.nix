@@ -24,7 +24,7 @@ systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-de
     in ''
       export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
       gnome_schema=org.gnome.desktop.interface
-      gsettings set $gnome_schema gtk-theme 'Dracula'
+      gsettings set $gnome_schema gtk-theme 'gruvbox-dark'
       '';
   };
 
@@ -37,7 +37,7 @@ in
     configure-gtk
     wayland
     glib
-    dracula-theme
+    gruvbox-dark-gtk
     gnome3.adwaita-icon-theme
     swaylock
     swayidle
