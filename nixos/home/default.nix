@@ -8,7 +8,8 @@ in
   ];
 
   home-manager.users.august = {
-
+    programs.home-manager.enable = true;
+    
     home.username = "august";
     home.homeDirectory = "/home/august";
 
@@ -21,11 +22,13 @@ eval "$(starship init zsh)"
       	xl = "ls -la";
         rf = "source ~/.zshrc";
         menu = "sway-launcher-desktop";
-        nix-edit = "nvim /home/august/repositories/sum-nixos";
+        nix-edit = "cd /home/august/repositories/sum-nixos; nvim .";
         nix-deploy = "/home/august/repositories/sum-nixos/bin/sum-nixos.sh deploy";
       };
     };
 
-    programs.home-manager.enable = true;
+    # Dotfiles
+    xdg.configFile."sway/config".source = ./dotfiles/sway/config;
+
   };
 }
