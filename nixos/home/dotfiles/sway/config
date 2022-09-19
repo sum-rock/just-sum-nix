@@ -34,7 +34,8 @@ output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_19
 #
 # Example configuration:
 #
-set $lock 'swaylock --clock --indicator --screenshots --ring-color d3869b --effect-vignette 0.5:0.5 --effect-blur 7x5 --grace 3'
+    set $lock "swaylock --clock --indicator --screenshots  --ring-color 8ec07c --key-hl-color b8bb26 --effect-vignette 0.5:0.5 --effect-blur 7x5 --fade-in 0.2 --grace 3"
+
     exec swayidle -w \
       timeout 300 $lock \
       timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
