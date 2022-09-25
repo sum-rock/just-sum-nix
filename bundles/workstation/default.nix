@@ -59,8 +59,8 @@
       shellAliases = {
       	xl = "ls -la";
         rf = "source ~/.zshrc";
-        nix-edit = "cd /home/august/repositories/sum-nixos; nvim";
-        nix-deploy = "sudo nixos-rebuild switch --flake '/home/august/repositories/sum-nixos/'";
+        nix-edit = "cd /home/august/.nix; nvim";
+        nix-deploy = "sudo nixos-rebuild switch --flake '/home/august/.nix'";
       };
     };
 
