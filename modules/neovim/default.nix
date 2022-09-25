@@ -1,6 +1,13 @@
 { pkgs, config, ... }:
 
 {
+
+  environment.systemPackages = with pkgs; [
+    neovim-unwrapped    
+    nodejs
+    yarn
+  ];
+
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-unwrapped;

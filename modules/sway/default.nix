@@ -31,7 +31,6 @@ systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-de
 in
 {
   environment.systemPackages = with pkgs; [
-    alacritty
     sway
     dbus-sway-environment
     configure-gtk
@@ -68,4 +67,8 @@ in
     enable = true;
     wrapperFeatures.gtk = true;
   };
+
+  xdg.configFile."sway/config".source = ./dotfiles/sway/config;
+  xdg.configFile."waybar/config".source = ./dotfiles/waybar/config;
+  xdg.configFile."waybar/style.css".source = ./dotfiles/waybar/style.css;
 }
