@@ -68,7 +68,9 @@ in
     wrapperFeatures.gtk = true;
   };
 
-  xdg.configFile."sway/config".source = ./dotfiles/sway/config;
-  xdg.configFile."waybar/config".source = ./dotfiles/waybar/config;
-  xdg.configFile."waybar/style.css".source = ./dotfiles/waybar/style.css;
+  home-manager.users.august = {
+    xdg.configFile."sway/config".source = ./dotfiles/sway/config;
+    xdg.configFile."waybar/config".source = ./dotfiles/waybar/config;
+    xdg.configFile."waybar/style.css".source = ./dotfiles/waybar/style.css;
+  };
 }

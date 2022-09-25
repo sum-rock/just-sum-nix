@@ -28,9 +28,9 @@
     ];
   };
 
-  hm-nixos.users.august = {
+  home-manager.users.august = {
 
-    programs.hm-nixos.enable = true; 
+    programs.home-manager.enable = true; 
     home.username = "august";
     home.homeDirectory = "/home/august";
 
