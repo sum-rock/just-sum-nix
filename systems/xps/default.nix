@@ -29,6 +29,9 @@
   
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
+  
+  # Nvidia drivers
+  services.xserver.videoDrivers = [ "nouveau" ];
 
   # Enable screen brightness control
   programs.light.enable = true;

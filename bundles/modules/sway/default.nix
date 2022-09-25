@@ -1,61 +1,22 @@
-{ config, pkgs, lib, ...  }:
+{ config, pkgs, ...  }:
 
-let 
-
-  dbus-sway-environment = pkgs.writeTextFile {
-    name = "dbus-sway-environment";
-    destination = "/bin/dbus-sway-environment";
-    executable = true;
-
-    text = ''
-dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-      '';
-  };
-  
-  configure-gtk = pkgs.writeTextFile {
-    name = "configure-gtk";
-    destination = "/bin/configure-gtk";
-    executable = true;
-    text = let 
-      schema = pkgs.gsettings-desktop-schemas;
-      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-    in ''
-      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
-      gnome_schema=org.gnome.desktop.interface
-      gsettings set $gnome_schema gtk-theme 'gruvbox-dark'
-      '';
-  };
-
-in
 {
-  environment.systemPackages = with pkgs; [
-    sway
-    dbus-sway-environment
-    configure-gtk
-    wayland
-    glib
-    gruvbox-dark-gtk
-    gnome3.adwaita-icon-theme
-    swaylock-effects
-    swayidle
-    waybar
-    sway-launcher-desktop
-    grim
-    slurp
-    wl-clipboard
-    bemenu
-    mako
-  ];
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
+  services = {
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+    };
+    dbus = {
+      enable = true;
+    };
+    xserver.displayManager = {
+      gdm.enable = true;
+      gdm.wayland = false;  # hmmm is this right?
+    };
   };
 
-  services.dbus.enable = true;
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -66,7 +27,25 @@ in
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    extraPackages = with pkgs; [
+      wl-clipboard
+      bemenu
+      slurp
+      sway-launcher-desktop
+      swaylock-effects
+      swayidle
+      waybar
+    ];
+    extraSessionCommands = ''
+      export SDL_VIDEODRIVER=wayland
+      export QT_QPA_PLATFORM=wayland
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+      export _JAVA_AWT_WM_NONREPARENTING=1
+      export MOZ_ENABLE_WAYLAND=1
+    '';
   };
+
+  programs.waybar.enable = true;
 
   home-manager.users.august = {
     xdg.configFile."sway/config".source = ./dotfiles/sway/config;
