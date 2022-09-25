@@ -7,10 +7,9 @@
 {
   imports = 
   [
-    ../common
-    ../modules/alacritty
-    ../modules/neovim
-    ../modules/sway
+    ../components/common
+    ../components/apps/alacritty
+    ../components/apps/neovim
   ];
   
   # Programs

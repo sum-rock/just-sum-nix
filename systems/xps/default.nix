@@ -5,6 +5,7 @@
       home-manager.nixosModule
       ./hardware-configuration.nix
       ../../bundles/workstation
+      ../../desktops/sway
     ];
 
   # Boot drive stuff

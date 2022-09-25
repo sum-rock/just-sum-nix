@@ -1,3 +1,5 @@
+# Requires the Workstation Bundle
+
 { config, pkgs, ...  }:
 
 {
