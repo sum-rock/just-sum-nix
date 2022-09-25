@@ -60,7 +60,7 @@
       	xl = "ls -la";
         rf = "source ~/.zshrc";
         nix-edit = "cd /home/august/repositories/sum-nixos; nvim";
-        nix-deploy = "sudo nixos-rebuild switch --impure --flake '/home/august/repositories/sum-nixos/'";
+        nix-deploy = "sudo nixos-rebuild switch --flake '/home/august/repositories/sum-nixos/'";
       };
     };
 
