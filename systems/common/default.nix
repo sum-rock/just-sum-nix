@@ -42,8 +42,8 @@ eval "$(starship init zsh)"
       shellAliases = {
       	xl = "ls -la";
         rf = "source ~/.zshrc";
-        nix-edit = "cd /home/august/repositories/sum-nixos; nvim .";
-        nix-deploy = "/home/august/repositories/sum-nixos/bin/sum-nixos.sh deploy";
+        nix-edit = "cd /home/august/repositories/sum-nixos; nvim";
+        nix-deploy = "sudo nixos-rebuild switch --impure --flake '/home/august/repositories/sum-nixos/'";
       };
     };
 
