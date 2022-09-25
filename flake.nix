@@ -19,7 +19,7 @@
     nixosConfigurations.xps = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
-      modules = [ ./systems/xps/default.nix ];
+      modules = [ ./systems/xps ];
     };
   };
 
