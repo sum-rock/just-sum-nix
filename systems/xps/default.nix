@@ -31,7 +31,9 @@
   services.xserver.libinput.enable = true;
   
   # Nvidia drivers
-  services.xserver.videoDrivers = [ "nouveau" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl.enable = true;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
   # Enable screen brightness control
   programs.light.enable = true;
