@@ -7,7 +7,8 @@
     font-awesome
   ];
 
-  user.users.august.packages = with pkgs; [ alacritty ];
-  home.file.".alacritty.yml".source = ./dotfiles/alacritty.yml;
-
+  users.users.august.packages = with pkgs; [ alacritty ];
+  home-manager.users.august = {
+    home.file.".alacritty.yml".source = ./dotfiles/alacritty.yml;
+  };
 }

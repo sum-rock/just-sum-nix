@@ -1,15 +1,15 @@
-{ config, pkgs, ... }:
+{ config, lib, nixpkgs, home-manager, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
+      home-manager.nixosModule
       ./boot.nix
       ./hardware-configuration.nix
       ../common
-      ../../modules/sway
-      ../../modules/neovim
       ../../modules/alacritty
+      ../../modules/neovim
+      ../../modules/sway
     ];
-
 
   # Open ports in the firewall:
   # ---------------------------
