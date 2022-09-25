@@ -3,11 +3,11 @@
   imports =
     [ # Include the results of the hardware scan.
       ./boot.nix
-      ./fonts.nix
-      ./packages.nix
-      ./sway.nix
-      ./users.nix
-      ./neovim
+      ./hardware-configuration.nix
+      ../common
+      ../../modules/sway
+      ../../modules/neovim
+      ../../modules/alacritty
     ];
 
 
@@ -20,13 +20,11 @@
 
   # Network settings:
   # -----------------
-  networking.hostName = "nixos-xps"; 
+  networking.hostName = "xps"; 
   networking.networkmanager.enable = true;
 
   # Localizations:
   # --------------
-  time.timeZone = "America/Chicago";
-  i18n.defaultLocale = "en_US.UTF-8";
   
   # Audio:
   # ------
