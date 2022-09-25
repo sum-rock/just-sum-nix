@@ -1,27 +1,47 @@
+# Configs common to all workstation installations of Nixos
+# Assumptions:
+#   - GUI will be installed
+
 { config, pkgs, ... }:
+
 {
-
-  time.timeZone = "America/Chicago";
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  imports = 
+  [
+    ../common
+    ../modules/alacritty
+    ../modules/neovim
+    ../modules/sway
+  ];
   
+  # Programs
+  # --------
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    vim 
-    wget
-    git
     python310
     tmux
     ranger
     gitui
-    starship
-    zsh
+    pciutils
   ];
 
+  # Localization
+  time.timeZone = "America/Chicago";
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  # Audio:
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true; 
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # Users
+  # -----
   users.users.august = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" ];
+    extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
@@ -36,9 +56,6 @@
 
     programs.zsh = {
       enable = true;
-      initExtra = ''
-eval "$(starship init zsh)"
-      '';
       shellAliases = {
       	xl = "ls -la";
         rf = "source ~/.zshrc";
@@ -48,5 +65,4 @@ eval "$(starship init zsh)"
     };
 
   };
-
 }
