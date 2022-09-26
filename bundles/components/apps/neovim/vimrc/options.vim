@@ -6,7 +6,5 @@ set tabstop=2
 set expandtab
 set nowrap
 
-imap jh <esc>
-vmap jh <esc>
-xmap jh <esc>
-
+imap jj <esc>
+vmap oo <esc>

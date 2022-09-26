@@ -17,7 +17,9 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     python310
+    neofetch
     tmux
+    btop
     ranger
     gitui
     pciutils

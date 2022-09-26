@@ -1,9 +1,10 @@
-{ config, lib, nixpkgs, home-manager, ... }:
+{ config, lib, pkgs, home-manager, ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       home-manager.nixosModule
       ./hardware-configuration.nix
+      ../../utils/nvidia/sync.nix
       ../../bundles/workstation
       ../../desktops/i3wm
     ];
@@ -28,16 +29,10 @@
 
   networking.hostName = "xps"; 
   
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-  
-  # Nvidia drivers
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-
   # Enable screen brightness control
   programs.light.enable = true;
   users.groups.video.members = [ "august" ]; 
+
+  services.xserver.dpi = 180;
 
 }
