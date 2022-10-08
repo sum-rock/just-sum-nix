@@ -14,7 +14,7 @@
 
   home-manager.users.august = {
 
-    home.file.".alacritty.yml".source = ./dotfiles/alacritty.yml;
+    xdg.configFile."alacritty/alacritty.yml".source = ./dotfiles/alacritty.yml;
     programs.zsh.initExtra = ''
 eval "$(starship init zsh)"
     '';
