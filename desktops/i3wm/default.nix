@@ -23,6 +23,7 @@
         i3-gaps
         polybar
         rofi
+        feh   # For wallpaper
       ];
     };
   };
@@ -31,6 +32,7 @@
     xdg.configFile."i3/config".source = ./dotfiles/i3/config;
     xdg.configFile."polybar/config.ini".source = ./dotfiles/polybar/config.ini;
     xdg.configFile."rofi/themes/custom.rasi".source = ./dotfiles/rofi/custom.rasi;
+    xdg.configFile."wallpaper/space-station.jpg".source = ./dotfiles/wallpaper/space-station.jpg;
 
     programs.rofi = {
       enable = true;

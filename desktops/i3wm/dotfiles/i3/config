@@ -158,6 +158,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+exec --no-startup-id feh --bg-scale --randomize ~/.config/wallpaper/*.jpg
 
 # Gaps
 # ----
