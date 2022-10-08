@@ -7,7 +7,7 @@ window:
   decorations: None 
    
 font:
-  size: 12
+  size: 14
   offset:
     x: 0
     y: 2
@@ -55,4 +55,6 @@ colors:
     - { index: 19, color: '0x504945' }
     - { index: 20, color: '0xbdae93' }
     - { index: 21, color: '0xebdbb2' }
- 
+
+env:
+  WINIT_X11_SCALE_FACTOR: "2.0"

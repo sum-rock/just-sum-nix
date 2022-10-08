@@ -34,5 +34,4 @@
   users.groups.video.members = [ "august" ]; 
 
   services.xserver.dpi = 180;
-
 }
