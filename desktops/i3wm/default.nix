@@ -6,17 +6,10 @@
   services.xserver = {
     enable = true;
 
-    desktopManager = {
-      xterm.enable = false;
-      xfce = {
-        enable = true;
-        noDesktop = true;
-        enableXfwm = false;
-      };
-    };
+    desktopManager.xterm.enable = false;
 
     displayManager = {
-      defaultSession = "xfce+i3";
+      defaultSession = "none+i3";
       lightdm = {
         enable = true;
       };
