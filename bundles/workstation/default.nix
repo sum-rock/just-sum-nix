@@ -23,6 +23,8 @@
     ranger
     gitui
     pciutils
+    vlc
+    ffmpeg
   ];
 
   # Localization
