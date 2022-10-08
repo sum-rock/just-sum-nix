@@ -33,8 +33,29 @@
       ];
     };
   };
+
   home-manager.users.august = {
     xdg.configFile."i3/config".source = ./dotfiles/i3/config;
     xdg.configFile."polybar/config.ini".source = ./dotfiles/polybar/config.ini;
+    xdg.configFile."rofi/themes/custom.rasi".source = ./dotfiles/rofi/custom.rasi;
+
+    programs.rofi = {
+      enable = true;
+      font = "Iosevka 12";
+      theme = "custom";
+      plugins = [
+        pkgs.rofi-emoji
+        pkgs.rofi-calc
+        pkgs.rofi-power-menu
+      ];
+      extraConfig = {
+        modi = "drun,filebrowser,window";
+        dpi = 180;
+        show-icons = true;
+        sort = true;
+        matching = "fuzzy";
+      };
+    }; 
+
   };
 }
