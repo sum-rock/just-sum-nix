@@ -3,7 +3,7 @@ window:
     x: 12
     y: 12 
   dynamic_padding: false 
-  opacity: .8
+  opacity: .9
   decorations: None 
    
 font:

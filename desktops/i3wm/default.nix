@@ -3,6 +3,8 @@
 
   environment.pathsToLink = [ "/libexec" ];
 
+  services.picom.enable = true;
+
   services.xserver = {
     enable = true;
 
