@@ -28,6 +28,7 @@
     git
     zsh
     networkmanager
+    psmisc    # Includes ps commands that are commonly used. (e.g., killall)
   ];
 
   # Internet stuff
