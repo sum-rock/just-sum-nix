@@ -23,6 +23,9 @@
     ranger
     gitui
     pciutils
+    vlc
+    ffmpeg
+    exa           # Better than ls
   ];
 
   # Localization
@@ -62,6 +65,7 @@
         rf = "source ~/.zshrc";
         nix-edit = "cd /home/august/.nix; nvim";
         nix-deploy = "sudo nixos-rebuild switch --flake '/home/august/.nix'";
+        lsx = "exa --long --all --header --group --git --icons --time-style=long-iso"; 
       };
     };
 
