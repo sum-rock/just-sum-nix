@@ -30,8 +30,17 @@
   networking.hostName = "xps"; 
   
   # Enable screen brightness control
+  # To find the correct keybindings run and subtract 8 from keycode
+  #     nix-shell -p xorg.xev --run "xev -event keyboard"
   programs.light.enable = true;
   users.groups.video.members = [ "august" ]; 
+  services.actkbd = {
+    enable = true;
+    bindings = [
+      { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 5"; }
+      { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 5"; }
+    ];
+  };
 
   services.xserver.dpi = 180;
 }
