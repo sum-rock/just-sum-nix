@@ -1,0 +1,13 @@
+{
+  "languageserver": {
+    "nix": {
+      "command": "rnix-lsp",
+      "filetypes": ["nix"]
+    },
+    "python": {
+      "command": "coc-pyright",
+      "filetypes": ["python"]
+    }
+  }
+}
+

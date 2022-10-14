@@ -12,6 +12,11 @@
        vim-nerdtree-syntax-highlight
        vim-nix 
        telescope-nvim
+       coc-nvim
+       coc-pyright
+       coc-html
+       coc-tsserver
+       coc-json
      ];
    };
 }
