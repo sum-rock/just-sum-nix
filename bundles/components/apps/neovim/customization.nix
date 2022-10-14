@@ -11,6 +11,7 @@
        vim-devicons
        vim-nerdtree-syntax-highlight
        vim-nix 
+       telescope-nvim
      ];
    };
 }

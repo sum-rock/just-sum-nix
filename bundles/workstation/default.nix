@@ -26,6 +26,7 @@
     vlc
     ffmpeg
     exa           # Better than ls
+    ripgrep
   ];
 
   # Localization

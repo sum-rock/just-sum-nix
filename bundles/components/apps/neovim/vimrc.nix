@@ -5,6 +5,7 @@ let
   nerdtree = builtins.readFile ./vimrc/nerdtree.vim;
   colors = builtins.readFile ./vimrc/colors.vim;
   options = builtins.readFile ./vimrc/options.vim;
+  telescope = builtins.readFile ./vimrc/telescope.vim;
 in
 
 ''
@@ -12,4 +13,5 @@ in
   ${airline}
   ${nerdtree}
   ${colors}
+  ${telescope}
 ''
