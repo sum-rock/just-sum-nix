@@ -11,6 +11,15 @@
        vim-devicons
        vim-nerdtree-syntax-highlight
        vim-nix 
+       neoscroll-nvim
+       telescope-nvim
+       minimap-vim
+       vim-fugitive
+       coc-nvim
+       coc-pyright
+       coc-html
+       coc-tsserver
+       coc-json
      ];
    };
 }
