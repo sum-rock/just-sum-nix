@@ -13,6 +13,7 @@
        vim-nix 
        neoscroll-nvim
        telescope-nvim
+       minimap-vim
        coc-nvim
        coc-pyright
        coc-html
