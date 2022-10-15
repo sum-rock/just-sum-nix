@@ -14,6 +14,7 @@
        neoscroll-nvim
        telescope-nvim
        minimap-vim
+       vim-fugitive
        coc-nvim
        coc-pyright
        coc-html
