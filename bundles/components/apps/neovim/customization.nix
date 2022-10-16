@@ -15,6 +15,7 @@
      neoscroll-nvim
      telescope-nvim
      minimap-vim
+     git-blame-nvim
      bufferline-nvim
      vim-fugitive
      coc-nvim
