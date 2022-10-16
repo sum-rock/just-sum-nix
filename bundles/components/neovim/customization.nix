@@ -1,6 +1,15 @@
 { pkgs, config, ... }:
+
+let
+  options = builtins.readFile ./options.vim;
+  plugins = builtins.readFile ./plugins.vim;
+in
+
 {
-  customRC = pkgs.callPackage ./vimrc.nix {};
+  customRC = ''
+    ${options} 
+    ${plugins}
+  '';
   packages.neovimPlugins = with pkgs.vimPlugins; {
    start = [
      gruvbox-nvim

@@ -4,9 +4,7 @@
     [
       home-manager.nixosModule
       ./hardware-configuration.nix
-      ../../utils/nvidia/sync.nix
-      ../../bundles/workstation
-      ../../desktops/i3wm
+      ./nvidia.nix
     ];
 
   # Boot drive stuff

@@ -19,7 +19,12 @@
     nixosConfigurations.xps = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
-      modules = [ ./systems/xps ];
+      modules = [ 
+        ./systems/xps 
+        ./homes/august.nix
+        ./bundles/workstation.nix
+        ./desktops/i3wm
+      ];
     };
   };
 
