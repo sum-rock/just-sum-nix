@@ -22,10 +22,9 @@
       modules = [ 
         ./systems/xps 
         ./homes/august.nix
-        ./bundles/workstation
+        ./bundles/workstation.nix
         ./desktops/i3wm
       ];
-
     };
   };
 

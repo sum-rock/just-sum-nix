@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 {
 
   fonts.fonts = with pkgs; [
@@ -13,11 +12,9 @@
   ];
 
   home-manager.users.august = {
-
-    xdg.configFile."alacritty/alacritty.yml".source = ./dotfiles/alacritty.yml;
+    xdg.configFile."alacritty/.alacritty.yml".source = ./alacritty.yml;
     programs.zsh.initExtra = ''
-eval "$(starship init zsh)"
-    '';
-
+      eval "$(starship init zsh)"
+      '';
   };
 }
