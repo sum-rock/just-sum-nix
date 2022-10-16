@@ -29,6 +29,20 @@
     ripgrep
   ];
 
+  # Add EXA aliases to zshrc
+  home-manager.users.august = {
+    programs.zsh.shellAliases = {
+      lsx = "exa --long --all --header --group --git --icons --time-style=long-iso"; 
+    };
+  };
+
+  # Add Firefox to user's package
+  users.users.august = {
+    packages = with pkgs; [
+      firefox
+    ];
+  };
+
   # Localization
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -40,35 +54,5 @@
     alsa.enable = true; 
     alsa.support32Bit = true;
     pulse.enable = true;
-  };
-
-  # Users
-  # -----
-  users.users.august = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-      firefox
-    ];
-  };
-
-  home-manager.users.august = {
-
-    programs.home-manager.enable = true; 
-    home.username = "august";
-    home.homeDirectory = "/home/august";
-
-    programs.zsh = {
-      enable = true;
-      shellAliases = {
-      	xl = "ls -la";
-        rf = "source ~/.zshrc";
-        nix-edit = "cd /home/august/.nix; nvim";
-        nix-deploy = "sudo nixos-rebuild switch --flake '/home/august/.nix'";
-        lsx = "exa --long --all --header --group --git --icons --time-style=long-iso"; 
-      };
-    };
-
   };
 }

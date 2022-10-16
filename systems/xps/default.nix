@@ -4,6 +4,7 @@
     [
       home-manager.nixosModule
       ./hardware-configuration.nix
+      ./nvidia.nix
     ];
 
   # Boot drive stuff

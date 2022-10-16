@@ -21,7 +21,7 @@
       specialArgs = attrs;
       modules = [ 
         ./systems/xps 
-        ./utils/nvidia/sync.nix
+        ./homes/august.nix
         ./bundles/workstation
         ./desktops/i3wm
       ];
