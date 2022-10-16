@@ -3,7 +3,7 @@
   customRC = pkgs.callPackage ./vimrc.nix {};
   packages.neovimPlugins = with pkgs.vimPlugins; {
    start = [
-     gruvbox-community
+     gruvbox-nvim
      vim-airline
      vim-airline-themes
      nvim-treesitter
