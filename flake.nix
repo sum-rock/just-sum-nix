@@ -15,18 +15,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@attrs: {
+  outputs = { self, nixpkgs, ... }@attrs: 
+  {
     nixosConfigurations.xps = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [ 
         ./systems/xps 
-        ./homes/august.nix
         ./bundles/workstation.nix
         ./desktops/i3wm
       ];
     };
   };
-
 }
+
  
