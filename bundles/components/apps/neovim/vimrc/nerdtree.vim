@@ -4,4 +4,4 @@ nnoremap <C-N> :NERDTreeToggle<CR>
 
 let NERDTreeMinimalUI=1
 
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
