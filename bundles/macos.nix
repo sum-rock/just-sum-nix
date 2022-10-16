@@ -1,26 +1,30 @@
-# Configs common to all workstation installations of Nixos
-
-{ config, pkgs, ... }:
-
+{ pkgs, config, ... }:
 {
+
   imports = 
   [
-    ./components/minimal.nix
     ./components/alacritty
     ./components/neovim
   ];
   
 
+  # System
+  # ------
+  # Must declare state here and it must match the release channel in flake.nix
+  system.stateVersion = "22.05";
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+
+  # Home manager settings
+  # ---------------------
+  # These allow a rebuild without raising the "impure" warning. See issue 
+  # here https://github.com/divnix/digga/issues/30
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+
+
   # User setup
   # ----------
-  users.users.august = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-      firefox
-    ];
-  };
   home-manager.users.august = {
     programs.home-manager.enable = true; 
     home.username = "august";
@@ -31,7 +35,7 @@
         ls = "ls -la";
         rf = "source ~/.zshrc";
         nix-edit = "cd /home/august/.nix; nvim";
-        nix-deploy = "sudo nixos-rebuild switch --flake '/home/august/.nix'";
+        nix-deploy = "sudo nixos-darwin switch --flake '/home/august/.nix'";
         lsx = "exa --long --all --header --group --git --icons --time-style=long-iso"; 
       };
     };
@@ -48,27 +52,9 @@
     btop
     ranger
     gitui
-    pciutils
-    vlc
-    ffmpeg
     exa           # Better than ls
     ripgrep
+    wget
+    git
   ];
-
-
-  # Localization
-  # ------------
-  time.timeZone = "America/Chicago";
-  i18n.defaultLocale = "en_US.UTF-8";
-
-
-  # Audio
-  # -----
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true; 
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 }

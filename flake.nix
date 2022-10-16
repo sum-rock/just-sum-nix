@@ -9,24 +9,28 @@
       url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-darwin = {
+    darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, ... }@attrs: {
+  outputs = { self, darwin, nixpkgs, ... }@attrs: 
+  {
+    darwinConfigurations."raack-wrk" = {
+      system = "aarch64-darwin";
+      modules = [ ./bundles/macos.nix ];
+    };
     nixosConfigurations.xps = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [ 
         ./systems/xps 
-        ./homes/august.nix
         ./bundles/workstation.nix
         ./desktops/i3wm
       ];
     };
   };
-
 }
+
  
