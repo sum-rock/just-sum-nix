@@ -19,7 +19,13 @@
     nixosConfigurations.xps = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
-      modules = [ ./systems/xps ];
+      modules = [ 
+        ./systems/xps 
+        ./utils/nvidia/sync.nix
+        ./bundles/workstation
+        ./desktops/i3wm
+      ];
+
     };
   };
 
