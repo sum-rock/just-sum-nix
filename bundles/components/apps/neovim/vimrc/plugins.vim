@@ -29,7 +29,9 @@ EOF
 " Git-Blame
 " -----------------------------------------------------------------------------
 let g:gitblame_enabled = 1
-
+let g:gitblame_date_format = '%Y-%m-%d'
+let g:gitblame_message_template = '|   <author> ~ <date>   |'
+let g:gitblame_ignored_filetypes = ['nerdtree']
 
 " Minimap 
 " -----------------------------------------------------------------------------
