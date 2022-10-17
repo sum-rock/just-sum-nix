@@ -1,24 +1,14 @@
-{ pkgs, config, ... }:
-
+{ config, lib, pkgs, ... }:
 {
-
-  environment.systemPackages = with pkgs; [
-    neovim-unwrapped    
+  environment.systemPackages = with pkgs; [   
     nodejs
     yarn
     rnix-lsp
     nodePackages.coc-pyright
+    ( 
+      neovim.override {
+        configure =  ( import ./customization.nix { pkgs = pkgs; config = config; } );
+      }
+    )
   ];
-
-  programs.neovim = {
-    enable = true;
-    package = pkgs.neovim-unwrapped;
-    defaultEditor = true;
-    configure = ( import ./customization.nix { pkgs = pkgs; config = config; } );
-  };
-
-  home-manager.users.august = {
-    xdg.configFile."nvim/coc-settings.json".source = ./coc-settings.json;
-  };
-  
 }
