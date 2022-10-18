@@ -15,20 +15,46 @@
     };
   };
 
-  outputs = { self, darwin, nixpkgs, ... }@attrs: 
+  outputs = inputs @ { self, darwin, nixpkgs, home-manager, ... }:   
+
   {
-    darwinConfigurations."raack-wrk" = {
-      system = "aarch64-darwin";
-      modules = [ ./bundles/macos.nix ];
+
+    homeConfigurations = {
+
+      sum-rock-wrk = inputs.home-manager.lib.homeManagerConfiguration {
+        sysetem = "aarch64-darwin";
+        modules = [ ./profiles/sum-rock-wrk.nix ];
+      };
+
+      xps = inputs.home-manager.lib.homeManagerConfiguration {
+        modules = [ ./profiles/august_xps.nix ];
+      };
+
     };
-    nixosConfigurations.xps = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = attrs;
-      modules = [ 
-        ./systems/xps 
-        ./bundles/workstation.nix
-        ./desktops/i3wm
-      ];
+
+    darwinConfigurations = {
+      # nix build .#darwinConfigurations.sum-rock-wrk.system 
+      # ./result/sw/bin/darwin-rebuild switch --flake .
+      sum-rock-wrk = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [ 
+          ./bundles/macos.nix 
+          ./profiles/sum_rock_wrk.nix
+        ];
+        inputs = { inherit darwin home-manager nixpkgs; };
+      };
+    };
+
+    nixosConfigurations = {
+      xps = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { common = self.common; inherit inputs; };
+        modules = [ 
+          ./systems/xps 
+          ./bundles/workstation.nix
+          ./desktops/i3wm
+        ];
+      };
     };
   };
 }

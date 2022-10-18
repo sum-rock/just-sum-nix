@@ -6,7 +6,8 @@
   imports = 
   [
     ./components/minimal.nix
-    ./components/alacritty
+    ./components/i3wm.nix
+    ./components/alacritty.nix
     ./components/neovim
   ];
   
@@ -20,21 +21,6 @@
     packages = with pkgs; [
       firefox
     ];
-  };
-  home-manager.users.august = {
-    programs.home-manager.enable = true; 
-    home.username = "august";
-    home.homeDirectory = "/home/august";
-    programs.zsh = {
-      enable = true;
-      shellAliases = {
-        ls = "ls -la";
-        rf = "source ~/.zshrc";
-        nix-edit = "cd /home/august/.nix; nvim";
-        nix-deploy = "sudo nixos-rebuild switch --flake '/home/august/.nix'";
-        lsx = "exa --long --all --header --group --git --icons --time-style=long-iso"; 
-      };
-    };
   };
   
 

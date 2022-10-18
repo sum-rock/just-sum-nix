@@ -49,9 +49,11 @@
 
   programs.waybar.enable = true;
 
-  home-manager.users.august = {
-    xdg.configFile."sway/config".source = ./dotfiles/sway/config;
-    xdg.configFile."waybar/config".source = ./dotfiles/waybar/config;
-    xdg.configFile."waybar/style.css".source = ./dotfiles/waybar/style.css;
-  };
+  # MOVE TO A PROFILE
+  # -----------------
+  # home-manager.users.august = {
+  #   xdg.configFile."sway/config".source = ./dotfiles/sway/config;
+  #   xdg.configFile."waybar/config".source = ./dotfiles/waybar/config;
+  #   xdg.configFile."waybar/style.css".source = ./dotfiles/waybar/style.css;
+  # };
 }
