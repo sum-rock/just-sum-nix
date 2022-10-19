@@ -42,6 +42,11 @@
   ];
 
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
   # Localization
   # ------------
   time.timeZone = "America/Chicago";

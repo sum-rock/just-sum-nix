@@ -5,7 +5,7 @@
   [
     <home-manager/nix-darwin>
     ./components/alacritty.nix
-    # ./components/neovim
+    ./components/neovim
   ];
 
   # This font dir option is specific to darwin.
