@@ -3,7 +3,7 @@
   
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-22.05";
+      url = "github:NixOS/nixpkgs/release-22.05";
     };
     home-manager = {
       url = "github:nix-community/home-manager/release-22.05";
@@ -16,22 +16,7 @@
   };
 
   outputs = inputs @ { self, darwin, nixpkgs, home-manager, ... }:   
-
   {
-
-    homeConfigurations = {
-
-      sum-rock-wrk = inputs.home-manager.lib.homeManagerConfiguration {
-        sysetem = "aarch64-darwin";
-        modules = [ ./profiles/sum-rock-wrk.nix ];
-      };
-
-      xps = inputs.home-manager.lib.homeManagerConfiguration {
-        modules = [ ./profiles/august_xps.nix ];
-      };
-
-    };
-
     darwinConfigurations = {
       # nix build .#darwinConfigurations.sum-rock-wrk.system 
       # ./result/sw/bin/darwin-rebuild switch --flake .
@@ -44,7 +29,6 @@
         inputs = { inherit darwin home-manager nixpkgs; };
       };
     };
-
     nixosConfigurations = {
       xps = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
