@@ -11,7 +11,6 @@
     ./components/neovim
   ];
   
-
   # User setup
   # ----------
   users.users.august = {
@@ -22,7 +21,6 @@
       firefox
     ];
   };
-  
 
   # Programs
   # --------
@@ -41,7 +39,6 @@
     ripgrep
   ];
 
-
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -51,7 +48,6 @@
   # ------------
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.UTF-8";
-
 
   # Audio
   # -----

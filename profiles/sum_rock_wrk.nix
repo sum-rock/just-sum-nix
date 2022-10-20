@@ -1,4 +1,5 @@
-{ config, pkgs, ... }:
+{ config, pkgs, zsh-autocomplete, ... }:
+
 {
 
   users.users.august = {
@@ -10,19 +11,21 @@
   home-manager.useUserPackages = true;
 
   home-manager.users.august = {
-
     programs.home-manager.enable = true; 
     home.username = "august";
     home.homeDirectory = "/Users/august";
 
     programs.zsh = {
       enable = true;
+      plugins = [
+        { name = "zsh-autocomplete"; src = zsh-autocomplete; }
+      ];
       shellAliases = {
         ls = "ls -la";
         rf = "source ~/.zshrc";
+        lsx = "exa --long --all --header --group --git --icons --time-style=long-iso"; 
         nix-edit = "cd /Users/august/.nixpkgs; nvim";
         nix-deploy = "darwin-rebuild switch --flake '/Users/august/.nixpkgs' --impure";
-        lsx = "exa --long --all --header --group --git --icons --time-style=long-iso"; 
         go-homebase = "cd ~/repositories/pyhomebase";
         go-notes = "cd ~/Documents/notes";
         notes = "cd ~/Documents/notes; nvim";
@@ -39,10 +42,9 @@
       initExtra = ''
 
 eval "$(starship init zsh)"
-source ~/packages/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-zstyle ':autocomplete:*' list-lines 8
-zstyle ':autocomplete:*' min-delay 1.02 
-zstyle ':autocomplete:history-search:*' list-lines 3 
+# zstyle ':autocomplete:*' list-lines 8
+# zstyle ':autocomplete:*' min-delay 1.02 
+# zstyle ':autocomplete:history-search:*' list-lines 8 
 
 VSCODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin" 
 AFFECT_TOOLS="$HOME/repositories/affect-tools/tools/bin"  

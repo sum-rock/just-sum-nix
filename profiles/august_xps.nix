@@ -10,9 +10,9 @@
         shellAliases = {
           ls = "ls -la";
           rf = "source ~/.zshrc";
+          lsx = "exa --long --all --header --group --git --icons --time-style=long-iso"; 
           nix-edit = "cd /home/august/.nix; nvim";
           nix-deploy = "sudo nixos-rebuild switch --flake '/home/august/.nix'";
-          lsx = "exa --long --all --header --group --git --icons --time-style=long-iso"; 
         };
       };
     };

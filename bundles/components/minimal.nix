@@ -1,7 +1,4 @@
-# Configs that will be common to all installations of Nix.
-# Assumtions:
-# -----------
-#  - These are applicable in both workstation and server environments.
+# Configs that will be common to all installations of NixOS.
 
 { config, pkgs, ... }:
 {
