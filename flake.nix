@@ -2,6 +2,8 @@
   description = "sum-rock's very nice flake";
   
   inputs = {
+    # Core systems
+    # ------------
     nixpkgs = {
       url = "github:nixos/nixpkgs/release-22.05";
     };
@@ -13,42 +15,34 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Extras
+    # ------
+    zsh-autocomplete = {
+      url = "github:marlonrichert/zsh-autocomplete/main";
+      flake = false;
+    };
   };
 
-  outputs = inputs @ { self, darwin, nixpkgs, home-manager, ... }:   
-
+  outputs = { self, darwin, nixpkgs, ... }@attrs: 
   {
-
-    homeConfigurations = {
-
-      sum-rock-wrk = inputs.home-manager.lib.homeManagerConfiguration {
-        sysetem = "aarch64-darwin";
-        modules = [ ./profiles/sum-rock-wrk.nix ];
-      };
-
-      xps = inputs.home-manager.lib.homeManagerConfiguration {
-        modules = [ ./profiles/august_xps.nix ];
-      };
-
-    };
 
     darwinConfigurations = {
       # nix build .#darwinConfigurations.sum-rock-wrk.system 
       # ./result/sw/bin/darwin-rebuild switch --flake .
       sum-rock-wrk = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
+        specialArgs = attrs;
         modules = [ 
           ./bundles/macos.nix 
           ./profiles/sum_rock_wrk.nix
         ];
-        inputs = { inherit darwin home-manager nixpkgs; };
       };
     };
 
     nixosConfigurations = {
       xps = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { common = self.common; inherit inputs; };
+        specialArgs = attrs;
         modules = [ 
           ./systems/xps 
           ./bundles/workstation.nix

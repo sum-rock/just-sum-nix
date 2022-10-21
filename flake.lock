@@ -44,11 +44,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1666135017,
-        "narHash": "sha256-imG3gOTGHLTupZ016kc5gVdgjMKMthb4tI4pMyYiV40=",
+        "lastModified": 1666282592,
+        "narHash": "sha256-eEDkJwvBIZvrE06ZTOHmZQszMnrnj/pDl3OJi/k/YGM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b29e6c7218374775626b8f08479aec6795f16d28",
+        "rev": "d2fc243b29415e91c143468b765bc8d7ef05686b",
         "type": "github"
       },
       "original": {
@@ -62,7 +62,25 @@
       "inputs": {
         "darwin": "darwin",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "zsh-autocomplete": "zsh-autocomplete"
+      }
+    },
+    "zsh-autocomplete": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665997950,
+        "narHash": "sha256-n5wlMj2vGun/DVaAMQmSgcbmfi31hPp1+Hf8kgVIuC4=",
+        "owner": "marlonrichert",
+        "repo": "zsh-autocomplete",
+        "rev": "3de533e7d322cec073f09264a6bf211e0ba627de",
+        "type": "github"
+      },
+      "original": {
+        "owner": "marlonrichert",
+        "ref": "main",
+        "repo": "zsh-autocomplete",
+        "type": "github"
       }
     }
   },
