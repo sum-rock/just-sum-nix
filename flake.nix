@@ -2,6 +2,8 @@
   description = "sum-rock's very nice flake";
   
   inputs = {
+    # Core systems
+    # ------------
     nixpkgs = {
       url = "github:nixos/nixpkgs/release-22.05";
     };
@@ -13,6 +15,8 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Extras
+    # ------
     zsh-autocomplete = {
       url = "github:marlonrichert/zsh-autocomplete/main";
       flake = false;
@@ -32,7 +36,6 @@
           ./bundles/macos.nix 
           ./profiles/sum_rock_wrk.nix
         ];
-        # inputs = { inherit inputs; };
       };
     };
 
