@@ -1,5 +1,4 @@
 { config, pkgs, zsh-autocomplete, ... }:
-
 {
 
   users.users.august = {
@@ -14,6 +13,15 @@
     programs.home-manager.enable = true; 
     home.username = "august";
     home.homeDirectory = "/Users/august";
+
+    # programs.tmux.plugins = with pkgs.tmuxPlugins; {
+    #   start = [
+    #     copycat
+    #     gruvbox
+    #     pain-control
+    #     sensible
+    #   ];
+    # };
 
     programs.zsh = {
       enable = true;
@@ -60,10 +68,17 @@ export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
       '';
     };
 
+    home.file.".tmux.conf".source = ./dotfiles/tmux.conf;
+
     xdg.configFile = {
       "alacritty/alacritty.yml".source = ./dotfiles/alacritty/alacritty.yml;
       "nvim/coc-settings.json".source = ./dotfiles/nvim/coc-settings.json;
+      "tmux/plugins/tpm".source = pkgs.fetchFromGitHub {
+        owner = "tmux-plugins";
+        repo = "tpm";
+        rev = "master";
+        sha256 = "sha256-aGRy5ah1Dxb+94QoIkOy0nKlmAOFq2y5xnf2B852JY0=";
+      };
     };
-
   };
 }
