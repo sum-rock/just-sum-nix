@@ -42,13 +42,14 @@ enablement.
 
 ## Installation
 
-### MacOS
+### MacOS Installation
 
 __Caution!__ This is my best recollection of how I was able to get this
 working. If I'm honest, there was a lot of keyboard pounding and swearing. The
 following should be approximately correct. I believe that the challenge is that
 there are some things that need to be set up prior to getting the flake built.
-Those steps are frustratingly irrelevant once flakes are in use. I think. 
+Those steps are frustratingly irrelevant once flakes are in use. Once everything
+is installed its all peaches and cream.
 
 If you're reading this as a guide just know that it can be done. I am using an
 M1 MacBook and this is working. 
@@ -62,10 +63,12 @@ reference.
 sh <(curl -L https://nixos.org/nix/install)
 ```
 
-Subscribe to the stable channel 
+Subscribe to the relevant channels 
 
 ```
 nix-channel --add https://nixos.org/channels/nixpkgs-22.05-darwin nixpkgs
+nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
+nix-channel --update
 ```
 
 #### Enable experimental features
@@ -85,10 +88,8 @@ be removed later after installation.
 #### Install nix darwin
 
 ```
-nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
-nix-channel --update
 nix-shell '<darwin>' -A installer
-darwin-rebuild switch
+darwin-rebuild switch 
 ```
 
 #### Build the flake
@@ -100,6 +101,6 @@ cd .nixpkgs
 darwin-rebuild switch --flake ".#"
 ```
 
-## NixOS
+### NixOS
 
 Comming soon.
