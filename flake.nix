@@ -34,7 +34,7 @@
         specialArgs = attrs;
         modules = [ 
           ./bundles/workstation_macos.nix 
-          ./profiles/sum_rock_wrk.nix
+          ./profiles/mac.nix
         ];
       };
     };
@@ -45,8 +45,8 @@
         specialArgs = attrs;
         modules = [ 
           ./systems/xps 
-          ./bundles/workstation.nix
-          ./desktops/i3wm
+          ./bundles/workstation_nixos.nix
+          ./profiles/xps.nix
         ];
       };
     };
@@ -54,4 +54,5 @@
 }
 
  
+
 
