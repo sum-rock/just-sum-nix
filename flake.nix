@@ -33,7 +33,7 @@
         system = "aarch64-darwin";
         specialArgs = attrs;
         modules = [ 
-          ./bundles/macos.nix 
+          ./bundles/workstation_macos.nix 
           ./profiles/sum_rock_wrk.nix
         ];
       };
@@ -54,3 +54,4 @@
 }
 
  
+

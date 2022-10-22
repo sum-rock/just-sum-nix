@@ -1,8 +1,16 @@
-{ config, pkgs, zsh-autocomplete, ... }:
+{ config, pkgs, zsh-autocomplete, home-manager, ... }:
+let
+  user = "august";
+in
 {
+  imports = [
+    home-manager.darwinModule
+    ./modules/terminal
+    ./modules/neovim
+  ];
 
-  users.users.august = {
-    home = "/Users/august";
+  users.users.${user} = {
+    home = "/Users/${user}";
     shell = pkgs.zsh;
   };
 
@@ -13,15 +21,6 @@
     programs.home-manager.enable = true; 
     home.username = "august";
     home.homeDirectory = "/Users/august";
-
-    # programs.tmux.plugins = with pkgs.tmuxPlugins; {
-    #   start = [
-    #     copycat
-    #     gruvbox
-    #     pain-control
-    #     sensible
-    #   ];
-    # };
 
     programs.zsh = {
       enable = true;
