@@ -1,4 +1,4 @@
-{ config, lib, pkgs, home-manager, ... }:
+{ config, pkgs, ... }:
 {
 
   # This font dir option is specific to darwin.
@@ -18,7 +18,8 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     python310
-    neovim
+    nodejs
+    yarn
     neofetch
     tmux
     btop

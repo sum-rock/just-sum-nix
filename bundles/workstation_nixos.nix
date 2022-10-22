@@ -1,6 +1,6 @@
 # Configs common to all workstation installations of Nixos
 
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, ... }:
 
 {
   
@@ -23,11 +23,6 @@
     pulse.enable = true;
   };
   
-  # Home manager settings
-  #   These allow a rebuild without raising the "impure" warning. See issue 
-  #   here https://github.com/divnix/digga/issues/30
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
   
   # Internet stuff
   # ===========================================================================
@@ -46,7 +41,6 @@
 
   environment.systemPackages = with pkgs; [
     vi              # Good for backup 
-    neovim
     wget
     git
     zsh

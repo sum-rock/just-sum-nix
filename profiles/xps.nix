@@ -1,8 +1,38 @@
-{ config, pkgs, ... }:
+{ config, pkgs, home-manager, zsh-autocomplete, ... }:
+let
+  # Username for this profile
+  username = "august"; 
+  
+  # Loads username and args to these modules
+  terminal = ( 
+    import ./modules/terminal { 
+      pkgs = pkgs; 
+      config = config; 
+      zsh-autocomplete = zsh-autocomplete; 
+      home-manager = home-manager;
+      username = username;
+    } 
+  );
+  neovim-custom = (
+    import ./modules/neovim {
+      pkgs = pkgs;
+      config = config;
+      home-manager = home-manager;
+      username = username;
+    }
+  );
+in
 {
+
+  # Home manager settings
+  #   These allow a rebuild without raising the "impure" warning. See issue 
+  #   here https://github.com/divnix/digga/issues/30
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+
   # User setup
   # ----------
-  users.users.august = {
+  users.users.${username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
@@ -10,52 +40,17 @@
       firefox
     ];
   };
-  home-manager.users.august = {
-    users.august = {
+  home-manager.users.${username} = {
+    users.${username} = {
       programs.home-manager.enable = true; 
-      home.username = "august";
-      home.homeDirectory = "/home/august";
+      home.username = "${username}";
+      home.homeDirectory = "/home/${username}";
       programs.zsh = {
         enable = true;
         shellAliases = {
-          ls = "ls -la";
-          rf = "source ~/.zshrc";
-          lsx = "exa --long --all --header --group --git --icons --time-style=long-iso"; 
-          nix-edit = "cd /home/august/.nix; nvim";
-          nix-deploy = "sudo nixos-rebuild switch --flake '/home/august/.nix'";
+          nix-edit = "cd /home/${username}/.nix; nvim";
+          nix-deploy = "sudo nixos-rebuild switch --flake '/home/${username}/.nix'";
         };
       };
     };
-    xdg.configFile = {
-      "alacritty/alacritty.yml".source = ./dotfiles/alacritty/alacritty.yml;
-      "nvim/coc-settings.json".source = ./dotfiles/nvim/coc-settings.json;
-      "i3/config".source = ./dotfiles/i3_wm/i3/config;
-      "rofi/themes/custom.rasi".source = ./dotfiles/i3/rofi/custom.rasi;
-      "wallpaper/space-station.jpg".source = ./dotfiles/i3/wallpaper/space-station.jpg;
-      "polybar".source = pkgs.symlinkJoin {
-        name = "ploybar-symlinks";
-        paths = [
-          ./dotfiles/i3/polybar
-          ./dotfiles/i3/polybar/scripts
-        ];
-      };
-    };
-    programs.rofi = {
-      enable = true;
-      font = "Iosevka 12";
-      theme = "custom";
-      plugins = [
-        pkgs.rofi-emoji
-        pkgs.rofi-calc
-        pkgs.rofi-power-menu
-      ];
-      extraConfig = {
-        modi = "drun,filebrowser,window";
-        dpi = 180;
-        show-icons = true;
-        sort = true;
-        matching = "fuzzy";
-      };
-    }; 
-  };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, zsh-autocomplete, ... }:
+{ config, pkgs, home-manager, zsh-autocomplete, username, ... }:
 {
 
   environment.systemPackages = with pkgs; [ 
@@ -16,7 +16,7 @@
     ];
   };
 
-  home-manager.users.${user} = {
+  home-manager.users.${username} = {
     programs.zsh = {
       enable = true;
       plugins = [

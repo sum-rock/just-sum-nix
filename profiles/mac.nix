@@ -1,31 +1,51 @@
 { config, pkgs, zsh-autocomplete, home-manager, ... }:
-let
-  user = "august";
+let 
+  # Username for this profile
+  username = "august"; 
+  
+  # Loads username and args to these modules
+  terminal = ( 
+    import ./modules/terminal { 
+      pkgs = pkgs; 
+      config = config; 
+      zsh-autocomplete = zsh-autocomplete; 
+      home-manager = home-manager;
+      username = username;
+    } 
+  );
+  neovim-custom = (
+    import ./modules/neovim {
+      pkgs = pkgs;
+      config = config;
+      home-manager = home-manager;
+      username = username;
+    }
+  );
 in
 {
   imports = [
     home-manager.darwinModule
-    ./modules/terminal
-    ./modules/neovim
+    terminal
+    neovim-custom
   ];
 
-  users.users.${user} = {
-    home = "/Users/${user}";
+  users.users.${username} = {
+    home = "/Users/${username}";
     shell = pkgs.zsh;
   };
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  home-manager.users.${user}= {
+  home-manager.users.${username}= {
     programs.home-manager.enable = true; 
-    home.username = "${user}";
-    home.homeDirectory = "/Users/${user}";
+    home.username = "${username}";
+    home.homeDirectory = "/Users/${username}";
 
     programs.zsh = {
       shellAliases = {
-        nix-edit = "cd /Users/august/.nixpkgs; nvim";
-        nix-deploy = "darwin-rebuild switch --flake '/Users/august/.nixpkgs' --impure";
+        nix-edit = "cd /Users/${username}/.nixpkgs; nvim";
+        nix-deploy = "darwin-rebuild switch --flake '/Users/${username}/.nixpkgs' --impure";
         go-homebase = "cd ~/repositories/pyhomebase";
         go-notes = "cd ~/Documents/notes";
         notes = "cd ~/Documents/notes; nvim";

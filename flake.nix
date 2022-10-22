@@ -27,8 +27,6 @@
   {
 
     darwinConfigurations = {
-      # nix build .#darwinConfigurations.sum-rock-wrk.system 
-      # ./result/sw/bin/darwin-rebuild switch --flake .
       sum-rock-wrk = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         specialArgs = attrs;

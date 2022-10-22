@@ -1,4 +1,4 @@
-{ config, pkgs, callPackage, ... }:
+{ config, pkgs, home-manager, username, ... }:
 {
   environment.pathsToLink = [ "/libexec" ];
 
@@ -30,4 +30,37 @@
       ];
     };
   };
+  
+  home-manager.users.${username} = {
+    xdg.configFile = {
+      "i3/config".source = ./dotfiles/i3_wm/i3/config;
+      "rofi/themes/custom.rasi".source = ./dotfiles/i3/rofi/custom.rasi;
+      "wallpaper/space-station.jpg".source = ./dotfiles/i3/wallpaper/space-station.jpg;
+      "polybar".source = pkgs.symlinkJoin {
+        name = "ploybar-symlinks";
+        paths = [
+          ./dotfiles/i3/polybar
+          ./dotfiles/i3/polybar/scripts
+        ];
+      };
+    };
+    programs.rofi = {
+      enable = true;
+      font = "Iosevka 12";
+      theme = "custom";
+      plugins = [
+        pkgs.rofi-emoji
+        pkgs.rofi-calc
+        pkgs.rofi-power-menu
+      ];
+      extraConfig = {
+        modi = "drun,filebrowser,window";
+        dpi = 180;
+        show-icons = true;
+        sort = true;
+        matching = "fuzzy";
+      };
+    }; 
+  };
 }
+
