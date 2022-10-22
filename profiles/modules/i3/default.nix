@@ -1,24 +1,38 @@
-{ config, pkgs, ... }:
+{ config, pkgs, home-manager, username, ... }:
 {
-  home-manager.users.august = {
-    users.august = {
-      programs.home-manager.enable = true; 
-      home.username = "august";
-      home.homeDirectory = "/home/august";
-      programs.zsh = {
+  environment.pathsToLink = [ "/libexec" ];
+
+  services.picom.enable = true;
+
+  services.xserver = {
+    enable = true;
+
+    desktopManager.xterm.enable = false;
+
+    displayManager = {
+      defaultSession = "none+i3";
+      lightdm = {
         enable = true;
-        shellAliases = {
-          ls = "ls -la";
-          rf = "source ~/.zshrc";
-          lsx = "exa --long --all --header --group --git --icons --time-style=long-iso"; 
-          nix-edit = "cd /home/august/.nix; nvim";
-          nix-deploy = "sudo nixos-rebuild switch --flake '/home/august/.nix'";
-        };
       };
     };
+
+    windowManager = {
+      i3.enable = true;
+      i3.package = pkgs.i3-gaps;
+      i3.extraPackages = with pkgs; [
+        i3lock-fancy
+        i3-gaps
+        polybar
+        rofi
+        pywal
+        networkmanager_dmenu
+        feh   # For wallpaper
+      ];
+    };
+  };
+  
+  home-manager.users.${username} = {
     xdg.configFile = {
-      "alacritty/alacritty.yml".source = ./dotfiles/alacritty/alacritty.yml;
-      "nvim/coc-settings.json".source = ./dotfiles/nvim/coc-settings.json;
       "i3/config".source = ./dotfiles/i3_wm/i3/config;
       "rofi/themes/custom.rasi".source = ./dotfiles/i3/rofi/custom.rasi;
       "wallpaper/space-station.jpg".source = ./dotfiles/i3/wallpaper/space-station.jpg;
@@ -49,3 +63,4 @@
     }; 
   };
 }
+

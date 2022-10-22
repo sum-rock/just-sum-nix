@@ -1,12 +1,5 @@
-{ config, lib, pkgs, home-manager, ... }:
+{ config, pkgs, ... }:
 {
-
-  imports = 
-  [
-    home-manager.darwinModule
-    ./components/alacritty.nix
-    ./components/neovim
-  ];
 
   # This font dir option is specific to darwin.
   fonts.fontDir.enable = true;
@@ -25,6 +18,8 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     python310
+    nodejs
+    yarn
     neofetch
     tmux
     btop
@@ -36,3 +31,4 @@
     git
   ];
 }
+

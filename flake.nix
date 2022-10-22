@@ -27,14 +27,12 @@
   {
 
     darwinConfigurations = {
-      # nix build .#darwinConfigurations.sum-rock-wrk.system 
-      # ./result/sw/bin/darwin-rebuild switch --flake .
       sum-rock-wrk = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         specialArgs = attrs;
         modules = [ 
-          ./bundles/macos.nix 
-          ./profiles/sum_rock_wrk.nix
+          ./bundles/workstation_macos.nix 
+          ./profiles/mac.nix
         ];
       };
     };
@@ -45,8 +43,8 @@
         specialArgs = attrs;
         modules = [ 
           ./systems/xps 
-          ./bundles/workstation.nix
-          ./desktops/i3wm
+          ./bundles/workstation_nixos.nix
+          ./profiles/xps.nix
         ];
       };
     };
@@ -54,3 +52,5 @@
 }
 
  
+
+

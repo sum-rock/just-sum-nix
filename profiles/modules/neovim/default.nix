@@ -1,8 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, config, home-manager, username, ... }:
 {
   environment.systemPackages = with pkgs; [
-    nodejs
-    yarn
     rnix-lsp
     nodePackages.coc-pyright
     (
@@ -11,4 +9,10 @@
       }
     )
   ];
+
+  home-manager.users.${username} = {
+    xdg.configFile = { 
+      "nvim/coc-settings.json".source = ./coc-settings.json;
+    };
+  };
 }

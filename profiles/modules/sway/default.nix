@@ -1,6 +1,6 @@
 # Requires the Workstation Bundle
 
-{ config, pkgs, ...  }:
+{ config, pkgs, home-manager, username, ...  }:
 
 {
 
@@ -49,11 +49,9 @@
 
   programs.waybar.enable = true;
 
-  # MOVE TO A PROFILE
-  # -----------------
-  # home-manager.users.august = {
-  #   xdg.configFile."sway/config".source = ./dotfiles/sway/config;
-  #   xdg.configFile."waybar/config".source = ./dotfiles/waybar/config;
-  #   xdg.configFile."waybar/style.css".source = ./dotfiles/waybar/style.css;
-  # };
+  home-manager.users.${username} = {
+     xdg.configFile."sway/config".source = ./dotfiles/sway/config;
+     xdg.configFile."waybar/config".source = ./dotfiles/waybar/config;
+     xdg.configFile."waybar/style.css".source = ./dotfiles/waybar/style.css;
+  };
 }
