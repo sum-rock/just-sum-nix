@@ -1,5 +1,15 @@
 { config, pkgs, ... }:
 {
+  # User setup
+  # ----------
+  users.users.august = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    shell = pkgs.zsh;
+    packages = with pkgs; [
+      firefox
+    ];
+  };
   home-manager.users.august = {
     users.august = {
       programs.home-manager.enable = true; 
