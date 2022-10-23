@@ -56,6 +56,9 @@
     ffmpeg
     exa             # Better than ls
     ripgrep
+    pulseaudio      # | 
+    pamixer         # | For pipewire controls
+    pavucontrol     # |
   ];
 
   programs.neovim = {

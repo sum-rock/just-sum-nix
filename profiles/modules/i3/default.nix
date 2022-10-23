@@ -20,7 +20,6 @@
       i3.enable = true;
       i3.package = pkgs.i3-gaps;
       i3.extraPackages = with pkgs; [
-        pulseaudio
         i3lock-fancy
         i3-gaps
         polybar
