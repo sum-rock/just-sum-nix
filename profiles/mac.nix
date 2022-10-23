@@ -3,30 +3,26 @@ let
   # Username for this profile
   username = "august"; 
   
+  module-namespace = {
+    pkgs = pkgs;
+    config = config;
+    home-manager = home-manager;
+    username = username;
+    zsh-autocomplete = zsh-autocomplete; 
+  };
+  
   # Loads username and args to these modules
-  terminal = ( 
-    import ./modules/terminal { 
-      pkgs = pkgs; 
-      config = config; 
-      zsh-autocomplete = zsh-autocomplete; 
-      home-manager = home-manager;
-      username = username;
-    } 
-  );
-  neovim-custom = (
-    import ./modules/neovim {
-      pkgs = pkgs;
-      config = config;
-      home-manager = home-manager;
-      username = username;
-    }
-  );
+  terminal = ( import ./modules/terminal module-namespace );
+  neovim-custom = ( import ./modules/neovim module-namepace ); 
+  ranger-custom = ( import ./modules/ranger module-namespace );
+
 in
 {
   imports = [
     home-manager.darwinModule
     terminal
     neovim-custom
+    ranger-custom
   ];
 
   users.users.${username} = {

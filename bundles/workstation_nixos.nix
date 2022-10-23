@@ -50,7 +50,6 @@
     neofetch
     tmux
     btop
-    ranger
     gitui
     pciutils
     vlc

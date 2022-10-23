@@ -23,7 +23,6 @@
     neofetch
     tmux
     btop
-    ranger
     gitui
     exa         # Better than ls
     ripgrep
