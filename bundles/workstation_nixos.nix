@@ -40,7 +40,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vi              # Good for backup 
+    vim             # Good for backup 
     wget
     git
     zsh
