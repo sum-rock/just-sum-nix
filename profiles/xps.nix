@@ -21,8 +21,22 @@ let
       username = username;
     }
   );
+  i3-window-manager = (
+    import ./modules/i3 {
+      pkgs = pkgs;
+      config = config;
+      home-manager = home-manager;
+      username = username;
+    }
+  );
 in
 {
+  imports = [
+    home-manager.nixosModule
+    terminal
+    neovim-custom
+    i3-window-manager
+  ];
 
   # Home manager settings
   #   These allow a rebuild without raising the "impure" warning. See issue 
@@ -34,23 +48,22 @@ in
   # ----------
   users.users.${username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "video" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
     ];
   };
   home-manager.users.${username} = {
-    users.${username} = {
-      programs.home-manager.enable = true; 
-      home.username = "${username}";
-      home.homeDirectory = "/home/${username}";
-      programs.zsh = {
-        enable = true;
-        shellAliases = {
-          nix-edit = "cd /home/${username}/.nix; nvim";
-          nix-deploy = "sudo nixos-rebuild switch --flake '/home/${username}/.nix'";
-        };
+    programs.home-manager.enable = true; 
+    home.username = "${username}";
+    home.homeDirectory = "/home/${username}";
+    programs.zsh = {
+      enable = true;
+      shellAliases = {
+        nix-edit = "cd /home/${username}/.nix; nvim";
+        nix-deploy = "sudo nixos-rebuild switch --flake '/home/${username}/.nix'";
       };
     };
+  };
 }

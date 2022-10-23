@@ -26,21 +26,21 @@
         rofi
         pywal
         networkmanager_dmenu
-        feh   # For wallpaper
+        feh                   # For wallpaper
       ];
     };
   };
   
   home-manager.users.${username} = {
     xdg.configFile = {
-      "i3/config".source = ./dotfiles/i3_wm/i3/config;
-      "rofi/themes/custom.rasi".source = ./dotfiles/i3/rofi/custom.rasi;
-      "wallpaper/space-station.jpg".source = ./dotfiles/i3/wallpaper/space-station.jpg;
+      "i3/config".source = ./dotfiles/i3/config;
+      "rofi/themes/custom.rasi".source = ./dotfiles/rofi/custom.rasi;
+      "wallpaper/space-station.jpg".source = ./dotfiles/wallpaper/space-station.jpg;
       "polybar".source = pkgs.symlinkJoin {
         name = "ploybar-symlinks";
         paths = [
-          ./dotfiles/i3/polybar
-          ./dotfiles/i3/polybar/scripts
+          ./dotfiles/polybar
+          ./dotfiles/polybar/scripts
         ];
       };
     };

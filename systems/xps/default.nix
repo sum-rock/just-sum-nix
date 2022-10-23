@@ -1,8 +1,7 @@
-{ config, lib, pkgs, home-manager, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports =
     [
-      home-manager.nixosModule
       ./hardware-configuration.nix
       ./nvidia.nix
     ];
@@ -28,10 +27,12 @@
   networking.hostName = "xps"; 
   
   # Enable screen brightness control
-  # To find the correct keybindings run and subtract 8 from keycode
-  #     nix-shell -p xorg.xev --run "xev -event keyboard"
+  # --------------------------------
+  # NOTE: Must add operating user to the "video" group in a profile.
+  # NOTE: To find the correct keybindings run the command below and subtract 8 
+  # from the resulting keycode
+  #   nix-shell -p xorg.xev --run "xev -event keyboard"
   programs.light.enable = true;
-  users.groups.video.members = [ "august" ]; 
   services.actkbd = {
     enable = true;
     bindings = [
@@ -40,5 +41,6 @@
     ];
   };
 
+  # Increase DPI because of 4K
   services.xserver.dpi = 180;
 }
