@@ -41,6 +41,8 @@
     ];
   };
 
+  hardware.bluetooth.enable = true;
+
   # Increase DPI because of 4K
   services.xserver.dpi = 180;
 }

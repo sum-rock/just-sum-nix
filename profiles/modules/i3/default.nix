@@ -32,12 +32,15 @@
   };
   
   home-manager.users.${username} = {
+    programs.zsh.shellAliases = {
+      reload-polybar = "sh ~/.config/polybar/launch.sh";
+    };
     xdg.configFile = {
       "i3/config".source = ./dotfiles/i3/config;
       "rofi/themes/custom.rasi".source = ./dotfiles/rofi/custom.rasi;
       "wallpaper/space-station.jpg".source = ./dotfiles/wallpaper/space-station.jpg;
       "polybar".source = pkgs.symlinkJoin {
-        name = "ploybar-symlinks";
+        name="polybar";
         paths = [
           ./dotfiles/polybar
           ./dotfiles/polybar/scripts
