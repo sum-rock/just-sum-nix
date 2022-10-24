@@ -13,7 +13,7 @@ let
   
   # Loads username and args to these modules
   terminal = ( import ./modules/terminal module-namespace );
-  neovim-custom = ( import ./modules/neovim module-namepace ); 
+  neovim-custom = ( import ./modules/neovim module-namespace  ); 
   ranger-custom = ( import ./modules/ranger module-namespace );
 
 in
