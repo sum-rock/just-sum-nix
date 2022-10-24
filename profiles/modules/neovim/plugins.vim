@@ -64,3 +64,8 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+" COC-Python 
+" -----------------------------------------------------------------------------
+nnoremap <leader>pyo <cmd>CocCommand python.organizeimports<cr>
+nnoremap <leader>pyf <cmd>call CocAction('format')<cr>
+

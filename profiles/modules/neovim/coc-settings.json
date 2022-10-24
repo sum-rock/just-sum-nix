@@ -2,11 +2,28 @@
   "languageserver": {
     "nix": {
       "command": "rnix-lsp",
-      "filetypes": ["nix"]
+      "filetypes": [
+        "nix"
+      ]
     },
     "python": {
       "command": "coc-pyright",
-      "filetypes": ["python"]
+      "filetypes": [
+        "python"
+      ],
+      "pyright": {
+        "organizeimports": {
+          "provider": "isort"
+        }
+      },
+      "linting": {
+        "flake8Enabled": true
+      },
+      "formatting": {
+        "provider": "black",
+        "blackPath": "/run/current-system/sw/bin/black",
+        "blackArgs": ["--diff", "--quiet", "--fast"]
+      }
     }
   }
 }

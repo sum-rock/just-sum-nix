@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     rnix-lsp
+    fd
     nodePackages.coc-pyright
     (
       neovim.override {
