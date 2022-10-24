@@ -4,6 +4,8 @@
   # This font dir option is specific to darwin.
   fonts.fontDir.enable = true;
 
+  nixpkgs.config.allowBroken = true;
+
   # System
   # ------
   services.nix-daemon.enable = true;  # Auto upgrade nix package and the daemon service.
@@ -17,7 +19,9 @@
   # --------
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    python310
+    python39Full
+    python39Packages.isort
+    python39Packages.black
     nodejs
     yarn
     neofetch
