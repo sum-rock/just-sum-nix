@@ -33,15 +33,6 @@ let g:gitblame_date_format = '%Y-%m-%d'
 let g:gitblame_message_template = '|   <author> ~ <date>   |'
 let g:gitblame_ignored_filetypes = ['nerdtree']
 
-" Minimap 
-" -----------------------------------------------------------------------------
-let g:minimap_width = 10
-let g:minimap_auto_start = 0
-let g:minimap_auto_start_win_enter = 1
-let g:minimap_git_colors = 1
-
-:highlight minimapCursor ctermbg=59  ctermfg=228 guibg=#282828 guifg=#928374
-
 
 " Neoscroll 
 " -----------------------------------------------------------------------------
@@ -50,11 +41,21 @@ lua require('neoscroll').setup()
 
 " NERDTree 
 " -----------------------------------------------------------------------------
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-N> :NERDTreeToggle<CR>
+nnoremap <leader>ntt <cmd>NERDTreeToggle<CR>
+nnoremap <leader>ntf <cmd>NERDTreeFocus<CR>
 
 let NERDTreeMinimalUI=1
+
+
+" Minimap 
+" -----------------------------------------------------------------------------
+let g:minimap_width = 10
+let g:minimap_auto_start = 0
+let g:minimap_auto_start_win_enter = 1
+let g:minimap_git_colors = 1
+:highlight minimapCursor ctermbg=59  ctermfg=228 guibg=#282828 guifg=#928374
+
+nnoremap <leader>mmt <cmd>MinimapToggle<cr>
 
 
 " Telescope 
@@ -64,8 +65,10 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+
 " COC-Python 
 " -----------------------------------------------------------------------------
-nnoremap <leader>pyo <cmd>CocCommand python.organizeimports<cr>
-nnoremap <leader>pyf <cmd>call CocAction('format')<cr>
+nnoremap <leader>fmt <cmd>call CocAction('format')<cr>
+nnoremap <leader>imp <cmd>CocCommand pyright.organizeimports<cr>
+nnoremap gd <Plug>(coc-definition)
 

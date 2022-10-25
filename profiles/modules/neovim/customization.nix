@@ -26,7 +26,8 @@ in
      minimap-vim
      git-blame-nvim
      bufferline-nvim
-     vim-fugitive
+     vim-gitgutter
+     terminus       # Helps integrate into terminal required for gitgutter
      coc-nvim
      coc-pyright
      coc-html
