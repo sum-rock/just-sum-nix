@@ -27,7 +27,9 @@ in
      git-blame-nvim
      bufferline-nvim
      vim-gitgutter
+     toggleterm-nvim
      terminus       # Helps integrate into terminal required for gitgutter
+     vim-polyglot
      coc-nvim
      coc-pyright
      coc-html

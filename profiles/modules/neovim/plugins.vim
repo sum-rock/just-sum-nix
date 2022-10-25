@@ -25,6 +25,11 @@ bufferline.setup {
 }
 EOF
 
+" Toggleterm
+" -----------------------------------------------------------------------------
+lua require("toggleterm").setup {}
+nnoremap <c-t>h <Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<cr>
+nnoremap <c-t>f <Cmd>exe v:count1 . "ToggleTerm direction=float"<cr>
 
 " Git-Blame
 " -----------------------------------------------------------------------------

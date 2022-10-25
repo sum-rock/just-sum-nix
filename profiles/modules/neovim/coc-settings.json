@@ -5,12 +5,6 @@
       "filetypes": [
         "nix"
       ]
-    },
-    "python": {
-      "command": "coc-pyright",
-      "filetypes": [
-        "python"
-      ]
     }
   },
   "pyright": {
