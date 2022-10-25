@@ -10,20 +10,17 @@
       "command": "coc-pyright",
       "filetypes": [
         "python"
-      ],
-      "pyright": {
-        "organizeimports": {
-          "provider": "isort"
-        }
-      },
-      "linting": {
-        "flake8Enabled": true
-      },
-      "formatting": {
-        "provider": "black",
-        "blackPath": "/run/current-system/sw/bin/black",
-        "blackArgs": ["--diff", "--quiet", "--fast"]
-      }
+      ]
+    }
+  },
+  "pyright": {
+    "organizeimports.provider": "isort"
+  },
+  "python": {
+    "linting.flake8Enabled": true,
+    "formatting": {
+      "provider": "black",
+      "blackPath": "/run/current-system/sw/bin/black"
     }
   }
 }
