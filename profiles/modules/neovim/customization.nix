@@ -25,6 +25,7 @@ in
      telescope-nvim
      minimap-vim
      git-blame-nvim
+     diffview-nvim
      bufferline-nvim
      vim-gitgutter
      toggleterm-nvim
