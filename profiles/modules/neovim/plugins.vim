@@ -26,11 +26,21 @@ bufferline.setup {
 EOF
 
 
+" Toggleterm
+" -----------------------------------------------------------------------------
+lua require("toggleterm").setup{float_opts = { border = 'curved' }}
+nnoremap <c-t>h <Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<cr>
+nnoremap <c-t>f <Cmd>exe v:count1 . "ToggleTerm direction=float"<cr>
+nnoremap <c-t>t <Cmd>exe v:count1 . "ToggleTerm direction=tab"<cr>
+nnoremap <c-t>v <Cmd>exe v:count1 . "ToggleTerm direction=vertical"<cr>
+tnoremap <c-t> <cmd>ToggleTerm<cr>
+
+
 " Git-Blame
 " -----------------------------------------------------------------------------
-let g:gitblame_enabled = 1
+let g:gitblame_enabled = 1  " turned off
 let g:gitblame_date_format = '%Y-%m-%d'
-let g:gitblame_message_template = '|   <author> ~ <date>   |'
+let g:gitblame_message_template = '        <author> ~ <date>'
 let g:gitblame_ignored_filetypes = ['nerdtree']
 
 
@@ -39,10 +49,10 @@ let g:gitblame_ignored_filetypes = ['nerdtree']
 lua require('neoscroll').setup()
 
 
-" NERDTree 
+" NERDTree
 " -----------------------------------------------------------------------------
-nnoremap <leader>ntt <cmd>NERDTreeToggle<CR>
-nnoremap <leader>ntf <cmd>NERDTreeFocus<CR>
+nnoremap <C-n>n <cmd>NERDTreeToggle<CR>
+nnoremap <C-n>f <cmd>NERDTreeFocus<CR>
 
 let NERDTreeMinimalUI=1
 
@@ -53,9 +63,9 @@ let g:minimap_width = 10
 let g:minimap_auto_start = 0
 let g:minimap_auto_start_win_enter = 1
 let g:minimap_git_colors = 1
-:highlight minimapCursor ctermbg=59  ctermfg=228 guibg=#282828 guifg=#928374
+highlight minimapCursor ctermbg=59  ctermfg=228 guibg=#282828 guifg=#928374
 
-nnoremap <leader>mmt <cmd>MinimapToggle<cr>
+nnoremap <leader>mm <cmd>MinimapToggle<cr>
 
 
 " Telescope 
@@ -70,5 +80,9 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " -----------------------------------------------------------------------------
 nnoremap <leader>fmt <cmd>call CocAction('format')<cr>
 nnoremap <leader>imp <cmd>CocCommand pyright.organizeimports<cr>
-nnoremap gd <Plug>(coc-definition)
+nnoremap def <Plug>(coc-definition)
 
+
+" Diffview
+" -----------------------------------------------------------------------------
+nnoremap <leader>hst <cmd>DiffviewFileHistory %<cr>
