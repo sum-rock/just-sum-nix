@@ -32,6 +32,7 @@
     btop
     gitui
     exa         # Better than ls
+    du-dust
     ripgrep
     gnugrep
     wget
