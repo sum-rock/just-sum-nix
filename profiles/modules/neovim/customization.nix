@@ -11,10 +11,8 @@ in
     ${plugins}
   '';
   packages.neovimPlugins = with pkgs.vimPlugins; {
-   start = [
-     gruvbox-nvim
-     vim-airline
-     vim-airline-themes
+    start = [
+     lualine-nvim 
      nvim-treesitter
      nerdtree
      vim-devicons
