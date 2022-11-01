@@ -50,6 +50,7 @@
     neofetch
     tmux
     btop
+    du-dust
     gitui
     pciutils
     vlc
