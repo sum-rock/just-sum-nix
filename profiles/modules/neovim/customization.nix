@@ -12,28 +12,29 @@ in
   '';
   packages.neovimPlugins = with pkgs.vimPlugins; {
     start = [
-     lualine-nvim 
-     nvim-treesitter
-     nerdtree
-     vim-devicons
-     vim-nerdtree-syntax-highlight
-     vim-nix 
-     vim-startify
-     neoscroll-nvim
-     telescope-nvim
-     minimap-vim
-     git-blame-nvim
-     diffview-nvim
-     bufferline-nvim
-     vim-gitgutter
-     toggleterm-nvim
-     terminus       # Helps integrate into terminal required for gitgutter
-     vim-polyglot
-     coc-nvim
-     coc-pyright
-     coc-html
-     coc-tsserver
-     coc-json
+      gruvbox
+      lualine-nvim 
+      nvim-treesitter
+      nerdtree
+      vim-devicons
+      vim-nerdtree-syntax-highlight
+      vim-nix 
+      vim-startify
+      neoscroll-nvim
+      telescope-nvim
+      minimap-vim
+      git-blame-nvim
+      diffview-nvim
+      bufferline-nvim
+      vim-gitgutter
+      toggleterm-nvim
+      terminus       # Helps integrate into terminal required for gitgutter
+      vim-polyglot
+      coc-nvim
+      coc-pyright
+      coc-html
+      coc-tsserver
+      coc-json
    ];
   };
 }
