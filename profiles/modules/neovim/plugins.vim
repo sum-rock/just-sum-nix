@@ -1,7 +1,18 @@
 " Lualine 
 " -----------------------------------------------------------------------------
-lua require("lualine").setup { options = { theme = "gruvbox_dark" }, }
-
+lua << EOF
+local present, lualine = pcall(require, "lualine")
+if not present then
+  return
+end
+lualine.setup {
+  options = { 
+    theme = 'gruvbox_dark',
+    icons_enabled = true
+  }
+}
+EOF
+"
 
 " Bufferline
 " -----------------------------------------------------------------------------

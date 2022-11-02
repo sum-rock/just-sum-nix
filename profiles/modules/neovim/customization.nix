@@ -14,6 +14,7 @@ in
     start = [
       gruvbox
       lualine-nvim 
+      nvim-web-devicons
       nvim-treesitter
       nerdtree
       vim-devicons
