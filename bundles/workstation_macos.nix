@@ -41,7 +41,7 @@
     gitui
     curl
     pre-commit
-    postgresql
+    postgresql_14
     sqlite
     glow
     lazydocker
