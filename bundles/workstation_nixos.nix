@@ -60,6 +60,7 @@
     pulseaudio      # | 
     pamixer         # | For pipewire controls
     pavucontrol     # |
+    discord
   ];
 
   programs.neovim = {
