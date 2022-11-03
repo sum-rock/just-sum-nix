@@ -60,6 +60,7 @@
     pulseaudio      # | 
     pamixer         # | For pipewire controls
     pavucontrol     # |
+    discord
   ];
 
   programs.neovim = {
@@ -67,4 +68,9 @@
     defaultEditor = true;
   };
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
 }
