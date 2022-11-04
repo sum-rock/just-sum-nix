@@ -7,7 +7,7 @@ if not present then
 end
 lualine.setup {
   options = { 
-    theme = 'gruvbox_dark',
+    theme = 'gruvbox-flat',
     icons_enabled = true
   }
 }
