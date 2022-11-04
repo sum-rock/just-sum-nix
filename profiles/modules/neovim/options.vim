@@ -20,7 +20,7 @@ nnoremap bn :bn<enter>
 " -----------------------------------------------------------------------------
 
 set background=dark
-colorscheme gruvbox
+colorscheme gruvbox-flat
 
 highlight clear LineNr
 highlight LineNr guifg=gray
@@ -37,4 +37,5 @@ highlight GitGutterAdd guibg=clear
 highlight GitGutterChange guibg=clear
 highlight GitGutterDelete guibg=clear
 
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+" Required if using opacity alpha in alacritty.yml
+" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE

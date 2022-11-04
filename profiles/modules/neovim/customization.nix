@@ -12,7 +12,7 @@ in
   '';
   packages.neovimPlugins = with pkgs.vimPlugins; {
     start = [
-      gruvbox
+      gruvbox-flat-nvim
       lualine-nvim 
       nvim-web-devicons
       nvim-treesitter
