@@ -61,6 +61,8 @@
     pamixer         # | For pipewire controls
     pavucontrol     # |
     discord
+    blueberry
+    unzip
   ];
 
   programs.neovim = {
