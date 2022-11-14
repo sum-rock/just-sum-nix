@@ -4,6 +4,7 @@
     rnix-lsp
     fd
     nodePackages.coc-pyright
+    neovide
     (
       neovim.override {
         configure = ( import ./customization.nix { pkgs = pkgs; config = config; } );
