@@ -41,6 +41,7 @@
 
   environment.systemPackages = with pkgs; [
     vim             # Good for backup 
+    neovide         # Needs to be here because neovide doesn't work on M1
     wget
     git
     zsh
