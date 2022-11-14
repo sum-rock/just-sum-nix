@@ -61,6 +61,12 @@
     pamixer         # | For pipewire controls
     pavucontrol     # |
     discord
+    blueberry
+    unzip
+    renpy
+    wine-staging
+    winetricks
+    qbittorrent
   ];
 
   programs.neovim = {
