@@ -15,7 +15,7 @@ in
       gruvbox-flat-nvim
       lualine-nvim 
       nvim-web-devicons
-      nvim-treesitter
+      (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
       nerdtree
       vim-devicons
       vim-nerdtree-syntax-highlight

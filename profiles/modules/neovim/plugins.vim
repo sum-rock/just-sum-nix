@@ -12,7 +12,6 @@ lualine.setup {
   }
 }
 EOF
-"
 
 " Bufferline
 " -----------------------------------------------------------------------------
@@ -43,11 +42,12 @@ nnoremap <c-t>f <Cmd>exe v:count1 . "ToggleTerm direction=float"<cr>
 nnoremap <c-t>t <Cmd>exe v:count1 . "ToggleTerm direction=tab"<cr>
 nnoremap <c-t>v <Cmd>exe v:count1 . "ToggleTerm direction=vertical"<cr>
 tnoremap <c-t> <cmd>ToggleTerm<cr>
+tnoremap <leader><esc> <c-\><c-n>
 
 
 " Git-Blame
 " -----------------------------------------------------------------------------
-let g:gitblame_enabled = 1  " turned off
+let g:gitblame_enabled = 1 
 let g:gitblame_date_format = '%Y-%m-%d'
 let g:gitblame_message_template = '        <author> ~ <date>'
 let g:gitblame_ignored_filetypes = ['nerdtree']
