@@ -37,6 +37,7 @@ in
     programs.home-manager.enable = true; 
     home.username = "${username}";
     home.homeDirectory = "/Users/${username}";
+    home.stateVersion = "22.11";
 
     programs.zsh = {
       shellAliases = {
