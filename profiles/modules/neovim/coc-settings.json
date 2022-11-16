@@ -8,7 +8,8 @@
     }
   },
   "pyright": {
-    "organizeimports.provider": "isort"
+    "organizeimports.provider": "isort",
+    "inlayHints.variableTypes": false
   },
   "python": {
     "linting.flake8Enabled": true,
