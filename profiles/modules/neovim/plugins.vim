@@ -55,7 +55,7 @@ let g:gitblame_ignored_filetypes = ['nerdtree']
 
 " Neoscroll 
 " -----------------------------------------------------------------------------
-lua require('neoscroll').setup()
+lua require('neoscroll').setup({ stop_eof = false })
 
 
 " NERDTree
