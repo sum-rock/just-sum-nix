@@ -7,7 +7,7 @@
   # System
   # ===========================================================================
   # Must declare state here and it must match the release channel in flake.nix
-  system.stateVersion = "22.05";
+  system.stateVersion = "unstable";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Localization

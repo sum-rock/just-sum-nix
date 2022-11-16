@@ -5,10 +5,10 @@
     # Core systems
     # ------------
     nixpkgs = {
-      url = "github:nixos/nixpkgs/release-22.05";
+      url = "github:nixos/nixpkgs/nixos-unstable";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     darwin = {
