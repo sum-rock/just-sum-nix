@@ -18,7 +18,6 @@ in
       (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
       nerdtree
       vim-devicons
-      vim-nerdtree-syntax-highlight
       vim-nix 
       vim-startify
       neoscroll-nvim
