@@ -44,6 +44,7 @@ in
   };
   home-manager.users.${username} = {
     programs.home-manager.enable = true; 
+    home.stateVersion = "22.11";
     home.username = "${username}";
     home.homeDirectory = "/home/${username}";
     programs.zsh = {
