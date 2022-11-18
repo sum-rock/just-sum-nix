@@ -16,7 +16,7 @@ in
       lualine-nvim 
       nvim-web-devicons
       (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
-      nerdtree
+      nvim-tree-lua
       vim-devicons
       vim-nix 
       vim-startify

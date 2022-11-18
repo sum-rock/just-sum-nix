@@ -1,5 +1,5 @@
-" Lualine 
-" -----------------------------------------------------------------------------
+"" Lualine 
+"" -----------------------------------------------------------------------------
 lua << EOF
 local present, lualine = pcall(require, "lualine")
 if not present then
@@ -13,8 +13,8 @@ lualine.setup {
 }
 EOF
 
-" Bufferline
-" -----------------------------------------------------------------------------
+"" Bufferline
+"" -----------------------------------------------------------------------------
 set termguicolors
 lua << EOF
 local present, bufferline = pcall(require, "bufferline")
@@ -24,7 +24,7 @@ end
 bufferline.setup {
   options = {
     offsets = { {
-      filetype = "nerdtree",
+      filetype = "NvimTree",
       text = "File Explorer",
       highlight = "Directory"
     } },
@@ -34,8 +34,8 @@ bufferline.setup {
 EOF
 
 
-" Toggleterm
-" -----------------------------------------------------------------------------
+"" Toggleterm
+"" -----------------------------------------------------------------------------
 lua require("toggleterm").setup{float_opts = { border = 'curved' }}
 nnoremap <c-t>h <Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<cr>
 nnoremap <c-t>f <Cmd>exe v:count1 . "ToggleTerm direction=float"<cr>
@@ -45,29 +45,34 @@ tnoremap <c-t> <cmd>ToggleTerm<cr>
 tnoremap <leader><esc> <c-\><c-n>
 
 
-" Git-Blame
-" -----------------------------------------------------------------------------
+"" Git-Blame
+"" -----------------------------------------------------------------------------
 let g:gitblame_enabled = 1 
 let g:gitblame_date_format = '%Y-%m-%d'
 let g:gitblame_message_template = '        <author> ~ <date>'
-let g:gitblame_ignored_filetypes = ['nerdtree']
+let g:gitblame_ignored_filetypes = ['NvimTree']
 
 
-" Neoscroll 
-" -----------------------------------------------------------------------------
+"" Neoscroll 
+"" -----------------------------------------------------------------------------
 lua require('neoscroll').setup({ stop_eof = false })
 
 
-" NERDTree
-" -----------------------------------------------------------------------------
-nnoremap <C-n>n <cmd>NERDTreeToggle<CR>
-nnoremap <C-n>f <cmd>NERDTreeFocus<CR>
+"" NvimTree
+"" -----------------------------------------------------------------------------
+lua << EOF
+require("nvim-tree").setup({
+  filters = { dotfiles = true, },
+})
+EOF
+nnoremap <c-n>n <cmd>NvimTreeToggle<cr>
+nnoremap <c-n>g <cmd>NvimTreeFocus<cr>
+nnoremap <c-n>c <cmd>NvimTreeCollapse<cr>
+nnoremap <c-n>f <cmd>NvimTreeFindFile<cr>
 
-let NERDTreeMinimalUI=1
 
-
-" Minimap 
-" -----------------------------------------------------------------------------
+"" Minimap 
+"" -----------------------------------------------------------------------------
 let g:minimap_width = 10
 let g:minimap_auto_start = 0
 let g:minimap_auto_start_win_enter = 1
@@ -77,21 +82,21 @@ highlight minimapCursor ctermbg=59  ctermfg=228 guibg=#282828 guifg=#928374
 nnoremap <leader>mm <cmd>MinimapToggle<cr>
 
 
-" Telescope 
-" -----------------------------------------------------------------------------
+"" Telescope 
+"" -----------------------------------------------------------------------------
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 
-" COC-Python 
-" -----------------------------------------------------------------------------
+"" COC-Python 
+"" -----------------------------------------------------------------------------
 nnoremap <leader>fmt <cmd>call CocAction('format')<cr>
 nnoremap <leader>imp <cmd>CocCommand pyright.organizeimports<cr>
 nnoremap def <Plug>(coc-definition)
 
 
-" Diffview
-" -----------------------------------------------------------------------------
+"" Diffview
+"" -----------------------------------------------------------------------------
 nnoremap <leader>hst <cmd>DiffviewFileHistory %<cr>
