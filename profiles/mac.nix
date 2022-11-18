@@ -59,7 +59,6 @@ in
       initExtra = ''
         VSCODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin" 
         AFFECT_TOOLS="$HOME/repositories/affect-tools/tools/bin"  
-        if [ -d "$HOME/.poetry" ] ; then export PATH="$HOME/.poetry/bin:$PATH" ; fi
         if [ -d $VSCODE ] ; then export PATH="$VSCODE:$PATH" ; fi
         if [ -d "$HOME/go/bin" ]; then export PATH="$HOME/go/bin:$PATH" ; fi 
         if [ -d $AFFECT_TOOLS ]; then export PATH="$AFFECT_TOOLS:$PATH" ; fi

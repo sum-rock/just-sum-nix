@@ -23,6 +23,7 @@
     python39Full
     python39Packages.isort
     python39Packages.black
+    poetry
     chromedriver
     nodejs
     yarn
