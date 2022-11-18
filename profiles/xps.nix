@@ -13,17 +13,17 @@ let
   
   # Loads username and args to these modules
   terminal = ( import ./modules/terminal module-namespace );
-  neovim-custom = ( import ./modules/neovim module-namespace );
-  ranger-custom = ( import ./modules/ranger module-namespace );
-  i3-custom = ( import ./modules/i3 module-namespace );
+  neovim = ( import ./modules/neovim module-namespace );
+  ranger = ( import ./modules/ranger module-namespace );
+  gnome = ( import ./modules/gnome module-namespace );
 in
 {
   imports = [
     home-manager.nixosModule
     terminal
-    i3-custom
-    neovim-custom
-    ranger-custom
+    neovim
+    ranger
+    gnome
   ];
 
   # Home manager settings
