@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, zsh-autocomplete, ... }:
+{ config, pkgs, home-manager, zsh-autocomplete, gruvbox-gtk, ... }:
 let
   # Username for this profile
   username = "august"; 
@@ -9,6 +9,7 @@ let
     home-manager = home-manager;
     username = username;
     zsh-autocomplete = zsh-autocomplete; 
+    gruvbox-gtk = gruvbox-gtk;
   };
   
   # Loads username and args to these modules
