@@ -21,6 +21,10 @@
       url = "github:marlonrichert/zsh-autocomplete/main";
       flake = false;
     };
+    gruvbox-gtk = {
+      url = "github:Fausto-Korpsvart/Gruvbox-GTK-Theme/master";
+      flake = false;
+    };
   };
 
   outputs = { self, darwin, nixpkgs, ... }@attrs: 
