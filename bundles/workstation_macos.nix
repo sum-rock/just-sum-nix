@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
 
+  imports = [ ./common.nix ];
+
   # This font dir option is specific to darwin.
   fonts.fontDir.enable = true;
 
@@ -20,36 +22,12 @@
   # --------
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    python39Full
-    python39Packages.isort
-    python39Packages.black
-    poetry
     chromedriver
-    nodejs
-    yarn
-    neofetch
-    tmux
-    btop
-    gitui
-    exa         # Better than ls
-    du-dust
-    ripgrep
-    gnugrep
-    wget
-    git
-    jq
-    gitui
-    curl
-    pre-commit
     postgresql_14
     sqlite
-    glow
-    lazydocker
     duplicity
     tree-sitter
     dbeaver
-    openssl
-    gnupg
   ];
 }
 
