@@ -1,5 +1,3 @@
-# Configs common to all workstation installations of Nixos
-
 { config, pkgs, ... }:
 
 {
@@ -57,6 +55,11 @@
     wine-staging
     winetricks
   ];
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   programs.steam = {
     enable = true;
