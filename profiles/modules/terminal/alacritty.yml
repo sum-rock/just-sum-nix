@@ -4,7 +4,7 @@ window:
     y: 12 
   dynamic_padding: false 
   #  opacity: .98
-  decorations: None 
+  decorations: full 
    
 font:
   size: 14
@@ -49,4 +49,4 @@ colors:
     - { index: 17, color: '0xc14a4a' }
 
 env:
-  WINIT_X11_SCALE_FACTOR: "2.0"
+  TERM: alacritty 
