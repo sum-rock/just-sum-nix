@@ -1,5 +1,11 @@
 { pkgs, config, home-manager, username, ... }:
 {
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
   environment.systemPackages = with pkgs; [
     rnix-lsp
     fd

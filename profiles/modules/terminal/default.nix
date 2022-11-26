@@ -1,10 +1,9 @@
 { config, pkgs, home-manager, zsh-autocomplete, username, ... }:
 {
 
-  environment.systemPackages = with pkgs; [ 
-    zsh
-    tmux
-    exa
+  # To use this module tmux and exa are required
+
+  environment.systemPackages = with pkgs; [
     alacritty 
     starship 
   ];

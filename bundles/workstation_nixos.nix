@@ -3,6 +3,7 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ./common.nix ];
   
   # System
   # ===========================================================================
@@ -41,39 +42,21 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vim             # Good for backup 
-    wget
-    git
-    zsh
     networkmanager
-    psmisc          # Includes ps commands that are commonly used. (e.g., killall)
-    python310
-    neofetch
-    tmux
-    btop
-    du-dust
-    gitui
-    pciutils
-    vlc
-    ffmpeg
-    exa             # Better than ls
-    ripgrep
     pulseaudio      # | 
     pamixer         # | For pipewire controls
     pavucontrol     # |
+    psmisc          # Includes ps commands that are commonly used. (e.g., killall)
+    pciutils
+    vlc
+    ffmpeg
+    qbittorrent
     discord
-    blueberry
-    unzip
+    standardnotes
     renpy
     wine-staging
     winetricks
-    qbittorrent
   ];
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
 
   programs.steam = {
     enable = true;
