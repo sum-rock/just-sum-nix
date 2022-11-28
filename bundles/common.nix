@@ -7,9 +7,6 @@
     python39Full
     python39Packages.isort
     python39Packages.black
-    python310
-    python310Packages.black
-    python310Packages.isort
     poetry
     nodejs
     yarn
