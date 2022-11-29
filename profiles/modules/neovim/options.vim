@@ -12,8 +12,10 @@ set hidden    " Requred for toggleterm
 " -----------------------------------------------------------------------------
 imap jj <esc>
 vmap oo <esc>
-nnoremap <Leader>/ :noh<enter>
-nnoremap bn :bn<enter>
+nnoremap <Leader>/ <cmd>noh<cr>
+nnoremap bn <cmd>bn<cr>
+nnoremap bp <cmd>bp<cr>
+nnoremap bw <cmd>bw<cr><cmd>bn<cr>
 
 
 " Colors
