@@ -94,8 +94,14 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 "" -----------------------------------------------------------------------------
 nnoremap <leader>fmt <cmd>call CocAction('format')<cr>
 nnoremap <leader>imp <cmd>CocCommand pyright.organizeimports<cr>
-nnoremap def <Plug>(coc-definition)
 
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 "" Diffview
 "" -----------------------------------------------------------------------------
