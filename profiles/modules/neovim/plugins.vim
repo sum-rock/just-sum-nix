@@ -107,3 +107,8 @@ inoremap <silent><expr> <c-f> coc#pum#visible() ? coc#pum#confirm()
 "" -----------------------------------------------------------------------------
 nnoremap <leader>hst <cmd>DiffviewFileHistory %<cr>
 
+
+"" Glow (PDF viewer)
+"" -----------------------------------------------------------------------------
+lua require('glow').setup({ style = "dark", })
+
