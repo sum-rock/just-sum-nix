@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [ ./common.nix ];
@@ -35,35 +35,65 @@
   programs.mtr.enable = true;
   nixpkgs.config.allowUnfree = true;
   programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
+   enable = true;
+   enableSSHSupport = true;
   };
 
   environment.systemPackages = with pkgs; [
-    networkmanager
+
+    # Basics
+    # ------
     pulseaudio      # | 
     pamixer         # | For pipewire controls
     pavucontrol     # |
-    psmisc          # Includes ps commands that are commonly used. (e.g., killall)
+    networkmanager
+    psmisc          #   Includes ps commands that are commonly used. (e.g., killall)
     pciutils
     vlc
     ffmpeg
+
+    # Yubikey
+    # -------
+    yubico-piv-tool
+    yubikey-personalization
+    pinentry-curses
+    paperkey
+
+    # Gaming
+    # ------
     qbittorrent
     discord
-    standardnotes
     renpy
     wine-staging
     winetricks
+
+    # Applications 
+    # ------------
+    standardnotes
+    dbeaver
+
   ];
 
+  # Default Editor
   programs.neovim = {
     enable = true;
     defaultEditor = true;
   };
-
+  
+  # Steam Stuff
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+
+  # Yubikey
+  programs.ssh.startAgent = false;
+  services.udev.packages = [ pkgs.yubikey-personalization ];
+  services.pcscd.enable = true;
+  environment.shellInit = ''
+    export GPG_TTY="$(tty)"
+    gpg-connect-agent /bye
+    export SSH_AUTH_SOCK="/run/user/1000/gnupg/S.gpg-agent.ssh"
+  '';
 }
