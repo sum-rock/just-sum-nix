@@ -1,8 +1,14 @@
-{ config, pkgs, home-manager, zsh-autocomplete, username, ... }:
+{ 
+  config, 
+  pkgs, 
+  home-manager, 
+  zsh-autocomplete, 
+  tmux-plugin-manager,
+  username, 
+  ... 
+}:
 {
-
   # To use this module tmux and exa are required
-
   environment.systemPackages = with pkgs; [
     alacritty 
     starship 
@@ -38,12 +44,7 @@
 
     xdg.configFile = {
       "alacritty/alacritty.yml".source = ./alacritty.yml;
-      "tmux/plugins/tpm".source = pkgs.fetchFromGitHub {
-        owner = "tmux-plugins";
-        repo = "tpm";
-        rev = "master";
-        sha256 = "sha256-aGRy5ah1Dxb+94QoIkOy0nKlmAOFq2y5xnf2B852JY0=";
-      };
+      "tmux/plugins/tpm".source = "${tmux-plugin-manager}";
     };
   };
 }
