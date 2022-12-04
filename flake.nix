@@ -65,7 +65,7 @@
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [
-          ./systems/razor
+          ./systems/razer
           ./bundles/workstation_nixos.nix
           ./profiles/august.nix
         ];
