@@ -83,6 +83,7 @@
     # ------------
     standardnotes
     dbeaver
+    _1password-gui
 
   ];
 
