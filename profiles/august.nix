@@ -1,4 +1,13 @@
-{ config, pkgs, home-manager, zsh-autocomplete, gruvbox-gtk, ... }:
+{ 
+  config, 
+  pkgs, 
+  home-manager, 
+  zsh-autocomplete, 
+  gruvbox-gtk,
+  ranger-devicons,
+  tmux-plugin-manager,
+  ... 
+}:
 let
   # Username for this profile
   username = "august"; 
@@ -7,9 +16,11 @@ let
     pkgs = pkgs;
     config = config;
     home-manager = home-manager;
-    username = username;
     zsh-autocomplete = zsh-autocomplete; 
     gruvbox-gtk = gruvbox-gtk;
+    ranger-devicons = ranger-devicons;
+    tmux-plugin-manager = tmux-plugin-manager;
+    username = username;
   };
   
   # Loads username and args to these modules

@@ -2,6 +2,7 @@
   description = "sum-rock's very nice flake";
   
   inputs = {
+
     # Core systems
     # ------------
     nixpkgs = {
@@ -15,6 +16,7 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     # Extras
     # ------
     zsh-autocomplete = {
@@ -23,6 +25,14 @@
     };
     gruvbox-gtk = {
       url = "github:Fausto-Korpsvart/Gruvbox-GTK-Theme/master";
+      flake = false;
+    };
+    ranger-devicons = {
+      url = "github:cdump/ranger-devicons2/master";
+      flake = false;
+    };
+    tmux-plugin-manager = {
+      url = "github:tmux-plugins/tpm/master";
       flake = false;
     };
   };
@@ -61,6 +71,7 @@
         ];
       };
     };
+
   };
 }
 
