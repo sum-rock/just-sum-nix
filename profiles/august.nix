@@ -48,7 +48,7 @@ in
   # ----------
   users.users.${username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "networkmanager" ];
+    extraGroups = [ "wheel" "video" "networkmanager" "plugdev" "openrazer" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
