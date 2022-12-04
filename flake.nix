@@ -48,7 +48,16 @@
         modules = [ 
           ./systems/xps 
           ./bundles/workstation_nixos.nix
-          ./profiles/xps.nix
+          ./profiles/august.nix
+        ];
+      };
+      razor = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [
+          ./systems/razor
+          ./bundles/workstation_macos.nix
+          ./profiles/august.nix
         ];
       };
     };

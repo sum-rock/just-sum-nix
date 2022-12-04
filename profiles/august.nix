@@ -37,7 +37,7 @@ in
   # ----------
   users.users.${username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" ];
+    extraGroups = [ "wheel" "video" "networkmanager" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
@@ -52,7 +52,7 @@ in
       enable = true;
       shellAliases = {
         nix-edit = "cd /home/${username}/.nix; nvim";
-        nix-deploy = "sudo nixos-rebuild switch --flake '/home/${username}/.nix'";
+        nix-deploy = "sudo nixos-rebuild switch --flake '/home/${username}/.nixpkgs'";
       };
     };
   };
