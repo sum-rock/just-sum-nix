@@ -56,7 +56,7 @@
         specialArgs = attrs;
         modules = [
           ./systems/razor
-          ./bundles/workstation_macos.nix
+          ./bundles/workstation_nixos.nix
           ./profiles/august.nix
         ];
       };
