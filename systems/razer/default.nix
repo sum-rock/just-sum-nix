@@ -22,7 +22,7 @@
   boot.initrd.luks.devices."luks-f7239e4c-7fd0-4b9a-a322-5f8d7fa3e219".keyFile = "/crypto_keyfile.bin";
 
   # Hostname
-  networking.hostName = "razor";
+  networking.hostName = "razer";
 
   hardware.openrazer.enable = true;
   environment.systemPackages = with pkgs; [ 
