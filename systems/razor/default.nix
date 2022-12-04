@@ -24,6 +24,12 @@
   # Hostname
   networking.hostName = "razor";
 
+  hardware.openrazer.enable = true;
+  environment.systemPackages = with pkgs; [ 
+    razergenie 
+    openrazer-daemon
+  ];
+
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
