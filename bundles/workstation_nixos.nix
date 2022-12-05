@@ -78,6 +78,7 @@
     renpy
     wine-staging
     winetricks
+    p7zip
 
     # Applications 
     # ------------
