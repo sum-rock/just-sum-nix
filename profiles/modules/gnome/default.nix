@@ -15,6 +15,7 @@
   ];
 
   environment.systemPackages = with pkgs; [ 
+    gnome.dconf-editor
     gnome.gnome-themes-extra
     gtk-engine-murrine
   ];
@@ -28,6 +29,9 @@
       pop-shell
     ];
   };
+
+  # For fractional scalling this has to be run. It is unclear how to get this into nix
+  # gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
   home-manager.users.${username} = {
     xdg.configFile = {
