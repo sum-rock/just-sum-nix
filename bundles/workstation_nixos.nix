@@ -63,6 +63,7 @@
     pciutils
     vlc
     ffmpeg
+    cmake
 
     # Yubikey
     # -------
@@ -78,6 +79,7 @@
     renpy
     wine-staging
     winetricks
+    protontricks
     p7zip
 
     # Applications 
