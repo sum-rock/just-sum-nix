@@ -7,11 +7,21 @@
   username, 
   ... 
 }:
+let 
+  tmux-open = pkgs.writeShellScriptBin "tmux-open" ''
+    if [[ -z $(tmux ls | grep $1) ]]; then
+      tmux new -s $1
+    else
+      tmux attach -t $1
+    fi
+  '';
+in
 {
   # To use this module tmux and exa are required
-  environment.systemPackages = with pkgs; [
-    alacritty 
-    starship 
+  environment.systemPackages = [
+    pkgs.alacritty 
+    pkgs.starship 
+    tmux-open
   ];
 
   fonts = {
