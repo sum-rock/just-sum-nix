@@ -25,7 +25,6 @@
     chromedriver
     postgresql_14
     sqlite
-    duplicity
     tree-sitter
     dbeaver
   ];
