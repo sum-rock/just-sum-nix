@@ -88,6 +88,10 @@
     dbeaver
     _1password-gui
 
+    # To make Windows USBs
+    # --------------------
+    woeusb
+    ntfs3g
   ];
 
   # Default Editor
@@ -104,6 +108,7 @@
   };
 
   # Yubikey
+  # NOTE: This isn't working quite right... maybe
   programs.ssh.startAgent = false;
   services.udev.packages = [ pkgs.yubikey-personalization ];
   services.pcscd.enable = true;

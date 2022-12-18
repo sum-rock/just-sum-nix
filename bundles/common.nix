@@ -36,6 +36,6 @@
     jq
     neofetch
     glow
-    
+    duplicity
   ];
 }
