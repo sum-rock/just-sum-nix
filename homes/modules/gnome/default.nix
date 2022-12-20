@@ -1,6 +1,5 @@
-{ pkgs, config, home-manager, gruvbox-gtk, username,... }:
+{ pkgs, config, home-manager, gruvbox-gtk, ... }:
 {
-
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -20,7 +19,7 @@
     gtk-engine-murrine
   ];
 
-  users.users.${username} = {
+  users.users.${config.primary-user} = {
     packages = with pkgs.gnomeExtensions; [
       blur-my-shell
       desktop-cube
@@ -33,7 +32,7 @@
   # For fractional scalling this has to be run. It is unclear how to get this into nix
   # gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
-  home-manager.users.${username} = {
+  home-manager.users.${config.primary-user} = {
     xdg.configFile = {
       "gtk-4.0".source = "${gruvbox-gtk}/themes/Gruvbox-Dark-BL/gtk-4.0";
     };

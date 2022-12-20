@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, username, ... }:
+{ config, pkgs, home-manager, ... }:
 {
   environment.pathsToLink = [ "/libexec" ];
 
@@ -31,7 +31,7 @@
     };
   };
   
-  home-manager.users.${username} = {
+  home-manager.users.${config.primary-user} = {
     programs.zsh.shellAliases = {
       reload-polybar = "sh ~/.config/polybar/launch.sh";
     };

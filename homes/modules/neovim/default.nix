@@ -1,4 +1,4 @@
-{ pkgs, config, home-manager, username, ... }:
+{ pkgs, config, home-manager, ... }:
 {
   environment.systemPackages = with pkgs; [
     rnix-lsp
@@ -12,7 +12,7 @@
     )
   ];
 
-  home-manager.users.${username} = {
+  home-manager.users.${config.primary-user} = {
     xdg.configFile = { 
       "nvim/coc-settings.json".source = ./coc-settings.json;
     };
