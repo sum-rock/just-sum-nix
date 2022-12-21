@@ -45,8 +45,9 @@
         system = "aarch64-darwin";
         specialArgs = attrs;
         modules = [ 
+          ./users/august.nix
           ./bundles/workstation_macos.nix 
-          ./profiles/mac.nix
+          ./homes/macos.nix
         ];
       };
     };
@@ -56,18 +57,20 @@
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [ 
+          ./users/august.nix
           ./systems/xps 
           ./bundles/workstation_nixos.nix
-          ./profiles/august.nix
+          ./homes/nixos.nix
         ];
       };
       razer = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [
+          ./users/august.nix
           ./systems/razer
           ./bundles/workstation_nixos.nix
-          ./profiles/august.nix
+          ./homes/nixos.nix
         ];
       };
     };

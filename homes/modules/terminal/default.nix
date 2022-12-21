@@ -1,12 +1,4 @@
-{ 
-  config, 
-  pkgs, 
-  home-manager, 
-  zsh-autocomplete, 
-  tmux-plugin-manager,
-  username, 
-  ... 
-}:
+{ config, pkgs, home-manager, zsh-autocomplete, tmux-plugin-manager, ... }:
 let 
   tmux-open = pkgs.writeShellScriptBin "tmux-open" ''
     if [[ -z $(tmux ls | grep $1) ]]; then
@@ -31,7 +23,7 @@ in
     ];
   };
 
-  home-manager.users.${username} = {
+  home-manager.users.${config.primary-user} = {
     programs.zsh = {
       enable = true;
       plugins = [
