@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1668784520,
-        "narHash": "sha256-gGgVAMwYPPmrfnvnoRi6OkEB5KRsNTb9uYzEceLdO/g=",
+        "lastModified": 1671196037,
+        "narHash": "sha256-2+J98SeczFWonbqFLMEAQC7vZEe6I2gM17XYvEmG52I=",
         "owner": "lnl7",
         "repo": "nix-darwin",
-        "rev": "6349b99bc2b96ded34d068a88c7c5ced406b7f7f",
+        "rev": "adb8ac0453c8b2c40f5bffb578453dbaee838952",
         "type": "github"
       },
       "original": {
@@ -24,11 +24,11 @@
     "gruvbox-gtk": {
       "flake": false,
       "locked": {
-        "lastModified": 1669747290,
-        "narHash": "sha256-x2PRaEZ+Bx7iJcYQbNIrZHCCmt7n9pO3KyD151L9mMA=",
+        "lastModified": 1670605472,
+        "narHash": "sha256-Qqzk5TGOHn72mrM1W+hfCCiQ9U88wNEGn6YFyaisIZA=",
         "owner": "Fausto-Korpsvart",
         "repo": "Gruvbox-GTK-Theme",
-        "rev": "840df45d2e3280ce537f75c0ce6d532411795bd9",
+        "rev": "c3172d8dcba66f4125a014d280d41e23f0b95cad",
         "type": "github"
       },
       "original": {
@@ -46,11 +46,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1670280307,
-        "narHash": "sha256-3x+0whP1nCz5adQMIsBA3L9fI/ABOpRUJdbw0AmxBnU=",
+        "lastModified": 1671578428,
+        "narHash": "sha256-YmbpBcPaGz9KE2bC4xPvSdgCSMk0BmS/L3ePvy9TR/M=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2af0d07678fc15612345e0dd55337550dcf6465f",
+        "rev": "0f8bf4f92efa3c6168705b49a6788abb3612033a",
         "type": "github"
       },
       "original": {
@@ -62,11 +62,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1670242877,
-        "narHash": "sha256-jBLh7dRHnbfvPPA9znOC6oQfKrCPJ0El8Zoe0BqnCjQ=",
+        "lastModified": 1671359686,
+        "narHash": "sha256-3MpC6yZo+Xn9cPordGz2/ii6IJpP2n8LE8e/ebUXLrs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "6e51c97f1c849efdfd4f3b78a4870e6aa2da4198",
+        "rev": "04f574a1c0fde90b51bf68198e2297ca4e7cccf4",
         "type": "github"
       },
       "original": {
@@ -139,11 +139,11 @@
     "zsh-autocomplete": {
       "flake": false,
       "locked": {
-        "lastModified": 1668608791,
-        "narHash": "sha256-9R48yD03CXPJ7UV4Lxnp7lq/7q1sa3aZoNhByC8yxW0=",
+        "lastModified": 1670850001,
+        "narHash": "sha256-0yzqbX39hqsE2mAXFY3uoK5zrcm0uZmsTr+dB8keFIs=",
         "owner": "marlonrichert",
         "repo": "zsh-autocomplete",
-        "rev": "866c6610bfeea18b055001703822c9ffd92337f7",
+        "rev": "d00142dd752c15aaa775d79c61ff0611acf20bad",
         "type": "github"
       },
       "original": {
