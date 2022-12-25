@@ -75,7 +75,6 @@
     # Gaming
     # ------
     qbittorrent
-    discord
     renpy
     wine
     winetricks
@@ -84,15 +83,17 @@
 
     # Applications 
     # ------------
+    discord
     standardnotes
     spotify
     dbeaver
     _1password-gui
 
-    # To make Windows USBs
-    # --------------------
-    woeusb
+    # Other
+    # -----
+    woeusb          # To make Windows USBs
     ntfs3g
+    veracrypt
   ];
 
   # Default Editor
