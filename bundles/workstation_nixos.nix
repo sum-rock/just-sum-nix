@@ -77,7 +77,7 @@
     qbittorrent
     discord
     renpy
-    wine-staging
+    wine
     winetricks
     protontricks
     p7zip
@@ -85,6 +85,7 @@
     # Applications 
     # ------------
     standardnotes
+    spotify
     dbeaver
     _1password-gui
 
