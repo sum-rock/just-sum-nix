@@ -23,6 +23,7 @@
     gnugrep
     gnupg
     openssl
+    age
 
     # Quality of Life
     # ---------------

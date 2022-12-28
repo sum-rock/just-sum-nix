@@ -16,6 +16,9 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+    };
 
     # Extras
     # ------
@@ -37,7 +40,7 @@
     };
   };
 
-  outputs = { self, darwin, nixpkgs, ... }@attrs: 
+  outputs = { self, darwin, nixpkgs, sops-nix, ... }@attrs: 
   {
 
     darwinConfigurations = {
@@ -70,7 +73,9 @@
           ./users/august.nix
           ./systems/razer
           ./bundles/workstation_nixos.nix
+          ./secrets/workstation.nix
           ./homes/nixos.nix
+          sops-nix.nixosModules.sops
         ];
       };
     };
