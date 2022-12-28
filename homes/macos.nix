@@ -1,64 +1,36 @@
-{ 
-  config, 
-  pkgs, 
-  home-manager, 
-  zsh-autocomplete, 
-  ranger-devicons,
-  tmux-plugin-manager,
-  ... 
-}:
-let
-  # Username for this profile
-  username = "august"; 
-
-  module-namespace = {
-    pkgs = pkgs;
-    config = config;
-    home-manager = home-manager;
-    zsh-autocomplete = zsh-autocomplete; 
-    ranger-devicons = ranger-devicons;
-    tmux-plugin-manager = tmux-plugin-manager;
-    username = username;
-  };
-  
-  # Loads username and args to these modules
-  terminal = ( import ./modules/terminal module-namespace );
-  neovim-custom = ( import ./modules/neovim module-namespace  ); 
-  ranger-custom = ( import ./modules/ranger module-namespace );
-
-in
+{ config, pkgs, home-manager, ... }:
 {
   imports = [
     home-manager.darwinModule
-    terminal
-    neovim-custom
-    ranger-custom
+    ./modules/terminal
+    ./modules/neovim
+    ./modules/ranger
   ];
 
   primary-user = "august";
   home-dir-path = "/Users/august";
 
-  users.users.${username} = {
-    home = "/Users/${username}";
+  users.users.${config.primary-user} = {
+    home = "/Users/${config.primary-user}";
     shell = pkgs.zsh;
   };
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  home-manager.users.${username}= {
+  home-manager.users.${config.primary-user}= {
     programs.home-manager.enable = true; 
-    home.username = "${username}";
-    home.homeDirectory = "/Users/${username}";
+    home.username = "${config.primary-user}";
+    home.homeDirectory = "${config.home-dir-path}";
     home.stateVersion = "22.11";
 
     programs.zsh = {
       shellAliases = {
-        nix-edit = "cd /Users/${username}/.nixpkgs; nvim";
-        nix-deploy = "darwin-rebuild switch --flake '/Users/${username}/.nixpkgs' --impure";
+        nix-edit = "cd ${config.home-dir-path}/.nixpkgs; nvim .";
+        nix-deploy = "darwin-rebuild switch --flake '/Users/${config.primary-user}/.nixpkgs'";
         go-homebase = "cd ~/repositories/pyhomebase";
         go-notes = "cd ~/Documents/notes";
-        notes = "cd ~/Documents/notes; nvim";
+        notes = "cd ~/Documents/notes; nvim .";
         staging-db = "aptible db:tunnel homebase-two-staging --port 52210";
         production-db = "aptible db:tunnel homebase-two-prod --port 54171";
         git-wipit = "git add .; git commit -m wip --no-verify";

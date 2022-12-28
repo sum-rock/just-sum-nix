@@ -49,9 +49,9 @@
         specialArgs = attrs;
         modules = [ 
           ./options.nix
-          ./users/august.nix
           ./bundles/workstation_macos.nix 
           ./homes/macos.nix
+          sops-nix.nixosModules.sops
         ];
       };
     };
