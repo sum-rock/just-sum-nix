@@ -35,6 +35,16 @@
     pulse.enable = true;
   };
   
+  # User setup
+  # ===========================================================================
+  users.users.${config.primary-user} = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "video" "networkmanager" "plugdev" "openrazer" ];
+    shell = pkgs.zsh;
+    packages = with pkgs; [
+      firefox
+    ];
+  };
   
   # Internet stuff
   # ===========================================================================
