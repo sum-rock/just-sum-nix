@@ -35,6 +35,9 @@ in
     ranger-custom
   ];
 
+  primary-user = "august";
+  home-dir-path = "/Users/august";
+
   users.users.${username} = {
     home = "/Users/${username}";
     shell = pkgs.zsh;

@@ -1,5 +1,8 @@
 { config, pkgs, home-manager, ... }:
 {
+  primary-user = "august";
+  home-dir-path = "/home/august";
+
   imports = [
     home-manager.nixosModule
     ./modules/terminal

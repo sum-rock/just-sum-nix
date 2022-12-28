@@ -48,6 +48,7 @@
         system = "aarch64-darwin";
         specialArgs = attrs;
         modules = [ 
+          ./options.nix
           ./users/august.nix
           ./bundles/workstation_macos.nix 
           ./homes/macos.nix
@@ -60,7 +61,6 @@
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [ 
-          ./users/august.nix
           ./systems/xps 
           ./bundles/workstation_nixos.nix
           ./homes/nixos.nix
@@ -70,7 +70,7 @@
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [
-          ./users/august.nix
+          ./options.nix
           ./systems/razer
           ./bundles/workstation_nixos.nix
           ./secrets/workstation.nix
