@@ -110,13 +110,6 @@
   };
 
   # Yubikey
-  # NOTE: This isn't working quite right... maybe
-  programs.ssh.startAgent = false;
   services.udev.packages = [ pkgs.yubikey-personalization ];
   services.pcscd.enable = true;
-  environment.shellInit = ''
-    export GPG_TTY="$(tty)"
-    gpg-connect-agent /bye
-    export SSH_AUTH_SOCK="/run/user/1000/gnupg/S.gpg-agent.ssh"
-  '';
 }
