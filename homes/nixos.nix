@@ -36,11 +36,12 @@
       enable = true;
       initExtra = ''
         export EDITOR="/run/current-system/sw/bin/nvim"
-        export NIX_CONFIG_PATH="/home/${config.primary-user}/.nixpkgs"
+        export NIX_CONFIG_PATH="${config.home-dir-path}/.nixpkgs"
       '';
       shellAliases = {
         nix-edit = "cd $NIX_CONFIG_PATH; nvim .";
-        nix-deploy = "sudo nixos-rebuild switch --flake $NIX_CONFIG_PATH";
+        nix-test = "sudo nixos-rebuild test --flake $NIX_CONFIG_PATH";
+        nix-deploy = "sudo nixos-rebuild switch --flake github:sum-rock/just-sum-nix/master";
         modify-sops = "cd $NIX_CONFIG_PATH; nix-shell -p sops --run \"sops secrets/secrets.yaml\"";
       };
     };

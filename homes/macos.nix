@@ -11,7 +11,7 @@
   home-dir-path = "/Users/august";
 
   users.users.${config.primary-user} = {
-    home = "/Users/${config.primary-user}";
+    home = "${config.home-dir-path}";
     shell = pkgs.zsh;
   };
 
@@ -27,7 +27,8 @@
     programs.zsh = {
       shellAliases = {
         nix-edit = "cd ${config.home-dir-path}/.nixpkgs; nvim .";
-        nix-deploy = "darwin-rebuild switch --flake '/Users/${config.primary-user}/.nixpkgs'";
+        nix-deploy = "darwin-rebuild switch --flake github:sum-rock/just-sum-nix/master";
+        nix-test = "darwin-rebuild switch --flake ${config.home-dir-path}/.nixpkgs";
         go-homebase = "cd ~/repositories/pyhomebase";
         go-notes = "cd ~/Documents/notes";
         notes = "cd ~/Documents/notes; nvim .";
@@ -37,9 +38,6 @@
         git-pull-develop = "git checkout develop; git pull; git checkout -";
         hb-docker-up = "docker-compose -f ~/repositories/pyhomebase/docker-compose.yml up -d redis rabbitmq db";
         postgres-docker-up = "docker run -d -e POSTGRES_HOST_AUTH_METHOD=trust -p 5432:5432 --name test-postgres postgres";
-        show-utc = "TZ=UTC tock -cms";
-        show-est = "TZ=America/New_York tock -cms";
-        show-cst = "TZ=America/Chicago tock -cms";
       };
       initExtra = ''
         VSCODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin" 
