@@ -1,10 +1,8 @@
 keys:
-  - &august_razer age1unx9wqg6va2uw8rf6qkg80j643rzcnuxkvqhsxhe6qfpw99glfcsr8a9r2 
-  - &august_macos age157q926xn80l3jhjjkg4xt3w77l7np7t9jgqk7j7576ql05353cyqhtc33j
+  - &master age1unx9wqg6va2uw8rf6qkg80j643rzcnuxkvqhsxhe6qfpw99glfcsr8a9r2 
 creation_rules:
   - path_regex: secrets/[^/]+\.yaml$
     key_groups:
     - age:
-      - *august_razer
-      - *august_macos
+      - *master
 
