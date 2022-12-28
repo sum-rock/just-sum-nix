@@ -1,8 +1,5 @@
 { config, pkgs, home-manager, ... }:
 {
-  primary-user = "august";
-  home-dir-path = "/home/august";
-
   imports = [
     home-manager.nixosModule
     ./modules/terminal
@@ -10,6 +7,9 @@
     ./modules/ranger
     ./modules/gnome
   ];
+
+  primary-user = "august";
+  home-dir-path = "/home/august";
 
   # Home manager settings
   #   These allow a rebuild without raising the "impure" warning. See issue 

@@ -51,7 +51,6 @@
           ./options.nix
           ./bundles/workstation_macos.nix 
           ./homes/macos.nix
-          sops-nix.nixosModules.sops
         ];
       };
     };
@@ -61,9 +60,12 @@
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [ 
+          ./options.nix
           ./systems/xps 
           ./bundles/workstation_nixos.nix
+          ./secrets/workstation.nix
           ./homes/nixos.nix
+          sops-nix.nixosModules.sops
         ];
       };
       razer = nixpkgs.lib.nixosSystem {
