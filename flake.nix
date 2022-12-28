@@ -16,6 +16,9 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+    };
 
     # Extras
     # ------
@@ -37,7 +40,7 @@
     };
   };
 
-  outputs = { self, darwin, nixpkgs, ... }@attrs: 
+  outputs = { self, darwin, nixpkgs, sops-nix, ... }@attrs: 
   {
 
     darwinConfigurations = {
@@ -45,7 +48,7 @@
         system = "aarch64-darwin";
         specialArgs = attrs;
         modules = [ 
-          ./users/august.nix
+          ./options.nix
           ./bundles/workstation_macos.nix 
           ./homes/macos.nix
         ];
@@ -57,20 +60,24 @@
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [ 
-          ./users/august.nix
+          ./options.nix
           ./systems/xps 
           ./bundles/workstation_nixos.nix
+          ./secrets/workstation.nix
           ./homes/nixos.nix
+          sops-nix.nixosModules.sops
         ];
       };
       razer = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [
-          ./users/august.nix
+          ./options.nix
           ./systems/razer
           ./bundles/workstation_nixos.nix
+          ./secrets/workstation.nix
           ./homes/nixos.nix
+          sops-nix.nixosModules.sops
         ];
       };
     };

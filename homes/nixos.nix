@@ -8,6 +8,9 @@
     ./modules/gnome
   ];
 
+  primary-user = "august";
+  home-dir-path = "/home/august";
+
   # Home manager settings
   #   These allow a rebuild without raising the "impure" warning. See issue 
   #   here https://github.com/divnix/digga/issues/30
@@ -31,9 +34,14 @@
     home.homeDirectory = "/home/${config.primary-user}";
     programs.zsh = {
       enable = true;
+      initExtra = ''
+        export EDITOR="/run/current-system/sw/bin/nvim"
+        export NIX_CONFIG_PATH="/home/${config.primary-user}/.nixpkgs"
+      '';
       shellAliases = {
-        nix-edit = "cd /home/${config.primary-user}/.nix; nvim";
-        nix-deploy = "sudo nixos-rebuild switch --flake '/home/${config.primary-user}/.nixpkgs'";
+        nix-edit = "cd $NIX_CONFIG_PATH; nvim .";
+        nix-deploy = "sudo nixos-rebuild switch --flake $NIX_CONFIG_PATH";
+        modify-sops = "cd $NIX_CONFIG_PATH; nix-shell -p sops --run \"sops secrets/secrets.yaml\"";
       };
     };
   };
