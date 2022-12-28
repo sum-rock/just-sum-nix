@@ -1,5 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, sops-nix, ... }:
 {
+  imports = [ sops-nix.nixosModules.sops ];
+
   config = {
     sops.age.keyFile = "${config.home-dir-path}/.config/sops/age/keys.txt";
     sops.defaultSopsFile = ./secrets.yaml;

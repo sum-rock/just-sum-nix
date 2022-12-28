@@ -17,16 +17,6 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  # User setup
-  # ----------
-  users.users.${config.primary-user} = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "video" "networkmanager" "plugdev" "openrazer" ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-      firefox
-    ];
-  };
   home-manager.users.${config.primary-user} = {
     programs.home-manager.enable = true; 
     home.stateVersion = "22.11";
