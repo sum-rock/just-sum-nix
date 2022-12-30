@@ -4,6 +4,7 @@
     rnix-lsp
     fd
     nodePackages.coc-pyright
+    luajitPackages.lua-lsp
     neovide
   ];
   home-manager.users.${config.primary-user} = {
@@ -11,7 +12,7 @@
       "nvim/coc-settings.json".source = ./coc-settings.json;
     };
     xdg.configFile = {
-      "nvim/init.vim".source = ./init.vim;
+      "nvim/init.lua".source = ./init.lua;
     };
     programs.neovim = {
       enable = true;

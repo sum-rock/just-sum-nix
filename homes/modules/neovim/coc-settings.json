@@ -1,11 +1,11 @@
-{
-  "languageserver": {
-    "nix": {
-      "command": "rnix-lsp",
-      "filetypes": [
-        "nix"
-      ]
-    }
+"languageserver": {
+  "nix": {
+    "command": "rnix-lsp",
+    "filetypes": [ "nix" ]
+  },
+  "lua": {
+    "command": "lua-lsp",
+    "filetypes": [ "lua" ]
   },
   "pyright": {
     "organizeimports.provider": "isort",
