@@ -44,6 +44,7 @@
     du-dust
     gitui
     lazydocker
+    lazygit
     jq
     neofetch
     glow

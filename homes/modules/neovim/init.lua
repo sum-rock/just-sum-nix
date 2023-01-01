@@ -100,6 +100,12 @@ vim.keymap.set("n", "<c-t>v", "<cmd>exe v:count1 . 'ToggleTerm direction=vertica
 vim.keymap.set("t", "<c-t>", "<cmd>ToggleTerm<cr>")
 vim.keymap.set("t", "<leader><esc>", "<c-\\><c-n>")
 
+local GitTerminal = require('toggleterm.terminal').Terminal
+local lazygit = GitTerminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+function _lazygit_toggle()
+  lazygit:toggle()
+end
+vim.keymap.set("n", "<leader>g", "<cmd>lua _lazygit_toggle()<cr>", {noremap = true, silent = true})
 
 -- Telescope
 -- ============================================================================
