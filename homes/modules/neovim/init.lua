@@ -1,5 +1,9 @@
 local set = vim.opt
 
+-- Recommended from nvim-tree to be at top of config
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 set.mouse = "a"
 set.number = true
 set.numberwidth = 2
