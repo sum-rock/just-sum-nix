@@ -36,6 +36,7 @@
         terminus       # Helps integrate into terminal required for gitgutter
         vim-polyglot
         glow-nvim
+        hop-nvim
         coc-nvim
         coc-pyright
         coc-html

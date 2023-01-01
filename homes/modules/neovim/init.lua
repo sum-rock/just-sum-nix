@@ -157,3 +157,22 @@ vim.g["minimap_git_colors"] = 1
 vim.cmd("hi minimapCursor ctermbg=59 ctermfg=228 guibg=#282828 guifg=#928374")
 vim.keymap.set("n", "<leader>m", "<cmd>MinimapToggle<cr>")
 
+
+-- NvimHop
+-- ============================================================================
+require('hop').setup()
+
+local hop = require('hop')
+local directions = require('hop.hint').HintDirection
+vim.keymap.set('', 'f', function()
+  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false })
+end, {remap=true})
+vim.keymap.set('', 'F', function()
+  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false })
+end, {remap=true})
+vim.keymap.set('', 't', function()
+  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 })
+end, {remap=true})
+vim.keymap.set('', 'T', function()
+  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false, hint_offset = 1 })
+end, {remap=true})
