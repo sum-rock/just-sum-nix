@@ -44,7 +44,15 @@ vim.cmd("hi SignColumn guibg=clear")
 
 -- NvimTree
 -- ============================================================================
-require("nvim-tree").setup{ filters = { dotfiles = false } }
+require("nvim-tree").setup{ 
+  filters = { dotfiles = false },
+  view = {
+    adaptive_size = true,
+  },
+  update_focused_file = {
+    enable = true,
+  }
+}
 vim.keymap.set("n", "<c-n>n", "<cmd>NvimTreeToggle<cr>")
 vim.keymap.set("n", "<c-n>g", "<cmd>NvimTreeFocus<cr>")
 vim.keymap.set("n", "<c-n>c", "<cmd>NvimTreeCollapse<cr>")
@@ -110,6 +118,7 @@ function _lazygit_toggle()
   lazygit:toggle()
 end
 vim.keymap.set("n", "<leader>g", "<cmd>lua _lazygit_toggle()<cr>", {noremap = true, silent = true})
+
 
 -- Telescope
 -- ============================================================================
