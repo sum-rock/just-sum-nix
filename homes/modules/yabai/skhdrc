@@ -1,0 +1,15 @@
+
+# (base) - screen window | focus
+alt - h : /opt/homebrew/bin/yabai -m window --focus west
+alt - j : /opt/homebrew/bin/yabai -m window --focus south
+alt - k : /opt/homebrew/bin/yabai -m window --focus north
+alt - l : /opt/homebrew/bin/yabai -m window --focus east
+
+# (shift) - screen window | swap
+alt + shift - h : /opt/homebrew/bin/yabai -m window --swap west
+alt + shift - j : /opt/homebrew/bin/yabai -m window --swap south
+alt + shift - k : /opt/homebrew/bin/yabai -m window --swap north
+alt + shift - l : /opt/homebrew/bin/yabai -m window --swap east
+
+alt + shift - r : /opt/homebrew/bin/yabai -m space --balance
+
