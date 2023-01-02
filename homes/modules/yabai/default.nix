@@ -8,9 +8,14 @@
 
 { config, pkgs, home-manager, ... }:
 {
+
+  environment.systemPackages = with pkgs; [ skhd ];
+  services.skhd.enable = true;
+
   home-manager.users."${config.primary-user}" = {
     xdg.configFile = {
       "yabai/yabairc".source = ./yabairc;
+      "skhd/skhdrc".source = ./skhdrc;
     };
   };
 }
