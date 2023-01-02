@@ -227,7 +227,7 @@ end, {remap=true})
 
 -- Nvim Cursorline
 -- ============================================================================
-require("nvim-cursorline").setup{
+require("cursorline_hi").setup{
   cursorline = {
     enable = true,
     timeout = 1000,
