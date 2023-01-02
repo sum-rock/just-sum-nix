@@ -223,3 +223,24 @@ end, {remap=true})
 vim.keymap.set('', 'T', function()
   hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false, hint_offset = 1 })
 end, {remap=true})
+
+
+-- Nvim Cursorline
+-- ============================================================================
+require("cursorline_hi").setup{
+  cursorline = {
+    enable = true,
+    timeout = 1000,
+    number = false,
+  },
+  cursorword = {
+    enable = true,
+    min_length = 3,
+    hl = { underline = true },
+  }
+}
+
+
+-- Autopairs 
+-- ============================================================================
+require("nvim-autopairs").setup{} 

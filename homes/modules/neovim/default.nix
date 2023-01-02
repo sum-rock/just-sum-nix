@@ -12,6 +12,9 @@
       "nvim/coc-settings.json".source = ./coc-settings.json;
     };
     xdg.configFile = {
+      "nvim/lua".source = ./lua;
+    };
+    xdg.configFile = {
       "nvim/init.lua".source = ./init.lua;
     };
     programs.neovim = {
@@ -37,7 +40,9 @@
         vim-polyglot
         glow-nvim
         hop-nvim
+        nvim-autopairs
         coc-nvim
+        coc-spell-checker
         coc-pyright
         coc-html
         coc-tsserver

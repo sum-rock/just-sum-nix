@@ -28,6 +28,8 @@
     "typeParameter": "\uf728",
     "default": "\uf29c"
   },
+  "cSpell.language": "en",
+  "cSpell.enabled": true,
   "json.enable": true,
   "languageserver": {
     "pyright": {
