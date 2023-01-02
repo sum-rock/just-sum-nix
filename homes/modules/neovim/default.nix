@@ -37,6 +37,7 @@
         vim-polyglot
         glow-nvim
         hop-nvim
+        nvim-cursorline
         coc-nvim
         coc-pyright
         coc-html
