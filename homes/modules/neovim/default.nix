@@ -40,7 +40,9 @@
         vim-polyglot
         glow-nvim
         hop-nvim
+        nvim-autopairs
         coc-nvim
+        coc-spell-checker
         coc-pyright
         coc-html
         coc-tsserver

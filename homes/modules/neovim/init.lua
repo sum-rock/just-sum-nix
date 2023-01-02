@@ -239,3 +239,8 @@ require("cursorline_hi").setup{
     hl = { underline = true },
   }
 }
+
+
+-- Autopairs 
+-- ============================================================================
+require("nvim-autopairs").setup{} 
