@@ -1,7 +1,8 @@
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, home-manager, gruvbox-gtk, ... }:
 {
   imports = [
     home-manager.darwinModule
+    ./modules/yabai
     ./modules/terminal
     ./modules/neovim
     ./modules/ranger
@@ -23,7 +24,17 @@
     home.username = "${config.primary-user}";
     home.homeDirectory = "${config.home-dir-path}";
     home.stateVersion = "22.11";
-
+    home.file = {
+      ".wallpapers/gruvbox10.png" = {
+        source = "${gruvbox-gtk}/wallpapers/gruvbox10.png";
+      };
+      ".wallpapers/gruvbox16.png" = {
+        source = "${gruvbox-gtk}/wallpapers/gruvbox16.png";
+      };
+      ".wallpapers/gruvbox18.png" = {
+        source = "${gruvbox-gtk}/wallpapers/gruvbox18.png";
+      };
+    };
     programs.zsh = {
       shellAliases = {
         nix-edit = "cd ${config.home-dir-path}/.nixpkgs; nvim .";
