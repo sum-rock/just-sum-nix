@@ -48,7 +48,7 @@
         system = "aarch64-darwin";
         specialArgs = attrs;
         modules = [ 
-          ./bundles/workstation_macos.nix 
+          ./bundles/macos.nix 
           ./homes/macos.nix
         ];
       };
@@ -60,9 +60,9 @@
         specialArgs = attrs;
         modules = [ 
           ./systems/xps 
-          ./bundles/workstation_nixos.nix
-          ./secrets/workstation.nix
+          ./bundles/nixos.nix
           ./homes/nixos.nix
+          ./secrets/workstation.nix
         ];
       };
       razer = nixpkgs.lib.nixosSystem {
@@ -70,9 +70,9 @@
         specialArgs = attrs;
         modules = [
           ./systems/razer
-          ./bundles/workstation_nixos.nix
-          ./secrets/workstation.nix
+          ./bundles/nixos.nix
           ./homes/nixos.nix
+          ./secrets/workstation.nix
         ];
       };
     };

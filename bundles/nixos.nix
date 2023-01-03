@@ -1,13 +1,15 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ./common.nix ];
+  imports = [ 
+    ./packages/common.nix 
+    ./packages/workstation.nix
+  ];
   
   # System
   # ===========================================================================
   # Must declare state here and it must match the release channel in flake.nix
   system.stateVersion = "unstable";
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Localization
   time.timeZone = "America/Chicago";
@@ -55,7 +57,6 @@
   # System Programs
   # ===========================================================================
   programs.mtr.enable = true;
-  nixpkgs.config.allowUnfree = true;
   programs.gnupg.agent = {
    enable = true;
    enableSSHSupport = true;
@@ -94,9 +95,8 @@
     # Applications 
     # ------------
     discord
-    standardnotes
-    spotify
-    dbeaver
+    standardnotes   # This could be in workstation but does not evalulate on M1
+    spotify         # This could also be in workstation if it worked on M1
     _1password-gui
 
     # Other
