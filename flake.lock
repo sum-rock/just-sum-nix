@@ -25,7 +25,7 @@
       "flake": false,
       "locked": {
         "lastModified": 1670605472,
-        "narHash": "sha256-ZE2G7tzNrH+ke4YUpiVu/JlN9W+8evplEhDogDkibcU=",
+        "narHash": "sha256-Qqzk5TGOHn72mrM1W+hfCCiQ9U88wNEGn6YFyaisIZA=",
         "owner": "Fausto-Korpsvart",
         "repo": "Gruvbox-GTK-Theme",
         "rev": "c3172d8dcba66f4125a014d280d41e23f0b95cad",
