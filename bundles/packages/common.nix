@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 {
-
   options = {
     primary-user = pkgs.lib.mkOption {
       description = "Username for the primary user.";
@@ -9,18 +8,7 @@
       description = "Home directory path for the primary user.";
     };
   };
-
   config.environment.systemPackages = with pkgs; [
-
-    # Programing tools
-    # ----------------
-    python39Full
-    python39Packages.isort
-    python39Packages.black
-    poetry
-    nodejs
-    yarn
-    pre-commit
 
     # Basics
     # ------
@@ -42,7 +30,6 @@
     tmux
     btop
     du-dust
-    gitui
     lazydocker
     lazygit
     jq
