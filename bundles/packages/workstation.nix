@@ -1,11 +1,18 @@
-{ pkgs, ... }:
+{ config, pkgs, home-manager, ... }:
 {
+
   nix.settings = {
     keep-outputs = true;
     keep-derivations = true;
   };
-
-  programs.zsh.enable = true;
+  
+  home-manager.users.${config.primary-user}.programs = {
+    zsh.enable = true;
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+  };
 
   services.postgresql.enable = false;
 
@@ -49,7 +56,4 @@
     ];
   };
 
-  nixpkgs.overlays = [
-    (self: super: { nix-direnv = super.nix-direnv.override { enableFlakes = true; }; } )
-  ];
 }
