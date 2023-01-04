@@ -1,11 +1,13 @@
-{ pkgs, ... }:
+{ config, pkgs, home-manager, ... }:
 {
-  nix.settings = {
-    keep-outputs = true;
-    keep-derivations = true;
-  };
-
   programs.zsh.enable = true;
+  home-manager.users.${config.primary-user}.programs = {
+    zsh.enable = true;
+    # direnv = {
+    #  enable = true;
+    #  nix-direnv.enable = true;
+    # };
+  };
 
   services.postgresql.enable = false;
 
@@ -17,7 +19,6 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment = {
-    pathsToLink = [ "/share/nix-direnv" ];
     systemPackages = with pkgs; [
 
       # Programing tools
@@ -34,8 +35,8 @@
 
       # direnv
       # ------
-      direnv
-      nix-direnv
+      # direnv
+      # nix-direnv
 
       # Databases
       # ---------
@@ -49,7 +50,4 @@
     ];
   };
 
-  nixpkgs.overlays = [
-    (self: super: { nix-direnv = super.nix-direnv.override { enableFlakes = true; }; } )
-  ];
 }
