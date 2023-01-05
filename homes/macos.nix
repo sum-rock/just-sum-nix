@@ -55,11 +55,9 @@
         VSCODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin" 
         AFFECT_TOOLS="$HOME/repositories/affect-tools/tools/bin"  
         if [ -d $VSCODE ] ; then export PATH="$VSCODE:$PATH" ; fi
-        if [ -d "$HOME/go/bin" ]; then export PATH="$HOME/go/bin:$PATH" ; fi 
         if [ -d $AFFECT_TOOLS ]; then export PATH="$AFFECT_TOOLS:$PATH" ; fi
-        if [ -d "$HOME/.cargo" ]; then export PATH="$HOME/.cargo/bin:$PATH" ; fi 
 
-        . $HOME/.asdf/asdf.sh 
+        eval "$(direnv hook zsh)"
         export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
       '';
     };
