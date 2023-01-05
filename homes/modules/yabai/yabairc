@@ -20,14 +20,14 @@ yabai -m config window_opacity              on
 yabai -m config window_shadow               float
 
 yabai -m config window_border               on
-yabai -m config window_border_width         2
+yabai -m config window_border_width         8
 yabai -m config active_window_border_color  "#e78a4e" 
 yabai -m config normal_window_border_color  "#32302f"
 yabai -m config insert_feedback_color       "#d3869b"
 
 yabai -m config active_window_opacity       1.0
-yabai -m config normal_window_opacity       0.90
-yabai -m config split_ratio                 0.50
+yabai -m config normal_window_opacity       0.9
+yabai -m config split_ratio                 0.5
 
 yabai -m config auto_balance                off
 
