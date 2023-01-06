@@ -3,10 +3,10 @@
   programs.zsh.enable = true;
   home-manager.users.${config.primary-user}.programs = {
     zsh.enable = true;
-    # direnv = {
-    #  enable = true;
-    #  nix-direnv.enable = true;
-    # };
+    direnv = {
+     enable = true;
+     nix-direnv.enable = true;
+    };
   };
 
   services.postgresql.enable = false;
@@ -26,22 +26,12 @@
       python39Full
       python39Packages.isort
       python39Packages.black
-      poetry
-      nodejs
-      yarn
-      pre-commit
       tree-sitter
-      chromedriver
 
       # direnv
       # ------
-      # direnv
-      # nix-direnv
-
-      # Databases
-      # ---------
-      postgresql_14
-      sqlite
+      direnv
+      nix-direnv
 
       # Applications
       # ------------
