@@ -12,4 +12,6 @@ alt + shift - k : yabai -m window --swap north
 alt + shift - l : yabai -m window --swap east
 
 alt + shift - r : yabai -m space --balance
+alt + shift - s : yabai -m window --toggle split
+alt + shift - f : yabai -m window --toggle float
 
