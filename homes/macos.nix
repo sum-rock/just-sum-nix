@@ -37,7 +37,7 @@
     };
     programs.zsh = {
       shellAliases = {
-        yabai-rf = "launchctl kickstart -k \"gui/$UID/org.nixos.yabai\"";
+        yabai-rf = "launchctl kickstart -k \"gui/$UID/org.nixos.yabai\"; skhd --reload";
         nix-edit = "cd ${config.home-dir-path}/.nixpkgs; nvim .";
         nix-deploy = "darwin-rebuild switch --flake github:sum-rock/just-sum-nix/master";
         nix-test = "darwin-rebuild switch --flake ${config.home-dir-path}/.nixpkgs";
