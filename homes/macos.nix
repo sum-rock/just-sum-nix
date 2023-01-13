@@ -55,7 +55,6 @@
         VSCODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin" 
         if [ -d $VSCODE ] ; then export PATH="$VSCODE:$PATH" ; fi
 
-        eval "$(direnv hook zsh)"
         export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
       '';
     };

@@ -3,9 +3,9 @@
   programs.zsh.enable = true;
   home-manager.users.${config.primary-user}.programs = {
     zsh.enable = true;
-    direnv = {
-     enable = true;
-     nix-direnv.enable = true;
+      direnv = {
+      enable = true;
+      nix-direnv.enable = true;
     };
   };
 
@@ -27,11 +27,6 @@
       python39Packages.isort
       python39Packages.black
       tree-sitter
-
-      # direnv
-      # ------
-      direnv
-      nix-direnv
 
       # Applications
       # ------------
