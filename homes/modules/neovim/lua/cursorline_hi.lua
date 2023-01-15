@@ -14,38 +14,7 @@ local DEFAULT_OPTIONS = {
     timeout = 1000,
     number = false,
   },
-  cursorword = {
-    enable = true,
-    min_length = 3,
-    hl = { underline = true },
-  },
 }
-
-local function matchadd()
-  local column = a.nvim_win_get_cursor(0)[2]
-  local line = a.nvim_get_current_line()
-  local cursorword = fn.matchstr(line:sub(1, column + 1), [[\k*$]])
-    .. fn.matchstr(line:sub(column + 1), [[^\k*]]):sub(2)
-
-  if cursorword == w.cursorword then
-    return
-  end
-  w.cursorword = cursorword
-  if w.cursorword_id then
-    vim.call("matchdelete", w.cursorword_id)
-    w.cursorword_id = nil
-  end
-  if
-    cursorword == ""
-    or #cursorword > 100
-    or #cursorword < M.options.cursorword.min_length
-    or string.find(cursorword, "[\192-\255]+") ~= nil
-  then
-    return
-  end
-  local pattern = [[\<]] .. cursorword .. [[\>]]
-  w.cursorword_id = fn.matchadd("CursorWord", pattern, -1)
-end
 
 function _is_exempt_type()
   local buf_name = vim.api.nvim_buf_get_name(0) 
@@ -109,20 +78,6 @@ function M.setup(options)
     au({ "CursorMoved", "CursorMovedI" }, { 
       callback = function()
         _cursor_change(options) 
-      end,
-    })
-  end
-
-  if M.options.cursorword.enable then
-    au("VimEnter", {
-      callback = function()
-        hl(0, "CursorWord", M.options.cursorword.hl)
-        matchadd()
-      end,
-    })
-    au({ "CursorMoved", "CursorMovedI" }, {
-      callback = function()
-        matchadd()
       end,
     })
   end
