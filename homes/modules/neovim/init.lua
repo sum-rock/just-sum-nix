@@ -20,12 +20,8 @@ vim.cmd("colorscheme gruvbox-flat")
 vim.keymap.set("i", "jj", "<esc>")
 vim.keymap.set("n", "<leader>/", "<cmd>noh<cr>", { silent = true })
 
-
--- Buffer navigation
--- ============================================================================
-vim.keymap.set("n", "bn", "<cmd>bn<cr>", { silent = true })
-vim.keymap.set("n", "bp", "<cmd>bp<cr>", { silent = true })
-vim.keymap.set("n", "bw", "<cmd>bw<cr><cmd>bn<cr>", { silent = true })
+require("cursorline_hi")
+require("bufferline_config")
 
 
 -- Highlights 
@@ -44,6 +40,9 @@ vim.cmd("hi SignColumn guibg=clear")
 
 -- NvimTree
 -- ============================================================================
+-- API variables used in a few other places
+local tree_api = require("nvim-tree.api").tree
+local tree_view = view
 require("nvim-tree").setup{ 
   filters = { dotfiles = false },
   view = {
@@ -88,16 +87,6 @@ require("lualine").setup {
 }
 
 
--- Bufferline
--- ============================================================================
-require("bufferline").setup {
-  options = {
-    offsets = { 
-      { filetype = "NvimTree", text = "File Explorer", highlight = "Directory" },
-    },
-    separator_style = "thick"
-  }
-}
 
 
 -- Toggleterm
@@ -122,8 +111,6 @@ local h_terminal = Terminal:new({ direction = "horizontal" })
 local v_terminal = Terminal:new({ direction = "vertical" })
 local f_terminal = Terminal:new({ direction = "float" })
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
-local tree_api = require("nvim-tree.api").tree
-local tree_view = view
 
 function _h_terminal_toggle()
   if require("nvim-tree.view"):is_visible() then
@@ -237,15 +224,6 @@ vim.keymap.set('', 'TA', function()
 end, {remap=true})
 
 
--- Nvim Cursorline
--- ============================================================================
-require("cursorline_hi").setup{
-  cursorline = {
-    enable = true,
-    timeout = 1000,
-    number = false,
-  }
-}
 
 
 -- Autopairs 
