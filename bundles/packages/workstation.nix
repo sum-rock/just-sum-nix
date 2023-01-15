@@ -6,6 +6,9 @@
       direnv = {
       enable = true;
       nix-direnv.enable = true;
+      config = {
+        warn_timeout = "30m";
+      };
     };
   };
 
@@ -24,8 +27,6 @@
       # Programing tools
       # ----------------
       python39Full
-      python39Packages.isort
-      python39Packages.black
       tree-sitter
 
       # Applications

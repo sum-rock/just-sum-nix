@@ -56,6 +56,7 @@
         if [ -d $VSCODE ] ; then export PATH="$VSCODE:$PATH" ; fi
 
         export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+        export DIRENV_LOG_FORMAT=""
       '';
     };
   };
