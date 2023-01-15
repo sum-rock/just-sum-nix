@@ -211,16 +211,28 @@ require('hop').setup()
 
 local hop = require('hop')
 local directions = require('hop.hint').HintDirection
-vim.keymap.set('', 'f', function()
+vim.keymap.set('', 'fl', function()
+  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+end, {remap=true})
+vim.keymap.set('', 'FL', function()
+  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+end, {remap=true})
+vim.keymap.set('', 'tl', function()
+  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true , hint_offset = -1 })
+end, {remap=true})
+vim.keymap.set('', 'TL', function()
+  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true , hint_offset = 1 })
+end, {remap=true})
+vim.keymap.set('', 'fa', function()
   hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false })
 end, {remap=true})
-vim.keymap.set('', 'F', function()
+vim.keymap.set('', 'FA', function()
   hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false })
 end, {remap=true})
-vim.keymap.set('', 't', function()
+vim.keymap.set('', 'ta', function()
   hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 })
 end, {remap=true})
-vim.keymap.set('', 'T', function()
+vim.keymap.set('', 'TA', function()
   hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false, hint_offset = 1 })
 end, {remap=true})
 
@@ -232,11 +244,6 @@ require("cursorline_hi").setup{
     enable = true,
     timeout = 1000,
     number = false,
-  },
-  cursorword = {
-    enable = true,
-    min_length = 3,
-    hl = { underline = true },
   }
 }
 
