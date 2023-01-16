@@ -15,7 +15,8 @@ require("bufferline").setup {
 
 vim.keymap.set("n", "bn", "<cmd>bn<cr>", { silent = true })
 vim.keymap.set("n", "bp", "<cmd>bp<cr>", { silent = true })
-vim.keymap.set("n", "bw", "<cmd>lua _close_tab_eligantly()<cr>", { silent = true })
+vim.keymap.set("n", "bdd", "<cmd>lua _close_tab_eligantly()<cr>", { silent = true })
+vim.keymap.set("n", "bda", "<cmd>lua _close_all_tabs_eligantly()<cr>", { silent = true })
 
 function _close_tab_eligantly()
   local this_index = commands.get_current_element_index(state)
@@ -30,11 +31,22 @@ function _close_tab_eligantly()
     vim.cmd('enew')
     commands.go_to(this_index)
     tree_api:close()
-    vim.cmd('bw')
+    vim.cmd('bd')
     tree_api:toggle()
   else
-    vim.cmd("bw")
+    vim.cmd("bd")
   end
 
   commands.go_to(preferred)
 end
+
+function _close_all_tabs_eligantly()
+  if tree_view:is_visible() then
+    tree_api:close()
+    vim.cmd('bufdo bd')
+    tree_api:toggle()
+  else
+    vim.cmd('bufdo bd')
+  end
+end
+

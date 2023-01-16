@@ -30,7 +30,6 @@
         vim-startify
         neoscroll-nvim
         telescope-nvim
-        minimap-vim
         git-blame-nvim
         diffview-nvim
         bufferline-nvim
