@@ -28,12 +28,12 @@ vim.keymap.set('', 'TA', function()
 end, {remap=true})
 
 -- Window movement mapings
-vim.keymap.set("n", "wh", "<c-w>h", { noremap = true })
-vim.keymap.set("n", "wj", "<c-w>j", { noremap = true })
-vim.keymap.set("n", "wk", "<c-w>k", { noremap = true })
-vim.keymap.set("n", "wl", "<c-w>l", { noremap = true })
-vim.keymap.set("n", "wv", "<c-w>v", { noremap = true })
-vim.keymap.set("n", "ws", "<c-w>s", { noremap = true })
+vim.keymap.set("n", "<leader>wh", "<c-w>h", { noremap = true })
+vim.keymap.set("n", "<leader>wj", "<c-w>j", { noremap = true })
+vim.keymap.set("n", "<leader>wk", "<c-w>k", { noremap = true })
+vim.keymap.set("n", "<leader>wl", "<c-w>l", { noremap = true })
+vim.keymap.set("n", "<leader>wv", "<c-w>v", { noremap = true })
+vim.keymap.set("n", "<leader>ws", "<c-w>s", { noremap = true })
 
 -- Unmap default window movement mapings
 vim.keymap.set("n", "<c-w>h", "", { noremap = true })
@@ -42,3 +42,9 @@ vim.keymap.set("n", "<c-w>k", "", { noremap = true })
 vim.keymap.set("n", "<c-w>l", "", { noremap = true })
 vim.keymap.set("n", "<c-w>v", "", { noremap = true })
 vim.keymap.set("n", "<c-w>s", "", { noremap = true })
+
+-- Window save/quit mapping
+vim.keymap.set("n", "<leader>ww", "<cmd>:w<cr>", { silent = true })
+vim.keymap.set("n", "<leader>w<S-q><S-q>", "<cmd>:q<cr>", { silent = true })
+vim.keymap.set("n", "<leader>w<S-q>*", "<cmd>:qa<cr>", { silent = true })
+
