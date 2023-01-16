@@ -32,6 +32,7 @@
         telescope-nvim
         git-blame-nvim
         diffview-nvim
+        lazygit-nvim
         bufferline-nvim
         vim-gitgutter
         toggleterm-nvim

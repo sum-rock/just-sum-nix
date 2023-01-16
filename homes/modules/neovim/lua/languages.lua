@@ -10,11 +10,6 @@ vim.cmd("hi CocErrorSign guibg=clear")
 vim.cmd("hi CocWarningSign guibg=clear")
 vim.cmd("hi CocInfoSign guibg=clear")
 vim.cmd("hi CocHintSign guibg=clear")
-vim.cmd("hi GitGutterAdd guibg=clear")
-vim.cmd("hi GitGutterChange guibg=clear")
-vim.cmd("hi GitGutterDelete guibg=clear")
-vim.cmd("hi LineNr guibg=clear guifg=gray")
-vim.cmd("hi SignColumn guibg=clear")
 
 function _G.check_back_space()
     local col = vim.fn.col('.') - 1

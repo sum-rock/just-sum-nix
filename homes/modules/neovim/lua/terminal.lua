@@ -18,7 +18,6 @@ require("toggleterm").setup{
 local h_terminal = Terminal:new({ direction = "horizontal" })
 local v_terminal = Terminal:new({ direction = "vertical" })
 local f_terminal = Terminal:new({ direction = "float" })
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
 
 function _h_terminal_toggle()
   if require("nvim-tree.view"):is_visible() then
@@ -36,19 +35,20 @@ end
 function _f_terminal_toggle()
   f_terminal:toggle()
 end
-function _lazygit_toggle()
-  lazygit:toggle()
-end
 function _close_all()
   local terminals = terms.get_all()
-  for _, term in pairs(terminals) do term:close() end
+  for _, term in pairs(terminals) do 
+    if term:is_open() then term:toggle() end
+  end
+  if h_terminal:is_open() then h_terminal:toggle() end
+  if v_terminal:is_open() then v_terminal:toggle() end
+  if f_terminal:is_open() then f_terminal:toggle() end
 end
 
 local terminal_toggle_opts = {noremap = true, silent = true}
 vim.keymap.set("n", "<leader>th", "<cmd>lua _h_terminal_toggle()<cr>", terminal_toggle_opts)
 vim.keymap.set("n", "<leader>tv", "<cmd>lua _v_terminal_toggle()<cr>", terminal_toggle_opts)
 vim.keymap.set("n", "<leader>tf", "<cmd>lua _f_terminal_toggle()<cr>", terminal_toggle_opts)
-vim.keymap.set("n", "<leader>g", "<cmd>lua _lazygit_toggle()<cr>", terminal_toggle_opts)
-vim.keymap.set("n", "<leader>tcc", "<cmd>lua _close_all()<cr>")
-vim.keymap.set("t", "<leader>tcc", "<cmd>lua _close_all()<cr>")
+vim.keymap.set("n", "<leader>tc", "<cmd>lua _close_all()<cr>")
+vim.keymap.set("t", "<leader>tc", "<cmd>lua _close_all()<cr>")
 vim.keymap.set("t", "<leader><esc>", "<c-\\><c-n>")

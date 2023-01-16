@@ -22,6 +22,9 @@ vim.cmd("colorscheme gruvbox-flat")
 vim.keymap.set("i", "jj", "<esc>")
 vim.keymap.set("n", "<leader>/", "<cmd>noh<cr>", { silent = true })
 
+vim.cmd("hi LineNr guibg=clear guifg=gray")
+vim.cmd("hi SignColumn guibg=clear")
+
 require("buffers")
 require("cursorline").setup{}
 require("file_explorer")
