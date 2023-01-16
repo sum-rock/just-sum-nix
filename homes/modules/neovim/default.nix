@@ -30,9 +30,9 @@
         vim-startify
         neoscroll-nvim
         telescope-nvim
-        minimap-vim
         git-blame-nvim
         diffview-nvim
+        lazygit-nvim
         bufferline-nvim
         vim-gitgutter
         toggleterm-nvim
