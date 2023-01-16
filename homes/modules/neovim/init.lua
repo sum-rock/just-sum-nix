@@ -39,4 +39,3 @@ require('neoscroll').setup{ stop_eof = false }
 require('glow').setup{ style = "dark" }
 require("nvim-autopairs").setup{} 
 
-
