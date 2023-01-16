@@ -11,8 +11,8 @@ require("nvim-tree").setup{
   }
 }
 
-vim.keymap.set("n", "<c-n>n", "<cmd>NvimTreeToggle<cr>")
-vim.keymap.set("n", "<c-n>g", "<cmd>NvimTreeFocus<cr>")
-vim.keymap.set("n", "<c-n>c", "<cmd>NvimTreeCollapse<cr>")
-vim.keymap.set("n", "<c-n>f", "<cmd>NvimTreeFindFile<cr>")
+vim.keymap.set("n", "<leader>n", "<cmd>NvimTreeToggle<cr>")
+vim.keymap.set("n", "<leader>g", "<cmd>NvimTreeFocus<cr>")
+vim.keymap.set("n", "<leader>c", "<cmd>NvimTreeCollapse<cr>")
+vim.keymap.set("n", "<leader>f", "<cmd>NvimTreeFindFile<cr>")
 
