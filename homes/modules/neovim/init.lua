@@ -23,7 +23,7 @@ vim.keymap.set("i", "jj", "<esc>")
 vim.keymap.set("n", "<leader>/", "<cmd>noh<cr>", { silent = true })
 
 require("buffers")
-require("cursorline")
+require("cursorline").setup{}
 require("file_explorer")
 require("languages")
 require("navigation")

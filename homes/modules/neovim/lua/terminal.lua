@@ -1,5 +1,6 @@
-local Terminal = require('toggleterm.terminal').Terminal
-local terminal_toggle_opts = {noremap = true, silent = true}
+local terms = require('toggleterm.terminal')
+local Terminal = terms.Terminal
+local tree_api = require("nvim-tree.api").tree
 
 require("toggleterm").setup{
   size = function(term)
@@ -38,11 +39,16 @@ end
 function _lazygit_toggle()
   lazygit:toggle()
 end
+function _close_all()
+  local terminals = terms.get_all()
+  for _, term in pairs(terminals) do term:close() end
+end
 
+local terminal_toggle_opts = {noremap = true, silent = true}
 vim.keymap.set("n", "<leader>th", "<cmd>lua _h_terminal_toggle()<cr>", terminal_toggle_opts)
 vim.keymap.set("n", "<leader>tv", "<cmd>lua _v_terminal_toggle()<cr>", terminal_toggle_opts)
 vim.keymap.set("n", "<leader>tf", "<cmd>lua _f_terminal_toggle()<cr>", terminal_toggle_opts)
 vim.keymap.set("n", "<leader>g", "<cmd>lua _lazygit_toggle()<cr>", terminal_toggle_opts)
-
-vim.keymap.set("t", "<c-t>", "<cmd>ToggleTerm<cr>")
+vim.keymap.set("n", "<leader>tcc", "<cmd>lua _close_all()<cr>")
+vim.keymap.set("t", "<leader>tcc", "<cmd>lua _close_all()<cr>")
 vim.keymap.set("t", "<leader><esc>", "<c-\\><c-n>")
