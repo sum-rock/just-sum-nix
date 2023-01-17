@@ -45,6 +45,6 @@ vim.keymap.set("n", "<c-w>s", "", { noremap = true })
 
 -- Window save/quit mapping
 vim.keymap.set("n", "<leader>ww", "<cmd>:w<cr>", { silent = true })
-vim.keymap.set("n", "<leader>w<S-q><S-q>", "<cmd>:q<cr>", { silent = true })
-vim.keymap.set("n", "<leader>w<S-q>*", "<cmd>:qa<cr>", { silent = true })
+vim.keymap.set("n", "<leader>wq", "<cmd>:q<cr>", { silent = true })
+vim.keymap.set("n", "<leader>w<S-q>", "<cmd>:qa<cr>", { silent = true })
 

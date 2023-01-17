@@ -15,8 +15,8 @@ require("bufferline").setup {
 
 vim.keymap.set("n", "bn", "<cmd>bn<cr>", { silent = true })
 vim.keymap.set("n", "bp", "<cmd>bp<cr>", { silent = true })
-vim.keymap.set("n", "b<S-w><S-w>", "<cmd>lua _close_tab_eligantly()<cr>", { silent = true })
-vim.keymap.set("n", "b<S-w>*", "<cmd>lua _close_all_tabs_eligantly()<cr>", { silent = true })
+vim.keymap.set("n", "bw", "<cmd>lua _close_tab_eligantly()<cr>", { silent = true })
+vim.keymap.set("n", "b<S-w>", "<cmd>lua _close_all_tabs_eligantly()<cr>", { silent = true })
 
 function _close_tab_eligantly()
   local this_index = commands.get_current_element_index(state)
