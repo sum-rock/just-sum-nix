@@ -39,8 +39,7 @@
       shellAliases = {
         yabai-rf = "launchctl kickstart -k \"gui/$UID/org.nixos.yabai\"; skhd --reload";
         nix-edit = "cd ${config.home-dir-path}/.nixpkgs; nvim .";
-        nix-deploy = "darwin-rebuild switch --flake github:sum-rock/just-sum-nix/master";
-        nix-test = "darwin-rebuild switch --flake ${config.home-dir-path}/.nixpkgs";
+        nixos-rebuild-flake = "darwin-rebuild switch --flake ${config.home-dir-path}/.nixpkgs";
         go-homebase = "cd ~/repositories/pyhomebase";
         go-notes = "cd ~/Documents/notes";
         notes = "cd ~/Documents/notes; nvim .";
@@ -48,7 +47,6 @@
         production-db = "aptible db:tunnel homebase-two-prod --port 54171";
         git-wipit = "git add .; git commit -m wip --no-verify";
         git-pull-develop = "git checkout develop; git pull; git checkout -";
-        hb-docker-up = "docker-compose -f ~/repositories/pyhomebase/docker-compose.yml up -d redis rabbitmq db";
         postgres-docker-up = "docker run -d -e POSTGRES_HOST_AUTH_METHOD=trust -p 5432:5432 --name test-postgres postgres";
       };
       initExtra = ''

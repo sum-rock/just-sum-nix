@@ -30,8 +30,8 @@
       '';
       shellAliases = {
         nix-edit = "cd $NIX_CONFIG_PATH; nvim .";
-        nix-test = "sudo nixos-rebuild test --flake $NIX_CONFIG_PATH";
-        nix-deploy = "sudo nixos-rebuild switch --flake github:sum-rock/just-sum-nix/master";
+        nixos-rebuild-flake-test = "sudo nixos-rebuild test --flake $NIX_CONFIG_PATH";
+        nixos-rebuild-flake = "sudo nixos-rebuild switch --flake $NIX_CONFIG_PATH";
         modify-sops = "cd $NIX_CONFIG_PATH; nix-shell -p sops --run \"sops secrets/secrets.yaml\"";
       };
     };
