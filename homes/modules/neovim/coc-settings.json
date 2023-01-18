@@ -48,12 +48,11 @@
         "lua"
       ]
     },
-    "python": {
-      "linting.flake8Enabled": true,
-      "formatting": {
-        "provider": "black",
-        "blackPath": "/run/current-system/sw/bin/black"
-      }
+  },
+  "python": {
+    "linting.flake8Enabled": true,
+    "formatting": { 
+      "provider": "black", 
     }
   }
 }
