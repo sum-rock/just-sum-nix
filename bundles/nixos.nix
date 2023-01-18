@@ -36,7 +36,18 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  
+
+  # Printing 
+  # ===========================================================================
+  services.printing.enable = true;
+  services.avahi.enable = true;
+  services.avahi.openFirewall = true;     # wifi printing
+  services.ipp-usb.enable = true;         # USB printing 
+  services.printing.drivers = with pkgs; [ 
+    gutenprint 
+    cups-brother-hl3140cw
+  ];
+
   # User setup
   # ===========================================================================
   users.users.${config.primary-user} = {
