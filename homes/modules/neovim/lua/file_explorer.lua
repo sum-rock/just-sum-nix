@@ -10,9 +10,13 @@ require("nvim-tree").setup{
     enable = true,
   }
 }
-
-vim.keymap.set("n", "<leader>nn", "<cmd>NvimTreeToggle<cr>")
-vim.keymap.set("n", "<leader>ng", "<cmd>NvimTreeFocus<cr>")
-vim.keymap.set("n", "<leader>nc", "<cmd>NvimTreeCollapse<cr>")
-vim.keymap.set("n", "<leader>nf", "<cmd>NvimTreeFindFile<cr>")
+require("which-key").register({
+  n = {
+    name = "File Explorer",
+    n = { "<cmd>NvimTreeToggle<cr>", "Toggle Explorer" },
+    g = { "<cmd>NvimTreeFocus<cr>", "Focus on Explorer" },
+    c = { "<cmd>NvimTreeCollapse<cr>", "Collapse Directories in Explorer" },
+    f = { "<cmd>NvimTreeFindFile<cr>", "Find file in Explorer" },
+  },
+}, { prefix = "<leader>" })
 

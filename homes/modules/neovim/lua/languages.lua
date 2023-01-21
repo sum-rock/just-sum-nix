@@ -1,10 +1,3 @@
-vim.keymap.set("n", "<leader>fmt", "<cmd>call CocAction('format')<cr>", { silent = true })
-vim.keymap.set("n", "<leader>imp", "<cmd>CocCommand pyright.organizeimports<cr>", { silent = true })
-vim.keymap.set("n", "gd", "<Plug>(coc-definition)", { silent = true })
-vim.keymap.set("n", "gy", "<Plug>(coc-type-definition)", { silent = true })
-vim.keymap.set("n", "gi", "<Plug>(coc-implementation)", { silent = true })
-vim.keymap.set("n", "gr", "<Plug>(coc-references)", { silent = true })
-
 vim.cmd("hi CocInlayHint guibg=clear guifg=gray")
 vim.cmd("hi CocErrorSign guibg=clear")
 vim.cmd("hi CocWarningSign guibg=clear")
@@ -19,3 +12,22 @@ local opts = {silent = true, noremap = true, expr = true, replace_keycodes = fal
 
 vim.keymap.set("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
 vim.keymap.set("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+
+require("which-key").register({
+    l = {
+        name = "Language Server",
+        f = { "<cmd>call CocAction('format')<cr>", "Format file" },
+        g = {
+            name = "Go to",
+            d = { "<Plug>(coc-definition)", "To definition" },
+            t = { "<Plug>(coc-type-definition)", "To the type definition" },
+            i = { "<Plug>(coc-implementation)", "To implementations" },
+            r = { "<Plug>(coc-references)", "To references" },
+        },
+        p = {
+            name = "Python",
+            i = { "<cmd>CocCommand pyright.organizeimports<cr>", "Sort imports" },
+        },
+    }, 
+}, { prefix = "<leader>" })
+

@@ -28,6 +28,7 @@
       # ----------------
       python39Full
       tree-sitter
+      nodejs
 
       # Applications
       # ------------

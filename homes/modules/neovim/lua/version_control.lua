@@ -13,3 +13,19 @@ vim.g.gitblame_display_virtual_text = 0 -- Disable virtual text
 
 vim.keymap.set("n", "<leader>gh", "<cmd>DiffviewFileHistory %<cr>")
 vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>")
+
+require("which-key").register({
+  g = {
+    name = "Git",
+    g = { "<cmd>LazyGit<cr>", "Lazygit" },
+    h = { "<cmd>DiffviewFileHistory %<cr>", "File History", noremap=false },
+    d = {
+      name = "File Diffs",
+      n = { "<Plug>(GitGutterNextHunk)", "Show Next Hunk", noremap=false },
+      p = { "<Plug>(GitGutterPrevHunk)", "Show Previous Hunk", noremap=false },
+      v = { "<Plug>(GitGutterPreviewHunk)", "Preview Hunk", noremap=false },
+      s = { "<Plug>(GitGutterStageHunk)", "Stage Hunk", noremap=false },
+      u = { "<Plug>(GitGutterUndoHunk)", "Stage Hunk", noremap=false },
+    }
+  },
+}, { prefix = "<leader>" })
