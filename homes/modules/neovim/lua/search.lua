@@ -9,5 +9,5 @@ require("which-key").register({
     r = { "<cmd>Telescope resume<cr>", "Resume the last search" },
     o = { "<cmd>Telescope oldfiles<cr>", "Search Previously Opened" }, 
   },
-}, { prefrix = "<leader>" })
+}, { prefix = "<leader>" })
 
