@@ -9,7 +9,7 @@
   # System
   # ===========================================================================
   # Must declare state here and it must match the release channel in flake.nix
-  system.stateVersion = "unstable";
+  system.stateVersion = "22.11";
 
   # Localization
   time.timeZone = "America/Chicago";
@@ -42,7 +42,6 @@
   services.printing.enable = true;
   services.avahi.enable = true;
   services.avahi.openFirewall = true;     # wifi printing
-  services.ipp-usb.enable = true;         # USB printing 
   services.printing.drivers = with pkgs; [ 
     gutenprint 
     cups-brother-hl3140cw

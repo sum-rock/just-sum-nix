@@ -6,7 +6,7 @@
     # Core systems
     # ------------
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+      url = "github:nixos/nixpkgs/nixos-22.11";
     };
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -18,6 +18,7 @@
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Extras
@@ -40,9 +41,8 @@
     };
   };
 
-  outputs = { self, darwin, nixpkgs, sops-nix, ... }@attrs: 
+  outputs = { self, darwin, sops-nix, nixpkgs, ... }@attrs: 
   {
-
     darwinConfigurations = {
       sum-rock-wrk = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
