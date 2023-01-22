@@ -1,6 +1,9 @@
 local set = vim.opt
 local let = vim.g
 
+vim.o.timeout = true
+vim.o.timeoutlen = 300 
+
 -- Recommended from nvim-tree to be at top of config
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -20,7 +23,9 @@ let.mapleader = " "
 vim.cmd("colorscheme gruvbox-flat")
 
 vim.keymap.set("i", "jj", "<esc>")
-vim.keymap.set("n", "<leader>/", "<cmd>noh<cr>", { silent = true })
+require("which-key").register({ 
+  ["<leader>/"] = { "<cmd>noh<cr>", "Clear search highlights"} 
+})
 
 vim.cmd("hi LineNr guibg=clear guifg=gray")
 vim.cmd("hi SignColumn guibg=clear")

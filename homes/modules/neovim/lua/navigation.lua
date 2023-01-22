@@ -2,49 +2,33 @@ require('hop').setup()
 
 local hop = require('hop')
 local directions = require('hop.hint').HintDirection
-vim.keymap.set('', 'f', function()
-  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
-end, {remap=true})
-vim.keymap.set('', 'F', function()
-  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
-end, {remap=true})
-vim.keymap.set('', 't', function()
-  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true , hint_offset = -1 })
-end, {remap=true})
-vim.keymap.set('', 'T', function()
-  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true , hint_offset = 1 })
-end, {remap=true})
-vim.keymap.set('', 'fa', function()
-  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false })
-end, {remap=true})
-vim.keymap.set('', 'FA', function()
-  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false })
-end, {remap=true})
-vim.keymap.set('', 'ta', function()
-  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 })
-end, {remap=true})
-vim.keymap.set('', 'TA', function()
-  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false, hint_offset = 1 })
-end, {remap=true})
 
--- Window movement mapings
-vim.keymap.set("n", "<leader>wh", "<c-w>h", { noremap = true })
-vim.keymap.set("n", "<leader>wj", "<c-w>j", { noremap = true })
-vim.keymap.set("n", "<leader>wk", "<c-w>k", { noremap = true })
-vim.keymap.set("n", "<leader>wl", "<c-w>l", { noremap = true })
-vim.keymap.set("n", "<leader>wv", "<c-w>v", { noremap = true })
-vim.keymap.set("n", "<leader>ws", "<c-w>s", { noremap = true })
+require("which-key").register({
+  w = {
+    name = "Windows",
+    q = { "<cmd>q<cr>", "Quit Window" },
+    Q = { "<cmd>qa<cr>", "Quit All Windows" },
+    h = { "<c-w>h", "Move Left" },
+    j = { "<c-w>j", "Move Down" },
+    k = { "<c-w>k", "Move Up" },
+    l = { "<c-w>l", "Move Right" },
+    s = { "<c-w>s", "Split Horizontally" },
+    v = { "<c-w>v", "Split Vertically" },
+  },
+  h = {
+    name = "Hop",
+    f = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false }) end, "Hop Forward on" },
+    F = { function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false }) end, "Hop Backward on" },
+    t = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 }) end, "Hop Forward to" },
+    T = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 }) end, "Hop Backward to" },
+  }
+}, { prefix = "<leader>" })
 
--- Unmap default window movement mapings
-vim.keymap.set("n", "<c-w>h", "", { noremap = true })
-vim.keymap.set("n", "<c-w>j", "", { noremap = true })
-vim.keymap.set("n", "<c-w>k", "", { noremap = true })
-vim.keymap.set("n", "<c-w>l", "", { noremap = true })
-vim.keymap.set("n", "<c-w>v", "", { noremap = true })
-vim.keymap.set("n", "<c-w>s", "", { noremap = true })
-
--- Window save/quit mapping
-vim.keymap.set("n", "<leader>ww", "<cmd>:w<cr>", { silent = true })
-vim.keymap.set("n", "<leader>wq", "<cmd>:q<cr>", { silent = true })
-vim.keymap.set("n", "<leader>w<S-q>", "<cmd>:qa<cr>", { silent = true })
-
+require("which-key").register({
+  ["<C-U>"] = { "Scroll up" },
+  ["<C-D>"] = { "Scroll down" },
+  ["<C-B>"] = { "Scroll up greater" },
+  ["<C-F>"] = { "Scroll down greater" },
+  ["<C-Y>"] = { "Scroll up lesser" },
+  ["<C-E>"] = { "Scroll down lesser" },
+})

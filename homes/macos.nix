@@ -19,8 +19,8 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  home-manager.users.${config.primary-user}= {
-    programs.home-manager.enable = true; 
+  home-manager.users.${config.primary-user} = {
+    programs.home-manager.enable = true;
     home.username = "${config.primary-user}";
     home.homeDirectory = "${config.home-dir-path}";
     home.stateVersion = "22.11";

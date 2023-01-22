@@ -45,11 +45,19 @@ function _close_all()
   if f_terminal:is_open() then f_terminal:toggle() end
 end
 
-local terminal_toggle_opts = {noremap = true, silent = true}
-vim.keymap.set("n", "<leader>th", "<cmd>lua _h_terminal_toggle()<cr>", terminal_toggle_opts)
-vim.keymap.set("n", "<leader>tv", "<cmd>lua _v_terminal_toggle()<cr>", terminal_toggle_opts)
-vim.keymap.set("n", "<leader>tf", "<cmd>lua _f_terminal_toggle()<cr>", terminal_toggle_opts)
-
-vim.keymap.set("n", ",tq", "<cmd>lua _close_all()<cr>")
-vim.keymap.set("t", ",tq", "<cmd>lua _close_all()<cr>")
-vim.keymap.set("t", ",e", "<c-\\><c-n>")
+require('which-key').register({
+  [","] = {
+    name = "Terminal",
+    h = { "<cmd>lua _h_terminal_toggle()<cr>", "Open horizontal terminal" },
+    v = { "<cmd>lua _v_terminal_toggle()<cr>", "Open vertical terminal" },
+    f = { "<cmd>lua _f_terminal_toggle()<cr>", "Open floating terminal" },
+    q = { "<cmd>lua _close_all()<cr>", "Close all visible terminals" },
+  }
+})
+require('which-key').register({
+  [","] = {
+    name = "Terminal",
+    q = { "<cmd>lua _close_all()<cr>", "Close all visible terminals", mode="t" },
+    e = { "<c-\\><c-n>", "Switch to normal mode", mode="t" },
+  }
+})

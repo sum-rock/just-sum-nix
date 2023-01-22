@@ -41,6 +41,7 @@
         glow-nvim
         hop-nvim
         nvim-autopairs
+        which-key-nvim
         coc-nvim
         coc-spell-checker
         coc-pyright

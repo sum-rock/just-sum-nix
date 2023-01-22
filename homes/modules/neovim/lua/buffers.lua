@@ -13,10 +13,16 @@ require("bufferline").setup {
   }
 }
 
-vim.keymap.set("n", "bn", "<cmd>bn<cr>", { silent = true })
-vim.keymap.set("n", "bp", "<cmd>bp<cr>", { silent = true })
-vim.keymap.set("n", "bw", "<cmd>lua _close_tab_eligantly()<cr>", { silent = true })
-vim.keymap.set("n", "b<S-w>", "<cmd>lua _close_all_tabs_eligantly()<cr>", { silent = true })
+require("which-key").register({
+  b = {
+    name = "Buffers",
+    n = { "<cmd>bn<cr>", "Next buffer" },
+    p = { "<cmd>bp<cr>", "Previous buffer" },
+    w = { "<cmd>lua _close_tab_eligantly()<cr>", "Wipeout buffer" },
+    W = { "<cmd>lua _close_all_tabs_eligantly()<cr>", "Wipout all buffers" },
+    s = { "<cmd>w<cr>", "Save/Write buffer" },
+  },
+}, { prefix = "<leader>" })
 
 function _close_tab_eligantly()
   local this_index = commands.get_current_element_index(state)
@@ -31,9 +37,11 @@ function _close_tab_eligantly()
     vim.cmd('enew')
     commands.go_to(this_index)
     tree_api:close()
+    vim.cmd('w')
     vim.cmd('bw')
     tree_api:toggle()
   else
+    vim.cmd('w')
     vim.cmd("bw")
   end
 
@@ -43,9 +51,11 @@ end
 function _close_all_tabs_eligantly()
   if tree_view:is_visible() then
     tree_api:close()
+    vim.cmd('bufdo w')
     vim.cmd('bufdo bw')
     tree_api:toggle()
   else
+    vim.cmd('bufdo w')
     vim.cmd('bufdo bw')
   end
 end
