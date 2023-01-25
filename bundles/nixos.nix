@@ -114,6 +114,7 @@
     woeusb          # To make Windows USBs
     ntfs3g
     veracrypt
+    input-remapper
   ];
 
   # Default Editor
