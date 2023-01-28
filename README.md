@@ -7,14 +7,13 @@
 A repository for sum-rock's declarative configurations for unix like systems.
 This flake is currently being used for home NixOS workstations and my work M1 
 MacBook. The master branch is functional so feel free to use as a reference.
-However, be advised that I am relatively early on the NixOS learning curve.
 
 ## Architecture
 
 The general idea here is that the hostname of the client machine is associated
 to a `darwinConfigurations` or `nixosConfiguruations` for MacOS and NixOS
-respectively. A darwin configuration will require a __bundle__ and a __profile__.
-NixOS configurations will require a __bundle__, __profile__, and a __system__.
+respectively. A darwin configuration will require a __bundle__ and a __home__.
+NixOS configurations will require a __bundle__, __home__, and a __system__.
 
 ### Bundles
 
@@ -23,15 +22,12 @@ common for specified use cases and do not differ across hardware. For example,
 bundles include system installed packages such as git, zsh, and btop. Packages
 here are not user specific and should not require home-manager.
 
-### Profiles
+### Homes 
 
-Profiles are (potentially) user specific configurations. This is where
-home-manager is implemented. The nix files within the profile directory will,
-for example, include profile specific shell aliases. Profiles are also
-responsible for importing user specific modules. Profiles invoke these modules
-with a given username passed into the namespace of the module. Thus the 
-contents of the subdirectory `profiles/modules/` cannot be expressed outside a
-profile.
+Homes are (potentially) user specific configurations. This is where
+home-manager is implemented. The nix files within the homes directory will,
+for example, include user specific shell aliases. Homes are also
+responsible for importing user specific modules.
 
 ### System
 
@@ -44,63 +40,37 @@ enablement.
 
 ### MacOS Installation
 
-__Caution!__ This is my best recollection of how I was able to get this
-working. If I'm honest, there was a lot of keyboard pounding and swearing. The
-following should be approximately correct. I believe that the challenge is that
-there are some things that need to be set up prior to getting the flake built.
-Those steps are frustratingly irrelevant once flakes are in use. Once everything
-is installed its all peaches and cream.
+#### Disable SIP
 
-If you're reading this as a guide just know that it can be done. I am using an
-M1 MacBook and this is working. 
+The MacOS install uses [Yabai](https://github.com/koekeishiya/yabai) and SKHD. This
+requires SIP to be disabled. Follow the instructions on the [yabai wiki](https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection).
 
-#### Install nix
+#### Nix
 
-Check [here](https://nixos.org/download.html#nix-install-macos) for the wiki 
-reference.
+Install Nix from the shell script on [nixos.org](https://nixos.org/download.html#nix-install-macos).
+Next add a config file under `~/.config/nix/nix.conf`. Within the configuration file,
+add the following:
 
-```
-sh <(curl -L https://nixos.org/nix/install)
+```config
+experimental-features = nix-command flakes
 ```
 
-Subscribe to the relevant channels 
+#### Nix Darwin
 
-```
-nix-channel --add https://nixos.org/channels/nixpkgs-22.05-darwin nixpkgs
-nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
-nix-channel --update
-```
+Install nix darwin from the instructions on their [github page](https://github.com/LnL7/nix-darwin).
+The install script should be run from your home directory.  It is not necessary to add 
+anything to the nix channels.
 
-#### Enable experimental features
+#### Clone this repository
 
-Experimental features will need to be enabled to install the flake. This can
-be removed later after installation.
+Clone this repository into `~/.nixkpgs` and then run the following command(s).
 
-`~/.config/nix/nix.conf`
-```
-{ pkgs, ... }: {
-  ...
-  nix.settings.experimental-features = [ "nix-command", "flakes" ];
-  ...
-}
+```shell
+# This first command may not be necessary
+$ nix build ~/.nixpkgs\#darwinConfigurations.<host-name>.system
+# The flake must be run manually the first time.
+$ ~/result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs#
 ```
 
-#### Install nix darwin
-
-```
-nix-shell '<darwin>' -A installer
-darwin-rebuild switch 
-```
-
-#### Build the flake
-
-```
-git clone https://github.com/sum-rock/just-sum-nix.git ~/.nixpkgs
-cd .nixpkgs
-
-darwin-rebuild switch --flake ".#"
-```
-
-### NixOS
-
-Comming soon.
+After a restart, you should be able to run `darwin-rebuild switch --flake ~/.nixpkgs#`
+to rebuild the system going forward.
