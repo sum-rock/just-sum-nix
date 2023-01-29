@@ -36,5 +36,6 @@
     neofetch
     glow
     duplicity
+    libqalculate
   ];
 }
