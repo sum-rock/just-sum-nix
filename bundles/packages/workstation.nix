@@ -12,6 +12,11 @@
     };
   };
 
+  nix.extraOptions = ''
+    keep-outputs = true
+    keep-derivations = true
+  '';
+
   services.postgresql.enable = false;
 
   nixpkgs.config = {
@@ -27,8 +32,11 @@
       # Programing tools
       # ----------------
       python39Full
+      poetry
+      postgresql_14
       tree-sitter
       nodejs
+      yarn
 
       # Applications
       # ------------
