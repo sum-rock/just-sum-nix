@@ -35,5 +35,10 @@
         modify-sops = "cd $NIX_CONFIG_PATH; nix-shell -p sops --run \"sops secrets/secrets.yaml\"";
       };
     };
+    home.file = {
+      ".wallpapers/gruvbox12.png" = {
+        source = ./wallpapers/gruvbox12.png;
+      };
+    };
   };
 }

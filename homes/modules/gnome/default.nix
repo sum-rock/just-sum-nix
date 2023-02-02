@@ -41,9 +41,6 @@
         source = "${gruvbox-gtk}/themes/Gruvbox-Dark-BL";
         recursive = true;
       };
-      ".wallpapers/gruvbox12.png" = {
-        source = "${gruvbox-gtk}/wallpapers/gruvbox12.png";
-      };
       # This should work but it makes the home-manager service timeout
       # ".icons" = {
       #   source = "${gruvbox-gtk}/icons/Gruvbox-Dark";

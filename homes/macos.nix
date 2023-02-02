@@ -26,13 +26,13 @@
     home.stateVersion = "22.11";
     home.file = {
       ".wallpapers/gruvbox10.png" = {
-        source = "${gruvbox-gtk}/wallpapers/gruvbox10.png";
+        source = ./wallpapers/gruvbox10.png;
       };
       ".wallpapers/gruvbox16.png" = {
-        source = "${gruvbox-gtk}/wallpapers/gruvbox16.png";
+        source = ./wallpapers/gruvbox16.png;
       };
       ".wallpapers/gruvbox18.png" = {
-        source = "${gruvbox-gtk}/wallpapers/gruvbox18.png";
+        source = ./wallpapers/gruvbox18.png;
       };
     };
     programs.zsh = {
