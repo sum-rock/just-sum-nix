@@ -25,7 +25,7 @@ require("which-key").register({
       p = { "<Plug>(GitGutterPrevHunk)", "Show Previous Hunk", noremap=false },
       v = { "<Plug>(GitGutterPreviewHunk)", "Preview Hunk", noremap=false },
       s = { "<Plug>(GitGutterStageHunk)", "Stage Hunk", noremap=false },
-      u = { "<Plug>(GitGutterUndoHunk)", "Stage Hunk", noremap=false },
+      u = { "<Plug>(GitGutterUndoHunk)", "Undo Hunk", noremap=false },
     }
   },
 }, { prefix = "<leader>" })
