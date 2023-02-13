@@ -49,4 +49,4 @@ yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title=".*" manage=off
 yabai -m rule --add label="DisplayLinkUserAgent" app="DisplayLinkUserAgent" title=".*" manage=off
 yabai -m rule --add label="Tuple" app="^Tuple$" manage=off
-
+yabai -m rule --add label="iPhone Simulator" app="^Simulator$" title="iPhone.*" manage=off
