@@ -6,10 +6,10 @@
     ./modules/terminal
     ./modules/neovim
     ./modules/ranger
+    ./modules/direnv
   ];
 
-  primary-user = "august";
-  home-dir-path = "/Users/august";
+  home-dir-path = "/Users/${config.primary-user}";
 
   users.users.${config.primary-user} = {
     home = "${config.home-dir-path}";
@@ -23,7 +23,7 @@
     programs.home-manager.enable = true;
     home.username = "${config.primary-user}";
     home.homeDirectory = "${config.home-dir-path}";
-    home.stateVersion = "22.11";
+    home.stateVersion = "${config.nixos-version}";
     home.file = {
       ".wallpapers/gruvbox10.png" = {
         source = ./wallpapers/gruvbox10.png;
