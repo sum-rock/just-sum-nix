@@ -48,7 +48,7 @@
     # =====================================================
     darwinConfigurations = 
     let 
-      mkDarwinWorkstation = name: system: darwin.lib.nixosSystem {
+      mkDarwinWorkstation = name: system: darwin.lib.darwinSystem {
         inherit system;
         specialArgs = attrs;
         modules = [
