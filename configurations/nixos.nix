@@ -8,22 +8,21 @@
   
   # System
   # ===========================================================================
-  # Must declare state here and it must match the release channel in flake.nix
-  system.stateVersion = "22.11";
+  system.stateVersion = "${config.nixos-version}";
 
   # Localization
-  time.timeZone = "America/Chicago";
-  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = "${config.timezone}";
+  i18n.defaultLocale = "${config.localization}";
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+    LC_ADDRESS = "${config.localization}";
+    LC_IDENTIFICATION = "${config.localization}";
+    LC_MEASUREMENT = "${config.localization}";
+    LC_MONETARY = "${config.localization}";
+    LC_NAME = "${config.localization}";
+    LC_NUMERIC = "${config.localization}";
+    LC_PAPER = "${config.localization}";
+    LC_TELEPHONE = "${config.localization}";
+    LC_TIME = "${config.localization}";
   };
 
   # Audio
