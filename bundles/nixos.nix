@@ -55,6 +55,7 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
+      chromium
     ];
   };
   
