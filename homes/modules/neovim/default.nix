@@ -1,4 +1,25 @@
 { pkgs, config, ... }:
+let
+  # Plugin theme
+  # =======================================================
+  plugin-themes = {
+    gruvbox = [ pkgs.vimPlugins.gruvbox-flat-nvim ];
+    catppuccin = [ pkgs.vimPlugins.catppuccin-nvim ];
+  };
+  plugin-theme = plugin-themes.${config.theme};
+
+  # Init theme
+  # =======================================================
+  init-themes = {
+    gruvbox = builtins.readFile ./themes/gruvbox.lua;
+    catppuccin = builtins.readFile ./themes/catppuccin.lua;
+  };
+  init-theme = init-themes.${config.theme};
+  init-lua = builtins.toFile "init.lua" ''
+    ${init-theme}
+    ${builtins.readFile ./init.lua}
+  '';
+in
 {
   environment.systemPackages = with pkgs; [
     rnix-lsp
@@ -15,12 +36,11 @@
       "nvim/lua".source = ./lua;
     };
     xdg.configFile = {
-      "nvim/init.lua".source = ./init.lua;
+      "nvim/init.lua".source = "${init-lua}";
     };
     programs.neovim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [ 
-        gruvbox-flat-nvim
         lualine-nvim 
         nvim-web-devicons
         (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
@@ -48,7 +68,7 @@
         coc-html
         coc-tsserver
         coc-json
-     ];
+     ] ++ plugin-theme;
    };
  };
 }
