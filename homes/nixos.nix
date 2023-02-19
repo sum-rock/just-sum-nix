@@ -1,4 +1,10 @@
 { config, pkgs, home-manager, ... }:
+let
+  wallpapers = {
+    catppuccin = ./wallpapers/catppuccin;
+    gruvbox = ./wallpapers/gruvbox;
+  };
+in
 {
   imports = [
     home-manager.nixosModule
@@ -36,8 +42,9 @@
       };
     };
     home.file = {
-      ".wallpapers/gruvbox12.png" = {
-        source = ./wallpapers/gruvbox12.png;
+      ".wallpapers" = {
+        source = "${wallpapers.${config.theme}}";
+        recursive = true;
       };
     };
   };

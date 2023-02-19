@@ -2,7 +2,7 @@ local git_blame = require('gitblame') -- Stored for lualine integration
 
 require("lualine").setup {
   options = { 
-    theme = 'gruvbox-flat',
+    theme = 'auto',
     icons_enabled = true
   },
   sections = {

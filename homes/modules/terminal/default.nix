@@ -7,6 +7,36 @@ let
       tmux attach -t $1
     fi
   '';
+
+  # Alacritty Config
+  # =======================================================
+  alacritty-themes = {
+    gruvbox = builtins.readFile ./themes/gruvbox-flat.yml;
+    catppuccin = builtins.readFile ./themes/catppuccin-frappe.yml;
+  };
+  alacritty-theme = alacritty-themes.${config.theme};
+  alacritty = builtins.toFile "alacritty.yml" ''
+    ${builtins.readFile ./alacritty.yml}
+    ${alacritty-theme}
+  '';
+
+  # Tmux Config
+  # =======================================================
+  tmux-themes = {
+    gruvbox = ''
+      set -g @plugin 'egel/tmux-gruvbox'
+      set -g @tmux-gruvbox 'dark'
+    '';
+    catppuccin = ''
+      set -g @plugin 'catppuccin/tmux' 
+      set -g @catppuccin_flavour 'frappe'
+    '';
+  };
+  tmux-theme = tmux-themes.${config.theme};
+  tmux = builtins.toFile "tmux.conf" ''
+    ${builtins.readFile ./tmux.conf}
+    ${tmux-theme}
+  '';
 in
 {
   # To use this module tmux and exa are required
@@ -42,10 +72,10 @@ in
       '';
     };
 
-    home.file.".tmux.conf".source = ./tmux.conf;
+    home.file.".tmux.conf".source = "${tmux}";
 
     xdg.configFile = {
-      "alacritty/alacritty.yml".source = ./alacritty.yml;
+      "alacritty/alacritty.yml".source = "${alacritty}";
       "tmux/plugins/tpm".source = "${tmux-plugin-manager}";
     };
   };

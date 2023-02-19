@@ -16,5 +16,11 @@
     nixos-version = pkgs.lib.mkOption {
       description = "The verison of NixOs and home-manager used in the flake inputs.";
     };
+    theme = pkgs.lib.mkOption {
+      description = ''
+        The name of the theme you wish to use. 
+        Options: "gruvbox" or "catppuccin"
+      '';
+    };
   };
 }
