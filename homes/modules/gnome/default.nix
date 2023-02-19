@@ -14,7 +14,6 @@
   ];
 
   environment.systemPackages = with pkgs; [ 
-    gnome.dconf-editor
     gnome.gnome-themes-extra
     gtk-engine-murrine
   ];
