@@ -32,10 +32,6 @@
   "cSpell.enabled": true,
   "json.enable": true,
   "languageserver": {
-    "pyright": {
-      "organizeimports.provider": "isort",
-      "inlayHints.variableTypes": false
-    },
     "nix": {
       "command": "rnix-lsp",
       "filetypes": [
@@ -54,5 +50,9 @@
     "formatting": { 
       "provider": "black", 
     }
-  }
+  },
+  "pyright": {
+    "organizeimports.provider": "isort",
+    "inlayHints.variableTypes": false
+  },
 }
