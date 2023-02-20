@@ -23,7 +23,7 @@ let
   # =======================================================
   alacritty-themes = {
     gruvbox = builtins.readFile ./themes/gruvbox-flat.yml;
-    catppuccin = builtins.readFile ./themes/catppuccin-frappe.yml;
+    catppuccin = builtins.readFile ./themes/catppuccin-mocha.yml;
   };
   alacritty-theme = alacritty-themes.${config.theme};
   alacritty = builtins.toFile "alacritty.yml" ''
@@ -36,7 +36,7 @@ let
   tmux-themes = {
     gruvbox = builtins.readFile "${tmux-gruvbox}/tmux-gruvbox-dark.conf";
     catppuccin = ''
-      ${builtins.readFile "${tmux-catppuccin}/catppuccin-frappe.tmuxtheme"}
+      ${builtins.readFile "${tmux-catppuccin}/catppuccin-mocha.tmuxtheme"}
       run-shell $HOME/.tmux/plugins/tmux-catppuccin/catppuccin.tmux
     '';
   };
