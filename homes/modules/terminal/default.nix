@@ -1,4 +1,15 @@
-{ config, pkgs, home-manager, zsh-autocomplete, tmux-plugin-manager, ... }:
+{ 
+  config, 
+  pkgs, 
+  home-manager, 
+  zsh-autocomplete, 
+  tmux-copycat,
+  tmux-pain-control,
+  tmux-sensible,
+  tmux-gruvbox,
+  tmux-catppuccin,
+  ... 
+}:
 let 
   tmux-open = pkgs.writeShellScriptBin "tmux-open" ''
     if [[ -z $(tmux ls | grep $1) ]]; then
@@ -23,13 +34,10 @@ let
   # Tmux Config
   # =======================================================
   tmux-themes = {
-    gruvbox = ''
-      set -g @plugin 'egel/tmux-gruvbox'
-      set -g @tmux-gruvbox 'dark'
-    '';
+    gruvbox = builtins.readFile "${tmux-gruvbox}/tmux-gruvbox-dark.conf";
     catppuccin = ''
-      set -g @plugin 'catppuccin/tmux' 
-      set -g @catppuccin_flavour 'frappe'
+      ${builtins.readFile "${tmux-catppuccin}/catppuccin-frappe.tmuxtheme"}
+      run-shell $HOME/.tmux/plugins/tmux-catppuccin/catppuccin.tmux
     '';
   };
   tmux-theme = tmux-themes.${config.theme};
@@ -94,14 +102,33 @@ in
         # zstyle ':autocomplete:history-search:*' list-lines 8 
       '';
     };
-    home.file ={
-      ".tmux/setup/xterm-256color-italic.terminfo".source = "${xterm-italic}";
-      ".tmux/setup/tmux-256color.terminfo".source = "${tmux-color}";
-      ".tmux.conf".source = "${tmux-conf}";
-    };
     xdg.configFile = {
       "alacritty/alacritty.yml".source = "${alacritty}";
-      "tmux/plugins/tpm".source = "${tmux-plugin-manager}";
+    };
+    home.file ={
+      ".tmux.conf".source = "${tmux-conf}";
+      ".tmux/setup/xterm-256color-italic.terminfo".source = "${xterm-italic}";
+      ".tmux/setup/tmux-256color.terminfo".source = "${tmux-color}";
+      ".tmux/plugins/tmux-copycat" = {
+        source = "${tmux-copycat}";
+        recursive = true;
+      };
+      ".tmux/plugins/tmux-pain-control" = {
+        source = "${tmux-pain-control}";
+        recursive = true;
+      };
+      ".tmux/plugins/tmux-sensible" = {
+        source = "${tmux-sensible}";
+        recursive = true;
+      };
+      ".tmux/plugins/tmux-catppuccin" = {
+        source = "${tmux-catppuccin}";
+        recursive = true;
+      };
+      ".tmux/plugins/tmux-gruvbox" = {
+        source = "${tmux-gruvbox}";
+        recursive = true;
+      };
     };
   };
 }

@@ -117,7 +117,11 @@
         "nixpkgs": "nixpkgs",
         "ranger-devicons": "ranger-devicons",
         "sops-nix": "sops-nix",
-        "tmux-plugin-manager": "tmux-plugin-manager",
+        "tmux-catppuccin": "tmux-catppuccin",
+        "tmux-copycat": "tmux-copycat",
+        "tmux-gruvbox": "tmux-gruvbox",
+        "tmux-pain-control": "tmux-pain-control",
+        "tmux-sensible": "tmux-sensible",
         "zsh-autocomplete": "zsh-autocomplete"
       }
     },
@@ -142,20 +146,87 @@
         "type": "github"
       }
     },
-    "tmux-plugin-manager": {
+    "tmux-catppuccin": {
       "flake": false,
       "locked": {
-        "lastModified": 1673596983,
-        "narHash": "sha256-wMvlnh7MuRUopmmxUpQWCK2e+3KTzenkTn1KOZrTN8M=",
+        "lastModified": 1671036137,
+        "narHash": "sha256-6UmFGkUDoIe8k+FrzdzsKrDHHMNfkjAk0yyc+HV199M=",
+        "owner": "catppuccin",
+        "repo": "tmux",
+        "rev": "e2561decc2a4e77a0f8b7c05caf8d4f2af9714b3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "tmux",
+        "type": "github"
+      }
+    },
+    "tmux-copycat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1595579844,
+        "narHash": "sha256-2dMu/kbKLI/+kO05+qmeuJtAvvO7k9SSF+o2MHNllFk=",
         "owner": "tmux-plugins",
-        "repo": "tpm",
-        "rev": "fdb30228b1dc649ab1c2086d146ef9dd0ab584e6",
+        "repo": "tmux-copycat",
+        "rev": "d7f7e6c1de0bc0d6915f4beea5be6a8a42045c09",
         "type": "github"
       },
       "original": {
         "owner": "tmux-plugins",
         "ref": "master",
-        "repo": "tpm",
+        "repo": "tmux-copycat",
+        "type": "github"
+      }
+    },
+    "tmux-gruvbox": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1618832206,
+        "narHash": "sha256-jvGCrV94vJroembKZLmvGO8NknV1Hbgz2IuNmc/BE9A=",
+        "owner": "egel",
+        "repo": "tmux-gruvbox",
+        "rev": "3f9e38d7243179730b419b5bfafb4e22b0a969ad",
+        "type": "github"
+      },
+      "original": {
+        "owner": "egel",
+        "ref": "main",
+        "repo": "tmux-gruvbox",
+        "type": "github"
+      }
+    },
+    "tmux-pain-control": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1628510980,
+        "narHash": "sha256-2VI9w7Naj9OHF3iuV63Ij4QcYhbrtngyJ3GpeyzIKxs=",
+        "owner": "tmux-plugins",
+        "repo": "tmux-pain-control",
+        "rev": "32b760f6652f2305dfef0acd444afc311cf5c077",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tmux-plugins",
+        "ref": "master",
+        "repo": "tmux-pain-control",
+        "type": "github"
+      }
+    },
+    "tmux-sensible": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1660507698,
+        "narHash": "sha256-sw9g1Yzmv2fdZFLJSGhx1tatQ+TtjDYNZI5uny0+5Hg=",
+        "owner": "tmux-plugins",
+        "repo": "tmux-sensible",
+        "rev": "25cb91f42d020f675bb0a2ce3fbd3a5d96119efa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tmux-plugins",
+        "ref": "master",
+        "repo": "tmux-sensible",
         "type": "github"
       }
     },
