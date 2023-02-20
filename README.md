@@ -62,6 +62,8 @@ be as awesomely configured as a linux machine.
 
 ## MacOS Installation
 
+![macos_preview](/assets/macos_preview.png?raw=true "Preview of MacOS")
+
 ### Setup MacOS for Nix Darwin
 
 #### Nix
