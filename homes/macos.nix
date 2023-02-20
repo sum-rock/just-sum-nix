@@ -1,4 +1,10 @@
 { config, pkgs, home-manager, gruvbox-gtk, ... }:
+let
+  wallpapers = {
+    catppuccin = ./wallpapers/catppuccin;
+    gruvbox = ./wallpapers/gruvbox;
+  };
+in
 {
   imports = [
     home-manager.darwinModule
@@ -25,14 +31,9 @@
     home.homeDirectory = "${config.home-dir-path}";
     home.stateVersion = "${config.nixos-version}";
     home.file = {
-      ".wallpapers/gruvbox10.png" = {
-        source = ./wallpapers/gruvbox10.png;
-      };
-      ".wallpapers/gruvbox16.png" = {
-        source = ./wallpapers/gruvbox16.png;
-      };
-      ".wallpapers/gruvbox18.png" = {
-        source = ./wallpapers/gruvbox18.png;
+      ".wallpapers" = {
+        source = "${wallpapers.${config.theme}}";
+        recursive = true;
       };
     };
     programs.zsh = {
