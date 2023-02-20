@@ -1,7 +1,6 @@
 require("catppuccin").setup { 
   flavour = "frappe", 
   integrations = { 
-    coc=true,
     telescope=true,
     hop=true,
     treesitter=true,
