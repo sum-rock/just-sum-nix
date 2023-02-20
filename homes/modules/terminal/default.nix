@@ -60,8 +60,9 @@ let
 
 in
 {
-  # To use this module tmux and exa are required
   environment.systemPackages = [
+    pkgs.tmux
+    pkgs.exa
     pkgs.alacritty 
     pkgs.starship 
     tmux-open
