@@ -35,8 +35,24 @@
       url = "github:cdump/ranger-devicons2/master";
       flake = false;
     };
-    tmux-plugin-manager = {
-      url = "github:tmux-plugins/tpm/master";
+    tmux-copycat = {
+      url = "github:tmux-plugins/tmux-copycat/master";
+      flake = false;
+    };
+    tmux-pain-control = {
+      url = "github:tmux-plugins/tmux-pain-control/master";
+      flake = false;
+    };
+    tmux-sensible = {
+      url = "github:tmux-plugins/tmux-sensible/master";
+      flake = false;
+    };
+    tmux-gruvbox = {
+      url = "github:egel/tmux-gruvbox/main";
+      flake = false;
+    };
+    tmux-catppuccin = {
+      url = "github:catppuccin/tmux";
       flake = false;
     };
   };
@@ -91,7 +107,4 @@
   };
 
 }
-
- 
-
 

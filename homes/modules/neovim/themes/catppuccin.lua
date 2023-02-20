@@ -1,7 +1,6 @@
 require("catppuccin").setup { 
-  flavour = "frappe", 
+  flavour = "mocha", 
   integrations = { 
-    coc=true,
     telescope=true,
     hop=true,
     treesitter=true,
@@ -14,7 +13,7 @@ require("catppuccin").setup {
 vim.cmd.colorscheme "catppuccin" 
 
 local bufferline = require("bufferline")
-local frappe = require("catppuccin.palettes").get_palette "frappe"
+local mocha = require("catppuccin.palettes").get_palette "mocha"
 
 bufferline.setup {
   highlights = require("catppuccin.groups.integrations.bufferline").get {
@@ -23,8 +22,8 @@ bufferline.setup {
       all = {
         fill = { bg = "#000000" },
       },
-      frappe = {
-        background = { fg = frappe.text },
+      mocha = {
+        background = { fg = mocha.text },
       },
       latte = {
         background = { fg = "#000000" },
