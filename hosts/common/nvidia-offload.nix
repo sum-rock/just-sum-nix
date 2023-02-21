@@ -21,7 +21,7 @@ in
       prime = {
         offload.enable = true;
         # sync.enable = true;
-        intelBusId = "PCI:00:02:0";
+        intelBusId = "PCI:00:02:0";   # TODO: These need to be options set at the hosts/$HOST/default.nix level
         nvidiaBusId = "PCI:01:00:0";
       };
     };

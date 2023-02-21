@@ -25,6 +25,12 @@
     LC_TIME = "${config.localization}";
   };
 
+  # Configure keymap in X11
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "";
+  };
+
   # Audio
   sound.enable = true;
   hardware.pulseaudio.enable = false;

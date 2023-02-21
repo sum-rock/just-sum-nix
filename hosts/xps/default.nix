@@ -3,7 +3,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./nvidia.nix
+      ../common/nvidia-offload.nix
     ];
 
   # Boot drive stuff
