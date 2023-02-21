@@ -129,7 +129,7 @@ to this initial configuration.
 {
   networking.hostname = "my-hostname-here";
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flake" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
 ```
 
@@ -143,6 +143,8 @@ running:
 ```shell
 $ sudo nixos-rebuild switch
 ```
+
+> NOTE: You'll also need to reboot to have the new hostname take effect
 
 ### Edit the flake for NixOS
 
@@ -166,21 +168,30 @@ comment.
 }
 ```
 
-If you are not me, the author of this repository, you will want to change the values in
-`preferences/default.nix` so that you use your own username and localization settings.
-
-Finally, edit `./hosts/$HOST/default.nix` to only include things that are specific to
+Next, edit `./hosts/$HOST/default.nix` to only include things that are specific to
 this new device. If you look at what is included in `./configurations/nixos.nix` you will 
 get an idea of what can be removed. Check the other system `default.nix` files within
 the `hosts` directory for additional reference.
 
+You should only require configurations for your bootloader, keyfile path (if your
+drive is encrypted), swap partitions, and your hostname. Note the nvidia
+configurations available in `hosts/common` can be imported if necessary.
+
 > Note: leave your hardware-configuration.nix alone
+
+#### Special note for those of you who are not me!
+
+If you are not me, the author of this repository, you will want to change the values in
+`preferences/default.nix` so that you use your own username and localization settings.
 
 ### Rebuild NixOS
 
-Run the flowing to build the flake.
+If you've just made changes to the flake, you need to commit those changes for Nix to
+find them. Commit the changes and build your system from the flake.
 
 ```shell
+cd ~/.nixpkgs
+git add . && git commit -m "a pithy message"
 sudo nixos-rebuild boot --flake ~/.nixpkgs#
 ```
 
