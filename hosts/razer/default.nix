@@ -4,6 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../common/nvidia-standard.nix
     ];
 
   # Boot Loader stuff
@@ -30,30 +31,5 @@
     openrazer-daemon
   ];
 
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
   hardware.bluetooth.enable = true;
-
-  # NVIDIA Drivers
-  # --------------
-  services.xserver = {
-    libinput.enable = true;
-    videoDrivers = [ "nvidia" ];
-  };
-  hardware = {
-    nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
-    opengl = {
-      enable = true;
-      extraPackages = [
-        pkgs.mesa.drivers
-        pkgs.linuxPackages.nvidia_x11.out
-      ];
-    };
-  };
 }

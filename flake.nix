@@ -103,6 +103,7 @@
       #   <hostname> = mkNixOSWorkstation <hostname> <system type>;
       xps = mkNixOSWorkstation "xps" "x86_64-linux";
       razer = mkNixOSWorkstation "razer" "x86_64-linux";
+      the-rig = mkNixOSWorkstation "the-rig" "x86_64-linux";
     };
   };
 
