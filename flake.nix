@@ -31,6 +31,10 @@
       url = "github:Fausto-Korpsvart/Gruvbox-GTK-Theme/master";
       flake = false;
     };
+    catppuccin-gtk = {
+      url = "github:Fausto-Korpsvart/Catppuccin-GTK-Theme/main";
+      flake = false;
+    };
     ranger-devicons = {
       url = "github:cdump/ranger-devicons2/master";
       flake = false;
