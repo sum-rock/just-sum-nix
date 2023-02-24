@@ -34,7 +34,7 @@
 
   # Note: the mounting directory must exist and it must be within home
   # Note: using config.primary-user here made the rebuild timeout
-  fileSystems."/home/august/steam" = { 
+  fileSystems."/home/august/Games" = { 
     device = "/dev/mapper/vol1";
     fsType = "xfs";
   };
