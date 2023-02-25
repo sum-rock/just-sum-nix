@@ -13,6 +13,7 @@ in
     ./modules/ranger
     ./modules/gnome
     ./modules/direnv
+    ./modules/openvpn
   ];
 
   home-dir-path = "/home/${config.primary-user}";
@@ -31,7 +32,7 @@ in
     programs.zsh = {
       enable = true;
       initExtra = ''
-        export EDITOR="/run/current-system/sw/bin/nvim"
+        export EDITOR="nvim"
         export NIX_CONFIG_PATH="${config.home-dir-path}/.nixpkgs"
       '';
       shellAliases = {
