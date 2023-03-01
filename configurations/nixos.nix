@@ -113,13 +113,14 @@
     # Applications 
     # ------------
     discord
-    standardnotes   # This could be in workstation but does not evalulate on M1
-    spotify         # This could also be in workstation if it worked on M1
+    standardnotes     # This could be in workstation but does not evalulate on M1
+    spotify           # This could also be in workstation if it worked on M1
     _1password-gui
+    nextcloud-client
 
     # Other
     # -----
-    woeusb          # To make Windows USBs
+    woeusb            # To make Windows USBs
     ntfs3g
     veracrypt
     input-remapper
