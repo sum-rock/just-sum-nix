@@ -25,27 +25,33 @@ in
   home-manager.useUserPackages = true;
 
   home-manager.users.${config.primary-user} = {
-    programs.home-manager.enable = true; 
-    home.stateVersion = "${config.nixos-version}";
-    home.username = "${config.primary-user}";
-    home.homeDirectory = "/home/${config.primary-user}";
-    programs.zsh = {
-      enable = true;
-      initExtra = ''
-        export EDITOR="nvim"
-        export NIX_CONFIG_PATH="${config.home-dir-path}/.nixpkgs"
-      '';
-      shellAliases = {
-        nix-edit = "cd $NIX_CONFIG_PATH; nvim .";
-        nixos-rebuild-flake-test = "sudo nixos-rebuild test --flake $NIX_CONFIG_PATH";
-        nixos-rebuild-flake = "sudo nixos-rebuild switch --flake $NIX_CONFIG_PATH";
-        modify-sops = "cd $NIX_CONFIG_PATH; nix-shell -p sops --run \"sops secrets/secrets.yaml\"";
+    services = {
+      nextcloud-client.enable = true;
+    };
+    home = {
+      stateVersion = "${config.nixos-version}";
+      username = "${config.primary-user}";
+      homeDirectory = "/home/${config.primary-user}";
+      file = {
+        ".wallpapers" = {
+          source = "${wallpapers.${config.theme}}";
+          recursive = true;
+        }; 
       };
     };
-    home.file = {
-      ".wallpapers" = {
-        source = "${wallpapers.${config.theme}}";
-        recursive = true;
+    programs = {
+      home-manager.enable = true; 
+      zsh = {
+        enable = true;
+        initExtra = ''
+          export EDITOR="nvim"
+          export NIX_CONFIG_PATH="${config.home-dir-path}/.nixpkgs"
+        '';
+        shellAliases = {
+          nix-edit = "cd $NIX_CONFIG_PATH; nvim .";
+          nixos-rebuild-flake-test = "sudo nixos-rebuild test --flake $NIX_CONFIG_PATH";
+          nixos-rebuild-flake = "sudo nixos-rebuild switch --flake $NIX_CONFIG_PATH";
+        };
       };
     };
   };
