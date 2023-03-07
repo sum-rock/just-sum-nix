@@ -37,6 +37,7 @@ require("search")
 require("status_line")
 require('terminal')
 require('version_control')
+require("my_yank")
 
 require('neoscroll').setup{ stop_eof = false; }
 require('glow').setup{ style = "dark"; }

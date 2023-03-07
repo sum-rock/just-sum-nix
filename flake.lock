@@ -109,6 +109,22 @@
         "type": "github"
       }
     },
+    "nvim-yanky": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1677661371,
+        "narHash": "sha256-icV/ILz9TEipi6dHXZSNUVdAB4gj3EwwBhNMYzTVwdk=",
+        "owner": "gbprod",
+        "repo": "yanky.nvim",
+        "rev": "2ccd52506dd0d9374c845e52b5373e901227639e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gbprod",
+        "repo": "yanky.nvim",
+        "type": "github"
+      }
+    },
     "ranger-devicons": {
       "flake": false,
       "locked": {
@@ -133,6 +149,7 @@
         "gruvbox-gtk": "gruvbox-gtk",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nvim-yanky": "nvim-yanky",
         "ranger-devicons": "ranger-devicons",
         "sops-nix": "sops-nix",
         "tmux-catppuccin": "tmux-catppuccin",

@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, nvim-yanky, ... }:
 let
   # Plugin theme
   # =======================================================
@@ -19,6 +19,14 @@ let
     ${init-theme}
     ${builtins.readFile ./init.lua}
   '';
+
+  # Derivations
+  # =======================================================
+  yanky = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "yanky-nvim";
+    version = "1.0";
+    src = nvim-yanky;
+  };
 in
 {
   environment.systemPackages = with pkgs; [
@@ -68,6 +76,7 @@ in
         coc-html
         coc-tsserver
         coc-json
+        yanky
      ] ++ plugin-theme;
    };
  };

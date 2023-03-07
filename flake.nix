@@ -59,6 +59,10 @@
       url = "github:catppuccin/tmux";
       flake = false;
     };
+    nvim-yanky = {
+      url = "github:gbprod/yanky.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, darwin, nixpkgs, ... }@attrs: 
