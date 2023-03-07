@@ -44,23 +44,26 @@ in
           yabai-rf = "launchctl kickstart -k \"gui/$UID/org.nixos.yabai\"; skhd --reload";
           nix-edit = "cd ${config.home-dir-path}/.nixpkgs; nvim .";
           nixos-rebuild-flake = "darwin-rebuild switch --flake ${config.home-dir-path}/.nixpkgs";
-          go-homebase = "cd ~/repositories/pyhomebase";
-          go-notes = "cd ~/Documents/notes";
-          notes = "cd ~/Documents/notes; nvim .";
-          staging-db = "aptible db:tunnel homebase-two-staging --port 52210";
-          production-db = "aptible db:tunnel homebase-two-prod --port 54171";
           git-wipit = "git add .; git commit -m wip --no-verify";
-          git-pull-develop = "git checkout develop; git pull; git checkout -";
           postgres-docker-up = "docker run -d -e POSTGRES_HOST_AUTH_METHOD=trust -p 5432:5432 --name test-postgres postgres";
         };
         initExtra = ''
+          if [ -f "$HOME/.profile.custom" ] ; then source $HOME/.profile.custom ; fi
+
+          export EDITOR="nvim"
+          export DIRENV_LOG_FORMAT=""
+
           VSCODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin" 
           if [ -d $VSCODE ] ; then export PATH="$VSCODE:$PATH" ; fi
 
-          export EDITOR="nvim"
+          DOCKER="$HOME/.docker/init-bash.sh"
+          if [ -f $DOCKER ] ; then source $DOCKER ; fi
 
-          export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
-          export DIRENV_LOG_FORMAT=""
+          HOMEBREW="/opt/homebrew/opt/grep/libexec/gnubin"
+          if [ -f $HOMEBREW ] ; then 
+            export PATH=$HOMEBREW:$PATH
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+          fi
         '';
       };
     };
