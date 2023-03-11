@@ -16,6 +16,8 @@
   # Setup keyfile
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
+    "/keyfile-a" = null;
+    "/keyfile-b" = null;
   };
 
   # Enable swap on luks
@@ -28,14 +30,22 @@
   #   $ sudo cryptsetup luksAddKey /dev/sdx /crypto_keyfile.bin
 
   boot.initrd.luks.devices."vol1" = {
+    device = "/dev/disk/by-uuid/2c550cef-9396-4f65-9d96-cf352b2464e7";
+    keyFile = "/keyfile-a";
+  }; 
+  boot.initrd.luks.devices."vol2" = {
     device = "/dev/disk/by-uuid/1528737e-f734-4f7f-8652-c2d767e2095d";
-    keyFile = "/crypto_keyfile.bin";
+    keyFile = "/keyfile-b";
   }; 
 
   # Note: the mounting directory must exist and it must be within home
   # Note: using config.primary-user here made the rebuild timeout
-  fileSystems."/home/august/Games" = { 
+  fileSystems."/home/august/Nextcloud" = { 
     device = "/dev/mapper/vol1";
+    fsType = "ext4";
+  };
+  fileSystems."/home/august/Games" = { 
+    device = "/dev/mapper/vol2";
     fsType = "xfs";
   };
 
