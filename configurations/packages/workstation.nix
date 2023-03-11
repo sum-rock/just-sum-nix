@@ -24,6 +24,7 @@
       # Applications
       # ------------
       dbeaver
+      element-desktop
 
     ];
   };
