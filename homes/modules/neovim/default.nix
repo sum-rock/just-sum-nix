@@ -76,6 +76,7 @@ in
         coc-html
         coc-tsserver
         coc-json
+        coc-prettier
         yanky
      ] ++ plugin-theme;
    };
