@@ -71,6 +71,7 @@ in
         nvim-autopairs
         which-key-nvim
         coc-nvim
+        coc-sqlfluff
         coc-spell-checker
         coc-pyright
         coc-html
