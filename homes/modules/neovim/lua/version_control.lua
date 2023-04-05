@@ -11,13 +11,10 @@ vim.g["gitblame_ignored_filetypes"] = {'NvimTree'}
 
 vim.g.gitblame_display_virtual_text = 0 -- Disable virtual text
 
-vim.keymap.set("n", "<leader>gh", "<cmd>DiffviewFileHistory %<cr>")
-vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>")
-
 require("which-key").register({
   g = {
     name = "Git",
-    g = { "<cmd>LazyGit<cr>", "Lazygit" },
+    x = { "<cmd>LazyGit<cr>", "Lazygit" },
     h = { "<cmd>DiffviewFileHistory %<cr>", "File History", noremap=false },
     d = {
       name = "File Diffs",
