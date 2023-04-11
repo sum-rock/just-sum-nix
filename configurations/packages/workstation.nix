@@ -15,6 +15,7 @@
       # Programing tools
       # ----------------
       python39Full
+      nix-index
       poetry
       postgresql_14
       tree-sitter
