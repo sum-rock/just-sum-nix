@@ -69,6 +69,7 @@ in
         glow-nvim
         hop-nvim
         nvim-autopairs
+        nvim-ts-autotag
         which-key-nvim
         coc-nvim
         coc-sqlfluff
