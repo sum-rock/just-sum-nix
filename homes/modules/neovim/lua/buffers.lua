@@ -3,6 +3,7 @@ local state = lazy.require("bufferline.state")
 local commands = lazy.require("bufferline.commands")
 local tree_api = require("nvim-tree.api").tree
 local tree_view = require("nvim-tree.view")
+local terminal = require("terminal")
 
 require("bufferline").setup {
   options = {
@@ -57,7 +58,7 @@ function _close_tab_eligantly()
     tree_api:close()
     vim.cmd('w')
     vim.cmd('bw')
-    tree_api:toggle()
+    tree_api:open()
   else
     vim.cmd('w')
     vim.cmd("bw")
