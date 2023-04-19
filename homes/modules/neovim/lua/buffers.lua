@@ -58,7 +58,7 @@ function _close_tab_eligantly()
     tree_api:close()
     vim.cmd('w')
     vim.cmd('bw')
-    tree_api:open()
+    tree_api.open()
   else
     vim.cmd('w')
     vim.cmd("bw")
