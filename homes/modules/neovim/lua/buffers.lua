@@ -3,6 +3,7 @@ local state = lazy.require("bufferline.state")
 local commands = lazy.require("bufferline.commands")
 local tree_api = require("nvim-tree.api").tree
 local tree_view = require("nvim-tree.view")
+local terminal = require("terminal")
 
 require("bufferline").setup {
   options = {
@@ -24,8 +25,23 @@ require("which-key").register({
     w = { "<cmd>lua _close_tab_eligantly()<cr>", "Wipeout buffer" },
     W = { "<cmd>lua _close_all_tabs_eligantly()<cr>", "Wipout all buffers" },
     s = { "<cmd>w<cr>", "Save/Write buffer" },
+    -- TODO: Man this code kills me. There must be a better way...
+    ["1"] = { "<cmd>lua _go_to_buffer_at_index(1)<cr>", "Go to buffer 1" },
+    ["2"] = { "<cmd>lua _go_to_buffer_at_index(2)<cr>", "Go to buffer 2" },
+    ["3"] = { "<cmd>lua _go_to_buffer_at_index(3)<cr>", "Go to buffer 3" },
+    ["4"] = { "<cmd>lua _go_to_buffer_at_index(4)<cr>", "Go to buffer 4" },
+    ["5"] = { "<cmd>lua _go_to_buffer_at_index(5)<cr>", "Go to buffer 5" },
+    ["6"] = { "<cmd>lua _go_to_buffer_at_index(6)<cr>", "Go to buffer 6" },
+    ["7"] = { "<cmd>lua _go_to_buffer_at_index(7)<cr>", "Go to buffer 7" },
+    ["8"] = { "<cmd>lua _go_to_buffer_at_index(8)<cr>", "Go to buffer 8" },
+    ["9"] = { "<cmd>lua _go_to_buffer_at_index(9)<cr>", "Go to buffer 9" },
+    ["0"] = { "<cmd>lua _go_to_buffer_at_index(10)<cr>", "Go to buffer 10" },
   },
 }, { prefix = "<leader>" })
+
+function _go_to_buffer_at_index(index)
+  commands.go_to(index) 
+end
 
 function _close_tab_eligantly()
   local this_index = commands.get_current_element_index(state)
@@ -42,7 +58,7 @@ function _close_tab_eligantly()
     tree_api:close()
     vim.cmd('w')
     vim.cmd('bw')
-    tree_api:toggle()
+    tree_api:open()
   else
     vim.cmd('w')
     vim.cmd("bw")

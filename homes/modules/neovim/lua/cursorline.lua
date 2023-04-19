@@ -27,15 +27,19 @@ function _is_exempt_type()
   end
 end
 
-function _win_enter()
+function win_enter()
   if not _is_exempt_type() then
     wo.cursorline = true
+  else
+    wo.cursorline = false
   end
 end
 
-function _win_leave()
+function win_leave()
   if not _is_exempt_type() then
     wo.cursorline = false
+  else
+    wo.cursorline = true
   end
 end
 
@@ -67,12 +71,12 @@ function M.setup(options)
     wo.cursorline = true
     au("WinEnter", { 
         callback = function()
-          _win_enter() 
+          win_enter() 
         end,
     })
     au("WinLeave", { 
       callback = function()
-        _win_leave() 
+        win_leave() 
       end,
     })
     au({ "CursorMoved", "CursorMovedI" }, { 
