@@ -1,4 +1,4 @@
-{ pkgs, config, nvim-yanky, ... }:
+{ pkgs, config, nvim-yanky, nvim-chatgpt, ... }:
 let
   # Plugin theme
   # =======================================================
@@ -27,6 +27,11 @@ let
     version = "1.0";
     src = nvim-yanky;
   };
+  chatgpt = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "chatgpt-nvim";
+    version = "1.0";
+    src = nvim-chatgpt;
+  };
 in
 {
   environment.systemPackages = with pkgs; [
@@ -37,7 +42,7 @@ in
     neovide
   ];
   home-manager.users.${config.primary-user} = {
-    xdg.configFile = { 
+    xdg.configFile = {
       "nvim/coc-settings.json".source = ./coc-settings.json;
     };
     xdg.configFile = {
@@ -46,15 +51,21 @@ in
     xdg.configFile = {
       "nvim/init.lua".source = "${init-lua}";
     };
+    programs.zsh = {
+      sessionVariables = {
+        EDITOR = "nvim";
+        OPENAI_API_KEY = "";
+      };
+    };
     programs.neovim = {
       enable = true;
-      plugins = with pkgs.vimPlugins; [ 
-        lualine-nvim 
+      plugins = with pkgs.vimPlugins; [
+        lualine-nvim
         nvim-web-devicons
         (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
         nvim-tree-lua
         vim-devicons
-        vim-nix 
+        vim-nix
         vim-startify
         neoscroll-nvim
         telescope-nvim
@@ -64,7 +75,7 @@ in
         bufferline-nvim
         vim-gitgutter
         toggleterm-nvim
-        terminus       # Helps integrate into terminal required for gitgutter
+        terminus # Helps integrate into terminal required for gitgutter
         vim-polyglot
         glow-nvim
         hop-nvim
@@ -80,7 +91,10 @@ in
         coc-json
         coc-prettier
         yanky
-     ] ++ plugin-theme;
-   };
- };
+        chatgpt
+        plenary-nvim # Required for chatgpt
+        nui-nvim # Required for chatgpt
+      ] ++ plugin-theme;
+    };
+  };
 }

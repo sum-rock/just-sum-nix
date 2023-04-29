@@ -45,3 +45,4 @@ require("nvim-autopairs").setup{}
 require('nvim-web-devicons').setup{ color_icons = false; }
 
 require"nvim-treesitter.configs".setup{ autotag = { enable = true; } }
+require("chatgpt").setup()

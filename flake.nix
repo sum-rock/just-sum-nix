@@ -63,6 +63,10 @@
       url = "github:gbprod/yanky.nvim";
       flake = false;
     };
+    nvim-chatgpt = {
+      url = "github:JackMort/ChatGPT.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, darwin, nixpkgs, ... }@attrs: 
