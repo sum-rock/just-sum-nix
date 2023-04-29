@@ -64,7 +64,7 @@
       flake = false;
     };
     nvim-chatgpt = {
-      url = "github:JackMort/ChatGPT.nvim";
+      url = "github:jackMort/ChatGPT.nvim";
       flake = false;
     };
   };

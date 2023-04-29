@@ -38,11 +38,10 @@ require("status_line")
 require('terminal')
 require('version_control')
 require("my_yank")
+require("my_chatgpt")
 
 require('neoscroll').setup{ stop_eof = false; }
 require('glow').setup{ style = "dark"; }
 require("nvim-autopairs").setup{} 
 require('nvim-web-devicons').setup{ color_icons = false; }
-
 require"nvim-treesitter.configs".setup{ autotag = { enable = true; } }
-require("chatgpt").setup()
