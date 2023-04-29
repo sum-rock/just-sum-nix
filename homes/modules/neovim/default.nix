@@ -54,7 +54,7 @@ in
     programs.zsh = {
       sessionVariables = {
         EDITOR = "nvim";
-        OPENAI_API_KEY = "";
+        OPENAI_API_KEY = "$(cat ${config.home-dir-path}/.openai)";
       };
     };
     programs.neovim = {
