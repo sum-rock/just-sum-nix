@@ -50,7 +50,6 @@ in
         initExtra = ''
           if [ -f "$HOME/.profile.custom" ] ; then source $HOME/.profile.custom ; fi
 
-          export EDITOR="nvim"
           export DIRENV_LOG_FORMAT=""
 
           VSCODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin" 

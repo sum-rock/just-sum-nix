@@ -44,7 +44,6 @@ in
       zsh = {
         enable = true;
         initExtra = ''
-          export EDITOR="nvim"
           export NIX_CONFIG_PATH="${config.home-dir-path}/.nixpkgs"
         '';
         shellAliases = {
