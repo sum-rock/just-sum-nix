@@ -4,7 +4,7 @@
       "flake": false,
       "locked": {
         "lastModified": 1677864646,
-        "narHash": "sha256-IppxWjg4rZk1skHoxUUuukyMxy2alE26YKynWF/G1Zk=",
+        "narHash": "sha256-wJnbXXWKX0mcqRYyE1Vs4CrgWXTwfk3kRC2IhKqQ0RI=",
         "owner": "Fausto-Korpsvart",
         "repo": "Catppuccin-GTK-Theme",
         "rev": "b8cffe7583876e17cc4558f32d17a072fa04ea9f",
@@ -42,7 +42,7 @@
       "flake": false,
       "locked": {
         "lastModified": 1676919051,
-        "narHash": "sha256-A9xPPINWaw/84uowyQJL7yKbuV6Qsb4DuuWughKnZ3M=",
+        "narHash": "sha256-xcTI0rLZE7Yzt/9lljotzMDfiacZp1Jj41aLCzJKJko=",
         "owner": "Fausto-Korpsvart",
         "repo": "Gruvbox-GTK-Theme",
         "rev": "44e81d8226579a24a791f3acf43b97de815bc4b1",
