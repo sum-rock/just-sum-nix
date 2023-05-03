@@ -124,6 +124,7 @@
     ntfs3g
     veracrypt
     input-remapper
+    exiftool
   ];
 
   # Default Editor
