@@ -117,6 +117,8 @@
     spotify           # This could also be in workstation if it worked on M1
     _1password-gui
     nextcloud-client
+    zoom-us
+    skypeforlinux
 
     # Other
     # -----
