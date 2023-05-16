@@ -24,6 +24,7 @@ require("which-key").register({
             i = { "<Plug>(coc-implementation)", "To implementations" },
             r = { "<Plug>(coc-references)", "To references" },
         },
+        r = { "<Plug>(coc-rename)", "Rename" },
         p = {
             name = "Python",
             i = { "<cmd>CocCommand pyright.organizeimports<cr>", "Sort imports" },
