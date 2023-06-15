@@ -3,12 +3,12 @@
   # NVIDIA Drivers
   # --------------
   services.xserver = {
-    libinput.enable = true;
     videoDrivers = [ "nvidia" ];
   };
   hardware = {
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.stable;
+      modesetting.enable = true;
     };
     opengl = {
       enable = true;
