@@ -79,7 +79,7 @@ in
 
   fonts = {
     fonts = with pkgs; [
-      (nerdfonts.override { fonts = [ "Iosevka" ]; })
+      (nerdfonts.override { fonts = [ "Lilex" ]; })
       font-awesome
     ];
   };
