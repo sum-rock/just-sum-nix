@@ -139,10 +139,13 @@
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
+    # dedicatedServer.openFirewall = true;
   };
 
   # Yubikey
   services.udev.packages = [ pkgs.yubikey-personalization ];
   services.pcscd.enable = true;
+
+  # Tailscale
+  services.tailscale.enable = true;
 }
