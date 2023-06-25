@@ -56,7 +56,7 @@
   # ===========================================================================
   users.users.${config.primary-user} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "networkmanager" "plugdev" "openrazer" ];
+    extraGroups = [ "wheel" "video" "networkmanager" "plugdev" "openrazer" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
@@ -93,6 +93,7 @@
     cmake
     openvpn         #   Configs for nordvpn in home
     sops
+    docker-compose
 
     # Yubikey
     # -------
@@ -148,4 +149,7 @@
 
   # Tailscale
   services.tailscale.enable = true;
+
+  # Docker
+  virtualisation.docker.enable = true;
 }
