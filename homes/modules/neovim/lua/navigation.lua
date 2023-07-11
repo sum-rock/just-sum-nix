@@ -6,8 +6,6 @@ local directions = require('hop.hint').HintDirection
 require("which-key").register({
   w = {
     name = "Windows",
-    q = { "<cmd>q<cr>", "Quit Window" },
-    Q = { "<cmd>qa<cr>", "Quit All Windows" },
     h = { "<c-w>h", "Move Left" },
     j = { "<c-w>j", "Move Down" },
     k = { "<c-w>k", "Move Up" },
