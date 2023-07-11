@@ -16,7 +16,7 @@ yabai -m config left_padding                10
 yabai -m config right_padding               10
 yabai -m config window_gap                  10 
 
-yabai -m config window_topmost              on 
+yabai -m config window_topmost              off   # Must be off to prevent chrome windows from being hidden behind window
 yabai -m config window_shadow               off 
 
 yabai -m config window_border               on 
