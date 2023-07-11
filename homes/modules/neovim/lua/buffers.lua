@@ -24,7 +24,6 @@ require("which-key").register({
     p = { "<cmd>bp<cr>", "Previous buffer" },
     w = { "<cmd>lua _close_tab_eligantly()<cr>", "Wipeout buffer" },
     W = { "<cmd>lua _close_all_tabs_eligantly()<cr>", "Wipout all buffers" },
-    s = { "<cmd>w<cr>", "Save/Write buffer" },
     -- TODO: Man this code kills me. There must be a better way...
     ["1"] = { "<cmd>lua _go_to_buffer_at_index(1)<cr>", "Go to buffer 1" },
     ["2"] = { "<cmd>lua _go_to_buffer_at_index(2)<cr>", "Go to buffer 2" },
