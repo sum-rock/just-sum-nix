@@ -104,6 +104,7 @@
 
     # Gaming
     # ------
+    steamcmd
     qbittorrent
     renpy
     wine
@@ -140,7 +141,7 @@
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
-    # dedicatedServer.openFirewall = true;
+    dedicatedServer.openFirewall = true;
   };
 
   # Yubikey
@@ -150,6 +151,9 @@
   # Tailscale
   services.tailscale.enable = true;
 
-  # Docker
+  # Virtualization
   virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "${config.primary-user}" ];
 }
