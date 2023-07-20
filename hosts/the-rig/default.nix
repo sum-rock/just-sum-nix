@@ -8,6 +8,13 @@
 
   networking.hostName = "the-rig"; # Define your hostname.
 
+  # services.openiscsi = {
+  #   enable = true;
+  #   enableAutoLoginOut = true;
+  #   discoverPortal = "100.115.195.75";
+  #   name = "iqn.2003-01.org.linux-iscsi.silo.x8664:sn.4cce07f0ab02";
+  # };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
