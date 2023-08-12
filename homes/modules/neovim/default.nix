@@ -55,6 +55,7 @@ in
       sessionVariables = {
         EDITOR = "nvim";
         OPENAI_API_KEY = "$(cat ${config.home-dir-path}/.openai)";
+        OPENAI_API_HOST = "api.openai.com";
       };
     };
     programs.neovim = {
