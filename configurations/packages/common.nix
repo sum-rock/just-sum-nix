@@ -29,5 +29,6 @@
     glow
     duplicity
     libqalculate
+    cachix
   ];
 }
