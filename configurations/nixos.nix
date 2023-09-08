@@ -67,6 +67,8 @@
   # Internet stuff
   # ===========================================================================
   networking.firewall.enable = true;
+  # Required for tailscale exit node use
+  networking.firewall.checkReversePath = "loose";
   networking.networkmanager.enable = true;
   services.openssh.enable = true;
 
