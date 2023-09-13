@@ -16,6 +16,7 @@ set.shiftwidth = 2
 set.tabstop = 2
 set.expandtab = true
 set.wrap = false
+set.textwidth = 80
 set.hidden = true 
 set.termguicolors = true
 let.mapleader = " "
@@ -39,6 +40,7 @@ require('terminal')
 require('version_control')
 require("my_yank")
 require("my_chatgpt")
+require("text_edit_mode")
 
 require('neoscroll').setup{ stop_eof = false; }
 require('glow').setup{ style = "dark"; }
