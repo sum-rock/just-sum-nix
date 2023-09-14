@@ -16,7 +16,6 @@ set.shiftwidth = 2
 set.tabstop = 2
 set.expandtab = true
 set.wrap = false
-set.textwidth = 80
 set.hidden = true 
 set.termguicolors = true
 let.mapleader = " "
