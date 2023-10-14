@@ -26,6 +26,7 @@
       # ------------
       dbeaver
       element-desktop
+      mongodb-compass
 
     ];
   };
