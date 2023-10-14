@@ -14,6 +14,7 @@
     gnupg
     openssl
     age
+    borgbackup
 
     # Quality of Life
     # ---------------
