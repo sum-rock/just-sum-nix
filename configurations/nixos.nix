@@ -1,14 +1,21 @@
 { config, lib, pkgs, ... }:
-
+let
+  logseq = import ./derivations/logseq.nix { inherit lib pkgs; };
+in
 {
-  imports = [ 
-    ./packages/common.nix 
+  imports = [
+    ./packages/common.nix
     ./packages/workstation.nix
   ];
-  
+
   # System
   # ===========================================================================
   system.stateVersion = "${config.nixos-version}";
+
+  # this is specifically for Logseq
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-24.8.6"
+  ];
 
   # Localization
   time.timeZone = "${config.timezone}";
@@ -37,7 +44,7 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true; 
+    alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
   };
@@ -46,9 +53,9 @@
   # ===========================================================================
   services.printing.enable = true;
   services.avahi.enable = true;
-  services.avahi.openFirewall = true;     # wifi printing
-  services.printing.drivers = with pkgs; [ 
-    gutenprint 
+  services.avahi.openFirewall = true; # wifi printing
+  services.printing.drivers = with pkgs; [
+    gutenprint
     cups-brother-hl3140cw
   ];
 
@@ -63,7 +70,7 @@
       chromium
     ];
   };
-  
+
   # Internet stuff
   # ===========================================================================
   networking.firewall.enable = true;
@@ -76,24 +83,24 @@
   # ===========================================================================
   programs.mtr.enable = true;
   programs.gnupg.agent = {
-   enable = true;
-   enableSSHSupport = true;
+    enable = true;
+    enableSSHSupport = true;
   };
 
   environment.systemPackages = with pkgs; [
 
     # Basics
     # ------
-    pulseaudio      # | 
-    pamixer         # | For pipewire controls
-    pavucontrol     # |
+    pulseaudio # | 
+    pamixer # | For pipewire controls
+    pavucontrol # |
     networkmanager
-    psmisc          #   Includes ps commands that are commonly used. (e.g., killall)
+    psmisc # Includes ps commands that are commonly used. (e.g., killall)
     pciutils
     vlc
     ffmpeg
     cmake
-    openvpn         #   Configs for nordvpn in home
+    openvpn # Configs for nordvpn in home
     sops
     docker-compose
 
@@ -117,28 +124,31 @@
     # Applications 
     # ------------
     discord
-    standardnotes     # This could be in workstation but does not evalulate on M1
-    spotify           # This could also be in workstation if it worked on M1
     _1password-gui
     nextcloud-client
     zoom-us
     skypeforlinux
 
+    # Applications not on M1
+    # ----------------------
+    standardnotes
+    spotify
+
     # Other
     # -----
-    woeusb            # To make Windows USBs
+    woeusb # To make Windows USBs
     ntfs3g
     veracrypt
     input-remapper
     exiftool
-  ];
+  ] ++ [ logseq ];
 
   # Default Editor
   programs.neovim = {
     enable = true;
     defaultEditor = true;
   };
-  
+
   # Steam Stuff
   programs.steam = {
     enable = true;
@@ -155,7 +165,4 @@
 
   # Virtualization
   virtualisation.docker.enable = true;
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  users.extraGroups.vboxusers.members = [ "${config.primary-user}" ];
 }
