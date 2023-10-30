@@ -133,6 +133,7 @@ in
     # ----------------------
     standardnotes
     spotify
+    mongodb-compass
 
     # Other
     # -----

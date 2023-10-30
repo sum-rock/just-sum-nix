@@ -61,8 +61,8 @@ in
           HOMEBREW="/opt/homebrew/opt/grep/libexec/gnubin"
           if [ -f $HOMEBREW ] ; then 
             export PATH=$HOMEBREW:$PATH
-            eval "$(/opt/homebrew/bin/brew shellenv)"
           fi
+          eval "$(/opt/homebrew/bin/brew shellenv)"
         '';
       };
     };
