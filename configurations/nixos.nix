@@ -100,7 +100,6 @@ in
     vlc
     ffmpeg
     cmake
-    openvpn # Configs for nordvpn in home
     sops
     docker-compose
 
