@@ -3,19 +3,18 @@ let
   logseq = import ./derivations/logseq.nix { inherit lib pkgs; };
 in
 {
-  imports = [
-    ./packages/common.nix
-    ./packages/workstation.nix
-  ];
+  imports = [ ./packages ];
 
   # System
   # ===========================================================================
   system.stateVersion = "${config.nixos-version}";
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # this is specifically for Logseq
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-24.8.6"
-  ];
+  nixpkgs.config = {
+    allowUnfree = true;
+    # This is specifically for Logseq
+    permittedInsecurePackages = [ "electron-24.8.6" ];
+  };
 
   # Localization
   time.timeZone = "${config.timezone}";
@@ -160,9 +159,6 @@ in
   services.udev.packages = [ pkgs.yubikey-personalization ];
   services.pcscd.enable = true;
 
-  # Tailscale
   services.tailscale.enable = true;
-
-  # Virtualization
   virtualisation.docker.enable = true;
 }
