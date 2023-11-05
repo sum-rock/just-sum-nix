@@ -47,10 +47,10 @@ for change.
 
   ### Configurations 
 
-  Configurations are abstracted from `configuration.nix` files. These expressions are 
-  common for specified use cases (e.g., "workstation") and they do not differ between
-  hosts (i.e. hardware). For example, configurations include system installed packages
-  such as git, zsh, and btop. Packages here are not user specific and should not require 
+  Configurations are abstracted from `configuration.nix` files. These
+  expressions are common for all workstations and do not differ between hosts.
+  For example, configurations include system installed packages such as git,
+  zsh, and btop. Packages here are not user specific and should not require
   home-manager. 
 
   Note that in NixOS systems, expressions in the `configurations` directory will also
