@@ -21,7 +21,7 @@
     python311
     nix-index
     poetry
-    postgresql_16
+    postgresql
     tree-sitter
     nodejs
     yarn
