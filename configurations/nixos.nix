@@ -129,7 +129,6 @@ in
 
     # Applications not on M1
     # ----------------------
-    standardnotes
     spotify
     mongodb-compass
 
