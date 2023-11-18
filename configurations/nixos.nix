@@ -97,7 +97,7 @@ in
     psmisc # Includes ps commands that are commonly used. (e.g., killall)
     pciutils
     vlc
-    ffmpeg
+    ffmpeg_6-full
     cmake
     sops
     docker-compose
