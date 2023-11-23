@@ -36,11 +36,11 @@ in
         ".wallpapers" = {
           source = "${wallpapers.${config.theme}}";
           recursive = true;
-        }; 
+        };
       };
     };
     programs = {
-      home-manager.enable = true; 
+      home-manager.enable = true;
       zsh = {
         enable = true;
         initExtra = ''
