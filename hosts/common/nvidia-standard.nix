@@ -10,12 +10,6 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       modesetting.enable = true;
     };
-    opengl = {
-      enable = true;
-      extraPackages = [
-        pkgs.mesa.drivers
-        pkgs.linuxPackages.nvidia_x11.out
-      ];
-    };
+    opengl.enable = true;
   };
 }
