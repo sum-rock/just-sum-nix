@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 {
+  system.activationScripts.syncthingFolders= ''
+    mkdir -p /home/${config.primary-user}/Syncthing
+    mkdir -p /home/${config.primary-user}/Logseq
+    chown ${config.primary-user}:users /home/${config.primary-user}/Syncthing
+    chown ${config.primary-user}:users /home/${config.primary-user}/Logseq
+  '';
   services.syncthing = {
     enable = true;
     user = "${config.primary-user}";

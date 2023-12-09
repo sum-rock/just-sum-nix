@@ -4,6 +4,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../common/nvidia-standard.nix
+      ../common/syncthing.nix
     ];
 
   networking.hostName = "the-rig"; # Define your hostname.
