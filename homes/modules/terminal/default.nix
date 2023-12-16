@@ -70,7 +70,7 @@ in
 {
   environment.systemPackages = [
     pkgs.tmux
-    pkgs.exa
+    pkgs.eza
     pkgs.alacritty 
     pkgs.starship 
     tmux-open
@@ -78,7 +78,7 @@ in
   ];
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       (nerdfonts.override { fonts = [ "Lilex" ]; })
       font-awesome
     ];

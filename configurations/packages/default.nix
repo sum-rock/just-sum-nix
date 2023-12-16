@@ -33,7 +33,7 @@
 
     # Quality of Life
     # ---------------
-    exa
+    eza
     ripgrep
     tmux
     btop

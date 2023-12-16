@@ -22,12 +22,12 @@ let
 
   # Derivations
   # =======================================================
-  yanky = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  yanky = pkgs.vimUtils.buildVimPlugin {
     pname = "yanky-nvim";
     version = "1.0";
     src = nvim-yanky;
   };
-  chatgpt = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  chatgpt = pkgs.vimUtils.buildVimPlugin {
     pname = "chatgpt-nvim";
     version = "1.0";
     src = nvim-chatgpt;
