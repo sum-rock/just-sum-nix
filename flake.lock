@@ -108,19 +108,19 @@
         "type": "github"
       }
     },
-    "nvim-chatgpt": {
+    "nvim-copilot": {
       "flake": false,
       "locked": {
-        "lastModified": 1702631473,
-        "narHash": "sha256-tTvI1sQJdW5KJc0cTF99V5ejCsxNXZsO+2CYL5O2cgQ=",
-        "owner": "jackMort",
-        "repo": "ChatGPT.nvim",
-        "rev": "48c59167beeb6ee0caa501c46cecc97b9be8571d",
+        "lastModified": 1702343967,
+        "narHash": "sha256-mHwK8vw3vbcMKuTb1aMRSL5GS0+4g3tw3G4uZGMA2lQ=",
+        "owner": "github",
+        "repo": "copilot.vim",
+        "rev": "5b19fb001d7f31c4c7c5556d7a97b243bd29f45f",
         "type": "github"
       },
       "original": {
-        "owner": "jackMort",
-        "repo": "ChatGPT.nvim",
+        "owner": "github",
+        "repo": "copilot.vim",
         "type": "github"
       }
     },
@@ -164,7 +164,7 @@
         "gruvbox-gtk": "gruvbox-gtk",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nvim-chatgpt": "nvim-chatgpt",
+        "nvim-copilot": "nvim-copilot",
         "nvim-yanky": "nvim-yanky",
         "ranger-devicons": "ranger-devicons",
         "sops-nix": "sops-nix",

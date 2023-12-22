@@ -63,8 +63,8 @@
       url = "github:gbprod/yanky.nvim";
       flake = false;
     };
-    nvim-chatgpt = {
-      url = "github:jackMort/ChatGPT.nvim";
+    nvim-copilot = {
+      url = "github:github/copilot.vim";
       flake = false;
     };
   };
