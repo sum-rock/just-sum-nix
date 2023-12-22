@@ -20,7 +20,9 @@ set.hidden = true
 set.termguicolors = true
 let.mapleader = " "
 
+-- Adds an exscape keymap for jj
 vim.keymap.set("i", "jj", "<esc>")
+
 require("which-key").register({ 
   ["<leader>/"] = { "<cmd>noh<cr>", "Clear search highlights"} 
 })
@@ -38,7 +40,6 @@ require("status_line")
 require('terminal')
 require('version_control')
 require("my_yank")
-require("my_chatgpt")
 require("text_edit_mode")
 
 require('neoscroll').setup{ stop_eof = false; }
@@ -46,3 +47,10 @@ require('glow').setup{ style = "dark"; }
 require("nvim-autopairs").setup{} 
 require('nvim-web-devicons').setup{ color_icons = false; }
 require"nvim-treesitter.configs".setup{ autotag = { enable = true; } }
+
+-- Configures copilot to use <C-J> to accept suggestions
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("")', {
+  expr = true,
+  replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true

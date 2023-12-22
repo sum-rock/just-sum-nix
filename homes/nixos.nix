@@ -13,7 +13,6 @@ in
     ./modules/ranger
     ./modules/gnome
     ./modules/direnv
-    ./modules/openvpn
   ];
 
   home-dir-path = "/home/${config.primary-user}";

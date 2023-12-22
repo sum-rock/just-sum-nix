@@ -45,6 +45,7 @@
     glow
     libqalculate
     cachix
+    shell_gpt
   ];
 
 }

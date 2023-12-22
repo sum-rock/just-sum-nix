@@ -1,4 +1,4 @@
-{ pkgs, config, nvim-yanky, nvim-chatgpt, ... }:
+{ pkgs, config, nvim-yanky, nvim-copilot, ... }:
 let
   # Plugin theme
   # =======================================================
@@ -27,10 +27,11 @@ let
     version = "1.0";
     src = nvim-yanky;
   };
-  chatgpt = pkgs.vimUtils.buildVimPlugin {
-    pname = "chatgpt-nvim";
+  # Must initialize with :Copilot setup
+  copilot = pkgs.vimUtils.buildVimPlugin {
+    pname = "copilot-vim";
     version = "1.0";
-    src = nvim-chatgpt;
+    src = nvim-copilot;
   };
 in
 {
@@ -54,7 +55,7 @@ in
       sessionVariables = {
         EDITOR = "nvim";
         OPENAI_API_KEY = "$(cat ${config.home-dir-path}/.openai)";
-        OPENAI_API_HOST = "api.openai.com";
+        OPENAI_API_HOST = "https://api.openai.com";
       };
     };
     programs.neovim = {
@@ -91,9 +92,7 @@ in
         coc-json
         coc-prettier
         yanky
-        chatgpt
-        plenary-nvim # Required for chatgpt
-        nui-nvim # Required for chatgpt
+        copilot
       ] ++ plugin-theme;
     };
   };
