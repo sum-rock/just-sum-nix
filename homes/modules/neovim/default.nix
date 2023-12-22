@@ -39,7 +39,6 @@ in
     fd
     nodePackages.coc-pyright
     luajitPackages.lua-lsp
-    neovide
   ];
   home-manager.users.${config.primary-user} = {
     xdg.configFile = {
