@@ -77,14 +77,6 @@ in
     tmux-init
   ];
 
-  # This isn't working in darwin 
-  # fonts = {
-  #   packages = with pkgs; [
-  #     (nerdfonts.override { fonts = [ "Lilex" ]; })
-  #     font-awesome
-  #   ];
-  # };
-
   home-manager.users.${config.primary-user} = {
     programs.zsh = {
       enable = true;
