@@ -9,7 +9,7 @@
       "workstation/tokens/openai" = { 
         owner = "${config.primary-user}";
         mode = "0666";
-        path = "${config.home-dir-path}/.openai-key";
+        path = "${config.home-dir-path}/.openai";
       };
       "workstation/ssh/pvt" = {
         owner = "${config.primary-user}";

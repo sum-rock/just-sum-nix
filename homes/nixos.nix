@@ -23,6 +23,14 @@ in
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
+  # This isn't working in darwin but it should be in the terminal module 
+  fonts = {
+    packages = with pkgs; [
+      (nerdfonts.override { fonts = [ "Lilex" ]; })
+      font-awesome
+    ];
+  };
+
   home-manager.users.${config.primary-user} = {
     services = {
       nextcloud-client.enable = true;
