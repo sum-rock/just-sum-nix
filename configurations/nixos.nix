@@ -101,6 +101,7 @@ in
     cmake
     sops
     docker-compose
+    nfs-utils
 
     # Yubikey
     # -------
