@@ -10,6 +10,5 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       modesetting.enable = true;
     };
-    opengl.enable = true;
   };
 }
