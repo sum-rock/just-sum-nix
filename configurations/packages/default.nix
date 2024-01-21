@@ -20,12 +20,14 @@
     # -----------
     python311
     go
+    gcc
     nix-index
     poetry
     postgresql
     tree-sitter
     nodejs
     yarn
+    sqlite
 
     # Applications
     # ------------
