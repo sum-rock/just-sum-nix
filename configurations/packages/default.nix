@@ -19,6 +19,7 @@
     # Programming
     # -----------
     python311
+    go
     nix-index
     poetry
     postgresql
