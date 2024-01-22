@@ -127,6 +127,7 @@ in
     nextcloud-client
     zoom-us
     skypeforlinux
+    element-desktop
 
     # Applications not on M1
     # ----------------------

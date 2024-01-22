@@ -30,7 +30,6 @@
     # Applications
     # ------------
     dbeaver
-    element-desktop
 
     # Quality of Life
     # ---------------
