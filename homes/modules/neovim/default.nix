@@ -91,6 +91,7 @@ in
         coc-tsserver
         coc-json
         coc-prettier
+        coc-go
         yanky
         copilot
       ] ++ plugin-theme;
