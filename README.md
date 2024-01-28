@@ -13,7 +13,7 @@ modifications are required. See installation guides for details.
 ## Architecture
 
 The general idea is that the hostname of a client machine is associated to a 
-`darwinConfigurations` or `nixosConfiguruations` for MacOS and NixOS respectively. This 
+`darwinConfigurations` or `nixosConfigurations` for MacOS and NixOS respectively. This 
 is common behavior for most NixOS flakes. One goal of this repository is to abstract
 as much of the boilerplate code as possible so that changing users and adding machines
 is effortless. This is accomplished with a simple function (one for MacOS and one for
