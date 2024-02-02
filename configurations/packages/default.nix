@@ -28,6 +28,7 @@
     nodejs
     yarn
     sqlite
+    ngrok
 
     # Applications
     # ------------
