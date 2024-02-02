@@ -9,6 +9,6 @@
   theme = "catppuccin";
   
   # The is here for easy updates but will require the flake URI(s) to also be updated
-  nixos-version = "23.05";
+  nixos-version = "23.11";
 
 }
