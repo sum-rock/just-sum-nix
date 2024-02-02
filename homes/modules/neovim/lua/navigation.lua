@@ -12,13 +12,6 @@ require("which-key").register({
     l = { "<c-w>l", "Move Right" },
     s = { "<c-w>s", "Split Horizontally" },
     v = { "<c-w>v", "Split Vertically" },
-  },
-  h = {
-    name = "Hop",
-    f = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false }) end, "Hop Forward on" },
-    F = { function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false }) end, "Hop Backward on" },
-    t = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 }) end, "Hop Forward to" },
-    T = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 }) end, "Hop Backward to" },
   }
 }, { prefix = "<leader>" })
 
@@ -29,4 +22,14 @@ require("which-key").register({
   ["<C-F>"] = { "Scroll down greater" },
   ["<C-Y>"] = { "Scroll up lesser" },
   ["<C-E>"] = { "Scroll down lesser" },
+})
+
+require("which-key").register({
+  h = {
+    name = "Hop",
+    f = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false }) end, "Hop Forward on" },
+    F = { function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false }) end, "Hop Backward on" },
+    -- t = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 }) end, "Hop Forward to" },
+    -- T = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 }) end, "Hop Backward to" },
+  }
 })

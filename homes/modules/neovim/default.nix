@@ -78,7 +78,6 @@ in
         toggleterm-nvim
         terminus # Helps integrate into terminal required for gitgutter
         vim-polyglot
-        glow-nvim
         hop-nvim
         nvim-autopairs
         nvim-ts-autotag
