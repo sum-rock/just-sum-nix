@@ -1,7 +1,4 @@
 { config, lib, pkgs, ... }:
-let
-  logseq = import ./derivations/logseq.nix { inherit lib pkgs; };
-in
 {
   imports = [ ./packages ];
 
@@ -129,6 +126,7 @@ in
     zoom-us
     skypeforlinux
     element-desktop
+    logseq
 
     # Applications not on M1
     # ----------------------
@@ -142,7 +140,7 @@ in
     veracrypt
     input-remapper
     exiftool
-  ] ++ [ logseq ];
+  ];
 
   # Default Editor
   programs.neovim = {
