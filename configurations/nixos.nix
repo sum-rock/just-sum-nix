@@ -113,6 +113,7 @@ in
     # Gaming
     # ------
     steamcmd
+    steamtinkerlaunch
     qbittorrent
     renpy
     wine
