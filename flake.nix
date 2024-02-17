@@ -64,7 +64,7 @@
       flake = false;
     };
     nvim-copilot = {
-      url = "github:github/copilot.vim";
+      url = "github:github/copilot.vim/v1.18.0";
       flake = false;
     };
   };
