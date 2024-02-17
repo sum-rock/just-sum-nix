@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./packages ];
+  imports = [ ./packages.nix ];
 
   # This font dir option is specific to darwin.
   fonts.fontDir.enable = true;
