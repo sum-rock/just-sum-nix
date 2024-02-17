@@ -1,9 +1,6 @@
 { config, lib, pkgs, ... }:
-let
-  logseq = import ./derivations/logseq.nix { inherit lib pkgs; };
-in
 {
-  imports = [ ./packages ];
+  imports = [ ./packages.nix ];
 
   # System
   # ===========================================================================
@@ -13,7 +10,7 @@ in
   nixpkgs.config = {
     allowUnfree = true;
     # This is specifically for Logseq
-    permittedInsecurePackages = [ "electron-24.8.6" ];
+    permittedInsecurePackages = [ "electron-25.9.0" ];
   };
 
   # Localization
@@ -129,6 +126,7 @@ in
     zoom-us
     skypeforlinux
     element-desktop
+    logseq
 
     # Applications not on M1
     # ----------------------
@@ -142,7 +140,7 @@ in
     veracrypt
     input-remapper
     exiftool
-  ] ++ [ logseq ];
+  ];
 
   # Default Editor
   programs.neovim = {
