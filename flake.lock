@@ -94,11 +94,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1707603439,
-        "narHash": "sha256-LodBVZ3+ehJP2azM5oj+JrhfNAAzmTJ/OwAIOn0RfZ0=",
+        "lastModified": 1708819810,
+        "narHash": "sha256-1KosU+ZFXf31GPeCBNxobZWMgHsSOJcrSFA6F2jhzdE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d8cd80616c8800feec0cab64331d7c3d5a1a6d98",
+        "rev": "89a2a12e6c8c6a56c72eb3589982c8e2f89c70ea",
         "type": "github"
       },
       "original": {
@@ -141,6 +141,27 @@
         "type": "github"
       }
     },
+    "private": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "sops-nix": "sops-nix"
+      },
+      "locked": {
+        "lastModified": 1709259913,
+        "narHash": "sha256-IvDWKNA/3Ex7bcCkcg82g8DnjYH6xUQgMmx/5pE2Q2I=",
+        "owner": "sum-rock",
+        "repo": "nixos-desktop-private",
+        "rev": "ae0eb219443fa95f8c5a4b0981709d91d14ee11b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sum-rock",
+        "repo": "nixos-desktop-private",
+        "type": "github"
+      }
+    },
     "ranger-devicons": {
       "flake": false,
       "locked": {
@@ -167,8 +188,8 @@
         "nixpkgs": "nixpkgs",
         "nvim-copilot": "nvim-copilot",
         "nvim-yanky": "nvim-yanky",
+        "private": "private",
         "ranger-devicons": "ranger-devicons",
-        "sops-nix": "sops-nix",
         "tmux-catppuccin": "tmux-catppuccin",
         "tmux-copycat": "tmux-copycat",
         "tmux-gruvbox": "tmux-gruvbox",
@@ -180,16 +201,17 @@
     "sops-nix": {
       "inputs": {
         "nixpkgs": [
+          "private",
           "nixpkgs"
         ],
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1707842202,
-        "narHash": "sha256-3dTBbCzHJBinwhsisGJHW1HLBsLbj91+a5ZDXt7ttW0=",
+        "lastModified": 1708987867,
+        "narHash": "sha256-k2lDaDWNTU5sBVHanYzjDKVDmk29RHIgdbbXu5sdzBA=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "48afd3264ec52bee85231a7122612e2c5202fa74",
+        "rev": "a1c8de14f60924fafe13aea66b46157f0150f4cf",
         "type": "github"
       },
       "original": {

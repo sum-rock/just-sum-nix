@@ -16,8 +16,8 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
+    private = {
+      url = "github:sum-rock/nixos-desktop-private";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -69,7 +69,7 @@
     };
   };
 
-  outputs = { self, darwin, nixpkgs, ... }@attrs:
+  outputs = { self, darwin, nixpkgs, private, ... }@attrs:
     {
 
       # MacOS Configurations
@@ -105,7 +105,6 @@
               ./preferences
               ./configurations/nixos.nix
               ./homes/nixos.nix
-              ./secrets/workstation.nix
               ./hosts/${name}
             ];
           };
