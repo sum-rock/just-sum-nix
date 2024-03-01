@@ -76,6 +76,16 @@ for change.
 
 </details>
 
+## Modifications for Public 
+
+If you would like to install this flake on your system, you will want to fork
+this repo and make the following changes.
+
+- Remove the `private` input on `flake.nix`
+- Remove the modules imported from `private` in the `nixosConfigurations` function 
+- Remove the directories in `hosts` that represent my computers, leaving `common`. 
+- Update `preferences/default.nix` with your info.
+
 ## MacOS Installation
 
 This flake is fully functional using Nix Darwin on Mac. Apple silicon is supported.
@@ -118,11 +128,6 @@ This flake is fully functional using Nix Darwin on Mac. Apple silicon is support
     sum-rock-wrk = mkDarwinWorkstation "sum-rock-wrk" "aarch64-darwin";
   }
   ```
-
-  #### Special note for those of you who are not me!
-
-  If you are not me, the author of this repository, you will want to change the values in
-  `preferences/default.nix` so that you use your own username and localization settings.
 
   ### Rebuild Nix Darwin
 
@@ -207,11 +212,6 @@ The best way to enjoy your Nix is, of course, on NixOS.
   configurations available in `hosts/common` can be imported if necessary.
 
   > Note: leave your hardware-configuration.nix alone
-
-  #### Special note for those of you who are not me!
-
-  If you are not me, the author of this repository, you will want to change the values in
-  `preferences/default.nix` so that you use your own username and localization settings.
 
   ### Rebuild NixOS
 

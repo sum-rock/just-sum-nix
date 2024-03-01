@@ -80,7 +80,7 @@
             inherit system;
             specialArgs = attrs;
             modules = [
-              # Change preferences/default.nix if your not sum-rock
+              # Change preferences/default.nix if you're not sum-rock
               ./preferences
               ./configurations/macos.nix
               ./homes/macos.nix
@@ -106,6 +106,9 @@
               ./configurations/nixos.nix
               ./homes/nixos.nix
               ./hosts/${name}
+              # Remove these modules if you're not sum-rock
+              private.nixosModules.syncthing
+              private.nixosModules.secrets
             ];
           };
         in
