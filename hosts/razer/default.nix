@@ -5,8 +5,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../common/nvidia-standard.nix
-      private.nixosModules.syncthing
-      private.nixosModules.secrets
     ];
 
   # Boot Loader stuff
