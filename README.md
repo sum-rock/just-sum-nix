@@ -74,10 +74,6 @@ for change.
   Host configurations are only applicable to NixOS installations as MacOS is not able to
   be as awesomely configured as a linux machine.
 
-  ### Secrets
-
-  🤫
-
 </details>
 
 ## MacOS Installation
