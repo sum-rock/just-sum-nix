@@ -50,14 +50,6 @@ in
       home-manager.enable = true;
       zsh = {
         enable = true;
-        initExtra = ''
-          export NIX_CONFIG_PATH="${config.home-dir-path}/.nixpkgs"
-        '';
-        shellAliases = {
-          nix-edit = "cd $NIX_CONFIG_PATH; nvim .";
-          nixos-rebuild-flake-test = "sudo nixos-rebuild test --flake $NIX_CONFIG_PATH";
-          nixos-rebuild-flake = "sudo nixos-rebuild switch --flake $NIX_CONFIG_PATH";
-        };
       };
     };
   };
