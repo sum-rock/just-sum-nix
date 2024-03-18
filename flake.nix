@@ -59,6 +59,10 @@
       url = "github:catppuccin/tmux";
       flake = false;
     };
+    astronvim = {
+      url = "github:AstroNvim/AstroNvim/main";
+      flake = false;
+    };
     nvim-yanky = {
       url = "github:gbprod/yanky.nvim";
       flake = false;
