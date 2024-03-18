@@ -99,6 +99,7 @@
     sops
     docker-compose
     nfs-utils
+    lunarvim
 
     # Yubikey
     # -------
