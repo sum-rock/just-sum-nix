@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "astronvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710405330,
+        "narHash": "sha256-dgKjLA+Ovq0bjdTBvwf03cyELS1h0Mb2CeHXT4Uu1DM=",
+        "owner": "AstroNvim",
+        "repo": "AstroNvim",
+        "rev": "2fcb9e20c13aaa3653421017236ec076db3a4c00",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AstroNvim",
+        "ref": "main",
+        "repo": "AstroNvim",
+        "type": "github"
+      }
+    },
     "catppuccin-gtk": {
       "flake": false,
       "locked": {
@@ -24,11 +41,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1710281379,
-        "narHash": "sha256-uFo9hxt982L3nFJeweW4Gip2esiGrIQlbvEGrNTh4AY=",
+        "lastModified": 1710717205,
+        "narHash": "sha256-Wf3gHh5uV6W1TV/A8X8QJf99a5ypDSugY4sNtdJDe0A=",
         "owner": "lnl7",
         "repo": "nix-darwin",
-        "rev": "d9ea313bc4851670dc99c5cc979cb79750e7d670",
+        "rev": "bcc8afd06e237df060c85bad6af7128e05fd61a3",
         "type": "github"
       },
       "original": {
@@ -78,11 +95,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1710420202,
-        "narHash": "sha256-MvFKESbq4rUWuaf2RKPNYENaSZEw/jaCLo2gU6oREcM=",
+        "lastModified": 1710565619,
+        "narHash": "sha256-xu/EnZCNdIj7m/QjCNIG5vrCA4TYg5uwFReb9XDxET0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "878ef7d9721bee9f81f8a80819f9211ad1f993da",
+        "rev": "8ac30a39abc5ea67037dfbf090d6e89f187c6e50",
         "type": "github"
       },
       "original": {
@@ -181,6 +198,7 @@
     },
     "root": {
       "inputs": {
+        "astronvim": "astronvim",
         "catppuccin-gtk": "catppuccin-gtk",
         "darwin": "darwin",
         "gruvbox-gtk": "gruvbox-gtk",
@@ -223,11 +241,11 @@
     "tmux-catppuccin": {
       "flake": false,
       "locked": {
-        "lastModified": 1710516844,
-        "narHash": "sha256-gRhkrPnWhgJ534RsQi7x+imZPskvppHLJnhpXR57XAY=",
+        "lastModified": 1710714408,
+        "narHash": "sha256-pddbfaqkqXSQd0V7bEHEp4CT7ZgqKW6R9aNlT4d3tAw=",
         "owner": "catppuccin",
         "repo": "tmux",
-        "rev": "4eb10fa510548891ac9c5afc5b43679096361fe3",
+        "rev": "c0861b786123d5b375074e3649a2a8575694504e",
         "type": "github"
       },
       "original": {
