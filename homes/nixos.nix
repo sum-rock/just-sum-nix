@@ -9,7 +9,7 @@ in
   imports = [
     home-manager.nixosModule
     ./modules/terminal
-    ./modules/neovim
+    ./modules/astronvim
     ./modules/ranger
     ./modules/gnome
     ./modules/direnv

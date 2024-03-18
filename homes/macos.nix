@@ -10,7 +10,7 @@ in
     home-manager.darwinModule
     ./modules/yabai
     ./modules/terminal
-    ./modules/neovim
+    ./modules/astronvim
     ./modules/ranger
     ./modules/direnv
   ];
