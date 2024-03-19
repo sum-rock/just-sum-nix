@@ -10,9 +10,26 @@
   ];
   home-manager.users.${config.primary-user} = {
     xdg.configFile = {
-      "nvim/" = {
-        source = "${astronvim}";
+      "nvim/init.lua" = {
+        source = "${astronvim}/init.lua";
+      };
+      "nvim/lua/astronvim" = {
+        source = "${astronvim}/lua/astronvim";
         recursive = true;
+      };
+      "nvim/lua/plugins" = {
+        source = "${astronvim}/lua/plugins";
+        recursive = true;
+      };
+      "nvim/lua/resession" = {
+        source = "${astronvim}/lua/resession";
+        recursive = true;
+      };
+      "nvim/lua/lazy_snapshot.lua" = {
+        source = "${astronvim}/lua/lazy_snapshot.lua";
+      };
+      "nvim/lua/user" = {
+        source = ./user;
       };
     };
   };
