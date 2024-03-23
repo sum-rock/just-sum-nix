@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   rebuild = pkgs.writeScriptBin "rebuild" ''
-    ${builtins.readFile ./backups.sh}
+    ${builtins.readFile ./rebuild.sh}
   '';
 in
 {

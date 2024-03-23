@@ -22,4 +22,4 @@ while getopts ":b:m:" o; do
 done
 
 nix-collect-garbage
-nixos-rebuild $MODE --option eval-cache false --flake ${config.githubAddress}/$BRANCH
+nixos-rebuild $MODE --option eval-cache false --flake github:sum-rock/just-sum-nix/$BRANCH
