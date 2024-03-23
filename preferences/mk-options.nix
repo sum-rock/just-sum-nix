@@ -16,9 +16,6 @@
     nixos-version = pkgs.lib.mkOption {
       description = "The verison of NixOs and home-manager used in the flake inputs.";
     };
-    githubAddress = pkgs.lib.mkOption {
-      description = "The github address where your fork of this repo lives.";
-    };
     theme = pkgs.lib.mkOption {
       description = ''
         The name of the theme you wish to use. 
