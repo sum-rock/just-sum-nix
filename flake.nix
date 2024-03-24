@@ -21,7 +21,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sumAstroNvim = {
-      url = "github:sum-rock/SumAstroNvim/nix-flake";
+      url = "/home/august/repositories/SumAstroNvim";
+      # url = "github:sum-rock/SumAstroNvim/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
