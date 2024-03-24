@@ -20,6 +20,11 @@
       url = "github:sum-rock/nixos-desktop-private";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sumAstroNvim = {
+      url = "/home/august/repositories/SumAstroNvim";
+      # url = "github:sum-rock/SumAstroNvim/nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Extra inputs
     # =====================================================
@@ -73,7 +78,7 @@
     };
   };
 
-  outputs = { self, darwin, nixpkgs, private, ... }@attrs:
+  outputs = { self, darwin, nixpkgs, sumAstroNvim, private, ... }@attrs:
     {
 
       # MacOS Configurations
@@ -113,6 +118,7 @@
               # Remove these modules if you're not sum-rock
               private.nixosModules.syncthing
               private.nixosModules.secrets
+              sumAstroNvim.nixosModules.sumAstroNvim.nixOS
             ];
           };
         in
