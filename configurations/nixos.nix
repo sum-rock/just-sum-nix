@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 {
-  imports = [ ./packages.nix ./rebuild.nix ];
+  imports = [
+    ./packages.nix
+    ./rebuild
+  ];
 
   # System
   # ===========================================================================
