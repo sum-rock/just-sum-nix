@@ -239,16 +239,18 @@
         ]
       },
       "locked": {
-        "dirtyRev": "2d9bfd3ceda0b9d8e21fc0ea1e0e1121814092f7-dirty",
-        "dirtyShortRev": "2d9bfd3-dirty",
-        "lastModified": 1711914968,
+        "lastModified": 1711915259,
         "narHash": "sha256-evcL88m/IDQcPrP+uGCepAXIDmPGhvZHcYrn+I+nIGk=",
-        "type": "git",
-        "url": "file:///home/august/repositories/SumAstroNvim"
+        "owner": "sum-rock",
+        "repo": "SumAstroNvim",
+        "rev": "ec1eb13539840c6daf85700c8b513ebd954fea7d",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/august/repositories/SumAstroNvim"
+        "owner": "sum-rock",
+        "ref": "master",
+        "repo": "SumAstroNvim",
+        "type": "github"
       }
     },
     "tmux-catppuccin": {
