@@ -16,4 +16,5 @@ jobs:
           pr-labels: |
             dependencies
             automated
+          token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
           inputs: sum-astro-nvim
