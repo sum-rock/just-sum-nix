@@ -7,7 +7,7 @@ let
 in
 {
   imports = [
-    home-manager.darwinModule
+    home-manager.darwinModules.home-manager
     ./modules/yabai
     ./modules/terminal
     ./modules/ranger
@@ -42,7 +42,6 @@ in
         shellAliases = {
           yabai-rf = "launchctl kickstart -k \"gui/$UID/org.nixos.yabai\"; skhd --reload";
           nix-edit = "cd ${config.home-dir-path}/.nixpkgs; nvim .";
-          nixos-rebuild-flake = "darwin-rebuild switch --flake ${config.home-dir-path}/.nixpkgs";
           git-wipit = "git add .; git commit -m wip --no-verify";
           postgres-docker-up = "docker run -d -e POSTGRES_HOST_AUTH_METHOD=trust -p 5432:5432 --name test-postgres postgres";
         };
