@@ -7,7 +7,7 @@ let
 in
 {
   imports = [
-    home-manager.darwinModule
+    home-manager.darwinModules.home-manager
     ./modules/yabai
     ./modules/terminal
     ./modules/ranger

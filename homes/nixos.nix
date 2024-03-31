@@ -7,7 +7,7 @@ let
 in
 {
   imports = [
-    home-manager.nixosModule
+    home-manager.nixosModules.home-manager
     ./modules/terminal
     ./modules/ranger
     ./modules/gnome
