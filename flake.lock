@@ -60,23 +60,6 @@
         "type": "github"
       }
     },
-    "gruvbox-gtk": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1685300773,
-        "narHash": "sha256-Y+6HuWaVkNqlYc+w5wLkS2LpKcDtpeOpdHnqBmShm5Q=",
-        "owner": "Fausto-Korpsvart",
-        "repo": "Gruvbox-GTK-Theme",
-        "rev": "c0b7fb501938241a3b6b5734f8cb1f0982edc6b4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Fausto-Korpsvart",
-        "ref": "master",
-        "repo": "Gruvbox-GTK-Theme",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -194,7 +177,6 @@
       "inputs": {
         "catppuccin-gtk": "catppuccin-gtk",
         "darwin": "darwin",
-        "gruvbox-gtk": "gruvbox-gtk",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "private": "private",
@@ -202,7 +184,6 @@
         "sum-astro-nvim": "sum-astro-nvim",
         "tmux-catppuccin": "tmux-catppuccin",
         "tmux-copycat": "tmux-copycat",
-        "tmux-gruvbox": "tmux-gruvbox",
         "tmux-pain-control": "tmux-pain-control",
         "tmux-sensible": "tmux-sensible",
         "zsh-autocomplete": "zsh-autocomplete"
@@ -283,23 +264,6 @@
         "owner": "tmux-plugins",
         "ref": "master",
         "repo": "tmux-copycat",
-        "type": "github"
-      }
-    },
-    "tmux-gruvbox": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1618832206,
-        "narHash": "sha256-jvGCrV94vJroembKZLmvGO8NknV1Hbgz2IuNmc/BE9A=",
-        "owner": "egel",
-        "repo": "tmux-gruvbox",
-        "rev": "3f9e38d7243179730b419b5bfafb4e22b0a969ad",
-        "type": "github"
-      },
-      "original": {
-        "owner": "egel",
-        "ref": "main",
-        "repo": "tmux-gruvbox",
         "type": "github"
       }
     },

@@ -31,10 +31,6 @@
       url = "github:marlonrichert/zsh-autocomplete/main";
       flake = false;
     };
-    gruvbox-gtk = {
-      url = "github:Fausto-Korpsvart/Gruvbox-GTK-Theme/master";
-      flake = false;
-    };
     catppuccin-gtk = {
       url = "github:Fausto-Korpsvart/Catppuccin-GTK-Theme/main";
       flake = false;
@@ -53,10 +49,6 @@
     };
     tmux-sensible = {
       url = "github:tmux-plugins/tmux-sensible/master";
-      flake = false;
-    };
-    tmux-gruvbox = {
-      url = "github:egel/tmux-gruvbox/main";
       flake = false;
     };
     tmux-catppuccin = {
