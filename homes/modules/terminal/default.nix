@@ -1,51 +1,24 @@
-{ 
-  config, 
-  pkgs, 
-  home-manager, 
-  zsh-autocomplete, 
-  tmux-copycat,
-  tmux-pain-control,
-  tmux-sensible,
-  tmux-gruvbox,
-  tmux-catppuccin,
-  ... 
+{ config
+, pkgs
+, home-manager
+, zsh-autocomplete
+, tmux-copycat
+, tmux-pain-control
+, tmux-sensible
+, tmux-catppuccin
+, ...
 }:
-let 
-  tmux-open = pkgs.writeShellScriptBin "tmux-open" ''
-    if [[ -z $(tmux ls | grep $1) ]]; then
-      tmux new -s $1
-    else
-      tmux attach -t $1
-    fi
-  '';
-
-  # Alacritty Config
-  # =======================================================
-  alacritty-themes = {
-    gruvbox = builtins.readFile ./themes/gruvbox-flat.yml;
-    catppuccin = builtins.readFile ./themes/catppuccin-mocha.yml;
-  };
-  alacritty-theme = alacritty-themes.${config.theme};
+let
   alacritty = builtins.toFile "alacritty.yml" ''
     ${builtins.readFile ./alacritty.yml}
-    ${alacritty-theme}
+    ${builtins.readFile ./themes/catppuccin-mocha.yml}
   '';
-
-  # Tmux Config
-  # =======================================================
-  tmux-themes = {
-    gruvbox = builtins.readFile "${tmux-gruvbox}/tmux-gruvbox-dark.conf";
-    catppuccin = ''
-      ${builtins.readFile "${tmux-catppuccin}/catppuccin-mocha.tmuxtheme"}
-      run-shell $HOME/.tmux/plugins/tmux-catppuccin/catppuccin.tmux
-    '';
-  };
-  tmux-theme = tmux-themes.${config.theme};
   tmux-conf = builtins.toFile "tmux.conf" ''
     ${builtins.readFile ./tmux.conf}
-    ${tmux-theme}
+    ${builtins.readFile "${tmux-catppuccin}/catppuccin-mocha.tmuxtheme"}
+    run-shell $HOME/.tmux/plugins/tmux-catppuccin/catppuccin.tmux
   '';
-  
+
   # Tmux Color Correction
   # =======================================================
   # https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be
@@ -71,9 +44,8 @@ in
   environment.systemPackages = [
     pkgs.tmux
     pkgs.eza
-    pkgs.alacritty 
-    pkgs.starship 
-    tmux-open
+    pkgs.alacritty
+    pkgs.starship
     tmux-init
   ];
 
@@ -86,7 +58,7 @@ in
       shellAliases = {
         ls = "ls -la";
         rf = "source ~/.zshrc";
-        lsx = "exa --long --all --header --group --git --icons --time-style=long-iso"; 
+        lsx = "exa --long --all --header --group --git --icons --time-style=long-iso";
       };
       initExtraBeforeCompInit = ''
         eval "$(starship init zsh)"
@@ -98,7 +70,7 @@ in
     xdg.configFile = {
       "alacritty/alacritty.yml".source = "${alacritty}";
     };
-    home.file ={
+    home.file = {
       ".tmux.conf".source = "${tmux-conf}";
       ".tmux/setup/xterm-256color-italic.terminfo".source = "${xterm-italic}";
       ".tmux/setup/tmux-256color.terminfo".source = "${tmux-color}";
@@ -116,10 +88,6 @@ in
       };
       ".tmux/plugins/tmux-catppuccin" = {
         source = "${tmux-catppuccin}";
-        recursive = true;
-      };
-      ".tmux/plugins/tmux-gruvbox" = {
-        source = "${tmux-gruvbox}";
         recursive = true;
       };
     };
