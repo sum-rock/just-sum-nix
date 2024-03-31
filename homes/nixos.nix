@@ -1,10 +1,4 @@
 { config, pkgs, home-manager, ... }:
-let
-  wallpapers = {
-    catppuccin = ./wallpapers/catppuccin;
-    gruvbox = ./wallpapers/gruvbox;
-  };
-in
 {
   imports = [
     home-manager.nixosModules.home-manager
@@ -40,7 +34,7 @@ in
       homeDirectory = "/home/${config.primary-user}";
       file = {
         ".wallpapers" = {
-          source = "${wallpapers.${config.theme}}";
+          source = ./wallpapers/catppuccin;
           recursive = true;
         };
       };

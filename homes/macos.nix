@@ -1,10 +1,4 @@
 { config, pkgs, home-manager, gruvbox-gtk, ... }:
-let
-  wallpapers = {
-    catppuccin = ./wallpapers/catppuccin;
-    gruvbox = ./wallpapers/gruvbox;
-  };
-in
 {
   imports = [
     home-manager.darwinModules.home-manager
@@ -31,7 +25,7 @@ in
       stateVersion = "${config.nixos-version}";
       file = {
         ".wallpapers" = {
-          source = "${wallpapers.${config.theme}}";
+          source = ./wallpapers/catppuccin;
           recursive = true;
         };
       };
