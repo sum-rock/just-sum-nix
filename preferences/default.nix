@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [ ./mk-options.nix ];
 
@@ -10,5 +10,11 @@
 
   # The is here for easy updates but will require the flake URI(s) to also be updated
   nixos-version = "23.11";
+  sumAstroNvim = {
+    username = "august";
+    nerdfont = "FiraCode";
+    nodePackage = pkgs.nodejs_20;
+    pythonPackage = pkgs.python311Full;
+  };
 
 }

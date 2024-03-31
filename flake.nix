@@ -16,6 +16,10 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sum-astro-nvim = {
+      url = "github:sum-rock/SumAstroNvim/master";
+      inputs.nixpkgs.follows = "darwin";
+    };
     private = {
       url = "github:sum-rock/nixos-desktop-private";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -59,21 +63,9 @@
       url = "github:catppuccin/tmux";
       flake = false;
     };
-    astronvim = {
-      url = "github:AstroNvim/AstroNvim/main";
-      flake = false;
-    };
-    nvim-yanky = {
-      url = "github:gbprod/yanky.nvim";
-      flake = false;
-    };
-    nvim-copilot = {
-      url = "github:github/copilot.vim/v1.18.0";
-      flake = false;
-    };
   };
 
-  outputs = { self, darwin, nixpkgs, private, ... }@attrs:
+  outputs = { self, darwin, nixpkgs, private, sum-astro-nvim, ... }@attrs:
     {
 
       # MacOS Configurations
@@ -88,6 +80,7 @@
               ./preferences
               ./configurations/macos.nix
               ./homes/macos.nix
+              sum-astro-nvim.darwinModules.astroNvim
             ];
           };
         in
@@ -110,6 +103,7 @@
               ./configurations/nixos.nix
               ./homes/nixos.nix
               ./hosts/${name}
+              sum-astro-nvim.nixosModules.astroNvim
               # Remove these modules if you're not sum-rock
               private.nixosModules.syncthing
               private.nixosModules.secrets
