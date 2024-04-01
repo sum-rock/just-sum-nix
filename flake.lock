@@ -220,11 +220,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711939522,
-        "narHash": "sha256-AEfLYJyvQji76GuSvOhNXBtm18Kikz1uniQfd2UBHB4=",
+        "lastModified": 1712010109,
+        "narHash": "sha256-xAPLVsnsRzA3oRtjtpmghRFmIfnWrqtmTxN86ayodLg=",
         "owner": "sum-rock",
         "repo": "SumAstroNvim",
-        "rev": "bc5daa4ea537ad71a0209fd63ab5a35e2701a53a",
+        "rev": "dfad8705fbb5d80dd81d27565577678102574d9f",
         "type": "github"
       },
       "original": {
