@@ -131,6 +131,7 @@
     element-desktop
     logseq
     inkscape
+    gimp
 
     # Applications not on M1
     # ----------------------
