@@ -130,6 +130,7 @@
     skypeforlinux
     element-desktop
     logseq
+    inkscape
 
     # Applications not on M1
     # ----------------------
