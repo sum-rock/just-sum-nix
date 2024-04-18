@@ -63,7 +63,7 @@
   users.users.${config.primary-user} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "networkmanager" "plugdev" "openrazer" "docker" ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     packages = with pkgs; [
       firefox
       chromium

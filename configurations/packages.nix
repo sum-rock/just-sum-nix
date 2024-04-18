@@ -4,7 +4,6 @@
 
     # Basics
     # ------
-    zsh
     wget
     curl
     git
@@ -18,7 +17,6 @@
 
     # Programming
     # -----------
-    python311
     go
     gcc
     nix-index

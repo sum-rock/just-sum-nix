@@ -41,7 +41,7 @@
     };
     programs = {
       home-manager.enable = true;
-      zsh = {
+      fish = {
         enable = true;
       };
     };

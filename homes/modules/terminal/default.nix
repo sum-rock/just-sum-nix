@@ -1,7 +1,6 @@
 { config
 , pkgs
 , home-manager
-, zsh-autocomplete
 , tmux-copycat
 , tmux-pain-control
 , tmux-sensible
@@ -50,21 +49,17 @@ in
   ];
 
   home-manager.users.${config.primary-user} = {
-    programs.zsh = {
+    programs.fish = {
       enable = true;
-      plugins = [
-        { name = "zsh-autocomplete"; src = zsh-autocomplete; }
-      ];
       shellAliases = {
         ls = "ls -la";
-        rf = "source ~/.zshrc";
         lsx = "exa --long --all --header --group --git --icons --time-style=long-iso";
       };
-      initExtraBeforeCompInit = ''
-        eval "$(starship init zsh)"
-        # zstyle ':autocomplete:*' list-lines 8
-        # zstyle ':autocomplete:*' min-delay 1.02 
-        # zstyle ':autocomplete:history-search:*' list-lines 8 
+      interactiveShellInit = ''
+        direnv hook fish | source
+        export DIRENV_LOG_FORMAT=""
+        
+        starship init fish | source 
       '';
     };
     xdg.configFile = {

@@ -27,10 +27,6 @@
 
     # Extra inputs
     # =====================================================
-    zsh-autocomplete = {
-      url = "github:marlonrichert/zsh-autocomplete/main";
-      flake = false;
-    };
     catppuccin-gtk = {
       url = "github:Fausto-Korpsvart/Catppuccin-GTK-Theme/main";
       flake = false;
