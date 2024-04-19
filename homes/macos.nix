@@ -33,6 +33,7 @@
     programs = {
       home-manager.enable = true;
       fish = {
+        enable = true;
         shellInit = ''
           set PATH $HOME/.nix-profile/bin /run/current-system/sw/bin /nix/var/nix/profiles/default/bin $PATH
           
