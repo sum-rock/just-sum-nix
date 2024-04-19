@@ -38,6 +38,8 @@
           set PATH $HOME/.nix-profile/bin /run/current-system/sw/bin /nix/var/nix/profiles/default/bin $PATH
           
           set DOCKER "$HOME/.docker/init-bash.sh"
+
+          set OPENAI_API_KEY $(cat $HOME/.openai)
           
           if  [ -f "$HOME/.profile.custom" ] ; source "$HOME/.profile.custom" ; end
            
