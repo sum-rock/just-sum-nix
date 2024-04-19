@@ -1,9 +1,7 @@
 { config, pkgs, home-manager, ... }:
 {
-  programs.zsh.enable = true;
   home-manager.users.${config.primary-user}.programs = {
-    zsh.enable = true;
-      direnv = {
+    direnv = {
       enable = true;
       nix-direnv.enable = true;
       config = {

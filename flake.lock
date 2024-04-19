@@ -185,8 +185,7 @@
         "tmux-catppuccin": "tmux-catppuccin",
         "tmux-copycat": "tmux-copycat",
         "tmux-pain-control": "tmux-pain-control",
-        "tmux-sensible": "tmux-sensible",
-        "zsh-autocomplete": "zsh-autocomplete"
+        "tmux-sensible": "tmux-sensible"
       }
     },
     "sops-nix": {
@@ -298,23 +297,6 @@
         "owner": "tmux-plugins",
         "ref": "master",
         "repo": "tmux-sensible",
-        "type": "github"
-      }
-    },
-    "zsh-autocomplete": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1712223872,
-        "narHash": "sha256-bzOTeYWrzuYNbeat30zijKJ9kflRhdE/0wD2HwZWXbU=",
-        "owner": "marlonrichert",
-        "repo": "zsh-autocomplete",
-        "rev": "196810035992abea65e54852c4278af2069ee482",
-        "type": "github"
-      },
-      "original": {
-        "owner": "marlonrichert",
-        "ref": "main",
-        "repo": "zsh-autocomplete",
         "type": "github"
       }
     }
