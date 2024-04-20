@@ -24,6 +24,7 @@
       desktop-cube
       vitals
       pop-shell
+      appindicator
     ];
   };
 
