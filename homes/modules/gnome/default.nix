@@ -23,7 +23,6 @@
       blur-my-shell
       desktop-cube
       vitals
-      clipboard-indicator
       pop-shell
     ];
   };

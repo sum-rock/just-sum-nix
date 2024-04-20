@@ -134,6 +134,7 @@
     logseq
     inkscape
     gimp
+    copyq
 
     # Applications not on M1
     # ----------------------
