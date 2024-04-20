@@ -103,6 +103,7 @@
     sops
     docker-compose
     nfs-utils
+    wl-clipboard
 
     # Yubikey
     # -------
@@ -133,6 +134,7 @@
     logseq
     inkscape
     gimp
+    copyq
 
     # Applications not on M1
     # ----------------------

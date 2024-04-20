@@ -47,6 +47,10 @@
       url = "github:tmux-plugins/tmux-sensible/master";
       flake = false;
     };
+    tmux-open = {
+      url = "github:tmux-plugins/tmux-open/master";
+      flake = false;
+    };
     tmux-catppuccin = {
       url = "github:catppuccin/tmux";
       flake = false;

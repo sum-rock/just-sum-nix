@@ -4,6 +4,7 @@
 , tmux-copycat
 , tmux-pain-control
 , tmux-sensible
+, tmux-open
 , tmux-catppuccin
 , ...
 }:
@@ -79,6 +80,10 @@ in
       };
       ".tmux/plugins/tmux-sensible" = {
         source = "${tmux-sensible}";
+        recursive = true;
+      };
+      ".tmux/plugins/tmux-open" = {
+        source = "${tmux-open}";
         recursive = true;
       };
       ".tmux/plugins/tmux-catppuccin" = {
