@@ -103,6 +103,7 @@
     sops
     docker-compose
     nfs-utils
+    wl-clipboard
 
     # Yubikey
     # -------
