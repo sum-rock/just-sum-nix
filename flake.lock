@@ -184,6 +184,7 @@
         "sum-astro-nvim": "sum-astro-nvim",
         "tmux-catppuccin": "tmux-catppuccin",
         "tmux-copycat": "tmux-copycat",
+        "tmux-open": "tmux-open",
         "tmux-pain-control": "tmux-pain-control",
         "tmux-sensible": "tmux-sensible"
       }
@@ -263,6 +264,23 @@
         "owner": "tmux-plugins",
         "ref": "master",
         "repo": "tmux-copycat",
+        "type": "github"
+      }
+    },
+    "tmux-open": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1661160644,
+        "narHash": "sha256-Thii7D21MKodtjn/MzMjOGbJX8BwnS+fQqAtYv8CjPc=",
+        "owner": "tmux-plugins",
+        "repo": "tmux-open",
+        "rev": "763d0a852e6703ce0f5090a508330012a7e6788e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tmux-plugins",
+        "ref": "master",
+        "repo": "tmux-open",
         "type": "github"
       }
     },
