@@ -14,6 +14,7 @@
     openssl
     age
     borgbackup
+    gnumake
 
     # Programming
     # -----------
