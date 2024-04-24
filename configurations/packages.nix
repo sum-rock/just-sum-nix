@@ -32,6 +32,7 @@
     # Applications
     # ------------
     dbeaver
+    obs-studio
 
     # Quality of Life
     # ---------------
