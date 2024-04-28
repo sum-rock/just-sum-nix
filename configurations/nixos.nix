@@ -135,6 +135,7 @@
     inkscape
     gimp
     copyq
+    sidequest
 
     # Applications not on M1
     # ----------------------
