@@ -136,6 +136,7 @@
     gimp
     copyq
     sidequest
+    immersed-vr
 
     # Applications not on M1
     # ----------------------
