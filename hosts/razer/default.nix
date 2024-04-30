@@ -2,7 +2,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../common/nvidia-standard.nix
     ];
@@ -26,8 +27,8 @@
   networking.hostName = "razer";
 
   hardware.openrazer.enable = true;
-  environment.systemPackages = with pkgs; [ 
-    razergenie 
+  environment.systemPackages = with pkgs; [
+    razergenie
     openrazer-daemon
   ];
 

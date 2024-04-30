@@ -16,6 +16,13 @@
     permittedInsecurePackages = [ "electron-25.9.0" "nix-2.15.3" ];
   };
 
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [ libva vaapiVdpau libvdpau-va-gl ];
+  };
+
   # Localization
   time.timeZone = "${config.timezone}";
   i18n.defaultLocale = "${config.localization}";
@@ -72,7 +79,12 @@
 
   # Internet stuff
   # ===========================================================================
-  networking.firewall.enable = true;
+  networking.firewall = {
+    enable = true;
+    # For immersed
+    allowedTCPPorts = [ 21000 21013 ];
+  };
+
   # Required for tailscale exit node use
   networking.firewall.checkReversePath = "loose";
   networking.networkmanager.enable = true;
@@ -136,6 +148,7 @@
     gimp
     copyq
     sidequest
+    immersed-vr
 
     # Applications not on M1
     # ----------------------
