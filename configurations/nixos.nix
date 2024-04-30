@@ -39,9 +39,9 @@
   };
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Audio
@@ -129,7 +129,7 @@
     steamcmd
     steamtinkerlaunch
     qbittorrent
-    renpy
+    # renpy
     wine
     winetricks
     protontricks

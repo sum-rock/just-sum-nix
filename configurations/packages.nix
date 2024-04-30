@@ -21,7 +21,7 @@
     go
     gcc
     nix-index
-    poetry
+    # poetry
     postgresql
     tree-sitter
     nodejs
