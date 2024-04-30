@@ -9,10 +9,6 @@
 , ...
 }:
 let
-  alacritty = builtins.toFile "alacritty.yml" ''
-    ${builtins.readFile ./alacritty.yml}
-    ${builtins.readFile ./themes/catppuccin-mocha.yml}
-  '';
   tmux-conf = builtins.toFile "tmux.conf" ''
     ${builtins.readFile ./tmux.conf}
     ${builtins.readFile "${tmux-catppuccin}/catppuccin-mocha.tmuxtheme"}
@@ -64,7 +60,7 @@ in
       '';
     };
     xdg.configFile = {
-      "alacritty/alacritty.yml".source = "${alacritty}";
+      "alacritty/alacritty.toml".source = ./alacritty.toml;
     };
     home.file = {
       ".tmux.conf".source = "${tmux-conf}";
