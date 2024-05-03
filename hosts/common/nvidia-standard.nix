@@ -6,9 +6,19 @@
     videoDrivers = [ "nvidia" ];
   };
   hardware = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      # NOTE: Extra packages here for immersed
+      extraPackages = with pkgs; [ libva vaapiVdpau libvdpau-va-gl ];
+    };
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
       modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      open = false;
+      package = config.boot.kernelPackages.nvidiaPackages.production;
     };
   };
 }
