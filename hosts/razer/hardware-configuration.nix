@@ -12,13 +12,15 @@
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
 
-  # NOTE: The v4l2loopback is a modification added for immersed-vr
+  boot.kernelModules = [ "kvm-amd" ];
 
-  boot.kernelModules = [ "kvm-amd" "v4l2loopback" ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback.out ];
-  boot.extraModprobeConfig = ''
-    options v4l2loopback card_label="Virtual Camera" exclusive_caps=1
-  '';
+  # NOTE: The v4l2loopback is a modification added for immersed-vr but it might break x11
+
+  # boot.kernelModules = [ "kvm-amd" "v4l2loopback" ];
+  # boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback.out ];
+  # boot.extraModprobeConfig = ''
+  #   options v4l2loopback card_label="Virtual Camera" exclusive_caps=1
+  # '';
 
   fileSystems."/" =
     {

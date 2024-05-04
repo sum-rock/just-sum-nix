@@ -1,8 +1,16 @@
 { pkgs, config, home-manager, catppuccin-gtk, ... }:
 {
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    displayManager = {
+      gdm.enable = true;
+      gdm.wayland = true;
+      defaultSession = "gnome";
+    };
+    desktopManager.gnome.enable = true;
+    libinput.enable = true;
+  };
 
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
