@@ -24,6 +24,7 @@
   environment.systemPackages = with pkgs; [
     gnome.gnome-themes-extra
     gtk-engine-murrine
+    gnome.mutter
   ];
 
   users.users.${config.primary-user} = {
