@@ -2,8 +2,8 @@ name: update-flake-lock
 on:
   workflow_dispatch: # allows manual triggering
   schedule:
-    # Github is UTC. This is midnight-ish (stupid daylight savings time)
-    - cron: '30 6 * * 1'
+    # Github is UTC. Midnight on Sunday
+    - cron: "0 6 * * 0"
 
 jobs:
   lockfile:
@@ -17,9 +17,8 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@main
         with:
           pr-title: "Update flake.lock"
-          pr-labels: |                 
+          pr-labels: |
             dependencies
             automated
           token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
           nix-options: --access-tokens github.com=${{ secrets.GH_TOKEN_FOR_UPDATES }}
-
