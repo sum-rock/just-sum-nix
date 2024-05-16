@@ -15,7 +15,7 @@ let
   '';
   tmux-conf = builtins.toFile "tmux.conf" ''
     ${builtins.readFile ./tmux.conf}
-    ${builtins.readFile "${tmux-catppuccin}/catppuccin-mocha.tmuxtheme"}
+    ${builtins.readFile "${tmux-catppuccin}/themes/catppuccin_mocha.tmuxtheme"}
     run-shell $HOME/.tmux/plugins/tmux-catppuccin/catppuccin.tmux
   '';
 
