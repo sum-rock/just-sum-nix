@@ -141,6 +141,7 @@
     # ----------------------
     spotify
     mongodb-compass
+    obs-studio
 
     # Other
     # -----
