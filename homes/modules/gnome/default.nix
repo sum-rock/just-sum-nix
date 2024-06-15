@@ -3,12 +3,13 @@
   services.libinput.enable = true;
   services.displayManager.defaultSession = "gnome";
   services.xserver = {
+    enable = true;
+    xkb.layout = "us";
+    desktopManager.gnome.enable = true;
     displayManager = {
       gdm.enable = true;
       gdm.wayland = true;
     };
-    xkb.layout = "us";
-    desktopManager.gnome.enable = true;
   };
 
   environment.gnome.excludePackages = with pkgs; [
