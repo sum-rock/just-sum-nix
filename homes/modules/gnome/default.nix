@@ -1,15 +1,14 @@
 { pkgs, config, home-manager, catppuccin-gtk, ... }:
 {
+  services.libinput.enable = true;
+  services.displayManager.defaultSession = "gnome";
   services.xserver = {
-    enable = true;
-    layout = "us";
     displayManager = {
       gdm.enable = true;
       gdm.wayland = true;
-      defaultSession = "gnome";
     };
+    xkb.layout = "us";
     desktopManager.gnome.enable = true;
-    libinput.enable = true;
   };
 
   environment.gnome.excludePackages = with pkgs; [

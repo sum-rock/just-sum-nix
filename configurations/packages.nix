@@ -31,7 +31,7 @@
 
     # Applications
     # ------------
-    dbeaver
+    dbeaver-bin
 
     # Quality of Life
     # ---------------
@@ -46,7 +46,7 @@
     neofetch
     glow
     libqalculate
-    shell_gpt
+    shell-gpt
   ];
 
 }
