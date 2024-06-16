@@ -5,9 +5,6 @@
     ./rebuild
   ];
 
-  # This font dir option is specific to darwin.
-  fonts.fontDir.enable = true;
-
   nixpkgs.config = { allowUnfree = true; allowBroken = true; };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
