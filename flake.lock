@@ -3,11 +3,11 @@
     "catppuccin-gtk": {
       "flake": false,
       "locked": {
-        "lastModified": 1677864646,
-        "narHash": "sha256-wJnbXXWKX0mcqRYyE1Vs4CrgWXTwfk3kRC2IhKqQ0RI=",
+        "lastModified": 1718497228,
+        "narHash": "sha256-j4kXaZLnXdDJp3u2LIrIY1pheMG+jo0nOtiMIvq4XT4=",
         "owner": "Fausto-Korpsvart",
         "repo": "Catppuccin-GTK-Theme",
-        "rev": "b8cffe7583876e17cc4558f32d17a072fa04ea9f",
+        "rev": "1b29d3d6ab45456ce56524ab8bb60ad4957b19cf",
         "type": "github"
       },
       "original": {
