@@ -29,10 +29,6 @@
     sqlite
     ngrok
 
-    # Applications
-    # ------------
-    dbeaver-bin
-
     # Quality of Life
     # ---------------
     eza
