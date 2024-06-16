@@ -136,12 +136,10 @@
     gimp
     copyq
     sidequest
-
-    # Applications not on M1
-    # ----------------------
     spotify
     mongodb-compass
     obs-studio
+    dbeaver-bin
 
     # Other
     # -----
