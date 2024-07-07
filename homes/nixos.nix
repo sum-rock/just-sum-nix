@@ -15,6 +15,7 @@
   #   here https://github.com/divnix/digga/issues/30
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
+  home-manager.backupFileExtension = "bak";
 
   # This isn't working in darwin but it should be in the terminal module 
   fonts = {

@@ -28,6 +28,7 @@
     yarn
     sqlite
     ngrok
+    bind
 
     # Quality of Life
     # ---------------
