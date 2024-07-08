@@ -23,6 +23,7 @@
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-themes-extra
+    gnome.gnome-tweaks
     gtk-engine-murrine
     gnome.mutter
   ];
