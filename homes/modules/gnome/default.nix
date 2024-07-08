@@ -40,20 +40,12 @@
   # TODO: For fractional scalling this has to be run. Make post install script 
   # gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
-  home-manager.users.${config.primary-user} = {
-    # Covers GTK 4.0 compatability
-    xdg.configFile = {
-      "gtk-4.0" = {
-        source = "${catppuccin-gtk}/themes/Catppuccin-Mocha-BL/gtk-4.0";
-        recursive = true;
-      };
-    };
-    # For GTK 3.0 compatability
-    home.file = {
-      ".themes/catppuccin-mocha" = {
-        source = "${catppuccin-gtk}/themes/Catppuccin-Mocha-BL";
-        recursive = true;
-      };
-    };
-  };
+  # home-manager.users.${config.primary-user} = {
+  #   home.file = {
+  #     ".themes/Catppuccin/" = {
+  #       source = "${catppuccin-gtk}/themes/Catppuccin-Mocha-BL";
+  #       recursive = true;
+  #     };
+  #   };
+  # };
 }
