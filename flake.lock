@@ -1,22 +1,5 @@
 {
   "nodes": {
-    "catppuccin-gtk": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1719517541,
-        "narHash": "sha256-oFVsYrJ27hYGY+x9+Z4SxVCp3w6PiLYTZaxmGhnpVHQ=",
-        "owner": "Fausto-Korpsvart",
-        "repo": "Catppuccin-GTK-Theme",
-        "rev": "0bd2869e7f0fdb36c720a4fb873d4fed361b0606",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Fausto-Korpsvart",
-        "ref": "main",
-        "repo": "Catppuccin-GTK-Theme",
-        "type": "github"
-      }
-    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -191,7 +174,6 @@
     },
     "root": {
       "inputs": {
-        "catppuccin-gtk": "catppuccin-gtk",
         "darwin": "darwin",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
