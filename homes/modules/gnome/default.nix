@@ -1,4 +1,10 @@
-{ pkgs, config, home-manager, catppuccin-gtk, ... }:
+{ pkgs, config, home-manager, nixpkgs-unstable, ... }:
+let
+  unstable = import nixpkgs-unstable {
+    system = "x86_64-linux";
+    config = { };
+  };
+in
 {
   services.libinput.enable = true;
   services.displayManager.defaultSession = "gnome";
@@ -26,7 +32,7 @@
     gnome.gnome-tweaks
     gtk-engine-murrine
     gnome.mutter
-  ];
+  ] ++ [ unstable.magnetic-catppuccin-gtk ];
 
   users.users.${config.primary-user} = {
     packages = with pkgs.gnomeExtensions; [
@@ -41,12 +47,4 @@
   # TODO: For fractional scalling this has to be run. Make post install script 
   # gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
-  # home-manager.users.${config.primary-user} = {
-  #   home.file = {
-  #     ".themes/Catppuccin/" = {
-  #       source = "${catppuccin-gtk}/themes/Catppuccin-Mocha-BL";
-  #       recursive = true;
-  #     };
-  #   };
-  # };
 }

@@ -8,6 +8,9 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-24.05";
     };
+    nixpkgs-unstable = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,10 +30,6 @@
 
     # Extra inputs
     # =====================================================
-    catppuccin-gtk = {
-      url = "github:Fausto-Korpsvart/Catppuccin-GTK-Theme/main";
-      flake = false;
-    };
     ranger-devicons = {
       url = "github:cdump/ranger-devicons2/master";
       flake = false;
@@ -57,7 +56,7 @@
     };
   };
 
-  outputs = { self, darwin, nixpkgs, private, sum-astro-nvim, ... }@attrs:
+  outputs = { self, darwin, nixpkgs, nixpkgs-unstable, private, sum-astro-nvim, ... }@attrs:
     {
 
       # MacOS Configurations
