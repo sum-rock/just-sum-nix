@@ -125,12 +125,8 @@
 
     # Applications 
     # ------------
-    discord
     _1password-gui
     nextcloud-client
-    zoom-us
-    skypeforlinux
-    element-desktop
     logseq
     inkscape
     gimp
@@ -140,6 +136,13 @@
     mongodb-compass
     obs-studio
     dbeaver-bin
+
+    # messaging
+    # ---------
+    zoom-us
+    element-desktop
+    whatsapp-for-linux
+    discord
 
     # Other
     # -----
