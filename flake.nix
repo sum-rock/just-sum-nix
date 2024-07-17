@@ -24,7 +24,7 @@
       inputs.nixpkgs.follows = "darwin";
     };
     private = {
-      url = "github:sum-rock/nixos-desktop-private";
+      url = "github:sum-rock/nixos-private";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
