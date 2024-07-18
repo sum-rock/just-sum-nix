@@ -151,6 +151,8 @@
     veracrypt
     input-remapper
     exiftool
+    android-tools
+    android-udev-rules
 
     (appimage-run.override {
       extraPkgs =
