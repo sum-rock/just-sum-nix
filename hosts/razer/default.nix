@@ -14,6 +14,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  # Attempted solve for kernel panics 
+  # ---------------------------------
+  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_6_8;
+
   # Setup keyfile
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
