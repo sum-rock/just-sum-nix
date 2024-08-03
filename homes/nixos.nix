@@ -42,7 +42,12 @@
     };
     programs = {
       home-manager.enable = true;
-      fish.enable = true;
+      fish = {
+        enable = true;
+        shellInit = ''
+          set OPENAI_API_KEY $(cat $HOME/.openai)
+        '';
+      };
     };
   };
 }

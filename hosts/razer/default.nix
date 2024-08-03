@@ -16,7 +16,7 @@
 
   # Attempted solve for kernel panics 
   # ---------------------------------
-  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_6_8;
+  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_6_9;
 
   # Setup keyfile
   boot.initrd.secrets = {
@@ -30,11 +30,11 @@
   # Hostname
   networking.hostName = "razer";
 
-  hardware.openrazer.enable = true;
-  environment.systemPackages = with pkgs; [
-    razergenie
-    openrazer-daemon
-  ];
+  # hardware.openrazer.enable = true;
+  # environment.systemPackages = with pkgs; [
+  #   razergenie
+  #   openrazer-daemon
+  # ];
 
   hardware.bluetooth.enable = true;
 }
