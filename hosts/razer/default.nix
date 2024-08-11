@@ -16,7 +16,7 @@
 
   # Attempted solve for kernel panics 
   # ---------------------------------
-  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_6_9;
+  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_6_1;
 
   # Setup keyfile
   boot.initrd.secrets = {
