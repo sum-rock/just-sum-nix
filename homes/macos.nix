@@ -36,6 +36,7 @@
         enable = true;
         shellInit = ''
           set DOCKER "$HOME/.docker/init-bash.sh"
+          set EDITOR nvim
           
           set OPENAI_API_KEY $(cat $HOME/.openai)
           
