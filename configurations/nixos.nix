@@ -13,7 +13,7 @@
   nixpkgs.config = {
     allowUnfree = true;
     # This is specifically for Logseq
-    permittedInsecurePackages = [ "electron-25.9.0" "nix-2.15.3" ];
+    permittedInsecurePackages = [ "electron-27.3.11" ];
   };
 
   # Localization
