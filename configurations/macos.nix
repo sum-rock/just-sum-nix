@@ -7,7 +7,7 @@
 
   nixpkgs.config = { allowUnfree = true; allowBroken = true; };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  system.stateVersion = "${config.nixos-version}";
+  system.stateVersion = 4;
 
   # Enable both fish and zsh because that's how nix is added to the path
   programs.fish.enable = true;
