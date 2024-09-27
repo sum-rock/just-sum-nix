@@ -19,6 +19,7 @@
     # Programming
     # -----------
     go
+    elmPackages.elm
     gcc
     nix-index
     poetry
