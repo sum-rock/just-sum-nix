@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixpkgs-unstable, ... }:
+let
+  unstable = import nixpkgs-unstable {
+    system = "x86_64-linux";
+    config = { };
+  };
+in
 {
   imports = [
     ./packages.nix
@@ -116,7 +122,7 @@
     # ------
     steamcmd
     steamtinkerlaunch
-    qbittorrent
+    # qbittorrent
     renpy
     wine
     winetricks
@@ -166,6 +172,7 @@
   # Default Editor
   programs.neovim = {
     enable = true;
+    package = unstable.neovim-unwrapped;
     defaultEditor = true;
   };
 
