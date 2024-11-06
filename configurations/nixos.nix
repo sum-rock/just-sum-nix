@@ -122,7 +122,7 @@ in
     # ------
     steamcmd
     steamtinkerlaunch
-    qbittorrent
+    # qbittorrent
     renpy
     wine
     winetricks
