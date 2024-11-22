@@ -13,8 +13,5 @@
     localization = pkgs.lib.mkOption {
       description = "The unicode encoding version that should be used";
     };
-    nixos-version = pkgs.lib.mkOption {
-      description = "The verison of NixOs and home-manager used in the flake inputs.";
-    };
   };
 }

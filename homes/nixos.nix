@@ -24,7 +24,7 @@
       nextcloud-client.enable = true;
     };
     home = {
-      stateVersion = "${config.nixos-version}";
+      stateVersion = "24.05";
       username = "${config.primary-user}";
       homeDirectory = "/home/${config.primary-user}";
       file = {

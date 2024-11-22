@@ -13,7 +13,6 @@ in
 
   # System
   # ===========================================================================
-  system.stateVersion = "${config.nixos-version}";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nixpkgs.config = {

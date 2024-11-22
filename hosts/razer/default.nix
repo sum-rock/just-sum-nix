@@ -38,4 +38,5 @@
   # ];
 
   hardware.bluetooth.enable = true;
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
