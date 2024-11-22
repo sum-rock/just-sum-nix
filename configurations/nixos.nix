@@ -62,7 +62,7 @@ in
   # ===========================================================================
   users.users.${config.primary-user} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "networkmanager" "plugdev" "docker" ]; # "openrazer"
+    extraGroups = [ "wheel" "video" "networkmanager" "plugdev" "docker" ];
     shell = pkgs.fish;
     packages = with pkgs; [
       firefox

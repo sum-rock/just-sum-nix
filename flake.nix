@@ -106,8 +106,7 @@
           #   <hostname> = mkNixOSWorkstation <hostname> <system type>;
           razer = mkNixOSWorkstation "razer" "x86_64-linux";
           the-rig = mkNixOSWorkstation "the-rig" "x86_64-linux";
+          legion = mkNixOSWorkstation "legion" "x86_64-linux";
         };
     };
-
 }
-
