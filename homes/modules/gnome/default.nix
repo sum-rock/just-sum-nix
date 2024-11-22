@@ -37,7 +37,6 @@ in
   users.users.${config.primary-user} = {
     packages = with pkgs.gnomeExtensions; [
       blur-my-shell
-      desktop-cube
       vitals
       pop-shell
       appindicator
