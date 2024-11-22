@@ -9,12 +9,6 @@
   ];
 
   home-dir-path = "/home/${config.primary-user}";
-
-  # Home manager settings
-  #   These allow a rebuild without raising the "impure" warning. See issue 
-  #   here https://github.com/divnix/digga/issues/30
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
   home-manager.backupFileExtension = "bak";
 
   # This isn't working in darwin but it should be in the terminal module 
@@ -30,7 +24,7 @@
       nextcloud-client.enable = true;
     };
     home = {
-      stateVersion = "${config.nixos-version}";
+      stateVersion = "24.05";
       username = "${config.primary-user}";
       homeDirectory = "/home/${config.primary-user}";
       file = {

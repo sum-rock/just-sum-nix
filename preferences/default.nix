@@ -8,7 +8,6 @@
   localization = "en_US.UTF-8";
 
   # The is here for easy updates but will require the flake URI(s) to also be updated
-  nixos-version = "23.11";
   sumAstroNvim = {
     username = "august";
     nerdfont = "FiraCode";

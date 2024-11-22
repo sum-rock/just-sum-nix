@@ -36,15 +36,10 @@ in
 
   users.users.${config.primary-user} = {
     packages = with pkgs.gnomeExtensions; [
-      blur-my-shell
-      desktop-cube
       vitals
       pop-shell
       appindicator
     ];
   };
-
-  # TODO: For fractional scalling this has to be run. Make post install script 
-  # gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
 }

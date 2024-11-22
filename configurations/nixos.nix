@@ -13,7 +13,6 @@ in
 
   # System
   # ===========================================================================
-  system.stateVersion = "${config.nixos-version}";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nixpkgs.config = {
@@ -25,17 +24,6 @@ in
   # Localization
   time.timeZone = "${config.timezone}";
   i18n.defaultLocale = "${config.localization}";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "${config.localization}";
-    LC_IDENTIFICATION = "${config.localization}";
-    LC_MEASUREMENT = "${config.localization}";
-    LC_MONETARY = "${config.localization}";
-    LC_NAME = "${config.localization}";
-    LC_NUMERIC = "${config.localization}";
-    LC_PAPER = "${config.localization}";
-    LC_TELEPHONE = "${config.localization}";
-    LC_TIME = "${config.localization}";
-  };
 
   # Audio
   sound.enable = true;
@@ -74,9 +62,6 @@ in
   # ===========================================================================
   networking.firewall = {
     enable = true;
-    # For immersed
-    allowedTCPPorts = [ 21000 21013 ];
-    allowedUDPPorts = [ 21000 21010 ];
   };
 
   # Required for tailscale exit node use
@@ -110,13 +95,6 @@ in
     docker-compose
     nfs-utils
     wl-clipboard
-
-    # Yubikey
-    # -------
-    yubico-piv-tool
-    yubikey-personalization
-    pinentry-curses
-    paperkey
 
     # Gaming
     # ------
@@ -154,7 +132,6 @@ in
     # -----
     woeusb # To make Windows USBs
     ntfs3g
-    veracrypt
     input-remapper
     exiftool
     android-tools
@@ -179,13 +156,9 @@ in
   # Steam Stuff
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
+    # remotePlay.openFirewall = true;
+    # dedicatedServer.openFirewall = true;
   };
-
-  # Yubikey
-  services.udev.packages = [ pkgs.yubikey-personalization ];
-  services.pcscd.enable = true;
 
   services.tailscale.enable = true;
   virtualisation.docker.enable = true;

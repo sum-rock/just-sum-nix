@@ -55,5 +55,5 @@
     device = "/dev/mapper/vol2";
     fsType = "xfs";
   };
-
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
