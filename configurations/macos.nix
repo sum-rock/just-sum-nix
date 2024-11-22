@@ -23,8 +23,7 @@ in
   nix.package = pkgs.nix;
 
   environment.systemPackages = [
-   unstable.neovim-unwrapped
+    unstable.neovim-unwrapped
   ];
 
 }
-
