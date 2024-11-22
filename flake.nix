@@ -23,6 +23,9 @@
       url = "github:sum-rock/SumAstroNvim/master";
       inputs.nixpkgs.follows = "darwin";
     };
+    nixos-hardware = {
+      url = "github:sum-rock/nixos-hardware";
+    };
     private = {
       url = "github:sum-rock/nixos-private";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,7 +59,7 @@
     };
   };
 
-  outputs = { self, darwin, nixpkgs, nixpkgs-unstable, private, sum-astro-nvim, ... }@attrs:
+  outputs = { self, darwin, nixpkgs, nixpkgs-unstable, nixos-hardware, private, sum-astro-nvim, ... }@attrs:
     {
 
       # MacOS Configurations

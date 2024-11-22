@@ -12,7 +12,7 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "thunderbolt" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [ lenovo-legion-module ];
+  boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "btrfs" ];
 
   fileSystems."/" =

@@ -1,10 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixos-hardware, ... }:
 
 {
   imports =
     [
-      ../common/nvidia-standard.nix
       ./hardware-configuration.nix
+      nixos-hardware.nixosModules.lenovo-legion-16irx9h
     ];
 
   boot.loader.systemd-boot.enable = true;
