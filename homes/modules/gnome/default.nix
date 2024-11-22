@@ -1,4 +1,4 @@
-{ pkgs, config, home-manager, nixpkgs-unstable, ... }:
+{ pkgs, config, nixpkgs-unstable, ... }:
 let
   unstable = import nixpkgs-unstable {
     system = "x86_64-linux";

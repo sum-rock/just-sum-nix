@@ -132,7 +132,6 @@ in
     # -----
     woeusb # To make Windows USBs
     ntfs3g
-    input-remapper
     exiftool
     android-tools
     android-udev-rules
@@ -156,8 +155,7 @@ in
   # Steam Stuff
   programs.steam = {
     enable = true;
-    # remotePlay.openFirewall = true;
-    # dedicatedServer.openFirewall = true;
+    remotePlay.openFirewall = true;
   };
 
   services.tailscale.enable = true;

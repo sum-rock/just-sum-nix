@@ -14,9 +14,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  # Attempted solve for kernel panics 
-  # ---------------------------------
-  # boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_6_1;
   boot.kernelPackages = pkgs.linuxPackages;
 
   # Setup keyfile
@@ -30,12 +27,6 @@
 
   # Hostname
   networking.hostName = "razer";
-
-  # hardware.openrazer.enable = true;
-  # environment.systemPackages = with pkgs; [
-  #   razergenie
-  #   openrazer-daemon
-  # ];
 
   hardware.bluetooth.enable = true;
   system.stateVersion = "24.05"; # Did you read the comment?
