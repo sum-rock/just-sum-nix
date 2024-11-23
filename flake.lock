@@ -85,6 +85,21 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1732315062,
+        "narHash": "sha256-ehVLKn2WnlJ0ZfkBf+zGzYCF3OdLclFZJ9o/BHgaDqk=",
+        "owner": "sum-rock",
+        "repo": "nixos-hardware",
+        "rev": "c62df7f31589d77483bc2fec982c71e5ea116d71",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sum-rock",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1731797254,
@@ -175,6 +190,7 @@
       "inputs": {
         "darwin": "darwin",
         "home-manager": "home-manager",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "private": "private",
