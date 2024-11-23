@@ -8,13 +8,13 @@
       "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
+      "/var/keys"
       "/etc/NetworkManager/system-connections"
       "/root/.config/nix"
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
     files = [
       "/etc/machine-id"
-      { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
     ];
     users.august = {
       directories = [
@@ -38,6 +38,8 @@
         "Syncthing"
         { directory = ".gnupg"; mode = "0700"; }
         { directory = ".ssh"; mode = "0700"; }
+      ];
+      files = [
       ];
     };
   };
