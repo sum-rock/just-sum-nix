@@ -1,10 +1,12 @@
-{ config, lib, pkgs, nixos-hardware, ... }:
+{ config, lib, pkgs, nixos-hardware, nix-impermanence, ... }:
 
 {
   imports =
     [
       ./hardware-configuration.nix
+      ./persistance.nix
       nixos-hardware.nixosModules.lenovo-legion-16irx9h
+      nix-impermanence.nixosModules.impermanence
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -18,4 +20,5 @@
   environment.systemPackages = with pkgs; [
     lenovo-legion
   ];
+
 }

@@ -15,6 +15,32 @@
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "btrfs" ];
 
+  boot.initrd.postDeviceCommands = lib.mkAfter ''
+    mkdir -p /mnt
+    mount -t btrfs /dev/disk/by-uuid/96072d29-ef1f-45dd-b82e-680675a3a1f1 /mnt
+    
+    timestamp=$(date +"%Y-%m-%-d")
+    mkdir -p /mnt/bkps
+
+    if [[ ! -d "/mnt/bkps/$timestamp" ]]; then 
+      btrfs subvolume snapshot -r /mnt/root /mnt/bkps/$timestamp
+    fi
+
+    btrfs subvolume delete /mnt/root
+    btrfs subvolume create /mnt/root
+
+    cutoff=$(date -d "-3 days" +%Y-%m-%d)
+    
+    for dir in /mnt/bkps/*; do
+      dir_name="''${dir%/}"
+      if [[ $dir_name < $cutoff ]]; then
+        btrfs subvolume delete $dir_name
+      fi
+    done
+    umount /mnt
+
+  '';
+
   fileSystems."/" =
     {
       device = "/dev/disk/by-uuid/96072d29-ef1f-45dd-b82e-680675a3a1f1";
