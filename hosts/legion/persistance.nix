@@ -7,29 +7,29 @@
       "/var/log"
       "/var/lib/bluetooth"
       "/var/lib/nixos"
+      "/var/lib/tailscale"
       "/var/lib/systemd/coredump"
       "/var/keys"
+      "/run/secrets.d" # required to prevent loosing sops entries
       "/etc/NetworkManager/system-connections"
-      "/root/.config/nix"
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
     files = [
       "/etc/machine-id"
+      "/root/.config/nix/nix.conf"
     ];
     users.august = {
       directories = [
         ".1password"
         ".cache"
-        ".cargo"
         ".config"
+        ".cargo"
         ".local"
         ".mozilla"
         ".npm"
         ".rustup"
         ".steam"
         ".terminfo"
-        ".tmux"
-        ".wallpapers"
         "Documents"
         "Downloads"
         "go"
@@ -38,8 +38,6 @@
         "Syncthing"
         { directory = ".gnupg"; mode = "0700"; }
         { directory = ".ssh"; mode = "0700"; }
-      ];
-      files = [
       ];
     };
   };
