@@ -18,27 +18,36 @@
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir -p /mnt
     mount -t btrfs /dev/disk/by-uuid/96072d29-ef1f-45dd-b82e-680675a3a1f1 /mnt
-    
+
     timestamp=$(date +"%Y-%m-%-d")
-    mkdir -p /mnt/bkps
-
-    if [[ ! -d "/mnt/bkps/$timestamp" ]]; then 
-      btrfs subvolume snapshot -r /mnt/root /mnt/bkps/$timestamp
-    fi
-
-    btrfs subvolume delete /mnt/root
-    btrfs subvolume create /mnt/root
-
     cutoff=$(date -d "-3 days" +%Y-%m-%d)
+    
+    delete_subvolume_recursively() {
+      IFS=$'\n'
+      for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
+        delete_subvolume_recursively "/mnt/$i"
+      done
+      btrfs subvolume delete "$1"
+    }
+    
+    if [[ -e /mnt/root ]]; then
+      if [[ ! -d "/mnt/bkps/$timestamp" ]]; then 
+        btrfs subvolume create "/mnt/bkps/$timestamp"
+        mv /mnt/root "/mnt/bkps/$timestamp"
+      else
+        delete_subvolume_recursively /mnt/root
+      fi
+    fi
     
     for dir in /mnt/bkps/*; do
       dir_name="''${dir%/}"
       if [[ $dir_name < $cutoff ]]; then
-        btrfs subvolume delete $dir_name
+        delete_subvolume_recursively "$i"
       fi
     done
-    umount /mnt
 
+    btrfs subvolume create /mnt/root
+    umount /mnt
   '';
 
   fileSystems."/" =
@@ -46,7 +55,6 @@
       device = "/dev/disk/by-uuid/96072d29-ef1f-45dd-b82e-680675a3a1f1";
       fsType = "btrfs";
       options = [ "subvol=root" "compress=zstd" "noatime" ];
-      neededForBoot = true;
     };
 
   boot.initrd.luks.devices."enc0".device = "/dev/disk/by-uuid/20a0eb41-68e0-453d-9605-2c6834d96e88";

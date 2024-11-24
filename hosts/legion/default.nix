@@ -21,4 +21,7 @@
     lenovo-legion
   ];
 
+  users.users.${config.primary-user} = {
+    hashedPassword = "$y$j9T$zIhzVDjq/JpRoqrmwCSG4/$xoRiXmuuhAKIls/QpjbWRAqPiG48BuSE.HhpacwWSq/";
+  };
 }
