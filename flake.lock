@@ -157,11 +157,11 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1732468989,
-        "narHash": "sha256-1pQaoHOAdjOnwNBbhu4mxhZFHcUWDi/83M+TNJzlyGg=",
+        "lastModified": 1732483839,
+        "narHash": "sha256-Q5WXDbUpYIWCOVGI4LHgwPbe+H4/jTJl4UvJf+228pY=",
         "owner": "sum-rock",
         "repo": "nixos-private",
-        "rev": "f45b7a994ecb80f26634b79e13712196d87dd33e",
+        "rev": "fe0182bb1167f519202f4bd22f890e91ba7e566a",
         "type": "github"
       },
       "original": {
