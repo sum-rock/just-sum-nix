@@ -1,5 +1,18 @@
 { config, lib, ... }:
 {
+  systemd.services.decrypt-sops = {
+    description = "Decrypt sops secrets";
+    wantedBy = [ "multi-user.target" ];
+    # System SSH is required for decrypting secrets so this bind has to happen first
+    after = [ "etc-ssh.mount" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      Restart = "on-failure";
+      RestartSec = "2s";
+    };
+    script = config.system.activationScripts.setupSecrets.text;
+  };
   environment.persistence."/persistent" = {
     enable = true; # NB: Defaults to true, not needed
     hideMounts = true;
@@ -10,8 +23,8 @@
       "/var/lib/tailscale"
       "/var/lib/systemd/coredump"
       "/var/keys"
-      "/run/secrets.d" # required to prevent loosing sops entries
       "/etc/NetworkManager/system-connections"
+      "/etc/ssh" # system ssh required for decrypting secrets with nix sops
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
     files = [
