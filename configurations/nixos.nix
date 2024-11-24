@@ -50,6 +50,7 @@ in
   # ===========================================================================
   users.users.${config.primary-user} = {
     isNormalUser = true;
+    description = "${config.primary-user}";
     extraGroups = [ "wheel" "video" "networkmanager" "plugdev" "docker" ];
     shell = pkgs.fish;
     packages = with pkgs; [
