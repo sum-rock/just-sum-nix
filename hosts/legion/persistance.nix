@@ -47,6 +47,7 @@
         "Downloads"
         "go"
         "Logseq"
+        "Nextcloud"
         "repositories"
         "Syncthing"
         { directory = ".gnupg"; mode = "0700"; }
