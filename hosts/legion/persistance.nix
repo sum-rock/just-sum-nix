@@ -51,7 +51,9 @@
         "repositories"
         "Syncthing"
         { directory = ".gnupg"; mode = "0700"; }
-        { directory = ".ssh"; mode = "0700"; }
+      ];
+      files = [
+        ".ssh/known_hosts"
       ];
     };
   };
