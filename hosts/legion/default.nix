@@ -9,6 +9,8 @@
       nix-impermanence.nixosModules.impermanence
     ];
 
+  hardware.nvidia.powerManagement.enable = false;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
