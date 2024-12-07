@@ -43,6 +43,22 @@
         "type": "github"
       }
     },
+    "ghostscript-fix": {
+      "locked": {
+        "lastModified": 1732547334,
+        "narHash": "sha256-JQothqk/7oDCnMZixcQsyBQVjKg5QPGZTzfbIKY6TzU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "29bbd1bc81024237b9f9b8be59e1d1b6bb75fc07",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "29bbd1bc81024237b9f9b8be59e1d1b6bb75fc07",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -191,6 +207,7 @@
     "root": {
       "inputs": {
         "darwin": "darwin",
+        "ghostscript-fix": "ghostscript-fix",
         "home-manager": "home-manager",
         "nix-impermanence": "nix-impermanence",
         "nixos-hardware": "nixos-hardware",

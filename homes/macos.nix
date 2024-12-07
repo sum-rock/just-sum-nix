@@ -22,7 +22,7 @@
     home = {
       username = "${config.primary-user}";
       homeDirectory = "${config.home-dir-path}";
-      stateVersion = "${config.nixos-version}";
+      stateVersion = "24.05";
       file = {
         ".wallpapers" = {
           source = ./wallpapers/catppuccin;

@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs-unstable, ... }:
+{ config, pkgs, nixpkgs-unstable, ghostscript-fix, ... }:
 let
   unstable = import nixpkgs-unstable {
     system = "aarch64-darwin";
@@ -10,7 +10,13 @@ in
     ./packages.nix
     ./rebuild
   ];
-
+  
+  nixpkgs.overlays = [
+    (final: prev: {
+      ghostscript = ghostscript-fix.legacyPackages.${prev.system}.ghostscript;
+    })
+  ];
+  
   nixpkgs.config = { allowUnfree = true; allowBroken = true; };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = 4;
