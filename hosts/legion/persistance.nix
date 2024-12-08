@@ -38,6 +38,7 @@
         ".config"
         ".cargo"
         ".local"
+        ".logseq" # it would be better if this could go in .config
         ".mozilla"
         ".npm"
         ".rustup"
