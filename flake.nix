@@ -28,7 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware = {
-      url = "github:sum-rock/nixos-hardware/master";
+      url = "github:NixOS/nixos-hardware/master";
     };
     nix-impermanence = {
       url = "github:nix-community/impermanence/master";
@@ -36,14 +36,14 @@
 
     # Extra inputs
     # =====================================================
-     
+
     # fix for darwin 
     # https://github.com/NixOS/nixpkgs/pull/359025/commits
     ghostscript-fix = {
-      url = "github:nixos/nixpkgs/29bbd1bc81024237b9f9b8be59e1d1b6bb75fc07"; 
+      url = "github:nixos/nixpkgs/29bbd1bc81024237b9f9b8be59e1d1b6bb75fc07";
       inputs.nixpkgs.follows = "darwin";
     };
-    
+
     ranger-devicons = {
       url = "github:cdump/ranger-devicons2/master";
       flake = false;
