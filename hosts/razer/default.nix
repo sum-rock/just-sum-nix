@@ -5,7 +5,6 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../common/nvidia-standard.nix
     ];
 
   # Boot Loader stuff
@@ -30,4 +29,23 @@
 
   hardware.bluetooth.enable = true;
   system.stateVersion = "24.05"; # Did you read the comment?
+
+  # NVIDIA Drivers
+  # --------------
+  services.xserver = {
+    videoDrivers = [ "nvidia" ];
+  };
+  hardware = {
+    opengl = {
+      enable = true;
+    };
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+  };
 }
