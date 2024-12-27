@@ -37,13 +37,6 @@
     # Extra inputs
     # =====================================================
 
-    # fix for darwin 
-    # https://github.com/NixOS/nixpkgs/pull/359025/commits
-    ghostscript-fix = {
-      url = "github:nixos/nixpkgs/29bbd1bc81024237b9f9b8be59e1d1b6bb75fc07";
-      inputs.nixpkgs.follows = "darwin";
-    };
-
     ranger-devicons = {
       url = "github:cdump/ranger-devicons2/master";
       flake = false;
@@ -79,7 +72,6 @@
     , private
     , sum-astro-nvim
     , nix-impermanence
-    , ghostscript-fix
     , ...
     }@attrs:
     {
