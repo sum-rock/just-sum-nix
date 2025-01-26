@@ -7,12 +7,11 @@
   timezone = "America/Chicago";
   localization = "en_US.UTF-8";
 
-  # The is here for easy updates but will require the flake URI(s) to also be updated
   sumAstroNvim = {
     username = "august";
     nerdfont = "FiraCode";
     nodePackage = pkgs.nodejs_20;
-    pythonPackage = pkgs.python311Full;
+    pythonPackage = pkgs.python312Full;
   };
 
 }
