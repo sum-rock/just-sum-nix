@@ -145,13 +145,6 @@ in
     })
   ];
 
-  # Default Editor
-  programs.neovim = {
-    enable = true;
-    package = unstable.neovim-unwrapped;
-    defaultEditor = true;
-  };
-
   # Steam Stuff
   programs.steam = {
     enable = true;

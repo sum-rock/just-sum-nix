@@ -1,16 +1,10 @@
-{ config, pkgs, nixpkgs-unstable, ... }:
-let
-  unstable = import nixpkgs-unstable {
-    system = "aarch64-darwin";
-    config = { };
-  };
-in
+{ config, pkgs, ... }:
 {
   imports = [
     ./packages.nix
     ./rebuild
   ];
-  
+
   nixpkgs.config = { allowUnfree = true; allowBroken = true; };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = 4;
@@ -21,9 +15,4 @@ in
 
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
-
-  environment.systemPackages = [
-    unstable.neovim-unwrapped
-  ];
-
 }
