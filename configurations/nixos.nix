@@ -151,6 +151,12 @@ in
     remotePlay.openFirewall = true;
   };
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    package = pkgs.neovim-unwrapped;
+  };
+
   services.tailscale.enable = true;
   virtualisation.docker.enable = true;
 }
