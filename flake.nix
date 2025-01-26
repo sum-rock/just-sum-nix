@@ -61,6 +61,11 @@
       url = "github:catppuccin/tmux";
       flake = false;
     };
+    alacritty-tic = {
+      url = "github:alacritty/alacritty/master";
+      flake = false;
+      # url = "https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info";
+    };
   };
 
   outputs =

@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, gruvbox-gtk, ... }:
+{ config, pkgs, home-manager, ... }:
 {
   imports = [
     home-manager.darwinModules.home-manager
