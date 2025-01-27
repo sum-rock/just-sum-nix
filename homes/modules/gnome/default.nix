@@ -20,18 +20,18 @@ in
 
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
-    gnome.gnome-terminal
-    gnome.geary
-    gnome.totem
-    gnome.tali
-    gnome.totem
+    gnome-terminal
+    geary
+    totem
+    tali
+    totem
   ];
 
   environment.systemPackages = with pkgs; [
-    gnome.gnome-themes-extra
-    gnome.gnome-tweaks
+    gnome-themes-extra
+    gnome-tweaks
     gtk-engine-murrine
-    gnome.mutter
+    mutter
   ] ++ [ unstable.magnetic-catppuccin-gtk ];
 
   users.users.${config.primary-user} = {
