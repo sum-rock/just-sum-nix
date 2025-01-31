@@ -10,10 +10,19 @@
 , ...
 }:
 let
+  darwinColorFix =
+    if config.system ? darwinVersion
+    then ''
+      set -g default-terminal 'tmux-256color'
+      set -as terminal-overrides ",alacritty*:Tc"
+    '' 
+    else '''';
+
   tmux-conf = builtins.toFile "tmux.conf" ''
     ${builtins.readFile ./tmux.conf}
     ${builtins.readFile "${tmux-catppuccin}/themes/catppuccin_mocha_tmux.conf"}
     run-shell $HOME/.tmux/plugins/tmux-catppuccin/catppuccin.tmux
+    ${darwinColorFix}
   '';
 in
 {
@@ -27,6 +36,12 @@ in
   ];
 
   home-manager.users.${config.primary-user} = {
+    programs.starship = {
+      enable = true;
+      settings = {
+        command_timeout = 900000; # 15 minutes 
+      };
+    };
     programs.fish = {
       enable = true;
       shellAliases = {
@@ -36,8 +51,6 @@ in
       interactiveShellInit = ''
         direnv hook fish | source
         export DIRENV_LOG_FORMAT=""
-        
-        starship init fish | source 
       '';
     };
     xdg.configFile = {
