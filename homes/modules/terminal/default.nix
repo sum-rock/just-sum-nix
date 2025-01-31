@@ -27,6 +27,12 @@ in
   ];
 
   home-manager.users.${config.primary-user} = {
+    programs.starship = {
+      enable = true;
+      settings = {
+        command_timeout = 900000; # 15 minutes 
+      };
+    };
     programs.fish = {
       enable = true;
       shellAliases = {
@@ -36,8 +42,6 @@ in
       interactiveShellInit = ''
         direnv hook fish | source
         export DIRENV_LOG_FORMAT=""
-        
-        starship init fish | source 
       '';
     };
     xdg.configFile = {
