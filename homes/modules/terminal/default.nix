@@ -10,10 +10,19 @@
 , ...
 }:
 let
+  darwinColorFix =
+    if config.system ? darwinVersion
+    then ''
+      set -g default-terminal 'tmux-256color'
+      set -as terminal-overrides ",alacritty*:Tc"
+    '' 
+    else '''';
+
   tmux-conf = builtins.toFile "tmux.conf" ''
     ${builtins.readFile ./tmux.conf}
     ${builtins.readFile "${tmux-catppuccin}/themes/catppuccin_mocha_tmux.conf"}
     run-shell $HOME/.tmux/plugins/tmux-catppuccin/catppuccin.tmux
+    ${darwinColorFix}
   '';
 in
 {
