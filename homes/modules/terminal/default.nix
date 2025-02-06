@@ -15,7 +15,7 @@ let
     then ''
       set -g default-terminal 'tmux-256color'
       set -as terminal-overrides ",alacritty*:Tc"
-    '' 
+    ''
     else '''';
 
   tmux-conf = builtins.toFile "tmux.conf" ''
@@ -42,6 +42,10 @@ in
         command_timeout = 900000; # 15 minutes 
       };
     };
+    programs.alacritty = {
+      enable = true;
+      settings = import ./alacritty.nix;
+    };
     programs.fish = {
       enable = true;
       shellAliases = {
@@ -52,9 +56,6 @@ in
         direnv hook fish | source
         export DIRENV_LOG_FORMAT=""
       '';
-    };
-    xdg.configFile = {
-      "alacritty/alacritty.toml".source = ./alacritty.toml;
     };
     home.file = {
       ".tmux.conf".source = "${tmux-conf}";
