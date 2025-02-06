@@ -16,8 +16,10 @@ let
       set -g default-terminal 'tmux-256color'
       set -as terminal-overrides ",alacritty*:Tc"
     ''
-    else '''';
-
+    else ''
+      set -g default-terminal 'alacritty'
+      set -as terminal-overrides ",alacritty*:Tc"
+    '';
   tmux-conf = builtins.toFile "tmux.conf" ''
     ${builtins.readFile ./tmux.conf}
     ${builtins.readFile "${tmux-catppuccin}/themes/catppuccin_mocha_tmux.conf"}
