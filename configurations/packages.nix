@@ -45,6 +45,7 @@
     glow
     libqalculate
     shell-gpt
+    skopeo # for getting the nix-hash of a docker image
   ];
 
 }
