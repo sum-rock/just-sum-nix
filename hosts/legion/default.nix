@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./persistance.nix
       ./displaylink.nix
+      ./subvol_delete
       nixos-hardware.nixosModules.lenovo-legion-16irx9h
       nix-impermanence.nixosModules.impermanence
     ];
