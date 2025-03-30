@@ -19,8 +19,8 @@
     mkdir -p /mnt
     mount -t btrfs /dev/disk/by-uuid/96072d29-ef1f-45dd-b82e-680675a3a1f1 /mnt
 
-    timestamp=$(date +"%Y-%m-%-d")
-    cutoff=$(date -d "-3 days" +%Y-%m-%d)
+    timestamp=$(date +"%Y-%m-%dT%H%M%S")
+    cutoff=$(date -d "-1 days" +%Y-%m-%dT%H%M%S)
     
     delete_subvolume_recursively() {
       IFS=$'\n'
@@ -40,9 +40,9 @@
     fi
     
     for dir in /mnt/bkps/*; do
-      dir_name="''${dir%/}"
+      dir_name="$(basename "''${dir}")"
       if [[ $dir_name < $cutoff ]]; then
-        delete_subvolume_recursively "$i"
+        delete_subvolume_recursively "$dir"
       fi
     done
 
