@@ -43,5 +43,8 @@
         '';
       };
     };
+    programs.fish.shellAliases = {
+      xvim = "steam-run nvim .";
+    };
   };
 }

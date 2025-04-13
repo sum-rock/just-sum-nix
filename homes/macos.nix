@@ -45,6 +45,9 @@
           set HOMEBREW "/opt/homebrew/opt/grep/libexec/gnubin"
           eval "$(/opt/homebrew/bin/brew shellenv)"
         '';
+        shellAliases = {
+          xvim = "nvim .";
+        };
       };
     };
   };
