@@ -1,10 +1,4 @@
-{ config, lib, pkgs, nixpkgs-unstable, ... }:
-let
-  unstable = import nixpkgs-unstable {
-    system = "x86_64-linux";
-    config = { };
-  };
-in
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ./packages.nix
@@ -24,6 +18,10 @@ in
   # Localization
   time.timeZone = "${config.timezone}";
   i18n.defaultLocale = "${config.localization}";
+
+  # keyboard
+  hardware.keyboard.qmk.enable = true;
+  services.udev.packages = [ pkgs.via ];
 
   # Audio
   hardware.pulseaudio.enable = false;
@@ -82,9 +80,6 @@ in
 
     # Basics
     # ------
-    pulseaudio # | 
-    pamixer # | For pipewire controls
-    pavucontrol # |
     networkmanager
     psmisc # Includes ps commands that are commonly used. (e.g., killall)
     pciutils
@@ -95,6 +90,13 @@ in
     docker-compose
     nfs-utils
     wl-clipboard
+    via
+
+    # pipewire controls
+    # -------------
+    pulseaudio
+    pamixer
+    pavucontrol
 
     # Gaming
     # ------
@@ -145,7 +147,6 @@ in
     })
   ];
 
-  # Steam Stuff
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
