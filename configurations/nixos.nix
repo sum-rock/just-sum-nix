@@ -21,7 +21,11 @@
 
   # keyboard
   hardware.keyboard.qmk.enable = true;
-  services.udev.packages = [ pkgs.via ];
+
+  # Android Debug Bridge
+  programs.adb.enable = true;
+
+  services.udev.packages = [ pkgs.via pkgs.android-udev-rules ];
 
   # Audio
   hardware.pulseaudio.enable = false;
@@ -48,7 +52,7 @@
   users.users.${config.primary-user} = {
     isNormalUser = true;
     description = "${config.primary-user}";
-    extraGroups = [ "wheel" "video" "networkmanager" "plugdev" "docker" ];
+    extraGroups = [ "wheel" "video" "networkmanager" "plugdev" "docker" "adbusers" ];
     shell = pkgs.fish;
     packages = with pkgs; [
       firefox
@@ -113,6 +117,7 @@
     # ------
     calibre
     koreader
+    hakuneko
 
     # Applications 
     # ------------
@@ -141,7 +146,6 @@
     ntfs3g
     exiftool
     android-tools
-    android-udev-rules
 
     (appimage-run.override {
       extraPkgs =
