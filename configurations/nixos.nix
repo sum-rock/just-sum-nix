@@ -109,6 +109,11 @@
     protontricks
     p7zip
 
+    # ebooks
+    # ------
+    calibre
+    koreader
+
     # Applications 
     # ------------
     _1password-gui
