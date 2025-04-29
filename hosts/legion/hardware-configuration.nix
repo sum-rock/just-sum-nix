@@ -19,9 +19,6 @@
     mkdir -p /mnt
     mount -t btrfs /dev/disk/by-uuid/96072d29-ef1f-45dd-b82e-680675a3a1f1 /mnt
 
-    timestamp=$(date +"%Y-%m-%dT%H%M%S")
-    cutoff=$(date -d "-1 days" +%Y-%m-%dT%H%M%S)
-    
     delete_subvolume_recursively() {
       IFS=$'\n'
       for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
@@ -29,24 +26,10 @@
       done
       btrfs subvolume delete "$1"
     }
-    
-    if [[ -e /mnt/root ]]; then
-      if [[ ! -d "/mnt/bkps/$timestamp" ]]; then 
-        btrfs subvolume create "/mnt/bkps/$timestamp"
-        mv /mnt/root "/mnt/bkps/$timestamp"
-      else
-        delete_subvolume_recursively /mnt/root
-      fi
-    fi
-    
-    for dir in /mnt/bkps/*; do
-      dir_name="$(basename "''${dir}")"
-      if [[ $dir_name < $cutoff ]]; then
-        delete_subvolume_recursively "$dir"
-      fi
-    done
 
+    delete_subvolume_recursively /mnt/root
     btrfs subvolume create /mnt/root
+    
     umount /mnt
   '';
 

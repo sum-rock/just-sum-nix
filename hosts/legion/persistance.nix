@@ -50,7 +50,6 @@
         "Logseq"
         "Books/calibre"
         "Books/koreader"
-        "Books/kobo"
         "Nextcloud"
         "repositories"
         "Syncthing"
