@@ -117,7 +117,6 @@
     # ------
     calibre
     koreader
-    hakuneko
 
     # Applications 
     # ------------
