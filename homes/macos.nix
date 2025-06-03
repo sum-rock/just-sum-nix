@@ -1,4 +1,10 @@
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, home-manager, nixpkgs-unstable, ... }:
+let
+  unstable = import nixpkgs-unstable {
+    system = "aarch64-darwin";
+    config = { };
+  };
+in
 {
   imports = [
     home-manager.darwinModules.home-manager
@@ -32,6 +38,10 @@
     };
     programs = {
       home-manager.enable = true;
+      neovim = {
+        enable = true;
+        package = unstable.neovim-unwrapped;
+      };
       fish = {
         enable = true;
         shellInit = ''
