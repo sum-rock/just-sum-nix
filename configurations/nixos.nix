@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixpkgs-unstable, ... }:
+let
+  unstable = import nixpkgs-unstable {
+    system = "aarch64-darwin";
+    config = { };
+  };
+in
 {
   imports = [
     ./packages.nix
@@ -163,7 +169,7 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    package = pkgs.neovim-unwrapped;
+    package = unstable.neovim-unwrapped;
   };
 
   services.tailscale.enable = true;
