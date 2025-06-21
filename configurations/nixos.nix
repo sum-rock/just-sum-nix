@@ -34,7 +34,7 @@ in
   services.udev.packages = [ pkgs.via pkgs.android-udev-rules ];
 
   # Audio
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -169,7 +169,7 @@ in
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    package = unstable.neovim-unwrapped;
+    # package = unstable.neovim-unwrapped;
   };
 
   services.tailscale.enable = true;

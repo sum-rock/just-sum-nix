@@ -14,8 +14,8 @@
   # This isn't working in darwin but it should be in the terminal module 
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "Lilex" ]; })
       font-awesome
+      nerd-fonts.lilex
     ];
   };
 
