@@ -5,7 +5,7 @@
   ];
 
   home-manager.users = {
-    "${config.primary-user}" = {
+    "${config.primaryUser}" = {
       xdg.configFile = {
         "ranger/rc.conf".source = ./rc.conf;
         "ranger/plugins/devicons2".source = "${ranger-devicons}";
@@ -16,7 +16,7 @@
   system.activationScripts.ranger = ''
     if [[ ! -d /root/.config/ranger ]]; then
       mkdir -p /root/.config
-      ln -s /home/${config.primary-user}/.config/ranger /root/.config/ranger 
+      ln -s /home/${config.primaryUser}/.config/ranger /root/.config/ranger 
     fi
   '';
 }

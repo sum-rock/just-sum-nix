@@ -3,7 +3,7 @@
   imports = [ ./mk-options.nix ];
 
   # Set as applicable to you- the person using this flake
-  primary-user = "august";
+  primaryUser = "august";
   timezone = "America/Chicago";
   localization = "en_US.UTF-8";
 

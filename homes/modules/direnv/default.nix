@@ -1,6 +1,6 @@
 { config, pkgs, home-manager, ... }:
 {
-  home-manager.users.${config.primary-user}.programs = {
+  home-manager.users.${config.primaryUser}.programs = {
     direnv = {
       enable = true;
       nix-direnv.enable = true;
