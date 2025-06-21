@@ -14,9 +14,9 @@ in
     ./modules/direnv
   ];
 
-  home-dir-path = "/Users/${config.primary-user}";
+  home-dir-path = "/Users/${config.primaryUser}";
 
-  users.users.${config.primary-user} = {
+  users.users.${config.primaryUser} = {
     home = "${config.home-dir-path}";
     shell = pkgs.fish;
   };
@@ -24,9 +24,9 @@ in
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  home-manager.users.${config.primary-user} = {
+  home-manager.users.${config.primaryUser} = {
     home = {
-      username = "${config.primary-user}";
+      username = "${config.primaryUser}";
       homeDirectory = "${config.home-dir-path}";
       stateVersion = "24.05";
       file = {

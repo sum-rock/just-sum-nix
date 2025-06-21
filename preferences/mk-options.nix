@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   options = {
-    primary-user = pkgs.lib.mkOption {
+    primaryUser = pkgs.lib.mkOption {
       description = "Username for the primary user.";
     };
     home-dir-path = pkgs.lib.mkOption {

@@ -55,9 +55,9 @@ in
 
   # User setup
   # ===========================================================================
-  users.users.${config.primary-user} = {
+  users.users.${config.primaryUser} = {
     isNormalUser = true;
-    description = "${config.primary-user}";
+    description = "${config.primaryUser}";
     extraGroups = [ "wheel" "video" "networkmanager" "plugdev" "docker" "adbusers" ];
     shell = pkgs.fish;
     packages = with pkgs; [

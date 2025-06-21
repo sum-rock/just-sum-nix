@@ -37,7 +37,7 @@ in
     pkgs.starship
   ];
 
-  home-manager.users.${config.primary-user} = {
+  home-manager.users.${config.primaryUser} = {
     programs.starship = {
       enable = true;
       settings = {

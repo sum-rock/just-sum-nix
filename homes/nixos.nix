@@ -8,7 +8,7 @@
     ./modules/direnv
   ];
 
-  home-dir-path = "/home/${config.primary-user}";
+  home-dir-path = "/home/${config.primaryUser}";
   home-manager.backupFileExtension = "bak";
 
   # This isn't working in darwin but it should be in the terminal module 
@@ -19,14 +19,14 @@
     ];
   };
 
-  home-manager.users.${config.primary-user} = {
+  home-manager.users.${config.primaryUser} = {
     services = {
       nextcloud-client.enable = true;
     };
     home = {
       stateVersion = "24.05";
-      username = "${config.primary-user}";
-      homeDirectory = "/home/${config.primary-user}";
+      username = "${config.primaryUser}";
+      homeDirectory = "/home/${config.primaryUser}";
       file = {
         ".wallpapers" = {
           source = ./wallpapers/catppuccin;

@@ -34,7 +34,7 @@ in
     mutter
   ] ++ [ unstable.magnetic-catppuccin-gtk ];
 
-  users.users.${config.primary-user} = {
+  users.users.${config.primaryUser} = {
     packages = with pkgs.gnomeExtensions; [
       vitals
       pop-shell

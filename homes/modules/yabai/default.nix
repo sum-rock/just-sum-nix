@@ -13,7 +13,7 @@
   services.skhd.enable = true;
   services.yabai.enable = true;
 
-  home-manager.users."${config.primary-user}" = {
+  home-manager.users."${config.primaryUser}" = {
     xdg.configFile = {
       "yabai/yabairc".source = ./yabairc;
       "skhd/skhdrc".source = ./skhdrc;
