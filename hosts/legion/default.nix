@@ -25,6 +25,7 @@
 
   environment.systemPackages = with pkgs; [
     lenovo-legion
+    input-remapper
   ];
 
   users.users.${config.primaryUser} = {
