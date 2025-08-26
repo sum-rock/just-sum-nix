@@ -40,6 +40,7 @@
     du-dust
     lazydocker
     lazygit
+    lazysql
     jq
     neofetch
     glow
