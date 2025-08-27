@@ -40,6 +40,7 @@
         enable = true;
         shellInit = ''
           set OPENAI_API_KEY $(cat $HOME/.openai)
+          set RAINFROG_CONFIG "$HOME/.config/rainfrog"
         '';
       };
     };

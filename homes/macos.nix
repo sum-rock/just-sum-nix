@@ -49,6 +49,7 @@ in
           set EDITOR nvim
           
           set OPENAI_API_KEY $(cat $HOME/.openai)
+          set RAINFROG_CONFIG "$HOME/.config/rainfrog"
           
           if  [ -f "$HOME/.profile.custom" ] ; source "$HOME/.profile.custom" ; end
            

@@ -41,6 +41,8 @@
     lazydocker
     lazygit
     lazysql
+    gobang
+    rainfrog
     jq
     neofetch
     glow
