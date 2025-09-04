@@ -40,8 +40,6 @@
     du-dust
     lazydocker
     lazygit
-    lazysql
-    gobang
     rainfrog
     jq
     neofetch
