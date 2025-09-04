@@ -40,6 +40,7 @@
     du-dust
     lazydocker
     lazygit
+    rainfrog
     jq
     neofetch
     glow
