@@ -120,11 +120,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1757094860,
-        "narHash": "sha256-OeMwZhwSnLJxRwzGUTBy5ZYvWoSN64IMNyp/Bgu43os=",
+        "lastModified": 1757103352,
+        "narHash": "sha256-PtT7ix43ss8PONJ1VJw3f6t2yAoGH+q462Sn8lrmWmk=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "af3dd1cb201703103896bb52991927bbef0810b9",
+        "rev": "11b2a10c7be726321bb854403fdeec391e798bf0",
         "type": "github"
       },
       "original": {
@@ -152,11 +152,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1756787288,
-        "narHash": "sha256-rw/PHa1cqiePdBxhF66V7R+WAP8WekQ0mCDG4CFqT8Y=",
+        "lastModified": 1757068644,
+        "narHash": "sha256-NOrUtIhTkIIumj1E/Rsv1J37Yi3xGStISEo8tZm3KW4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d0fc30899600b9b3466ddb260fd83deb486c32f1",
+        "rev": "8eb28adfa3dc4de28e792e3bf49fcf9007ca8ac9",
         "type": "github"
       },
       "original": {
@@ -271,11 +271,11 @@
     "tmux-catppuccin": {
       "flake": false,
       "locked": {
-        "lastModified": 1752340508,
-        "narHash": "sha256-Xk3LogY3B2bZbUWyTHa2nap4Rn0bU2QgYlHlkngMPsk=",
+        "lastModified": 1757107889,
+        "narHash": "sha256-AX8/5/THPYEGOjeEJgSTo2UNirGgivMUxNan+T4H9LI=",
         "owner": "catppuccin",
         "repo": "tmux",
-        "rev": "9d21d7ccd50df82bd732be2850ce2798e78b6391",
+        "rev": "768a550743de659fd670bd05f54dd62f5d18ec2a",
         "type": "github"
       },
       "original": {
