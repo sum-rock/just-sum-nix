@@ -112,7 +112,6 @@ in
     # ------
     steamcmd
     steamtinkerlaunch
-    # qbittorrent
     renpy
     wine
     winetricks
@@ -137,6 +136,7 @@ in
     mongodb-compass
     obs-studio
     dbeaver-bin
+    opencode # can install on nixos but not in darwin
 
     # messaging
     # ---------
