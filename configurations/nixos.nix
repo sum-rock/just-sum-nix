@@ -17,8 +17,7 @@ in
 
   nixpkgs.config = {
     allowUnfree = true;
-    # This is specifically for Logseq
-    permittedInsecurePackages = [ "electron-27.3.11" "python3.12-ecdsa-0.19.1" ];
+    permittedInsecurePackages = [  "python3.12-ecdsa-0.19.1" ];
   };
 
   # Localization
