@@ -11,7 +11,7 @@
     username = "august";
     nerdfont = pkgs.nerd-fonts.lilex;
     nodePackage = pkgs.nodejs_20;
-    pythonPackage = pkgs.python312Full;
+    pythonPackage = pkgs.python314;
   };
 
 }

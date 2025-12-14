@@ -37,7 +37,7 @@
     ripgrep
     tmux
     btop
-    du-dust
+    dust
     lazydocker
     lazygit
     rainfrog
