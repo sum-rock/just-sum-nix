@@ -30,7 +30,8 @@ in
   # Android Debug Bridge
   programs.adb.enable = true;
 
-  services.udev.packages = [ pkgs.via pkgs.android-udev-rules ];
+  services.udev.packages = [ pkgs.via ];
+  # android-udev-rules no longer supported in 25.11
 
   # Audio
   services.pulseaudio.enable = false;
@@ -141,7 +142,7 @@ in
     # ---------
     zoom-us
     element-desktop
-    whatsapp-for-linux
+    wasistlos
     discord
 
     # Other
