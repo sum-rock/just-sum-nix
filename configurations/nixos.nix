@@ -144,6 +144,12 @@ in
     element-desktop
     wasistlos
     discord
+    
+    # Minecraft
+    # ---------
+    prismlauncher
+    temurin-jre-bin-21
+    temurin-jre-bin-17
 
     # Other
     # -----
