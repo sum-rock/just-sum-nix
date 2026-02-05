@@ -10,7 +10,7 @@
   sumAstroNvim = {
     username = "august";
     nerdfont = pkgs.nerd-fonts.lilex;
-    nodePackage = pkgs.nodejs_20;
+    nodePackage = pkgs.nodejs_24;
     pythonPackage = pkgs.python314;
   };
 
