@@ -25,7 +25,7 @@
     poetry
     postgresql
     tree-sitter
-    nodejs_24
+    nodejs-slim
     yarn
     sqlite
     ngrok
