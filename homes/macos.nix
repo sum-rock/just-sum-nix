@@ -8,6 +8,7 @@ in
 {
   imports = [
     home-manager.darwinModules.home-manager
+    ./modules/aerospace
     ./modules/terminal
     ./modules/ranger
     ./modules/direnv
