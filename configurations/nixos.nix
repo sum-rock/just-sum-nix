@@ -1,10 +1,4 @@
-{ config, lib, pkgs, nixpkgs-unstable, ... }:
-let
-  unstable = import nixpkgs-unstable {
-    system = "aarch64-darwin";
-    config = { };
-  };
-in
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ./packages.nix
