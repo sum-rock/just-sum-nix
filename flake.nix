@@ -101,6 +101,7 @@
           # Add or change systems here following the pattern below
           #   <hostname> = mkDarwinWorkstation <hostname> <system type>;
           sum-rock-wrk = mkDarwinWorkstation "sum-rock-wrk" "aarch64-darwin";
+          wrkbook-m4 = mkDarwinWorkstation "wrkbook-m4" "aarch64-darwin";
         };
 
       # NixOS Configurations

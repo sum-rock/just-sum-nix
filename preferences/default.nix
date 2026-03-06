@@ -1,4 +1,15 @@
-{ pkgs, ... }:
+{ config, pkgs, nixpkgs-unstable, ... }:
+let
+  system = 
+    if config.system ? darwinVersion
+    then "aarch64-darwin"
+    else "x86_64-linux";
+
+  unstable = import nixpkgs-unstable {
+    system = system; 
+    config = {};
+  }; 
+in
 {
   imports = [ ./mk-options.nix ];
 
@@ -10,7 +21,7 @@
   sumAstroNvim = {
     username = "august";
     nerdfont = pkgs.nerd-fonts.lilex;
-    nodePackage = pkgs.nodejs_24;
+    nodePackage = unstable.nodejs_24;
     pythonPackage = pkgs.python314;
   };
 

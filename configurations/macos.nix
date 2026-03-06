@@ -1,4 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs-unstable, ... }:
+let 
+  unstable = import nixpkgs-unstable {
+    system = "aarch64-darwin";
+    config = {};
+  }; 
+in
 {
   imports = [
     ./packages.nix
@@ -14,5 +20,11 @@
   programs.fish.enable = true;
   programs.zsh.enable = true;
 
-  nix.package = pkgs.nix;
+  environment.shells = [pkgs.fish];
+  environment.systemPackages = [ unstable.nodejs_24 pkgs.syncthing ];
+
+  users.users.${config.primaryUser} = {
+    home = "${config.home-dir-path}";
+    shell = pkgs.fish;
+  };
 }

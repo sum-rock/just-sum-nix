@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
-  config.environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
 
     # Basics
     # ------
@@ -25,7 +25,6 @@
     poetry
     postgresql
     tree-sitter
-    nodejs_24
     yarn
     sqlite
     ngrok

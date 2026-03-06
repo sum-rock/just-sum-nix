@@ -8,18 +8,19 @@ in
 {
   imports = [
     home-manager.darwinModules.home-manager
-    ./modules/yabai
+    ./modules/aerospace
     ./modules/terminal
     ./modules/ranger
     ./modules/direnv
+    ./modules/brew
   ];
 
   home-dir-path = "/Users/${config.primaryUser}";
 
-  users.users.${config.primaryUser} = {
-    home = "${config.home-dir-path}";
-    shell = pkgs.fish;
-  };
+  fonts.packages = with pkgs; [
+    font-awesome
+    nerd-fonts.lilex
+  ];
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -28,7 +29,7 @@ in
     home = {
       username = "${config.primaryUser}";
       homeDirectory = "${config.home-dir-path}";
-      stateVersion = "24.05";
+      stateVersion = "25.11";
       file = {
         ".wallpapers" = {
           source = ./wallpapers/catppuccin;
@@ -36,6 +37,9 @@ in
         };
       };
     };
+
+    services.syncthing.enable = true;
+
     programs = {
       home-manager.enable = true;
       neovim = {
@@ -47,14 +51,18 @@ in
         shellInit = ''
           set DOCKER "$HOME/.docker/init-bash.sh"
           set EDITOR nvim
-          
+
           set OPENAI_API_KEY $(cat $HOME/.openai)
           set RAINFROG_CONFIG "$HOME/.config/rainfrog"
-          
-          if  [ -f "$HOME/.profile.custom" ] ; source "$HOME/.profile.custom" ; end
-           
+
+          if [ -f "$HOME/.profile.custom" ]
+            source "$HOME/.profile.custom"
+          end
+
           set HOMEBREW "/opt/homebrew/opt/grep/libexec/gnubin"
-          eval "$(/opt/homebrew/bin/brew shellenv)"
+          if [ -f "/opt/homebrew/bin/brew" ]
+            eval "$(/opt/homebrew/bin/brew fish)"
+          end
         '';
         shellAliases = {
           xvim = "nvim .";
