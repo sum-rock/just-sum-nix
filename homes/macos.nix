@@ -8,7 +8,7 @@ in
 {
   imports = [
     home-manager.darwinModules.home-manager
-    ./modules/yabai
+    # ./modules/yabai
     ./modules/terminal
     ./modules/ranger
     ./modules/direnv
@@ -28,7 +28,7 @@ in
     home = {
       username = "${config.primaryUser}";
       homeDirectory = "${config.home-dir-path}";
-      stateVersion = "24.05";
+      stateVersion = "25.11";
       file = {
         ".wallpapers" = {
           source = ./wallpapers/catppuccin;
