@@ -12,6 +12,7 @@ in
     ./modules/terminal
     ./modules/ranger
     ./modules/direnv
+    ./modules/brew
   ];
 
   home-dir-path = "/Users/${config.primaryUser}";
@@ -57,7 +58,7 @@ in
 
           set HOMEBREW "/opt/homebrew/opt/grep/libexec/gnubin"
           if [ -f "/opt/homebrew/bin/brew" ]
-            eval "$(/opt/homebrew/bin/brew shellenv)"
+            eval "$(/opt/homebrew/bin/brew fish)"
           end
         '';
         shellAliases = {
