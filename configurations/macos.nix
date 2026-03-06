@@ -21,13 +21,10 @@ in
   programs.zsh.enable = true;
 
   environment.shells = [pkgs.fish];
-  environment.systemPackages = [
-    unstable.nodejs_24
-  ];
+  environment.systemPackages = [ unstable.nodejs_24 pkgs.syncthing ];
 
   users.users.${config.primaryUser} = {
     home = "${config.home-dir-path}";
     shell = pkgs.fish;
   };
-  # nix.package = pkgs.nix;
 }
