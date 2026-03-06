@@ -21,6 +21,11 @@ in
     shell = pkgs.fish;
   };
 
+  fonts.packages = with pkgs; [
+    font-awesome
+    nerd-fonts.lilex
+  ];
+
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 

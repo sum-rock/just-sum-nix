@@ -11,7 +11,6 @@
   home-dir-path = "/home/${config.primaryUser}";
   home-manager.backupFileExtension = "bak";
 
-  # This isn't working in darwin but it should be in the terminal module 
   fonts = {
     packages = with pkgs; [
       font-awesome
