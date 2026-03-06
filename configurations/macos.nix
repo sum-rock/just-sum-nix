@@ -14,5 +14,11 @@
   programs.fish.enable = true;
   programs.zsh.enable = true;
 
-  nix.package = pkgs.nix;
+  environment.shells = [pkgs.fish];
+
+  users.users.${config.primaryUser} = {
+    home = "${config.home-dir-path}";
+    shell = pkgs.fish;
+  };
+  # nix.package = pkgs.nix;
 }

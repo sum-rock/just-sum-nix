@@ -8,18 +8,12 @@ in
 {
   imports = [
     home-manager.darwinModules.home-manager
-    # ./modules/yabai
     ./modules/terminal
     ./modules/ranger
     ./modules/direnv
   ];
 
   home-dir-path = "/Users/${config.primaryUser}";
-
-  users.users.${config.primaryUser} = {
-    home = "${config.home-dir-path}";
-    shell = pkgs.fish;
-  };
 
   fonts.packages = with pkgs; [
     font-awesome
@@ -52,14 +46,18 @@ in
         shellInit = ''
           set DOCKER "$HOME/.docker/init-bash.sh"
           set EDITOR nvim
-          
+
           set OPENAI_API_KEY $(cat $HOME/.openai)
           set RAINFROG_CONFIG "$HOME/.config/rainfrog"
-          
-          if  [ -f "$HOME/.profile.custom" ] ; source "$HOME/.profile.custom" ; end
-           
+
+          if [ -f "$HOME/.profile.custom" ]
+            source "$HOME/.profile.custom"
+          end
+
           set HOMEBREW "/opt/homebrew/opt/grep/libexec/gnubin"
-          eval "$(/opt/homebrew/bin/brew shellenv)"
+          if [ -f "/opt/homebrew/bin/brew" ]
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+          end
         '';
         shellAliases = {
           xvim = "nvim .";
