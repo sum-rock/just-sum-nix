@@ -61,7 +61,7 @@ in
 
           set HOMEBREW "/opt/homebrew/opt/grep/libexec/gnubin"
           if [ -f "/opt/homebrew/bin/brew" ]
-            eval "$(/opt/homebrew/bin/brew fish)"
+            eval "$(/opt/homebrew/bin/brew shellenv)"
           end
         '';
         shellAliases = {

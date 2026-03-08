@@ -21,6 +21,7 @@
       "aptible"
       "tailscale-app"
       "logseq"
+      "android-studio"
     ];
   };
 }
