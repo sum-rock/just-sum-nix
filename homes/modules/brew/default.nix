@@ -22,6 +22,7 @@
       "tailscale-app"
       "logseq"
       "android-studio"
+      "spotify"
     ];
   };
 }
