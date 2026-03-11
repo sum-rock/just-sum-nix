@@ -10,6 +10,10 @@
       upgrade = true;
     };
 
+    brews = [
+      "opencode"
+    ];
+
     caskArgs = {
       appdir = "~/Applications";
       no_quarantine = true;
