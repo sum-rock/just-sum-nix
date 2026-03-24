@@ -29,6 +29,7 @@
     sqlite
     ngrok
     bind
+    bruno
 
     # Quality of Life
     # ---------------
