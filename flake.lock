@@ -324,7 +324,7 @@
         "darwin": "darwin_2",
         "home-manager": "home-manager_3",
         "nixpkgs": [
-          "darwin"
+          "nixpkgs-neovim"
         ],
         "nixpkgs-neovim": "nixpkgs-neovim_2"
       },
