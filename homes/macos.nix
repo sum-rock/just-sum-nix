@@ -1,6 +1,6 @@
-{ config, pkgs, home-manager, nixpkgs-unstable, ... }:
+{ config, pkgs, home-manager, nixpkgs-neovim, ... }:
 let
-  unstable = import nixpkgs-unstable {
+  neovim-pkgs = import nixpkgs-neovim {
     system = "aarch64-darwin";
     config = { };
   };
@@ -44,7 +44,7 @@ in
       home-manager.enable = true;
       neovim = {
         enable = true;
-        package = unstable.neovim-unwrapped;
+        package = neovim-pkgs.neovim-unwrapped;
       };
       fish = {
         enable = true;

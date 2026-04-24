@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, nixpkgs-neovim, pkgs, ... }:
+let
+  neovim-pkgs = import nixpkgs-neovim {
+    system = "x86_64-linux";
+    config = { };
+  };
+in
 {
   imports = [
     ./packages.nix
@@ -170,7 +176,7 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    # package = unstable.neovim-unwrapped;
+    package = neovim-pkgs.neovim-unwrapped;
   };
 
   services.tailscale.enable = true;
