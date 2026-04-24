@@ -25,7 +25,7 @@
     };
     sum-astro-nvim = {
       url = "github:sum-rock/SumAstroNvim/master";
-      inputs.nixpkgs.follows = "darwin";
+      inputs.nixpkgs.follows = "nixpkgs-neovim";
     };
     private = {
       url = "github:sum-rock/nixos-private/master";
