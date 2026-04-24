@@ -11,6 +11,10 @@
     nixpkgs-unstable = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
+    # must coordinate with SumAstroNvim (better way?)
+    nixpkgs-neovim = {
+      url = "github:nixos/nixpkgs/832efc09b4caf6b4569fbf9dc01bec3082a00611";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,6 +77,7 @@
     , darwin
     , nixpkgs
     , nixpkgs-unstable
+    , nixpkgs-neovim
     , nixos-hardware
     , private
     , sum-astro-nvim

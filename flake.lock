@@ -110,11 +110,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776454077,
-        "narHash": "sha256-7zSUFWsU0+jlD7WB3YAxQ84Z/iJurA5hKPm8EfEyGJk=",
+        "lastModified": 1777004352,
+        "narHash": "sha256-SV+9PgNwZ8jHVCjK6YaCBzaheLSW7cDnm5DpOYrD8Vw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "565e5349208fe7d0831ef959103c9bafbeac0681",
+        "rev": "6012cf1fed3eba66115f3fd117b9be6bd2a15b2f",
         "type": "github"
       },
       "original": {
@@ -172,6 +172,38 @@
         "owner": "nixos",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-neovim": {
+      "locked": {
+        "lastModified": 1774610258,
+        "narHash": "sha256-HaThtroVD9wRdx7KQk0B75JmFcXlMUoEdDFNOMOlsOs=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "832efc09b4caf6b4569fbf9dc01bec3082a00611",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "832efc09b4caf6b4569fbf9dc01bec3082a00611",
+        "type": "github"
+      }
+    },
+    "nixpkgs-neovim_2": {
+      "locked": {
+        "lastModified": 1774610258,
+        "narHash": "sha256-HaThtroVD9wRdx7KQk0B75JmFcXlMUoEdDFNOMOlsOs=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "832efc09b4caf6b4569fbf9dc01bec3082a00611",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "832efc09b4caf6b4569fbf9dc01bec3082a00611",
         "type": "github"
       }
     },
@@ -254,6 +286,7 @@
         "nix-impermanence": "nix-impermanence",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-neovim": "nixpkgs-neovim",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "private": "private",
         "ranger-devicons": "ranger-devicons",
@@ -292,14 +325,15 @@
         "home-manager": "home-manager_3",
         "nixpkgs": [
           "darwin"
-        ]
+        ],
+        "nixpkgs-neovim": "nixpkgs-neovim_2"
       },
       "locked": {
-        "lastModified": 1776994001,
-        "narHash": "sha256-0oHrO4qbITS5LDgM+o3ktTqLA4P/qBVlSguUFz4Xzy8=",
+        "lastModified": 1777050931,
+        "narHash": "sha256-8VcFCzfMHaAjpF5PwBU+dEKGLI2388pbsZJYz2ooseQ=",
         "owner": "sum-rock",
         "repo": "SumAstroNvim",
-        "rev": "de76c23b60aea6a54029321a4b688f528c83f557",
+        "rev": "277944419ca45967396fb93668707abbeb589d8b",
         "type": "github"
       },
       "original": {
