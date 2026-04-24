@@ -53,6 +53,8 @@ in
           };
         };
 
+        # e.g;
+        # mdls -name kMDItemCFBundleIdentifier /Applications/Tuple.app
         on-window-detected = [
           {
             "if".app-id = "com.google.Chrome";
@@ -73,6 +75,10 @@ in
           {
             "if".app-id = "com.spotify.client";
             run = "move-node-to-workspace 9";
+          }
+          {
+            "if".app-id = "app.tuple.app";
+            run = "move-node-to-workspace 5";
           }
         ];
 
