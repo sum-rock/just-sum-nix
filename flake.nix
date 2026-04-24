@@ -12,6 +12,7 @@
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
     # must coordinate with SumAstroNvim (better way?)
+    # https://www.nixhub.io/packages/neovim-unwrapped
     nixpkgs-neovim = {
       url = "github:nixos/nixpkgs/832efc09b4caf6b4569fbf9dc01bec3082a00611";
     };
