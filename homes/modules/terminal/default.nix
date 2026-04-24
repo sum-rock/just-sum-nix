@@ -55,8 +55,10 @@ in
         lsx = "exa --long --all --header --group --git --icons --time-style=long-iso";
       };
       interactiveShellInit = ''
-        direnv hook fish | source
-        export DIRENV_LOG_FORMAT=""
+        if command -q direnv
+            direnv hook fish | source
+        end
+        set -x DIRENV_LOG_FORMAT ""
       '';
     };
     home.file = {
