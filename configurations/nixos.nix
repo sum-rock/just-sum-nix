@@ -111,6 +111,7 @@
     winetricks
     protontricks
     p7zip
+    unrar
 
     # ebooks
     # ------
