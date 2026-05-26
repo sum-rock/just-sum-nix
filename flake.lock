@@ -46,11 +46,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777780666,
-        "narHash": "sha256-8wURyQMdDkGUarSTKOGdCuFfYiwa3HbzwscUfn3STDE=",
+        "lastModified": 1779036909,
+        "narHash": "sha256-zXcwYQGCT6pzinK+1dBB2ekTVtfxGZAapb3Evdcu4fY=",
         "owner": "lnl7",
         "repo": "nix-darwin",
-        "rev": "8c62fba0854ba15c8917aed18894dbccb48a3777",
+        "rev": "56c666e108467d87d13508936aade6d567f2a501",
         "type": "github"
       },
       "original": {
@@ -110,11 +110,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778248595,
-        "narHash": "sha256-dhFgEjoeJMYN/7OY6xfxS799YB4IjbbYXTjyGIJyLpc=",
+        "lastModified": 1779507042,
+        "narHash": "sha256-7wOwi8B6D0BYsieZCnHZZj2sNUzgJhLoIVSfkwB7lxQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "fdb2ccba9d5e1238d32e0c4a3ec1a277efa80c1d",
+        "rev": "509ed3c603349a9d43de9e2ae6613baea6bd5b34",
         "type": "github"
       },
       "original": {
@@ -329,11 +329,11 @@
         "nixpkgs-neovim": "nixpkgs-neovim_2"
       },
       "locked": {
-        "lastModified": 1778794829,
-        "narHash": "sha256-BXmHw1XKPauFdBJ7CRHVujPtm0sYBmTcUlGAzgGHAgk=",
+        "lastModified": 1779819892,
+        "narHash": "sha256-aMmOf5C7rAZLGT7rzbVwTJTPz7zPl9D8FoPLS6JwJJM=",
         "owner": "sum-rock",
         "repo": "SumAstroNvim",
-        "rev": "2053ec4245166abb07ee8508dcf6590bf2b48fee",
+        "rev": "ecff36a9e05426065e8c50545d22103205f290e2",
         "type": "github"
       },
       "original": {
