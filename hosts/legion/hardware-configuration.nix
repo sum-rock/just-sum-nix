@@ -15,40 +15,6 @@
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "btrfs" ];
 
-  boot.initrd.systemd.services.rollback-root = {
-    description = "Rollback Btrfs root subvolume";
-
-    wantedBy = [ "initrd.target" ];
-
-    # Run after LUKS devices are opened, but before /sysroot is mounted.
-    after = [
-      "systemd-cryptsetup@enc0.service"
-      "systemd-cryptsetup@enc1.service"
-    ];
-    before = [ "sysroot.mount" ];
-
-    unitConfig.DefaultDependencies = false;
-    serviceConfig.Type = "oneshot";
-
-    script = ''
-      mkdir -p /mnt
-      mount -t btrfs /dev/disk/by-uuid/96072d29-ef1f-45dd-b82e-680675a3a1f1 /mnt
-
-      delete_subvolume_recursively() {
-        IFS=$'\n'
-        for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
-          delete_subvolume_recursively "/mnt/$i"
-        done
-        btrfs subvolume delete "$1"
-      }
-
-      delete_subvolume_recursively /mnt/root
-      btrfs subvolume create /mnt/root
-
-      umount /mnt
-    '';
-  };
-
   fileSystems."/" =
     {
       device = "/dev/disk/by-uuid/96072d29-ef1f-45dd-b82e-680675a3a1f1";
