@@ -42,7 +42,7 @@
     lazygit
     rainfrog
     jq
-    neofetch
+    hyfetch
     glow
     libqalculate
     shell-gpt

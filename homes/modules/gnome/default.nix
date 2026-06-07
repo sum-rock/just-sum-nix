@@ -10,7 +10,6 @@ in
   services.displayManager = {
     defaultSession = "gnome";
     gdm.enable = true;
-    gdm.wayland = true;
   };
   services.desktopManager = {
     gnome.enable = true;
