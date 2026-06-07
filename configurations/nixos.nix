@@ -17,7 +17,10 @@ in
 
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [  "python3.12-ecdsa-0.19.1" ];
+    permittedInsecurePackages = [  
+      "python3.12-ecdsa-0.19.1" 
+      "electron-39.8.10"
+    ];
   };
 
   # Localization
@@ -26,9 +29,6 @@ in
 
   # keyboard
   hardware.keyboard.qmk.enable = true;
-
-  # Android Debug Bridge
-  programs.adb.enable = true;
 
   services.udev.packages = [ pkgs.via ];
   # android-udev-rules no longer supported in 25.11
@@ -101,6 +101,7 @@ in
     nfs-utils
     wl-clipboard
     via
+    android-tools
 
     # pipewire controls
     # -------------
@@ -142,8 +143,8 @@ in
     # messaging
     # ---------
     zoom-us
+    karere
     element-desktop
-    wasistlos
     discord
     
     # Minecraft
