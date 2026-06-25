@@ -19,6 +19,7 @@
   };
 
   home-manager.users.${config.primaryUser} = {
+    imports = [ modules/zed.nix ];
     services = {
       nextcloud-client.enable = true;
     };

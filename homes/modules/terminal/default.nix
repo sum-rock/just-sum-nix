@@ -1,25 +1,27 @@
-{ config
-, pkgs
-, home-manager
-, tmux-copycat
-, tmux-pain-control
-, tmux-sensible
-, tmux-open
-, tmux-catppuccin
-, alacritty-tic
-, ...
+{
+  config,
+  pkgs,
+  home-manager,
+  tmux-copycat,
+  tmux-pain-control,
+  tmux-sensible,
+  tmux-open,
+  tmux-catppuccin,
+  alacritty-tic,
+  ...
 }:
 let
   darwinColorFix =
-    if config.system ? darwinVersion
-    then ''
-      set -g default-terminal 'tmux-256color'
-      set -as terminal-overrides ",alacritty*:Tc"
-    ''
-    else ''
-      set -g default-terminal 'alacritty'
-      set -as terminal-overrides ",alacritty*:Tc"
-    '';
+    if config.system ? darwinVersion then
+      ''
+        set -g default-terminal 'tmux-256color'
+        set -as terminal-overrides ",alacritty*:Tc"
+      ''
+    else
+      ''
+        set -g default-terminal 'alacritty'
+        set -as terminal-overrides ",alacritty*:Tc"
+      '';
   tmux-conf = builtins.toFile "tmux.conf" ''
     ${builtins.readFile ./tmux.conf}
     ${builtins.readFile "${tmux-catppuccin}/themes/catppuccin_mocha_tmux.conf"}
@@ -41,7 +43,7 @@ in
     programs.starship = {
       enable = true;
       settings = {
-        command_timeout = 900000; # 15 minutes 
+        command_timeout = 900000; # 15 minutes
       };
     };
     programs.alacritty = {
@@ -53,6 +55,7 @@ in
       shellAliases = {
         ls = "ls -la";
         lsx = "exa --long --all --header --group --git --icons --time-style=long-iso";
+        lg = "lazygit";
       };
       interactiveShellInit = ''
         if command -q direnv
