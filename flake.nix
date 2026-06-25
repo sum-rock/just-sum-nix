@@ -3,7 +3,7 @@
 
   inputs = {
 
-    # Core inputs 
+    # Core inputs
     # =====================================================
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-26.05";
@@ -15,6 +15,10 @@
     # https://www.nixhub.io/packages/neovim-unwrapped
     nixpkgs-neovim = {
       url = "github:nixos/nixpkgs/832efc09b4caf6b4569fbf9dc01bec3082a00611";
+    };
+    # Clear after resolved: https://github.com/NixOS/nixpkgs/issues/535206
+    nixpkgs-logseq = {
+      url = "github:nixos/nixpkgs/ea30586ee015f37f38783006a9bc9e4aa64d7d61";
     };
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -74,16 +78,18 @@
   };
 
   outputs =
-    { self
-    , darwin
-    , nixpkgs
-    , nixpkgs-unstable
-    , nixpkgs-neovim
-    , nixos-hardware
-    , private
-    , sum-astro-nvim
-    , nix-impermanence
-    , ...
+    {
+      self,
+      darwin,
+      nixpkgs,
+      nixpkgs-unstable,
+      nixpkgs-neovim,
+      nixpkgs-logseq,
+      nixos-hardware,
+      private,
+      sum-astro-nvim,
+      nix-impermanence,
+      ...
     }@attrs:
     {
 
@@ -91,17 +97,19 @@
       # =====================================================
       darwinConfigurations =
         let
-          mkDarwinWorkstation = name: system: darwin.lib.darwinSystem {
-            inherit system;
-            specialArgs = attrs;
-            modules = [
-              # Change preferences/default.nix if you're not sum-rock
-              ./preferences
-              ./configurations/macos.nix
-              ./homes/macos.nix
-              sum-astro-nvim.darwinModules.astroNvim
-            ];
-          };
+          mkDarwinWorkstation =
+            name: system:
+            darwin.lib.darwinSystem {
+              inherit system;
+              specialArgs = attrs;
+              modules = [
+                # Change preferences/default.nix if you're not sum-rock
+                ./preferences
+                ./configurations/macos.nix
+                ./homes/macos.nix
+                sum-astro-nvim.darwinModules.astroNvim
+              ];
+            };
         in
         {
           # Add or change systems here following the pattern below
@@ -114,21 +122,23 @@
       # =====================================================
       nixosConfigurations =
         let
-          mkNixOSWorkstation = name: system: nixpkgs.lib.nixosSystem {
-            inherit system;
-            specialArgs = attrs;
-            modules = [
-              # Change preferences/default.nix if your not sum-rock
-              ./preferences
-              ./configurations/nixos.nix
-              ./homes/nixos.nix
-              ./hosts/${name}
-              sum-astro-nvim.nixosModules.astroNvim
-              # Remove these modules if you're not sum-rock
-              private.nixosModules.syncthing
-              private.nixosModules.secrets
-            ];
-          };
+          mkNixOSWorkstation =
+            name: system:
+            nixpkgs.lib.nixosSystem {
+              inherit system;
+              specialArgs = attrs;
+              modules = [
+                # Change preferences/default.nix if your not sum-rock
+                ./preferences
+                ./configurations/nixos.nix
+                ./homes/nixos.nix
+                ./hosts/${name}
+                sum-astro-nvim.nixosModules.astroNvim
+                # Remove these modules if you're not sum-rock
+                private.nixosModules.syncthing
+                private.nixosModules.secrets
+              ];
+            };
         in
         {
           # Add or change systems here following the pattern below
