@@ -1,4 +1,10 @@
-{ config, lib, nixpkgs-neovim, pkgs, ... }:
+{
+  config,
+  lib,
+  nixpkgs-neovim,
+  pkgs,
+  ...
+}:
 let
   neovim-pkgs = import nixpkgs-neovim {
     system = "x86_64-linux";
@@ -13,12 +19,15 @@ in
 
   # System
   # ===========================================================================
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [  
-      "python3.12-ecdsa-0.19.1" 
+    permittedInsecurePackages = [
+      "python3.12-ecdsa-0.19.1"
       "electron-39.8.10"
     ];
   };
@@ -43,7 +52,7 @@ in
     pulse.enable = true;
   };
 
-  # Printing 
+  # Printing
   # ===========================================================================
   services.printing.enable = true;
   services.avahi.enable = true;
@@ -58,7 +67,14 @@ in
   users.users.${config.primaryUser} = {
     isNormalUser = true;
     description = "${config.primaryUser}";
-    extraGroups = [ "wheel" "video" "networkmanager" "plugdev" "docker" "adbusers" ];
+    extraGroups = [
+      "wheel"
+      "video"
+      "networkmanager"
+      "plugdev"
+      "docker"
+      "adbusers"
+    ];
     shell = pkgs.fish;
     packages = with pkgs; [
       firefox
@@ -102,6 +118,7 @@ in
     wl-clipboard
     via
     android-tools
+    claude-code
 
     # pipewire controls
     # -------------
@@ -125,7 +142,7 @@ in
     calibre
     koreader
 
-    # Applications 
+    # Applications
     # ------------
     _1password-gui
     nextcloud-client
@@ -146,7 +163,7 @@ in
     karere
     element-desktop
     discord
-    
+
     # Minecraft
     # ---------
     prismlauncher
