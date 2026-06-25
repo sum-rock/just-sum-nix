@@ -2,11 +2,16 @@
   config,
   lib,
   nixpkgs-neovim,
+  nixpkgs-logseq,
   pkgs,
   ...
 }:
 let
   neovim-pkgs = import nixpkgs-neovim {
+    system = "x86_64-linux";
+    config = { };
+  };
+  logseq-pkgs = import nixpkgs-logseq {
     system = "x86_64-linux";
     config = { };
   };
@@ -102,89 +107,91 @@ in
     enableSSHSupport = true;
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages =
+    with pkgs;
+    [
 
-    # Basics
-    # ------
-    networkmanager
-    psmisc # Includes ps commands that are commonly used. (e.g., killall)
-    pciutils
-    vlc
-    ffmpeg_6-full
-    cmake
-    sops
-    docker-compose
-    nfs-utils
-    wl-clipboard
-    via
-    android-tools
-    claude-code
+      # Basics
+      # ------
+      networkmanager
+      psmisc # Includes ps commands that are commonly used. (e.g., killall)
+      pciutils
+      vlc
+      ffmpeg_6-full
+      cmake
+      sops
+      docker-compose
+      nfs-utils
+      wl-clipboard
+      via
+      android-tools
+      claude-code
 
-    # pipewire controls
-    # -------------
-    pulseaudio
-    pamixer
-    pavucontrol
+      # pipewire controls
+      # -------------
+      pulseaudio
+      pamixer
+      pavucontrol
 
-    # Gaming
-    # ------
-    steamcmd
-    steamtinkerlaunch
-    renpy
-    wine
-    winetricks
-    protontricks
-    p7zip
-    unrar
+      # Gaming
+      # ------
+      steamcmd
+      steamtinkerlaunch
+      renpy
+      wine
+      winetricks
+      protontricks
+      p7zip
+      unrar
 
-    # ebooks
-    # ------
-    calibre
-    koreader
+      # ebooks
+      # ------
+      calibre
+      koreader
 
-    # Applications
-    # ------------
-    _1password-gui
-    nextcloud-client
-    logseq
-    inkscape
-    gimp
-    copyq
-    sidequest
-    spotify
-    mongodb-compass
-    obs-studio
-    dbeaver-bin
-    opencode # can install on nixos but not in darwin
+      # Applications
+      # ------------
+      _1password-gui
+      nextcloud-client
+      inkscape
+      gimp
+      copyq
+      sidequest
+      spotify
+      mongodb-compass
+      obs-studio
+      dbeaver-bin
+      opencode # can install on nixos but not in darwin
 
-    # messaging
-    # ---------
-    zoom-us
-    karere
-    element-desktop
-    discord
+      # messaging
+      # ---------
+      zoom-us
+      karere
+      element-desktop
+      discord
 
-    # Minecraft
-    # ---------
-    prismlauncher
-    temurin-jre-bin-21
-    temurin-jre-bin-17
+      # Minecraft
+      # ---------
+      prismlauncher
+      temurin-jre-bin-21
+      temurin-jre-bin-17
 
-    # Other
-    # -----
-    woeusb # To make Windows USBs
-    ntfs3g
-    exiftool
-    android-tools
+      # Other
+      # -----
+      woeusb # To make Windows USBs
+      ntfs3g
+      exiftool
+      android-tools
 
-    (appimage-run.override {
-      extraPkgs =
-        pkgs: with pkgs; [
-          libthai
-          libsecret
-        ];
-    })
-  ];
+      (appimage-run.override {
+        extraPkgs =
+          pkgs: with pkgs; [
+            libthai
+            libsecret
+          ];
+      })
+    ]
+    ++ [ logseq-pkgs.logseq ];
 
   programs.steam = {
     enable = true;
