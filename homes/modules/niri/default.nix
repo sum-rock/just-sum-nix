@@ -1,4 +1,9 @@
 { pkgs, config, ... }:
+let
+  restart-niri-services = pkgs.writeScriptBin "restart-niri-services" ''
+    ${builtins.readFile ./restart-niri-services.sh}
+  '';
+in
 {
   imports = [ ./walker.nix ];
   programs.niri.enable = true;
@@ -40,6 +45,7 @@
     swaylock
     swayidle
     awww
+    wlogout
 
     wl-clipboard
     cliphist
@@ -55,7 +61,7 @@
     adwaita-icon-theme
     catppuccin-gtk
     catppuccin-cursors.mochaDark
-    
+
     waybar
   ];
 
@@ -67,6 +73,7 @@
       pavucontrol
       networkmanagerapplet
       blueman
+      restart-niri-services
     ];
 
     gtk = {
@@ -99,5 +106,13 @@
     xdg.configFile."swaylock/config".text = builtins.readFile ./swaylock.ini;
     xdg.configFile."waybar/config".text = builtins.readFile ./waybar-config.json;
     xdg.configFile."waybar/style.css".text = builtins.readFile ./waybar-style.css;
+    xdg.configFile."wlogout/style.css".text = (builtins.readFile ./wlogout-style.css) + ''
+
+      #lock     { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/lock.png")); }
+      #logout   { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/logout.png")); }
+      #reboot   { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png")); }
+      #shutdown { background-image: image(url("${pkgs.wlogout}/share/wlogout-layoutwlogout/icons/shutdown.png")); }
+    '';
+    xdg.configFile."wlogout/layout".text = builtins.readFile ./wlogout-layout;
   };
 }

@@ -21,7 +21,8 @@
     "cpu",
     "memory",
     "pulseaudio",
-    "battery"
+    "battery",
+    "custom/power"
   ],
 
   "custom/logo": {
@@ -142,5 +143,11 @@
   "tray": {
     "icon-size": 18,
     "spacing": 10
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "wlogout -b 4 -c 0 -r 0"
   }
 }

@@ -1,0 +1,46 @@
+/* Catppuccin Mocha — wlogout */
+
+/* Reset GTK defaults */
+* {
+  background-image: none;
+  box-shadow: none;
+}
+
+/* Fullscreen dimmed overlay */
+window {
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+/* Individual action buttons */
+button {
+  background-color: rgba(30, 30, 46, 0.97);  /* Catppuccin Mocha base */
+  border-radius: 12px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(203, 166, 247, 0.3);    /* mauve at 30% */
+  color: #cdd6f4;                             /* Catppuccin text */
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  background-repeat: no-repeat;
+  background-position: center 30%;
+  background-size: 32px 32px;
+  padding-top: 60px;
+  min-height: 100px;
+  min-width: 120px;
+  margin: 4px;
+}
+
+button:focus,
+button:active,
+button:hover {
+  background-color: rgba(49, 50, 68, 0.97);  /* Catppuccin surface0 */
+  border-color: #cba6f7;                      /* mauve */
+  outline-style: none;
+}
+
+/* Per-action hover colors */
+#lock:hover     { background-color: rgba(137, 180, 250, 0.2); color: #89b4fa; }  /* blue */
+#logout:hover   { background-color: rgba(249, 226, 175, 0.2); color: #f9e2af; }  /* yellow */
+#reboot:hover   { background-color: rgba(250, 179, 135, 0.2); color: #fab387; }  /* peach */
+#shutdown:hover { background-color: rgba(243, 139, 168, 0.2); color: #f38ba8; }  /* red */

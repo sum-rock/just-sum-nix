@@ -42,7 +42,8 @@ tooltip label {
 #pulseaudio,
 #bluetooth,
 #tray,
-#custom-logo {
+#custom-logo,
+#custom-power {
   padding: 0 12px;
   margin: 4px 2px;
   background: rgba(49, 50, 68, 0.7);
@@ -172,6 +173,20 @@ tooltip label {
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
   background-color: rgba(243, 139, 168, 0.3);
+}
+
+/* Power button */
+#custom-power {
+  color: #f38ba8;
+  font-size: 15px;
+  padding: 0 14px;
+  margin-right: 8px;
+  transition: all 0.3s ease;
+}
+
+#custom-power:hover {
+  background: rgba(243, 139, 168, 0.2);
+  color: #f38ba8;
 }
 
 /* Hover effects for interactive modules */
