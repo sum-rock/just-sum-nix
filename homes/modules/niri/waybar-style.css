@@ -1,0 +1,190 @@
+/* Catppuccin Mocha Colors */
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", "FontAwesome", sans-serif;
+  font-size: 13px;
+  min-height: 0;
+}
+
+/* Global */
+window#waybar {
+  background: rgba(30, 30, 46, 0.85);
+  color: #cdd6f4;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* Tooltips */
+tooltip {
+  background: rgba(30, 30, 46, 0.95);
+  border: 2px solid #cba6f7;
+  border-radius: 8px;
+}
+
+tooltip label {
+  color: #cdd6f4;
+  padding: 8px;
+}
+
+/* All modules */
+#workspaces,
+#window,
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#bluetooth,
+#tray,
+#custom-logo {
+  padding: 0 12px;
+  margin: 4px 2px;
+  background: rgba(49, 50, 68, 0.7);
+  border-radius: 8px;
+}
+
+/* Logo */
+#custom-logo {
+  color: #cba6f7;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 14px;
+  margin-left: 8px;
+}
+
+/* Workspaces */
+#workspaces {
+  padding: 0 4px;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  color: #585b70;
+  background: transparent;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+#workspaces button.active {
+  color: #cba6f7;
+  background: rgba(203, 166, 247, 0.2);
+}
+
+#workspaces button:hover {
+  background: rgba(88, 91, 112, 0.3);
+  color: #cdd6f4;
+}
+
+/* Window Title */
+#window {
+  color: #cdd6f4;
+  font-weight: 500;
+}
+
+/* Clock */
+#clock {
+  color: #f9e2af;
+  font-weight: bold;
+  padding: 0 16px;
+}
+
+/* Battery */
+#battery {
+  color: #a6e3a1;
+}
+
+#battery.charging {
+  color: #89dceb;
+}
+
+#battery.warning:not(.charging) {
+  color: #fab387;
+}
+
+#battery.critical:not(.charging) {
+  color: #f38ba8;
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Bluetooth */
+#bluetooth {
+  color: #89b4fa;
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+  color: #585b70;
+}
+
+#bluetooth.connected {
+  color: #89dceb;
+}
+
+/* Network */
+#network {
+  color: #94e2d5;
+}
+
+#network.disconnected {
+  color: #f38ba8;
+}
+
+/* CPU */
+#cpu {
+  color: #f5c2e7;
+}
+
+/* Memory */
+#memory {
+  color: #cba6f7;
+}
+
+/* Pulseaudio */
+#pulseaudio {
+  color: #f9e2af;
+}
+
+#pulseaudio.muted {
+  color: #585b70;
+}
+
+/* System Tray */
+#tray {
+  padding: 0 8px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: rgba(243, 139, 168, 0.3);
+}
+
+/* Hover effects for interactive modules */
+#battery,
+#bluetooth,
+#network,
+#pulseaudio {
+  transition: all 0.3s ease;
+}
+
+#battery:hover,
+#bluetooth:hover,
+#network:hover,
+#pulseaudio:hover {
+  background: rgba(69, 71, 90, 0.8);
+}

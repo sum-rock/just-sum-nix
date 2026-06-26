@@ -55,6 +55,8 @@
     adwaita-icon-theme
     catppuccin-gtk
     catppuccin-cursors.mochaDark
+    
+    waybar
   ];
 
   home-manager.users.${config.primaryUser} = {
@@ -95,5 +97,7 @@
     xdg.configFile."niri/config.kdl".text = builtins.readFile ./niri.kdl;
     xdg.configFile."foot/foot.ini".text = builtins.readFile ./foot.ini;
     xdg.configFile."swaylock/config".text = builtins.readFile ./swaylock.ini;
+    xdg.configFile."waybar/config".text = builtins.readFile ./waybar-config.json;
+    xdg.configFile."waybar/style.css".text = builtins.readFile ./waybar-style.css;
   };
 }

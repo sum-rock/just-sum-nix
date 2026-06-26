@@ -42,6 +42,7 @@ spawn-at-startup "polkit-gnome-authentication-agent-1"
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "walker" "--gapplication-service"
+spawn-at-startup "waybar"
 
 environment {
     DISPLAY ":0"
