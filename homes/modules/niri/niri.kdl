@@ -1,0 +1,94 @@
+prefer-no-csd
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+}
+
+layout {
+    gaps 12
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        width 2
+        active-color "#cba6f7"
+        inactive-color "#45475a"
+    }
+
+    border {
+        off
+    }
+}
+
+spawn-at-startup "swww-daemon"
+spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock" "timeout" "900" "niri" "msg" "action" "power-off-monitors" "before-sleep" "swaylock"
+spawn-at-startup "polkit-gnome-authentication-agent-1"
+spawn-at-startup "nm-applet"
+spawn-at-startup "blueman-applet"
+spawn-at-startup "walker" "--gapplication-service"
+
+environment {
+    DISPLAY ":0"
+    GTK_THEME "catppuccin-mocha-mauve-standard"
+    XCURSOR_THEME "catppuccin-mocha-dark-cursors"
+    XCURSOR_SIZE "24"
+}
+
+binds {
+    Mod+Return { spawn "foot"; }
+    Mod+D { spawn "walker"; }
+    Mod+T { spawn "alacritty"; }
+
+    Mod+Q { close-window; }
+
+    Mod+H { focus-column-left; }
+    Mod+L { focus-column-right; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
+
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+L { move-column-right; }
+    Mod+Shift+J { move-window-down; }
+    Mod+Shift+K { move-window-up; }
+
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+
+    Mod+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
+    Mod+Shift+S { spawn "sh" "-c" "grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png"; }
+
+    Mod+V { spawn "walker" "--modules" "clipboard"; }
+
+    Mod+Escape { spawn "swaylock"; }
+}

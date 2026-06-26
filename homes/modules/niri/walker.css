@@ -1,0 +1,21 @@
+* {
+    color: #cdd6f4;
+    background: #1e1e2e;
+}
+
+#window {
+    background: #1e1e2e;
+    border: 2px solid #cba6f7;
+    border-radius: 12px;
+}
+
+#input {
+    background: #313244;
+    color: #cdd6f4;
+    border-radius: 8px;
+}
+
+#selected {
+    background: #45475a;
+    color: #cdd6f4;
+}

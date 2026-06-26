@@ -1,0 +1,4 @@
+app_launch_prefix = ""
+terminal_title_flag = ""
+locale = ""
+close_when_open = true
