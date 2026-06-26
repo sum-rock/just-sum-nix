@@ -1,5 +1,6 @@
 { pkgs, config, ... }:
 {
+  imports = [ ./walker.nix ];
   programs.niri.enable = true;
 
   security.polkit.enable = true;
@@ -57,6 +58,7 @@
   ];
 
   home-manager.users.${config.primaryUser} = {
+
     home.packages = with pkgs; [
       foot
       nautilus
@@ -93,7 +95,5 @@
     xdg.configFile."niri/config.kdl".text = builtins.readFile ./niri.kdl;
     xdg.configFile."foot/foot.ini".text = builtins.readFile ./foot.ini;
     xdg.configFile."swaylock/config".text = builtins.readFile ./swaylock.ini;
-    xdg.configFile."walker/config.toml".text = builtins.readFile ./walker.toml;
-    # xdg.configFile."walker/themes/catppuccin-mocha.css".text = builtins.readFile ./walker.css;
   };
 }
