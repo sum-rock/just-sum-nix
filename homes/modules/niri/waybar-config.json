@@ -77,10 +77,10 @@
       "critical": 15
     },
     "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
+    "format-charging": "\uF0E7 {capacity}%",
+    "format-plugged": "\uF1E6 {capacity}%",
     "format-alt": "{icon} {time}",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": ["\uF244", "\uF243", "\uF242", "\uF241", "\uF240"],
     "tooltip-format": "{timeTo}\n{power}W"
   },
 
@@ -112,29 +112,29 @@
 
   "cpu": {
     "interval": 10,
-    "format": " {usage}%",
+    "format": "\uF2DB {usage}%",
     "max-length": 10,
     "tooltip": true
   },
 
   "memory": {
     "interval": 30,
-    "format": " {percentage}%",
+    "format": "\uE266 {percentage}%",
     "max-length": 10,
     "tooltip-format": "Used: {used:0.1f}G / {total:0.1f}G\nAvailable: {avail:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G"
   },
 
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-muted": " {volume}%",
+    "format-muted": "\uF026 {volume}%",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""]
+      "headphone": "\uF025",
+      "hands-free": "\uF025",
+      "headset": "\uF025",
+      "phone": "\uF025",
+      "portable": "\uF025",
+      "car": "\uF025",
+      "default": ["\uF026", "\uF027", "\uF028"]
     },
     "on-click": "pavucontrol",
     "tooltip-format": "{desc}\n{volume}%"
