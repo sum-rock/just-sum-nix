@@ -6,6 +6,7 @@ let
 in
 {
   imports = [ ./walker.nix ];
+
   programs.niri.enable = true;
 
   security.polkit.enable = true;
@@ -75,9 +76,10 @@ in
       blueman
       restart-niri-services
     ];
-
     gtk = {
       enable = true;
+      # Explicit setting to be consistent with upstream changes.
+      gtk4.theme = null;
       theme = {
         name = "catppuccin-mocha-mauve-standard";
         package = pkgs.catppuccin-gtk.override {

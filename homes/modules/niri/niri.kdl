@@ -37,6 +37,7 @@ layout {
 }
 
 spawn-at-startup "swww-daemon"
+spawn-at-startup "swww" "img" "/home/august/.wallpapers/catppuccin_3.png"
 spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock" "timeout" "900" "niri" "msg" "action" "power-off-monitors" "before-sleep" "swaylock"
 spawn-at-startup "polkit-gnome-authentication-agent-1"
 spawn-at-startup "nm-applet"
