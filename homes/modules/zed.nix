@@ -21,6 +21,9 @@
       "markdown"
       "yaml"
       "elm"
+      "toml"
+      "kdl"
+      "ini"
     ];
 
     extraPackages = with pkgs; [
