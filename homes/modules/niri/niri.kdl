@@ -45,14 +45,14 @@ spawn-at-startup "blueman-applet"
 spawn-at-startup "walker" "--gapplication-service"
 spawn-at-startup "waybar"
 
-xwayland { }
-
 environment {
     DISPLAY ":0"
     NIXOS_OZONE_WL "1"
     GTK_THEME "catppuccin-mocha-mauve-standard"
     XCURSOR_THEME "catppuccin-mocha-dark-cursors"
     XCURSOR_SIZE "24"
+    // Enabled to make electron >=39 apps work (e.g., spotify)
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
 window-rule {
