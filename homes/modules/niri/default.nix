@@ -1,6 +1,11 @@
 { pkgs, config, ... }:
 {
-  imports = [ ./walker.nix ];
+  imports = [
+    ./walker
+    ./waybar
+    ./wlogout
+    ./swaylock
+  ];
 
   programs.niri.enable = true;
 
@@ -38,11 +43,7 @@
     niri
     xwayland-satellite
 
-    walker
-    swaylock
-    swayidle
     awww
-    wlogout
 
     wl-clipboard
     cliphist
@@ -59,7 +60,6 @@
     catppuccin-gtk
     catppuccin-cursors.mochaDark
 
-    waybar
   ];
 
   home-manager.users.${config.primaryUser} = {
@@ -100,16 +100,5 @@
 
     xdg.configFile."niri/config.kdl".text = builtins.readFile ./niri.kdl;
     xdg.configFile."foot/foot.ini".text = builtins.readFile ./foot.ini;
-    xdg.configFile."swaylock/config".text = builtins.readFile ./swaylock.ini;
-    xdg.configFile."waybar/config".text = builtins.readFile ./waybar-config.json;
-    xdg.configFile."waybar/style.css".text = builtins.readFile ./waybar-style.css;
-    xdg.configFile."wlogout/style.css".text = (builtins.readFile ./wlogout-style.css) + ''
-
-      #lock     { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/lock.png")); }
-      #logout   { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/logout.png")); }
-      #reboot   { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png")); }
-      #shutdown { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png")); }
-    '';
-    xdg.configFile."wlogout/layout".text = builtins.readFile ./wlogout-layout;
   };
 }

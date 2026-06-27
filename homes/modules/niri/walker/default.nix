@@ -1,5 +1,6 @@
 { config, walker, ... }:
 {
+  environment.systemPackages = [ walker ];
 
   home-manager.users.${config.primaryUser} = {
     imports = [ walker.homeManagerModules.default ];
