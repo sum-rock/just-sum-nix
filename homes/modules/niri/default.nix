@@ -114,7 +114,7 @@ in
       #lock     { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/lock.png")); }
       #logout   { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/logout.png")); }
       #reboot   { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png")); }
-      #shutdown { background-image: image(url("${pkgs.wlogout}/share/wlogout-layoutwlogout/icons/shutdown.png")); }
+      #shutdown { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png")); }
     '';
     xdg.configFile."wlogout/layout".text = builtins.readFile ./wlogout-layout;
   };

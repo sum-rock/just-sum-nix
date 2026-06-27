@@ -19,19 +19,22 @@ button {
   border-width: 1px;
   border-color: rgba(203, 166, 247, 0.3);    /* mauve at 30% */
   color: #cdd6f4;                             /* Catppuccin text */
-  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-family: "Lilex Nerd Font Mono", sans-serif;
   font-size: 13px;
   font-weight: 500;
   background-repeat: no-repeat;
   background-position: center 30%;
-  background-size: 32px 32px;
-  padding-top: 60px;
-  min-height: 100px;
-  min-width: 120px;
+  background-size: 24px 24px;
+  padding-top: 42px;
+  min-height: 72px;
+  min-width: 90px;
   margin: 4px;
 }
 
-button:focus,
+button:focus {
+  outline-style: none;
+}
+
 button:active,
 button:hover {
   background-color: rgba(49, 50, 68, 0.97);  /* Catppuccin surface0 */
