@@ -52,6 +52,18 @@ environment {
     XCURSOR_SIZE "24"
 }
 
+window-rule {
+    match app-id="^dev\\.zed\\.Zed$"
+    clip-to-geometry true
+    draw-border-with-background false
+    focus-ring {
+        on
+        width 2
+        active-color "#cba6f7"
+        inactive-color "#45475a"
+    }
+}
+
 binds {
     Mod+Return { spawn "foot"; }
     Mod+D { spawn "walker"; }
