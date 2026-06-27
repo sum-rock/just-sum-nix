@@ -34,6 +34,13 @@ layout {
     border {
         off
     }
+
+    struts {
+        left 16
+        right 16
+        top 16
+        bottom 16
+    }
 }
 
 spawn-at-startup "xwayland-satellite" ":0"
@@ -54,6 +61,11 @@ environment {
     XCURSOR_SIZE "24"
     // Enabled to make electron >=39 apps work (e.g., spotify)
     ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
 }
 
 window-rule {
