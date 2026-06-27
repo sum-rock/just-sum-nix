@@ -1,9 +1,4 @@
 { pkgs, config, ... }:
-let
-  restart-niri-services = pkgs.writeScriptBin "restart-niri-services" ''
-    ${builtins.readFile ./restart-niri-services.sh}
-  '';
-in
 {
   imports = [ ./walker.nix ];
 
@@ -75,7 +70,6 @@ in
       pavucontrol
       networkmanagerapplet
       blueman
-      restart-niri-services
     ];
     gtk = {
       enable = true;
