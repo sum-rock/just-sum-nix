@@ -41,6 +41,7 @@ in
 
   environment.systemPackages = with pkgs; [
     niri
+    xwayland-satellite
 
     walker
     swaylock
