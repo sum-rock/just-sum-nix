@@ -26,6 +26,7 @@ in
   home-manager.useUserPackages = true;
 
   home-manager.users.${config.primaryUser} = {
+    import = [ ./modules/zed.nix ];
     home = {
       username = "${config.primaryUser}";
       homeDirectory = "${config.home-dir-path}";
