@@ -1,0 +1,153 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 8,
+  
+  "modules-left": [
+    "custom/logo",
+    "niri/workspaces",
+    "niri/window"
+  ],
+  
+  "modules-center": [
+    "clock"
+  ],
+  
+  "modules-right": [
+    "tray",
+    "bluetooth",
+    "network",
+    "cpu",
+    "memory",
+    "pulseaudio",
+    "battery",
+    "custom/power"
+  ],
+
+  "custom/logo": {
+    "format": " ",
+    "tooltip": false
+  },
+
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "active": "",
+      "default": ""
+    },
+    "on-click": "activate"
+  },
+
+  "niri/window": {
+    "format": "{}",
+    "max-length": 50,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "interval": 1,
+    "format": "{:%a %b %d  %I:%M:%S %p}",
+    "format-alt": "{:%Y-%m-%d  %H:%M:%S}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#cba6f7'><b>{}</b></span>",
+        "days": "<span color='#cdd6f4'><b>{}</b></span>",
+        "weeks": "<span color='#89dceb'><b>W{}</b></span>",
+        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+        "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+
+  "battery": {
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "\uF0E7 {capacity}%",
+    "format-plugged": "\uF1E6 {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["\uF244", "\uF243", "\uF242", "\uF241", "\uF240"],
+    "tooltip-format": "{timeTo}\n{power}W"
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "",
+    "format-off": "",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "blueman-manager"
+  },
+
+  "network": {
+    "interval": 5,
+    "format-wifi": " {essid}",
+    "format-ethernet": " {ipaddr}/{cidr}",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": "⚠ Disconnected",
+    "format-alt": " {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}\nSignal: {signalStrength}%\nFrequency: {frequency}MHz",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\n {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\n {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "on-click": "nm-applet"
+  },
+
+  "cpu": {
+    "interval": 10,
+    "format": "\uF2DB {usage}%",
+    "max-length": 10,
+    "tooltip": true
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": "\uE266 {percentage}%",
+    "max-length": 10,
+    "tooltip-format": "Used: {used:0.1f}G / {total:0.1f}G\nAvailable: {avail:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "\uF026 {volume}%",
+    "format-icons": {
+      "headphone": "\uF025",
+      "hands-free": "\uF025",
+      "headset": "\uF025",
+      "phone": "\uF025",
+      "portable": "\uF025",
+      "car": "\uF025",
+      "default": ["\uF026", "\uF027", "\uF028"]
+    },
+    "on-click": "pavucontrol",
+    "tooltip-format": "{desc}\n{volume}%"
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "wlogout -b 2 -c 0 -r 0"
+  }
+}

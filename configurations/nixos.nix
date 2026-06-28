@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   nixpkgs-neovim,
   nixpkgs-logseq,
   pkgs,
@@ -126,9 +125,10 @@ in
       via
       android-tools
       claude-code
+      nvtopPackages.nvidia
 
       # pipewire controls
-      # -------------
+      # -----------------
       pulseaudio
       pamixer
       pavucontrol
@@ -181,15 +181,7 @@ in
       woeusb # To make Windows USBs
       ntfs3g
       exiftool
-      android-tools
 
-      (appimage-run.override {
-        extraPkgs =
-          pkgs: with pkgs; [
-            libthai
-            libsecret
-          ];
-      })
     ]
     ++ [ logseq-pkgs.logseq ];
 

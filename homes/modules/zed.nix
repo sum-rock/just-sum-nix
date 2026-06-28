@@ -21,6 +21,9 @@
       "markdown"
       "yaml"
       "elm"
+      "toml"
+      "kdl"
+      "ini"
     ];
 
     extraPackages = with pkgs; [
@@ -84,6 +87,7 @@
     ];
 
     userSettings = {
+      buffer_font_family = "Lilex Nerd Font Mono";
       vim_mode = true;
       relative_line_numbers = false;
       autosave = "on_focus_change";

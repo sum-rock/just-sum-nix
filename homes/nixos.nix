@@ -1,10 +1,15 @@
-{ config, pkgs, home-manager, ... }:
+{
+  config,
+  pkgs,
+  home-manager,
+  ...
+}:
 {
   imports = [
     home-manager.nixosModules.home-manager
     ./modules/terminal
     ./modules/ranger
-    ./modules/gnome
+    ./modules/niri
     ./modules/direnv
   ];
 
