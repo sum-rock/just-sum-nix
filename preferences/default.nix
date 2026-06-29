@@ -1,14 +1,16 @@
-{ config, pkgs, nixpkgs-unstable, ... }:
+{
+  config,
+  pkgs,
+  nixpkgs-unstable,
+  ...
+}:
 let
-  system = 
-    if config.system ? darwinVersion
-    then "aarch64-darwin"
-    else "x86_64-linux";
+  system = if config.system ? darwinVersion then "aarch64-darwin" else "x86_64-linux";
 
   unstable = import nixpkgs-unstable {
-    system = system; 
-    config = {};
-  }; 
+    system = system;
+    config = { };
+  };
 in
 {
   imports = [ ./mk-options.nix ];
