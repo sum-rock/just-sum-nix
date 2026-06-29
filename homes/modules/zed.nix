@@ -1,6 +1,17 @@
 { pkgs, ... }:
 
 {
+  xdg.configFile."zed/tasks.json".text = builtins.toJSON [
+    {
+      label = "open_alacritty";
+      command = "alacritty";
+      args = [ "--working-directory" "$ZED_WORKTREE_ROOT" ];
+      reveal = "never";
+      hide = "always";
+      allow_concurrent_runs = true;
+    }
+  ];
+
   programs.zed-editor = {
     enable = true;
 
@@ -98,6 +109,10 @@
         dark = "Catppuccin Mocha";
       };
       format_on_save = "on";
+
+      project_panel = {
+        dock = "left";
+      };
 
       # Zed has built-in edit predictions / Copilot support.
       # Sign in through Zed command palette if needed.
@@ -234,10 +249,8 @@
       {
         context = "Editor && vim_mode == normal";
         bindings = {
-          "space |" = "pane::SplitRight";
-          "space -" = "pane::SplitDown";
-          "space s v" = "pane::SplitRight";
-          "space s h" = "pane::SplitDown";
+          "|" = "pane::SplitRight";
+          "-" = "pane::SplitDown";
 
           "shift-h" = "pane::ActivatePrevItem";
           "shift-l" = "pane::ActivateNextItem";
@@ -247,7 +260,6 @@
 
           "space f f" = "file_finder::Toggle";
           "space f g" = "pane::DeploySearch";
-          "space /" = "pane::DeploySearch";
 
           "space e" = "project_panel::ToggleFocus";
 
@@ -266,6 +278,15 @@
           "space l r n" = "editor::Rename";
           "space l c a" = "editor::ToggleCodeActions";
           "space l h" = "editor::Hover";
+
+          "space t" = [ "task::Spawn" { task_name = "open_alacritty"; } ];
+        };
+      }
+      {
+        context = "ProjectPanel";
+        bindings = {
+          "space e" = "project_panel::ToggleFocus";
+          "ctrl-l" = "project_panel::ToggleFocus";
         };
       }
       {
