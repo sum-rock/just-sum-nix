@@ -1,9 +1,14 @@
-{ config, home-manager, nixpkgs-unstable, ... }:
-let 
+{
+  config,
+  home-manager,
+  nixpkgs-unstable,
+  ...
+}:
+let
   unstable = import nixpkgs-unstable {
     system = "aarch64-darwin";
-    config = {};
-  }; 
+    config = { };
+  };
 in
 {
 
@@ -15,10 +20,10 @@ in
       enable = true;
       launchd.enable = true;
 
-      userSettings = {
+      settings = {
         config-version = 2;
 
-        after-startup-command = [];
+        after-startup-command = [ ];
         start-at-login = true;
 
         enable-normalization-flatten-containers = true;
@@ -32,9 +37,19 @@ in
 
         automatically-unhide-macos-hidden-apps = true;
 
-        persistent-workspaces = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" ];
+        persistent-workspaces = [
+          "1"
+          "2"
+          "3"
+          "4"
+          "5"
+          "6"
+          "7"
+          "8"
+          "9"
+        ];
 
-        on-mode-changed = [];
+        on-mode-changed = [ ];
 
         key-mapping = {
           preset = "qwerty";
@@ -59,10 +74,6 @@ in
           {
             "if".app-id = "com.google.Chrome";
             run = "move-node-to-workspace 1";
-          }
-          {
-            "if".app-id = "org.alacritty";
-            run = "move-node-to-workspace 2";
           }
           {
             "if".app-id = "com.tinyspeck.slackmacgap";
@@ -99,6 +110,9 @@ in
         mode = {
           main = {
             binding = {
+              alt-t = "exec-and-forget open -na Alacritty";
+              alt-q = "close";
+
               alt-slash = "layout tiles horizontal vertical";
               alt-comma = "layout accordion horizontal vertical";
 
@@ -144,15 +158,39 @@ in
 
           service = {
             binding = {
-              esc = [ "reload-config" "mode main" ];
-              r = [ "flatten-workspace-tree" "mode main" ];
-              f = [ "layout floating tiling" "mode main" ];
-              backspace = [ "close-all-windows-but-current" "mode main" ];
+              esc = [
+                "reload-config"
+                "mode main"
+              ];
+              r = [
+                "flatten-workspace-tree"
+                "mode main"
+              ];
+              f = [
+                "layout floating tiling"
+                "mode main"
+              ];
+              backspace = [
+                "close-all-windows-but-current"
+                "mode main"
+              ];
 
-              alt-shift-h = [ "join-with left" "mode main" ];
-              alt-shift-j = [ "join-with down" "mode main" ];
-              alt-shift-k = [ "join-with up" "mode main" ];
-              alt-shift-l = [ "join-with right" "mode main" ];
+              alt-shift-h = [
+                "join-with left"
+                "mode main"
+              ];
+              alt-shift-j = [
+                "join-with down"
+                "mode main"
+              ];
+              alt-shift-k = [
+                "join-with up"
+                "mode main"
+              ];
+              alt-shift-l = [
+                "join-with right"
+                "mode main"
+              ];
             };
           };
         };
