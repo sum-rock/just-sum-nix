@@ -5,7 +5,10 @@
     {
       label = "open_alacritty";
       command = "alacritty";
-      args = [ "--working-directory" "$ZED_WORKTREE_ROOT" ];
+      args = [
+        "--working-directory"
+        "$ZED_WORKTREE_ROOT"
+      ];
       reveal = "never";
       hide = "always";
       allow_concurrent_runs = true;
@@ -21,7 +24,6 @@
       "nix"
       "lua"
       "python"
-      "ruff"
       "typescript"
       "java"
       "sql"
@@ -49,9 +51,9 @@
       lua-language-server
       stylua
 
-      # Python / Ruff
-      pyright
+      # Python
       ruff
+      basedpyright
 
       # TypeScript / JS
       nodejs
@@ -119,19 +121,21 @@
       features = {
         edit_prediction_provider = "copilot";
       };
-
       lsp = {
         nixd = {
           binary.path = "nixd";
         };
+        ruff = {
+          binary.path = "${pkgs.ruff}/bin/ruff";
+        };
+        basedpyright = {
+          binary = {
+            path = "${pkgs.basedpyright}/bin/basedpyright-langserver";
+            arguments = [ "--stdio" ];
+          };
+        };
         rust-analyzer = {
           binary.path = "rust-analyzer";
-        };
-        ruff = {
-          binary.path = "ruff";
-        };
-        pyright = {
-          binary.path = "pyright-langserver";
         };
         typescript-language-server = {
           binary.path = "typescript-language-server";
@@ -170,11 +174,11 @@
         Python = {
           language_servers = [
             "ruff"
-            "pyright"
+            "basedpyright"
           ];
           formatter = {
             external = {
-              command = "ruff";
+              command = "${pkgs.ruff}/bin/ruff";
               arguments = [
                 "format"
                 "--stdin-filename"
@@ -279,7 +283,10 @@
           "space l c a" = "editor::ToggleCodeActions";
           "space l h" = "editor::Hover";
 
-          "space t" = [ "task::Spawn" { task_name = "open_alacritty"; } ];
+          "space t" = [
+            "task::Spawn"
+            { task_name = "open_alacritty"; }
+          ];
         };
       }
       {
