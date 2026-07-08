@@ -4,11 +4,7 @@
   xdg.configFile."zed/tasks.json".text = builtins.toJSON [
     {
       label = "open_alacritty";
-      command = "alacritty";
-      args = [
-        "--working-directory"
-        "$ZED_WORKTREE_ROOT"
-      ];
+      command = ''alacritty --working-directory "$ZED_WORKTREE_ROOT" -e bash -c 'exec tmux new-session -A -s "$(basename "$1")"' _ "$ZED_WORKTREE_ROOT"'';
       reveal = "never";
       hide = "always";
       allow_concurrent_runs = true;
