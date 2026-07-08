@@ -116,6 +116,10 @@
         dock = "left";
       };
 
+      agent = {
+        dock = "right";
+      };
+
       # Zed has built-in edit predictions / Copilot support.
       # Sign in through Zed command palette if needed.
       features = {
@@ -266,6 +270,10 @@
           "space f g" = "pane::DeploySearch";
 
           "space e" = "project_panel::ToggleFocus";
+          "space shift-e" = "workspace::ToggleLeftDock";
+
+          "space a" = "agent::ToggleFocus";
+          "space shift-a" = "workspace::ToggleRightDock";
 
           "space w" = "workspace::Save";
           "space q" = "pane::CloseActiveItem";
@@ -293,7 +301,15 @@
         context = "ProjectPanel";
         bindings = {
           "space e" = "project_panel::ToggleFocus";
+          "space shift-e" = "workspace::ToggleLeftDock";
           "ctrl-l" = "project_panel::ToggleFocus";
+        };
+      }
+      {
+        context = "AgentPanel && vim_mode == normal";
+        bindings = {
+          "space a" = "agent::ToggleFocus";
+          "space shift-a" = "workspace::ToggleRightDock";
         };
       }
       {
