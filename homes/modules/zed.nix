@@ -274,6 +274,12 @@
           "space w" = "workspace::Save";
           "space q" = "pane::CloseActiveItem";
 
+          "space ctrl-o" = [
+            "projects::OpenRecent"
+            { create_new_window = false; }
+          ];
+          "space ctrl-b" = "branches::OpenRecent";
+
           "ctrl-h" = "workspace::ActivatePaneLeft";
           "ctrl-j" = "workspace::ActivatePaneDown";
           "ctrl-k" = "workspace::ActivatePaneUp";
