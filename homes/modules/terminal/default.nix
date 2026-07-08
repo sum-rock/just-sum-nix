@@ -56,6 +56,7 @@ in
         ls = "ls -la";
         lsx = "exa --long --all --header --group --git --icons --time-style=long-iso";
         lg = "lazygit";
+        zed = "zeditor .";
       };
       interactiveShellInit = ''
         if command -q direnv

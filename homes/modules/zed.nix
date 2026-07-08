@@ -4,11 +4,7 @@
   xdg.configFile."zed/tasks.json".text = builtins.toJSON [
     {
       label = "open_alacritty";
-      command = "alacritty";
-      args = [
-        "--working-directory"
-        "$ZED_WORKTREE_ROOT"
-      ];
+      command = ''alacritty --working-directory "$ZED_WORKTREE_ROOT" -e bash -c 'exec tmux new-session -A -s "$(basename "$1")"' _ "$ZED_WORKTREE_ROOT"'';
       reveal = "never";
       hide = "always";
       allow_concurrent_runs = true;
@@ -114,6 +110,10 @@
 
       project_panel = {
         dock = "left";
+      };
+
+      agent = {
+        dock = "right";
       };
 
       # Zed has built-in edit predictions / Copilot support.
@@ -266,6 +266,10 @@
           "space f g" = "pane::DeploySearch";
 
           "space e" = "project_panel::ToggleFocus";
+          "space shift-e" = "workspace::ToggleLeftDock";
+
+          "space a" = "agent::ToggleFocus";
+          "space shift-a" = "workspace::ToggleRightDock";
 
           "space w" = "workspace::Save";
           "space q" = "pane::CloseActiveItem";
@@ -293,7 +297,15 @@
         context = "ProjectPanel";
         bindings = {
           "space e" = "project_panel::ToggleFocus";
+          "space shift-e" = "workspace::ToggleLeftDock";
           "ctrl-l" = "project_panel::ToggleFocus";
+        };
+      }
+      {
+        context = "AgentPanel && vim_mode == normal";
+        bindings = {
+          "space a" = "agent::ToggleFocus";
+          "space shift-a" = "workspace::ToggleRightDock";
         };
       }
       {
