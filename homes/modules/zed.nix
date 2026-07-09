@@ -258,7 +258,7 @@
 
           "shift-h" = "pane::ActivatePrevItem";
           "shift-l" = "pane::ActivateNextItem";
-          "space b d" = "pane::CloseActiveItem";
+          "space b shift-d" = "pane::CloseOtherItems";
           "space b u" = "pane::ReopenClosedItem";
           "space b b" = "tab_switcher::Toggle";
 
@@ -289,7 +289,7 @@
           "space l g D" = "editor::GoToDeclaration";
           "space l g t" = "editor::GoToTypeDefinition";
           "space l g r" = "editor::FindAllReferences";
-          "space l r n" = "editor::Rename";
+          "space l shift-n" = "editor::Rename";
           "space l c a" = "editor::ToggleCodeActions";
           "space l h" = "editor::Hover";
 
