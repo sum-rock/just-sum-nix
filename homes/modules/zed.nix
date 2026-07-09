@@ -258,7 +258,7 @@
 
           "shift-h" = "pane::ActivatePrevItem";
           "shift-l" = "pane::ActivateNextItem";
-          "space b d" = "pane::CloseActiveItem";
+          "space b shift-d" = "pane::CloseOtherItems";
           "space b u" = "pane::ReopenClosedItem";
           "space b b" = "tab_switcher::Toggle";
 
