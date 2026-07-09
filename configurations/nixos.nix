@@ -162,8 +162,6 @@ in
       obs-studio
       dbeaver-bin
       opencode # can install on nixos but not in darwin
-      chatgpt
-      claude-code
 
       # messaging
       # ---------

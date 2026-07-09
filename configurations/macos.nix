@@ -1,9 +1,14 @@
-{ config, pkgs, nixpkgs-unstable, ... }:
-let 
+{
+  config,
+  pkgs,
+  nixpkgs-unstable,
+  ...
+}:
+let
   unstable = import nixpkgs-unstable {
     system = "aarch64-darwin";
-    config = {};
-  }; 
+    config = { };
+  };
 in
 {
   imports = [
@@ -25,9 +30,14 @@ in
     })
   ];
 
-
-  nixpkgs.config = { allowUnfree = true; allowBroken = true; };
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;
+  };
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   system.stateVersion = 5;
   system.primaryUser = config.primaryUser;
 
@@ -35,8 +45,13 @@ in
   programs.fish.enable = true;
   programs.zsh.enable = true;
 
-  environment.shells = [pkgs.fish];
-  environment.systemPackages = [ unstable.nodejs_24 pkgs.syncthing ];
+  environment.shells = [ pkgs.fish ];
+  environment.systemPackages = [
+    unstable.nodejs_24
+    pkgs.syncthing
+    pkgs.claude-code
+    pkgs.chatgpt
+  ];
 
   users.users.${config.primaryUser} = {
     home = "${config.home-dir-path}";
