@@ -44,7 +44,6 @@ layout {
     }
 }
 
-spawn-at-startup "xwayland-satellite" ":0"
 spawn-at-startup "awww-daemon"
 spawn-at-startup "awww" "img" "/home/august/.wallpapers/catppuccin_3.png"
 spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock" "timeout" "900" "niri" "msg" "action" "power-off-monitors" "before-sleep" "swaylock"
@@ -55,7 +54,6 @@ spawn-at-startup "walker" "--gapplication-service"
 spawn-at-startup "waybar"
 
 environment {
-    DISPLAY ":0"
     NIXOS_OZONE_WL "1"
     GTK_THEME "catppuccin-mocha-mauve-standard"
     XCURSOR_THEME "catppuccin-mocha-dark-cursors"
