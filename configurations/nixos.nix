@@ -56,6 +56,13 @@ in
     pulse.enable = true;
   };
 
+  # Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+  services.blueman.enable = true;
+
   # Printing
   # ===========================================================================
   services.printing.enable = true;
