@@ -145,4 +145,8 @@ binds {
     Mod+V { spawn "walker" "--modules" "clipboard"; }
 
     Mod+Escape { spawn "swaylock"; }
+
+    Mod+Shift+Escape allow-inhibiting=false {
+        toggle-keyboard-shortcuts-inhibit;
+    }
 }
