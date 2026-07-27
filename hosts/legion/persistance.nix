@@ -77,7 +77,12 @@
       "/var/keys"
       "/etc/NetworkManager/system-connections"
       "/etc/ssh" # system ssh required for decrypting secrets with nix sops
-      { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
+      {
+        directory = "/var/lib/colord";
+        user = "colord";
+        group = "colord";
+        mode = "u=rwx,g=rx,o=";
+      }
     ];
     files = [
       "/etc/machine-id"
@@ -88,6 +93,7 @@
         ".1password"
         ".cache"
         ".config"
+        ".codex"
         ".cargo"
         ".local"
         ".logseq" # it would be better if this could go in .config
@@ -105,7 +111,10 @@
         "Nextcloud"
         "repositories"
         "Syncthing"
-        { directory = ".gnupg"; mode = "0700"; }
+        {
+          directory = ".gnupg";
+          mode = "0700";
+        }
       ];
       files = [
         ".ssh/known_hosts"

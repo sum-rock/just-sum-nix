@@ -1,16 +1,20 @@
-{ config, lib, pkgs, nixos-hardware, nix-impermanence, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  nixos-hardware,
+  nix-impermanence,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./persistance.nix
-      ./displaylink.nix
-      ./subvol_delete
-      nixos-hardware.nixosModules.lenovo-legion-16irx9h
-      nix-impermanence.nixosModules.impermanence
-    ];
-
+  imports = [
+    ./hardware-configuration.nix
+    ./persistance.nix
+    ./subvol_delete
+    nixos-hardware.nixosModules.lenovo-legion-16irx9h
+    nix-impermanence.nixosModules.impermanence
+  ];
 
   # This solves issues related to waking from sleep.
   hardware.nvidia.powerManagement.enable = false;

@@ -197,6 +197,9 @@ in
     remotePlay.openFirewall = true;
   };
 
+  # Fixes issue with steam games where keyboard input is not registered
+  programs.gamescope.enable = true;
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
