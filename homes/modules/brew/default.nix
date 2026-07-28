@@ -24,7 +24,6 @@
       "docker-desktop"
       "aptible"
       "tailscale-app"
-      "logseq"
       "android-studio"
       "spotify"
     ];
