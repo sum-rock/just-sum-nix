@@ -116,6 +116,15 @@
         dock = "right";
       };
 
+      # Atlassian's remote MCP server (Jira + Confluence), exposed to the
+      # agent panel. Zed handles OAuth itself on first use (browser prompt) -
+      # https://support.atlassian.com/atlassian-rovo-mcp-server/docs/setting-up-ides/
+      context_servers = {
+        atlassian = {
+          url = "https://mcp.atlassian.com/v1/mcp/authv2";
+        };
+      };
+
       # Zed has built-in edit predictions / Copilot support.
       # Sign in through Zed command palette if needed.
       features = {
