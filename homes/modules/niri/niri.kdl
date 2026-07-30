@@ -1,6 +1,19 @@
 // https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl
 prefer-no-csd
 
+// Use EDID names because connector names can change across dock reconnects.
+output "ASUSTek COMPUTER INC VA32AQ KALMAS002692" {
+    position x=0 y=0
+}
+
+output "ASUSTek COMPUTER INC VA32AQ J2LMAS001512" {
+    position x=2560 y=0
+}
+
+output "China Star Optoelectronics Technology Co., Ltd 0x1643 0x00006006" {
+    position x=5120 y=0
+}
+
 input {
     keyboard {
         xkb {
@@ -111,13 +124,13 @@ binds {
 
     Mod+Q { close-window; }
 
-    Mod+H { focus-column-left; }
-    Mod+L { focus-column-right; }
+    Mod+H { focus-column-or-monitor-left; }
+    Mod+L { focus-column-or-monitor-right; }
     Mod+J { focus-window-down; }
     Mod+K { focus-window-up; }
 
-    Mod+Shift+H { move-column-left; }
-    Mod+Shift+L { move-column-right; }
+    Mod+Shift+H { move-column-left-or-to-monitor-left; }
+    Mod+Shift+L { move-column-right-or-to-monitor-right; }
     Mod+Shift+J { move-window-down; }
     Mod+Shift+K { move-window-up; }
 
