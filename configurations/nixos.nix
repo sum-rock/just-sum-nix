@@ -46,6 +46,9 @@ in
   services.udev.packages = [ pkgs.via ];
   # android-udev-rules no longer supported in 25.11
 
+  # Let file managers browse phones that expose their shared storage over MTP.
+  services.gvfs.enable = true;
+
   # Audio
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -122,6 +125,11 @@ in
       networkmanager
       psmisc # Includes ps commands that are commonly used. (e.g., killall)
       pciutils
+      usbutils # lsusb
+      libmtp # MTP command-line diagnostics and file-management tools
+      jmtpfs
+      gvfs
+      mtpfs
       vlc
       ffmpeg_6-full
       cmake
