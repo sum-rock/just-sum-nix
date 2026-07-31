@@ -1,4 +1,20 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+let
+  legionNvidiaConfig = ''
+
+    // The Legion's dock outputs are wired to the NVIDIA GPU. Rendering there
+    // avoids cross-GPU atomic modeset failures when the dock is connected.
+    debug {
+        render-drm-device "/dev/dri/by-path/pci-0000:01:00.0-render"
+        wait-for-frame-completion-before-queueing
+    }
+  '';
+in
 {
   imports = [
     ./walker
@@ -98,7 +114,9 @@
       size = 24;
     };
 
-    xdg.configFile."niri/config.kdl".text = builtins.readFile ./niri.kdl;
+    xdg.configFile."niri/config.kdl".text =
+      builtins.readFile ./niri.kdl
+      + lib.optionalString (config.networking.hostName == "legion") legionNvidiaConfig;
     xdg.configFile."foot/foot.ini".text = builtins.readFile ./foot.ini;
   };
 }
