@@ -123,6 +123,17 @@
         atlassian = {
           url = "https://mcp.atlassian.com/v1/mcp/authv2";
         };
+
+        # GitHub's official MCP server, run locally over stdio.
+        # Requires a personal access token at ~/.github_pat, exported to
+        # GITHUB_PERSONAL_ACCESS_TOKEN via fish's shellInit (homes/macos.nix).
+        github = {
+          command = "github-mcp-server";
+          args = [ "stdio" ];
+          env = {
+            GITHUB_PERSONAL_ACCESS_TOKEN = "{env:GITHUB_PERSONAL_ACCESS_TOKEN}";
+          };
+        };
       };
 
       # Zed has built-in edit predictions / Copilot support.
