@@ -54,6 +54,7 @@ in
           set EDITOR nvim
 
           set OPENAI_API_KEY $(cat $HOME/.openai)
+          set GITHUB_PERSONAL_ACCESS_TOKEN $(cat $HOME/.github_pat)
           set RAINFROG_CONFIG "$HOME/.config/rainfrog"
 
           if [ -f "$HOME/.profile.custom" ]

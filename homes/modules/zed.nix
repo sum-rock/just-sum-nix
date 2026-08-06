@@ -116,6 +116,26 @@
         dock = "right";
       };
 
+      # Atlassian's remote MCP server (Jira + Confluence), exposed to the
+      # agent panel. Zed handles OAuth itself on first use (browser prompt) -
+      # https://support.atlassian.com/atlassian-rovo-mcp-server/docs/setting-up-ides/
+      context_servers = {
+        atlassian = {
+          url = "https://mcp.atlassian.com/v1/mcp/authv2";
+        };
+
+        # GitHub's official MCP server, run locally over stdio.
+        # Requires a personal access token at ~/.github_pat, exported to
+        # GITHUB_PERSONAL_ACCESS_TOKEN via fish's shellInit (homes/macos.nix).
+        github = {
+          command = "github-mcp-server";
+          args = [ "stdio" ];
+          env = {
+            GITHUB_PERSONAL_ACCESS_TOKEN = "{env:GITHUB_PERSONAL_ACCESS_TOKEN}";
+          };
+        };
+      };
+
       # Zed has built-in edit predictions / Copilot support.
       # Sign in through Zed command palette if needed.
       features = {

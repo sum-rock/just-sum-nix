@@ -45,6 +45,9 @@
     glow
     libqalculate
     skopeo # for getting the nix-hash of a docker image
+
+    # MCP
+    github-mcp-server
   ];
 
 }

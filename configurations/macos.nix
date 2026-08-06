@@ -33,6 +33,10 @@ in
   nixpkgs.config = {
     allowUnfree = true;
     allowBroken = true;
+    permittedInsecurePackages = [
+      "python3.12-ecdsa-0.19.1"
+      "electron-39.8.10"
+    ];
   };
   nix.settings.experimental-features = [
     "nix-command"
@@ -51,6 +55,7 @@ in
     pkgs.syncthing
     pkgs.claude-code
     pkgs.chatgpt
+    pkgs.logseq
   ];
 
   users.users.${config.primaryUser} = {
