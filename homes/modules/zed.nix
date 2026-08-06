@@ -1,6 +1,17 @@
 { pkgs, ... }:
 
 {
+  # Global default for sqlfluff (formatter for SQL in programs.zed-editor
+  # below). Projects needing a specific dialect (postgres, mysql, ...) can
+  # add their own .sqlfluff to override this.
+  home.file.".sqlfluff".text = ''
+    [sqlfluff]
+    dialect = ansi
+
+    [sqlfluff:indentation]
+    tab_space_size = 2
+  '';
+
   xdg.configFile."zed/tasks.json".text = builtins.toJSON [
     {
       label = "open_alacritty";
@@ -62,7 +73,6 @@
 
       # SQL
       sqlfluff
-      sqls
 
       # Go
       gopls
@@ -258,6 +268,21 @@
           formatter = {
             external.command = "elm-format";
             external.arguments = [ "--stdin" ];
+          };
+        };
+
+        SQL = {
+          tab_size = 2;
+          formatter = {
+            external = {
+              command = "${pkgs.sqlfluff}/bin/sqlfluff";
+              arguments = [
+                "format"
+                "--stdin-filename"
+                "{buffer_path}"
+                "-"
+              ];
+            };
           };
         };
       };
