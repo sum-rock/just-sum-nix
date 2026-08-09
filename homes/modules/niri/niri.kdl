@@ -2,16 +2,19 @@
 prefer-no-csd
 
 // Use EDID names because connector names can change across dock reconnects.
-output "ASUSTek COMPUTER INC VA32AQ KALMAS002692" {
-    position x=0 y=0
-}
-
-output "ASUSTek COMPUTER INC VA32AQ J2LMAS001512" {
-    position x=2560 y=0
-}
+// output "ASUSTek COMPUTER INC VA32AQ KALMAS002692" {
+//     position x=0 y=0
+// }
+//
+// output "ASUSTek COMPUTER INC VA32AQ J2LMAS001512" {
+//     position x=2560 y=0
+// }
+// output "China Star Optoelectronics Technology Co., Ltd 0x1643 0x00006006" {
+//     position x=5120 y=0
+// }
 
 output "China Star Optoelectronics Technology Co., Ltd 0x1643 0x00006006" {
-    position x=5120 y=0
+    position x=0 y=0
 }
 
 input {

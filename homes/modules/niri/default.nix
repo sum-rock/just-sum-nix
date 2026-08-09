@@ -6,7 +6,6 @@
 }:
 let
   legionNvidiaConfig = ''
-
     // The Legion's dock outputs are wired to the NVIDIA GPU. Rendering there
     // avoids cross-GPU atomic modeset failures when the dock is connected.
     debug {
