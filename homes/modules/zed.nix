@@ -95,7 +95,6 @@
       docker-compose-language-service
 
       # Markdown / YAML
-      marksman
       markdownlint-cli
       yaml-language-server
 
@@ -132,17 +131,6 @@
       context_servers = {
         atlassian = {
           url = "https://mcp.atlassian.com/v1/mcp/authv2";
-        };
-
-        # GitHub's official MCP server, run locally over stdio.
-        # Requires a personal access token at ~/.github_pat, exported to
-        # GITHUB_PERSONAL_ACCESS_TOKEN via fish's shellInit (homes/macos.nix).
-        github = {
-          command = "github-mcp-server";
-          args = [ "stdio" ];
-          env = {
-            GITHUB_PERSONAL_ACCESS_TOKEN = "{env:GITHUB_PERSONAL_ACCESS_TOKEN}";
-          };
         };
       };
 
@@ -181,9 +169,6 @@
         };
         yaml-language-server = {
           binary.path = "yaml-language-server";
-        };
-        marksman = {
-          binary.path = "marksman";
         };
       };
 
