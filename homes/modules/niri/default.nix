@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  lib,
   noctalia,
   noctalia-greeter,
   ...
@@ -11,12 +10,6 @@ let
     debug {
         // Allows notification actions and window activation from Noctalia.
         honor-xdg-activation-with-invalid-serial
-    ${lib.optionalString (config.networking.hostName == "legion") ''
-      // The Legion's dock outputs are wired to the NVIDIA GPU. Rendering
-      // there avoids cross-GPU atomic modeset failures when docked.
-      render-drm-device "/dev/dri/by-path/pci-0000:01:00.0-render"
-      wait-for-frame-completion-before-queueing
-    ''}
     }
   '';
 in
