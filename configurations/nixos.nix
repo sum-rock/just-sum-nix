@@ -177,7 +177,7 @@ in
       copyq
       sidequest
       spotify
-      mongodb-compass
+      # mongodb-compass
       obs-studio
       dbeaver-bin
       opencode # can install on nixos but not in darwin
