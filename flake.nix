@@ -20,7 +20,9 @@
     nixpkgs-logseq = {
       url = "github:nixos/nixpkgs/ea30586ee015f37f38783006a9bc9e4aa64d7d61";
     };
-    noctalia.url = "github:noctalia-dev/noctalia/cachix";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/cachix";
+    };
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "noctalia/nixpkgs";

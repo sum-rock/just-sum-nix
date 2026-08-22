@@ -158,7 +158,7 @@ in
 
           screenshot = {
             save_to_file = true;
-            directory = "/home/${config.primaryUser}/Pictures";
+            directory = "/home/${config.primaryUser}/Documents";
             copy_to_clipboard = true;
             freeze_screen = true;
           };
@@ -188,18 +188,14 @@ in
             ];
             center = [ "clock" ];
             end = [
-              "media"
-              "sysmon"
-              "tray"
+              # "tray"
               "privacy"
               "notifications"
               "clipboard"
               "network"
-              "bluetooth"
               "volume"
               "brightness"
               "battery"
-              "power_profile"
               "control-center"
               "session"
             ];
@@ -211,7 +207,8 @@ in
           position = "bottom";
           pinned = [
             "firefox"
-            "foot"
+            "Alacritty"
+            "dev.zed.Zed"
             "org.gnome.Nautilus"
           ];
           show_running = true;
