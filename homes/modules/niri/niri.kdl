@@ -2,16 +2,19 @@
 prefer-no-csd
 
 // Use EDID names because connector names can change across dock reconnects.
-output "ASUSTek COMPUTER INC VA32AQ KALMAS002692" {
-    position x=0 y=0
-}
-
-output "ASUSTek COMPUTER INC VA32AQ J2LMAS001512" {
-    position x=2560 y=0
-}
+// output "ASUSTek COMPUTER INC VA32AQ KALMAS002692" {
+//     position x=0 y=0
+// }
+//
+// output "ASUSTek COMPUTER INC VA32AQ J2LMAS001512" {
+//     position x=2560 y=0
+// }
+// output "China Star Optoelectronics Technology Co., Ltd 0x1643 0x00006006" {
+//     position x=5120 y=0
+// }
 
 output "China Star Optoelectronics Technology Co., Ltd 0x1643 0x00006006" {
-    position x=5120 y=0
+    position x=0 y=0
 }
 
 input {
@@ -57,14 +60,7 @@ layout {
     }
 }
 
-spawn-at-startup "awww-daemon"
-spawn-at-startup "awww" "img" "/home/august/.wallpapers/catppuccin_3.png"
-spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock" "timeout" "900" "niri" "msg" "action" "power-off-monitors" "before-sleep" "swaylock"
-spawn-at-startup "polkit-gnome-authentication-agent-1"
-spawn-at-startup "nm-applet"
-spawn-at-startup "blueman-applet"
-spawn-at-startup "walker" "--gapplication-service"
-spawn-at-startup "waybar"
+spawn-at-startup "noctalia"
 
 environment {
     NIXOS_OZONE_WL "1"
@@ -117,9 +113,45 @@ window-rule {
     }
 }
 
+// Keep the Noctalia settings window at a practical fixed floating size.
+window-rule {
+    match app-id="^dev\\.noctalia\\.Noctalia$"
+    open-floating true
+    default-column-width { fixed 1080; }
+    default-window-height { fixed 920; }
+}
+
+// Show Noctalia's blurred and tinted wallpaper in Niri's overview backdrop.
+layer-rule {
+    match namespace="^noctalia-backdrop"
+    place-within-backdrop true
+}
+
+// Noctalia publishes blur regions for its translucent layer surfaces.
+layer-rule {
+    match namespace="^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd)$"
+    background-effect {
+        xray false
+    }
+}
+
+layer-rule {
+    match namespace="^noctalia-window-switcher$"
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
 binds {
     Mod+Return { spawn "foot"; }
-    Mod+D { spawn "walker"; }
+    Mod+D { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    Mod+C { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
+    Mod+Comma { spawn "noctalia" "msg" "settings-toggle"; }
+    Mod+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+    Mod+W { spawn "noctalia" "msg" "panel-toggle" "wallpaper"; }
+    Mod+Shift+E { spawn "noctalia" "msg" "panel-toggle" "session"; }
+    Alt+Tab { spawn "noctalia" "msg" "window-switcher"; }
     Mod+T { spawn "alacritty"; }
 
     Mod+Q { close-window; }
@@ -152,12 +184,20 @@ binds {
     Mod+Shift+4 { move-column-to-workspace 4; }
     Mod+Shift+5 { move-column-to-workspace 5; }
 
-    Mod+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
-    Mod+Shift+S { spawn "sh" "-c" "grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png"; }
+    Mod+S { spawn "noctalia" "msg" "screenshot-region"; }
+    Mod+Shift+S { spawn "noctalia" "msg" "screenshot-fullscreen" "all"; }
 
-    Mod+V { spawn "walker" "--modules" "clipboard"; }
+    Mod+Escape { spawn "noctalia" "msg" "session" "lock"; }
 
-    Mod+Escape { spawn "swaylock"; }
+    XF86AudioRaiseVolume { spawn "noctalia" "msg" "volume-up"; }
+    XF86AudioLowerVolume { spawn "noctalia" "msg" "volume-down"; }
+    XF86AudioMute { spawn "noctalia" "msg" "volume-mute"; }
+    XF86AudioMicMute { spawn "noctalia" "msg" "mic-mute"; }
+    XF86AudioPlay { spawn "noctalia" "msg" "media" "play-pause"; }
+    XF86AudioNext { spawn "noctalia" "msg" "media" "next"; }
+    XF86AudioPrev { spawn "noctalia" "msg" "media" "previous"; }
+    XF86MonBrightnessUp { spawn "noctalia" "msg" "brightness-up"; }
+    XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down"; }
 
     Mod+Shift+Escape allow-inhibiting=false {
         toggle-keyboard-shortcuts-inhibit;
