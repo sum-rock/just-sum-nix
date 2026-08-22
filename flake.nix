@@ -20,12 +20,10 @@
     nixpkgs-logseq = {
       url = "github:nixos/nixpkgs/ea30586ee015f37f38783006a9bc9e4aa64d7d61";
     };
-    elephant = {
-      url = "github:abenz1267/elephant";
-    };
-    walker = {
-      url = "github:abenz1267/walker";
-      inputs.elephant.follows = "elephant";
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "noctalia/nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -92,8 +90,6 @@
       nixpkgs-unstable,
       nixpkgs-neovim,
       nixpkgs-logseq,
-      walker,
-      elephant,
       nixos-hardware,
       private,
       sum-astro-nvim,
