@@ -30,6 +30,7 @@
     ngrok
     bind
     bruno
+    github-cli
 
     # Quality of Life
     # ---------------

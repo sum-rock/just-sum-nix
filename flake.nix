@@ -49,6 +49,9 @@
     nix-impermanence = {
       url = "github:nix-community/impermanence/master";
     };
+    affect-toolbar = {
+      url = "github:affect-therapeutics/toolbar/main";
+    };
 
     # Extra inputs
     # =====================================================
@@ -96,6 +99,7 @@
       private,
       sum-astro-nvim,
       nix-impermanence,
+      affect-toolbar,
       ...
     }@attrs:
     {
@@ -115,6 +119,12 @@
                 ./configurations/macos.nix
                 ./homes/macos.nix
                 sum-astro-nvim.darwinModules.astroNvim
+                affect-toolbar.darwinModules.default
+                {
+                  services.affect-toolbar.enable = true;
+                  # services.affect-toolbar.autostart = true; # default; set false to disable the LaunchAgent
+                }
+
               ];
             };
         in
