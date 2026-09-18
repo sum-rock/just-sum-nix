@@ -144,6 +144,13 @@ layer-rule {
     }
 }
 
+debug {
+    // Allows notification actions and window activation from Noctalia.
+    honor-xdg-activation-with-invalid-serial
+    // Fix artificating when using dock
+    wait-for-frame-completion-before-queueing
+}
+
 binds {
     Mod+Return { spawn "foot"; }
     Mod+D { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
