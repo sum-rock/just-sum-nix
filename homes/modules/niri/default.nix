@@ -5,14 +5,6 @@
   noctalia-greeter,
   ...
 }:
-let
-  niriDebugConfig = ''
-    debug {
-        // Allows notification actions and window activation from Noctalia.
-        honor-xdg-activation-with-invalid-serial
-    }
-  '';
-in
 {
   imports = [
     noctalia.nixosModules.default
@@ -328,7 +320,7 @@ in
       size = 24;
     };
 
-    xdg.configFile."niri/config.kdl".text = builtins.readFile ./niri.kdl + niriDebugConfig;
+    xdg.configFile."niri/config.kdl".text = builtins.readFile ./niri.kdl;
     xdg.configFile."foot/foot.ini".text = builtins.readFile ./foot.ini;
   };
 }
