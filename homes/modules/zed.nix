@@ -33,6 +33,7 @@
       "python"
       "typescript"
       "java"
+      "csharp"
       "sql"
       "go"
       "clojure"
@@ -71,6 +72,11 @@
 
       # Java
       jdt-language-server
+
+      # C# / Unity tooling
+      dotnetCorePackages.sdk_8_0
+      roslyn-ls
+      csharpier
 
       # SQL
       sqlfluff
@@ -162,6 +168,15 @@
         rust-analyzer = {
           binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         };
+        roslyn = {
+          binary = {
+            path = "${pkgs.roslyn-ls}/bin/Microsoft.CodeAnalysis.LanguageServer";
+            arguments = [
+              "--stdio"
+              "--autoLoadProjects"
+            ];
+          };
+        };
         typescript-language-server = {
           binary = {
             path = "${pkgs.typescript-language-server}/bin/typescript-language-server";
@@ -204,6 +219,21 @@
       };
 
       languages = {
+        CSharp = {
+          language_servers = [ "roslyn" ];
+          format_on_save = "on";
+          formatter = {
+            external = {
+              command = "${pkgs.csharpier}/bin/csharpier";
+              arguments = [
+                "format"
+                "--stdin-path"
+                "{buffer_path}"
+              ];
+            };
+          };
+        };
+
         Nix = {
           language_servers = [
             "nixd"
