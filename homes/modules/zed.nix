@@ -65,6 +65,7 @@
       # TypeScript / JS
       nodejs
       typescript-language-server
+      vtsls
       vscode-langservers-extracted
       prettierd
 
@@ -141,10 +142,16 @@
       };
       lsp = {
         nixd = {
-          binary.path = "nixd";
+          binary.path = "${pkgs.nixd}/bin/nixd";
+        };
+        nil = {
+          binary.path = "${pkgs.nil}/bin/nil";
         };
         ruff = {
-          binary.path = "${pkgs.ruff}/bin/ruff";
+          binary = {
+            path = "${pkgs.ruff}/bin/ruff";
+            arguments = [ "server" ];
+          };
         };
         basedpyright = {
           binary = {
@@ -153,22 +160,46 @@
           };
         };
         rust-analyzer = {
-          binary.path = "rust-analyzer";
+          binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         };
         typescript-language-server = {
-          binary.path = "typescript-language-server";
+          binary = {
+            path = "${pkgs.typescript-language-server}/bin/typescript-language-server";
+            arguments = [ "--stdio" ];
+          };
+        };
+        vtsls = {
+          binary = {
+            path = "${pkgs.vtsls}/bin/vtsls";
+            arguments = [ "--stdio" ];
+          };
+        };
+        lua-language-server = {
+          binary.path = "${pkgs.lua-language-server}/bin/lua-language-server";
         };
         gopls = {
-          binary.path = "gopls";
+          binary.path = "${pkgs.gopls}/bin/gopls";
         };
         clojure-lsp = {
-          binary.path = "clojure-lsp";
+          binary.path = "${pkgs.clojure-lsp}/bin/clojure-lsp";
         };
         bash-language-server = {
-          binary.path = "bash-language-server";
+          binary = {
+            path = "${pkgs.bash-language-server}/bin/bash-language-server";
+            arguments = [ "start" ];
+          };
         };
         yaml-language-server = {
-          binary.path = "yaml-language-server";
+          binary = {
+            path = "${pkgs.yaml-language-server}/bin/yaml-language-server";
+            arguments = [ "--stdio" ];
+          };
+        };
+        elm-language-server = {
+          binary = {
+            path = "${pkgs.elmPackages.elm-language-server}/bin/elm-language-server";
+            arguments = [ "--stdio" ];
+          };
         };
       };
 
@@ -218,6 +249,7 @@
         };
 
         JavaScript = {
+          language_servers = [ "vtsls" ];
           formatter = {
             external = {
               command = "prettierd";
@@ -227,6 +259,7 @@
         };
 
         Lua = {
+          language_servers = [ "lua-language-server" ];
           formatter = {
             external = {
               command = "stylua";
@@ -242,7 +275,7 @@
           };
         };
 
-        Shell = {
+        "Shell Script" = {
           language_servers = [ "bash-language-server" ];
           formatter = {
             external.command = "shfmt";
@@ -250,6 +283,7 @@
         };
 
         Elm = {
+          language_servers = [ "elm-language-server" ];
           formatter = {
             external.command = "elm-format";
             external.arguments = [ "--stdin" ];
