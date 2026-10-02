@@ -33,6 +33,7 @@
       "python"
       "typescript"
       "java"
+      "csharp"
       "sql"
       "go"
       "clojure"
@@ -65,11 +66,17 @@
       # TypeScript / JS
       nodejs
       typescript-language-server
+      vtsls
       vscode-langservers-extracted
       prettierd
 
       # Java
       jdt-language-server
+
+      # C# / Unity tooling
+      dotnetCorePackages.sdk_8_0
+      roslyn-ls
+      csharpier
 
       # SQL
       sqlfluff
@@ -141,10 +148,16 @@
       };
       lsp = {
         nixd = {
-          binary.path = "nixd";
+          binary.path = "${pkgs.nixd}/bin/nixd";
+        };
+        nil = {
+          binary.path = "${pkgs.nil}/bin/nil";
         };
         ruff = {
-          binary.path = "${pkgs.ruff}/bin/ruff";
+          binary = {
+            path = "${pkgs.ruff}/bin/ruff";
+            arguments = [ "server" ];
+          };
         };
         basedpyright = {
           binary = {
@@ -153,26 +166,74 @@
           };
         };
         rust-analyzer = {
-          binary.path = "rust-analyzer";
+          binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+        };
+        roslyn = {
+          binary = {
+            path = "${pkgs.roslyn-ls}/bin/Microsoft.CodeAnalysis.LanguageServer";
+            arguments = [
+              "--stdio"
+              "--autoLoadProjects"
+            ];
+          };
         };
         typescript-language-server = {
-          binary.path = "typescript-language-server";
+          binary = {
+            path = "${pkgs.typescript-language-server}/bin/typescript-language-server";
+            arguments = [ "--stdio" ];
+          };
+        };
+        vtsls = {
+          binary = {
+            path = "${pkgs.vtsls}/bin/vtsls";
+            arguments = [ "--stdio" ];
+          };
+        };
+        lua-language-server = {
+          binary.path = "${pkgs.lua-language-server}/bin/lua-language-server";
         };
         gopls = {
-          binary.path = "gopls";
+          binary.path = "${pkgs.gopls}/bin/gopls";
         };
         clojure-lsp = {
-          binary.path = "clojure-lsp";
+          binary.path = "${pkgs.clojure-lsp}/bin/clojure-lsp";
         };
         bash-language-server = {
-          binary.path = "bash-language-server";
+          binary = {
+            path = "${pkgs.bash-language-server}/bin/bash-language-server";
+            arguments = [ "start" ];
+          };
         };
         yaml-language-server = {
-          binary.path = "yaml-language-server";
+          binary = {
+            path = "${pkgs.yaml-language-server}/bin/yaml-language-server";
+            arguments = [ "--stdio" ];
+          };
+        };
+        elm-language-server = {
+          binary = {
+            path = "${pkgs.elmPackages.elm-language-server}/bin/elm-language-server";
+            arguments = [ "--stdio" ];
+          };
         };
       };
 
       languages = {
+        CSharp = {
+          language_servers = [ "roslyn" ];
+          format_on_save = "on";
+          formatter = {
+            external = {
+              command = "${pkgs.csharpier}/bin/csharpier";
+              arguments = [
+                "format"
+                "--stdin-path"
+                "{buffer_path}"
+              ];
+            };
+          };
+        };
+
         Nix = {
           language_servers = [
             "nixd"
@@ -218,6 +279,7 @@
         };
 
         JavaScript = {
+          language_servers = [ "vtsls" ];
           formatter = {
             external = {
               command = "prettierd";
@@ -227,6 +289,7 @@
         };
 
         Lua = {
+          language_servers = [ "lua-language-server" ];
           formatter = {
             external = {
               command = "stylua";
@@ -242,7 +305,7 @@
           };
         };
 
-        Shell = {
+        "Shell Script" = {
           language_servers = [ "bash-language-server" ];
           formatter = {
             external.command = "shfmt";
@@ -250,6 +313,7 @@
         };
 
         Elm = {
+          language_servers = [ "elm-language-server" ];
           formatter = {
             external.command = "elm-format";
             external.arguments = [ "--stdin" ];
