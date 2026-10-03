@@ -174,6 +174,7 @@ in
       nextcloud-client
       inkscape
       gimp
+      blender
       copyq
       sidequest
       spotify
