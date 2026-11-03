@@ -31,6 +31,7 @@
     bind
     bruno
     github-cli
+    codex
 
     # Quality of Life
     # ---------------
