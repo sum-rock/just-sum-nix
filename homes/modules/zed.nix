@@ -20,6 +20,20 @@
       hide = "always";
       allow_concurrent_runs = true;
     }
+    {
+      label = "open_claude";
+      command = ''alacritty --working-directory "$ZED_WORKTREE_ROOT" -e bash -c 'exec tmux new-session -A -s "$(basename "$1")-claude" claude' _ "$ZED_WORKTREE_ROOT"'';
+      reveal = "never";
+      hide = "always";
+      allow_concurrent_runs = true;
+    }
+    {
+      label = "open_codex";
+      command = ''alacritty --working-directory "$ZED_WORKTREE_ROOT" -e bash -c 'exec tmux new-session -A -s "$(basename "$1")-codex" codex' _ "$ZED_WORKTREE_ROOT"'';
+      reveal = "never";
+      hide = "always";
+      allow_concurrent_runs = true;
+    }
   ];
 
   programs.zed-editor = {
@@ -362,8 +376,17 @@
           "space e" = "project_panel::ToggleFocus";
           "space shift-e" = "workspace::ToggleLeftDock";
 
-          "space a" = "agent::ToggleFocus";
+          "space a z" = "agent::ToggleFocus";
           "space shift-a" = "workspace::ToggleRightDock";
+
+          "space a a" = [
+            "task::Spawn"
+            { task_name = "open_claude"; }
+          ];
+          "space a o" = [
+            "task::Spawn"
+            { task_name = "open_codex"; }
+          ];
 
           "space w" = "workspace::Save";
           "space q" = "pane::CloseActiveItem";
@@ -404,7 +427,7 @@
       {
         context = "AgentPanel && vim_mode == normal";
         bindings = {
-          "space a" = "agent::ToggleFocus";
+          "space a z" = "agent::ToggleFocus";
           "space shift-a" = "workspace::ToggleRightDock";
         };
       }
