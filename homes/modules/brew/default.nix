@@ -26,6 +26,7 @@
       "tailscale-app"
       "android-studio"
       "spotify"
+      "macshot"
     ];
   };
 }
