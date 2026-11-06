@@ -16,7 +16,6 @@
 
     caskArgs = {
       appdir = "~/Applications";
-      no_quarantine = true;
     };
 
     casks = [
@@ -26,6 +25,7 @@
       "tailscale-app"
       "android-studio"
       "spotify"
+      "macshot"
     ];
   };
 }
