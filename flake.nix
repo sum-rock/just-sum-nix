@@ -27,6 +27,10 @@
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "noctalia/nixpkgs";
     };
+    unisic = {
+      url = "github:unisic/unisic";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";

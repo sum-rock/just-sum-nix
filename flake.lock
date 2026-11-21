@@ -419,7 +419,8 @@
         "tmux-copycat": "tmux-copycat",
         "tmux-open": "tmux-open",
         "tmux-pain-control": "tmux-pain-control",
-        "tmux-sensible": "tmux-sensible"
+        "tmux-sensible": "tmux-sensible",
+        "unisic": "unisic"
       }
     },
     "sops-nix": {
@@ -548,6 +549,44 @@
         "owner": "tmux-plugins",
         "ref": "master",
         "repo": "tmux-sensible",
+        "type": "github"
+      }
+    },
+    "unisic": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ],
+        "unisic-kit": "unisic-kit"
+      },
+      "locked": {
+        "lastModified": 1793888288,
+        "narHash": "sha256-fW44pRaUFIaDEXeqW0k9BF1MO9UnlvnxXwISvJklxh8=",
+        "owner": "unisic",
+        "repo": "unisic",
+        "rev": "3fb456e11ef293e1254842323c1bbcb034d2e8ae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "unisic",
+        "repo": "unisic",
+        "type": "github"
+      }
+    },
+    "unisic-kit": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793840016,
+        "narHash": "sha256-PPr2pVfxNv+LM5txXDHfyTfnOBl5/D+i0zvoD5REGfo=",
+        "owner": "unisic",
+        "repo": "unisic-kit",
+        "rev": "8770f41136554b08a9be93a5365873446c42a9aa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "unisic",
+        "repo": "unisic-kit",
+        "rev": "8770f41136554b08a9be93a5365873446c42a9aa",
         "type": "github"
       }
     }

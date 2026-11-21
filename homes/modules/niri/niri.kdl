@@ -194,8 +194,12 @@ binds {
     Mod+Shift+4 { move-column-to-workspace 4; }
     Mod+Shift+5 { move-column-to-workspace 5; }
 
-    Mod+S { spawn "noctalia" "msg" "screenshot-region"; }
-    Mod+Shift+S { spawn "noctalia" "msg" "screenshot-fullscreen" "all"; }
+    // Unisic capture and recording; press the recording shortcut again to stop.
+    Mod+S { spawn "unisic" "--region"; }
+    Mod+Shift+S { spawn "unisic" "--fullscreen"; }
+    Mod+Ctrl+R { spawn "unisic" "--hotkey" "record-video"; }
+    Mod+Ctrl+G { spawn "unisic" "--hotkey" "record-gif"; }
+    Mod+U { spawn "unisic"; }
 
     Mod+Escape { spawn "noctalia" "msg" "session" "lock"; }
 
