@@ -1,16 +1,11 @@
 {
   config,
   nixpkgs-neovim,
-  nixpkgs-logseq,
   pkgs,
   ...
 }:
 let
   neovim-pkgs = import nixpkgs-neovim {
-    system = "x86_64-linux";
-    config = { };
-  };
-  logseq-pkgs = import nixpkgs-logseq {
     system = "x86_64-linux";
     config = { };
   };
@@ -176,6 +171,7 @@ in
       gimp
       blender
       copyq
+      logseq
       sidequest
       spotify
       # mongodb-compass
@@ -203,8 +199,7 @@ in
       ntfs3g
       exiftool
 
-    ]
-    ++ [ logseq-pkgs.logseq ];
+    ];
 
   programs.steam = {
     enable = true;
