@@ -3,6 +3,7 @@
   config,
   noctalia,
   noctalia-greeter,
+  unisic,
   ...
 }:
 {
@@ -86,6 +87,9 @@
       foot
       nautilus
       pavucontrol
+      (unisic.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+        portalBackend = pkgs.xdg-desktop-portal-gnome;
+      })
     ];
 
     imports = [ noctalia.homeModules.default ];

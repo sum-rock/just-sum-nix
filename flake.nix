@@ -16,16 +16,16 @@
     nixpkgs-neovim = {
       url = "github:nixos/nixpkgs/832efc09b4caf6b4569fbf9dc01bec3082a00611";
     };
-    # Clear after resolved: https://github.com/NixOS/nixpkgs/issues/535206
-    nixpkgs-logseq = {
-      url = "github:nixos/nixpkgs/ea30586ee015f37f38783006a9bc9e4aa64d7d61";
-    };
     noctalia = {
       url = "github:noctalia-dev/noctalia/cachix";
     };
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "noctalia/nixpkgs";
+    };
+    unisic = {
+      url = "github:unisic/unisic";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -94,7 +94,6 @@
       nixpkgs,
       nixpkgs-unstable,
       nixpkgs-neovim,
-      nixpkgs-logseq,
       nixos-hardware,
       private,
       sum-astro-nvim,
