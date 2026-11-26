@@ -1,4 +1,10 @@
-{ config, pkgs, home-manager, nixpkgs-neovim, ... }:
+{
+  config,
+  pkgs,
+  home-manager,
+  nixpkgs-neovim,
+  ...
+}:
 let
   neovim-pkgs = import nixpkgs-neovim {
     system = "aarch64-darwin";
@@ -36,6 +42,9 @@ in
           source = ./wallpapers/catppuccin;
           recursive = true;
         };
+      };
+      sessionVariables = {
+        LOGSEQ_GRAPHS_DIR = "${config.home-dir-path}/Logseq/graphs";
       };
     };
 
