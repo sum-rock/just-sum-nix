@@ -26,6 +26,7 @@
       "android-studio"
       "spotify"
       "macshot"
+      "logseq"
     ];
   };
 }

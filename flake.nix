@@ -11,6 +11,10 @@
     nixpkgs-unstable = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
+    # Logseq DB (logseq_2), merged upstream but not yet in nixos-unstable.
+    nixpkgs-logseq = {
+      url = "github:NixOS/nixpkgs/1e8d4b5761917a86d326a2336d21d3c7bfd177be";
+    };
     # must coordinate with SumAstroNvim (better way?)
     # https://www.nixhub.io/packages/neovim-unwrapped
     nixpkgs-neovim = {
