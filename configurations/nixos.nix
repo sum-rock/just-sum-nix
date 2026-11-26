@@ -2,12 +2,16 @@
   config,
   nixpkgs-neovim,
   pkgs,
+  nixpkgs-logseq,
   ...
 }:
 let
   neovim-pkgs = import nixpkgs-neovim {
     system = "x86_64-linux";
     config = { };
+  };
+  logseq-pkgs = import nixpkgs-logseq {
+    system = pkgs.stdenv.hostPlatform.system;
   };
 in
 {
@@ -115,90 +119,91 @@ in
     enableSSHSupport = true;
   };
 
-  environment.systemPackages =
-    with pkgs;
-    [
+  environment.systemPackages = with pkgs; [
 
-      # Basics
-      # ------
-      networkmanager
-      psmisc # Includes ps commands that are commonly used. (e.g., killall)
-      pciutils
-      usbutils # lsusb
-      libmtp # MTP command-line diagnostics and file-management tools
-      jmtpfs
-      gvfs
-      mtpfs
-      vlc
-      ffmpeg_6-full
-      cmake
-      sops
-      docker-compose
-      nfs-utils
-      wl-clipboard
-      via
-      android-tools
-      claude-code
-      nvtopPackages.nvidia
+    # Basics
+    # ------
+    networkmanager
+    psmisc # Includes ps commands that are commonly used. (e.g., killall)
+    pciutils
+    usbutils # lsusb
+    libmtp # MTP command-line diagnostics and file-management tools
+    jmtpfs
+    gvfs
+    mtpfs
+    vlc
+    ffmpeg_6-full
+    cmake
+    sops
+    docker-compose
+    nfs-utils
+    wl-clipboard
+    via
+    android-tools
+    claude-code
+    nvtopPackages.nvidia
 
-      # pipewire controls
-      # -----------------
-      pulseaudio
-      pamixer
-      pavucontrol
+    # Logseq 2.x uses database graphs on both NixOS and macOS.
+    logseq-pkgs.logseq_2
 
-      # Gaming
-      # ------
-      steamcmd
-      steamtinkerlaunch
-      renpy
-      wine
-      winetricks
-      protontricks
-      p7zip
-      unrar
+    # pipewire controls
+    # -----------------
+    pulseaudio
+    pamixer
+    pavucontrol
 
-      # ebooks
-      # ------
-      calibre
-      koreader
+    # Gaming
+    # ------
+    steamcmd
+    steamtinkerlaunch
+    renpy
+    wine
+    winetricks
+    protontricks
+    p7zip
+    unrar
 
-      # Applications
-      # ------------
-      _1password-gui
-      nextcloud-client
-      inkscape
-      gimp
-      blender
-      copyq
-      sidequest
-      spotify
-      # mongodb-compass
-      obs-studio
-      dbeaver-bin
-      opencode # can install on nixos but not in darwin
-      solvespace
+    # ebooks
+    # ------
+    calibre
+    koreader
 
-      # messaging
-      # ---------
-      zoom-us
-      karere
-      element-desktop
-      discord
+    # Applications
+    # ------------
+    _1password-gui
+    nextcloud-client
+    inkscape
+    gimp
+    blender
+    copyq
+    sidequest
+    spotify
+    # mongodb-compass
+    obs-studio
+    dbeaver-bin
+    opencode # can install on nixos but not in darwin
+    solvespace
 
-      # Minecraft
-      # ---------
-      prismlauncher
-      temurin-jre-bin-21
-      temurin-jre-bin-17
+    # messaging
+    # ---------
+    zoom-us
+    karere
+    element-desktop
+    discord
 
-      # Other
-      # -----
-      woeusb # To make Windows USBs
-      ntfs3g
-      exiftool
+    # Minecraft
+    # ---------
+    prismlauncher
+    temurin-jre-bin-21
+    temurin-jre-bin-17
 
-    ];
+    # Other
+    # -----
+    woeusb # To make Windows USBs
+    ntfs3g
+    exiftool
+
+  ];
 
   programs.steam = {
     enable = true;

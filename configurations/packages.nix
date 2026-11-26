@@ -1,18 +1,9 @@
 {
   pkgs,
-  nixpkgs-logseq,
   ...
 }:
-let
-  logseq-pkgs = import nixpkgs-logseq {
-    system = pkgs.stdenv.hostPlatform.system;
-  };
-in
 {
   environment.systemPackages = with pkgs; [
-
-    # Logseq 2.x uses database graphs on both NixOS and macOS.
-    logseq-pkgs.logseq_2
 
     # Basics
     # ------
