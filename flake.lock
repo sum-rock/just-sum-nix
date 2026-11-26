@@ -197,6 +197,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-logseq": {
+      "locked": {
+        "lastModified": 1795439095,
+        "narHash": "sha256-mDdhiq0O+9m9k82iESO4WmDLHfNvu4KP2dUM6BMDufY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1e8d4b5761917a86d326a2336d21d3c7bfd177be",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1e8d4b5761917a86d326a2336d21d3c7bfd177be",
+        "type": "github"
+      }
+    },
     "nixpkgs-neovim": {
       "locked": {
         "lastModified": 1774610258,
@@ -391,6 +407,7 @@
         "nix-impermanence": "nix-impermanence",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
+        "nixpkgs-logseq": "nixpkgs-logseq",
         "nixpkgs-neovim": "nixpkgs-neovim",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "noctalia": "noctalia",

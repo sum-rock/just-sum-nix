@@ -171,7 +171,6 @@ in
       gimp
       blender
       copyq
-      logseq
       sidequest
       spotify
       # mongodb-compass

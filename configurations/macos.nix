@@ -55,7 +55,6 @@ in
     pkgs.syncthing
     pkgs.claude-code
     pkgs.chatgpt
-    pkgs.logseq
   ];
 
   users.users.${config.primaryUser} = {
