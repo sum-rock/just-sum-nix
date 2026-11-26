@@ -38,6 +38,9 @@
           recursive = true;
         };
       };
+      sessionVariables = {
+        LOGSEQ_GRAPHS_DIR = "${config.home-dir-path}/Logseq/graphs";
+      };
     };
     programs = {
       home-manager.enable = true;
