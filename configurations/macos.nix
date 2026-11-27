@@ -52,7 +52,6 @@ in
   environment.shells = [ pkgs.fish ];
   environment.systemPackages = [
     unstable.nodejs_24
-    pkgs.syncthing
     pkgs.claude-code
     pkgs.chatgpt
   ];
