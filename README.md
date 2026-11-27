@@ -66,22 +66,6 @@ that is defined in an external flake
 [SumAstroNvim](https://github.com/sum-rock/SumAstroNvim). See the SumAstroNvim repo for
 more information.
 
-#### Niri capture shortcuts
-
-[Unisic](https://unisic.app) handles screenshots and screen recordings in niri.
-It is installed from its upstream flake and uses the session's existing GNOME
-portal and PipeWire services.
-
-| Shortcut | Action |
-| --- | --- |
-| Mod+S | Capture a region |
-| Mod+Shift+S | Capture all screens |
-| Mod+Ctrl+R | Start/stop video recording |
-| Mod+Ctrl+G | Start/stop GIF recording |
-| Mod+U | Open Unisic (settings, recording options, and history) |
-
-Choose the recording format and audio sources in Unisic before recording.
-
 ### Hosts
 
 Expressions within the `hosts` directory are specific to a machine and the hardware on
