@@ -1,4 +1,10 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
+
+let
+  # C# tooling is Linux-only: on darwin the .NET 8 SDK (and roslyn-ls /
+  # csharpier, built against it) bootstraps the dotnet VMR from source.
+  enableCSharp = pkgs.stdenv.isLinux;
+in
 
 {
   # Global default for sqlfluff (formatter for SQL in programs.zed-editor
@@ -47,7 +53,6 @@
       "python"
       "typescript"
       "java"
-      "csharp"
       "sql"
       "go"
       "clojure"
@@ -59,71 +64,75 @@
       "toml"
       "kdl"
       "ini"
-    ];
+    ]
+    ++ lib.optionals enableCSharp [ "csharp" ];
 
-    extraPackages = with pkgs; [
-      # Nix
-      nixd
-      nil
-      nixfmt
-      statix
-      deadnix
+    extraPackages =
+      with pkgs;
+      [
+        # Nix
+        nixd
+        nil
+        nixfmt
+        statix
+        deadnix
 
-      # Lua
-      lua-language-server
-      stylua
+        # Lua
+        lua-language-server
+        stylua
 
-      # Python
-      ruff
-      basedpyright
+        # Python
+        ruff
+        basedpyright
 
-      # TypeScript / JS
-      nodejs
-      typescript-language-server
-      vtsls
-      vscode-langservers-extracted
-      prettierd
+        # TypeScript / JS
+        nodejs
+        typescript-language-server
+        vtsls
+        vscode-langservers-extracted
+        prettierd
 
-      # Java
-      jdt-language-server
+        # Java
+        jdt-language-server
 
-      # C# / Unity tooling
-      dotnetCorePackages.sdk_8_0
-      roslyn-ls
-      csharpier
+        # SQL
+        sqlfluff
 
-      # SQL
-      sqlfluff
+        # Go
+        gopls
+        go
+        delve
+        golangci-lint
 
-      # Go
-      gopls
-      go
-      delve
-      golangci-lint
+        # Clojure
+        clojure-lsp
+        clojure
+        leiningen
 
-      # Clojure
-      clojure-lsp
-      clojure
-      leiningen
+        # Bash
+        bash-language-server
+        shellcheck
+        shfmt
 
-      # Bash
-      bash-language-server
-      shellcheck
-      shfmt
+        # Docker
+        dockerfile-language-server
+        docker-compose-language-service
 
-      # Docker
-      dockerfile-language-server
-      docker-compose-language-service
+        # Markdown / YAML
+        markdownlint-cli
+        yaml-language-server
 
-      # Markdown / YAML
-      markdownlint-cli
-      yaml-language-server
-
-      # Elm
-      elmPackages.elm
-      elmPackages.elm-language-server
-      elmPackages.elm-format
-    ];
+        # Elm
+        elmPackages.elm
+        elmPackages.elm-language-server
+        elmPackages.elm-format
+      ]
+      ++ lib.optionals enableCSharp [
+        # C# / Unity tooling
+        dotnetCorePackages.sdk_8_0
+        roslyn-ls
+        csharpier
+      ];
 
     userSettings = {
       buffer_font_family = "Lilex Nerd Font Mono";
@@ -182,15 +191,6 @@
         rust-analyzer = {
           binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         };
-        roslyn = {
-          binary = {
-            path = "${pkgs.roslyn-ls}/bin/Microsoft.CodeAnalysis.LanguageServer";
-            arguments = [
-              "--stdio"
-              "--autoLoadProjects"
-            ];
-          };
-        };
         typescript-language-server = {
           binary = {
             path = "${pkgs.typescript-language-server}/bin/typescript-language-server";
@@ -230,24 +230,20 @@
             arguments = [ "--stdio" ];
           };
         };
+      }
+      // lib.optionalAttrs enableCSharp {
+        roslyn = {
+          binary = {
+            path = "${pkgs.roslyn-ls}/bin/Microsoft.CodeAnalysis.LanguageServer";
+            arguments = [
+              "--stdio"
+              "--autoLoadProjects"
+            ];
+          };
+        };
       };
 
       languages = {
-        CSharp = {
-          language_servers = [ "roslyn" ];
-          format_on_save = "on";
-          formatter = {
-            external = {
-              command = "${pkgs.csharpier}/bin/csharpier";
-              arguments = [
-                "format"
-                "--stdin-path"
-                "{buffer_path}"
-              ];
-            };
-          };
-        };
-
         Nix = {
           language_servers = [
             "nixd"
@@ -344,6 +340,22 @@
                 "--stdin-filename"
                 "{buffer_path}"
                 "-"
+              ];
+            };
+          };
+        };
+      }
+      // lib.optionalAttrs enableCSharp {
+        CSharp = {
+          language_servers = [ "roslyn" ];
+          format_on_save = "on";
+          formatter = {
+            external = {
+              command = "${pkgs.csharpier}/bin/csharpier";
+              arguments = [
+                "format"
+                "--stdin-path"
+                "{buffer_path}"
               ];
             };
           };
